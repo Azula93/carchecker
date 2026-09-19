@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="carGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="50%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+  <!-- Background rounded rect -->
+  <rect width="512" height="512" rx="120" fill="url(#bgGrad)" stroke="#1e293b" stroke-width="8"/>
+  
+  <!-- Outer Tachometer Arc -->
+  <circle cx="256" cy="256" r="180" fill="none" stroke="#1e293b" stroke-width="24"/>
+  <circle cx="256" cy="256" r="180" fill="none" stroke="url(#carGrad)" stroke-width="24" stroke-dasharray="850" stroke-dashoffset="250" stroke-linecap="round"/>
+  
+  <!-- Car Silhouette -->
+  <path d="M140 320 L150 280 Q160 250 190 235 L225 210 Q245 195 270 195 L330 195 Q355 195 375 210 L410 235 Q440 250 450 280 L460 320 Q465 335 450 340 L440 340 Q435 340 430 330 Q410 290 370 290 Q330 290 310 330 Q305 340 295 340 L220 340 Q215 340 210 330 Q190 290 150 290 Q110 290 90 330 Q85 340 75 340 L60 340 Q45 335 50 320 Z" fill="url(#carGrad)"/>
+  
+  <!-- Checkmark Badge -->
+  <circle cx="360" cy="160" r="55" fill="#10b981" stroke="#020617" stroke-width="8"/>
+  <path d="M335 160 L352 178 L388 142" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,358 @@
+import {
+  DatosBasicos,
+  ResultadoKilometraje,
+  AntecedentesLegales,
+  ResultadoLegales,
+  Alerta,
+  ChecklistItemEval,
+  ResultadoFinal,
+  CostoReparacion,
+} from '../types/evaluation';
+import {
+  ANIO_ACTUAL,
+  KM_MUY_BAJO,
+  KM_NORMAL_MIN,
+  KM_NORMAL_MAX,
+  KM_ALTO_MAX,
+  PENALIZACION_KM_MUY_BAJO,
+  PENALIZACION_KM_ALTO,
+  PENALIZACION_REGRABACIONES,
+  PENALIZACION_ESCUELA,
+  ESCALA_COMPARENDOS,
+  ESCALA_SINIESTROS,
+  PESO_KILOMETRAJE,
+  PESO_LEGALES,
+  PESO_CHECKLIST,
+  UMBRAL_NO_COMPRAR,
+  PUNTAJE_BIEN,
+  PUNTAJE_REGULAR,
+  PUNTAJE_MAL,
+} from './constants';
+
+/**
+ * Calcula el análisis de kilometraje basado en la antigüedad del vehículo.
+ */
+export function calcularKilometraje(datos: DatosBasicos): ResultadoKilometraje {
+  const anios = ANIO_ACTUAL - datos.anioModelo;
+
+  // Evitar división por cero para carros del año actual
+  if (anios <= 0) {
+    return {
+      kmPorAnio: datos.kilometraje,
+      categoria: datos.kilometraje > KM_ALTO_MAX ? 'excesivo' : 'normal',
+      mensaje: datos.kilometraje > KM_ALTO_MAX
+        ? 'Criterio de descarte: kilometraje excesivo para un carro del año'
+        : 'Vehículo del año actual, kilometraje aceptable',
+      porcentaje: datos.kilometraje > KM_ALTO_MAX ? 0 : 100,
+      esDescarte: datos.kilometraje > KM_ALTO_MAX,
+    };
+  }
+
+  const kmPorAnio = Math.round(datos.kilometraje / anios);
+
+  if (kmPorAnio > KM_ALTO_MAX) {
+    return {
+      kmPorAnio,
+      categoria: 'excesivo',
+      mensaje: 'Criterio de descarte: el kilometraje es excesivo (más de 20.000 km/año). Esto indica desgaste severo.',
+      porcentaje: 0,
+      esDescarte: true,
+    };
+  }
+
+  if (kmPorAnio > KM_NORMAL_MAX) {
+    return {
+      kmPorAnio,
+      categoria: 'alto',
+      mensaje: 'Precaución: uso alto en carretera o viajero frecuente (15.000 a 20.000 km/año). Revise con detalle el desgaste mecánico.',
+      porcentaje: PENALIZACION_KM_ALTO,
+      esDescarte: false,
+    };
+  }
+
+  if (kmPorAnio >= KM_NORMAL_MIN) {
+    return {
+      kmPorAnio,
+      categoria: 'normal',
+      mensaje: 'Normal: el recorrido es coherente con la antigüedad del vehículo (10.000 a 15.000 km/año).',
+      porcentaje: 100,
+      esDescarte: false,
+    };
+  }
+
+  if (kmPorAnio >= KM_MUY_BAJO) {
+    return {
+      kmPorAnio,
+      categoria: 'bajo',
+      mensaje: 'Bajo pero aceptable: el vehículo ha sido de uso moderado (5.000 a 10.000 km/año).',
+      porcentaje: 100,
+      esDescarte: false,
+    };
+  }
+
+  // Menor a 5,000 km/año - sospechosamente bajo
+  return {
+    kmPorAnio,
+    categoria: 'muy_bajo',
+    mensaje: 'Advertencia: el kilometraje es muy bajo para ser real. Podría haber sido alterado. Verifique con cuidado.',
+    porcentaje: PENALIZACION_KM_MUY_BAJO,
+    esDescarte: false,
+  };
+}
+
+/**
+ * Calcula el porcentaje del módulo de antecedentes legales.
+ */
+export function calcularLegales(datos: AntecedentesLegales): ResultadoLegales {
+  const alertas: Alerta[] = [];
+  let porcentaje = 100;
+  let esDescarte = false;
+  let motivoDescarte: string | undefined;
+
+  // Placa pública = descarte inmediato
+  if (datos.placaPublica) {
+    esDescarte = true;
+    motivoDescarte = 'El vehículo tiene o tuvo placa de servicio público.';
+    alertas.push({
+      tipo: 'descarte',
+      titulo: 'SERVICIO PÚBLICO',
+      mensaje: 'Un vehículo de servicio público tiene un desgaste extremo. Se considera un criterio de descarte preliminar.',
+      modulo: 'legales',
+    });
+    return { porcentaje: 0, alertas, esDescarte, motivoDescarte };
+  }
+
+  // Siniestro MA = descarte inmediato
+  if (datos.codigoSiniestro === 'MA') {
+    esDescarte = true;
+    motivoDescarte = 'El vehículo tiene un siniestro de Mayor Cuantía / Pérdida Total.';
+    alertas.push({
+      tipo: 'descarte',
+      titulo: 'SINIESTRO DE PÉRDIDA TOTAL',
+      mensaje: 'El historial registra un siniestro categoría MA (pérdida total). Se considera un criterio de descarte preliminar.',
+      modulo: 'legales',
+    });
+    return { porcentaje: 0, alertas, esDescarte, motivoDescarte };
+  }
+
+  // Regrabaciones
+  if (datos.regrabaciones) {
+    porcentaje = Math.min(porcentaje, PENALIZACION_REGRABACIONES);
+    alertas.push({
+      tipo: 'peligro',
+      titulo: 'Regrabación detectada',
+      mensaje: 'El motor o chasis presenta regrabación de números de serie. Esto puede indicar procedencia ilegal o alteración de identidad.',
+      modulo: 'legales',
+    });
+  }
+
+  // Escuela de conducción
+  if (datos.escuelaConductcion) {
+    porcentaje = Math.min(porcentaje, PENALIZACION_ESCUELA);
+    alertas.push({
+      tipo: 'peligro',
+      titulo: 'Vehículo de escuela de conducción',
+      mensaje: 'Fue usado en escuela de enseñanza automovilística. El embrague, caja y motor tienen desgaste acelerado por uso intensivo de aprendices.',
+      modulo: 'legales',
+    });
+  }
+
+  // Comparendos - escala proporcional
+  if (datos.valorComparendos > 0) {
+    let porcentajeComparendos = 100;
+    for (const escalon of ESCALA_COMPARENDOS) {
+      if (datos.valorComparendos <= escalon.hasta) {
+        porcentajeComparendos = escalon.porcentaje;
+        break;
+      }
+    }
+    porcentaje = Math.min(porcentaje, porcentajeComparendos);
+
+    const nivelAlerta = datos.valorComparendos >= 3_000_000 ? 'peligro' : 'advertencia';
+    alertas.push({
+      tipo: nivelAlerta,
+      titulo: datos.valorComparendos >= 3_000_000 ? 'Comparendos excesivos' : 'Comparendos pendientes',
+      mensaje: `Hay $${datos.valorComparendos.toLocaleString('es-CO')} en comparendos acumulados. Estos deben pagarse antes del traspaso y afectan el costo real del vehículo.`,
+      modulo: 'legales',
+    });
+  }
+
+  // Siniestros (no MA, ya se filtró arriba)
+  if (datos.codigoSiniestro !== 'ninguno') {
+    const siniestro = ESCALA_SINIESTROS[datos.codigoSiniestro];
+    if (siniestro) {
+      porcentaje = Math.min(porcentaje, siniestro.porcentaje);
+
+      const etiquetas: Record<string, string> = {
+        '1m': 'Menor cuantía (1m)',
+        '2m': 'Mediana cuantía (2m)',
+        '3m': 'Mayor cuantía (3m)',
+      };
+
+      alertas.push({
+        tipo: datos.codigoSiniestro === '3m' ? 'peligro' : 'advertencia',
+        titulo: `Siniestro: ${etiquetas[datos.codigoSiniestro] || datos.codigoSiniestro}`,
+        mensaje: datos.codigoSiniestro === '3m'
+          ? 'Siniestro de alta cuantía registrado. Posible daño estructural significativo. Solicite peritaje profesional.'
+          : 'Siniestro registrado en historial. Solicite detalles de la reparación a una aseguradora.',
+        modulo: 'legales',
+      });
+    }
+  }
+
+  return { porcentaje, alertas, esDescarte, motivoDescarte };
+}
+
+/**
+ * Calcula el porcentaje del checklist de inspección física.
+ */
+export function calcularChecklist(items: ChecklistItemEval[]): {
+  porcentaje: number;
+  totalPuntos: number;
+  puntosObtenidos: number;
+  evaluados: number;
+} {
+  // Filtrar ítems N/A
+  const itemsEvaluados = items.filter(item => item.valoracion !== 'na');
+
+  if (itemsEvaluados.length === 0) {
+    return { porcentaje: 100, totalPuntos: 0, puntosObtenidos: 0, evaluados: 0 };
+  }
+
+  const totalPuntos = itemsEvaluados.length * PUNTAJE_BIEN;
+
+  const puntosObtenidos = itemsEvaluados.reduce((sum, item) => {
+    switch (item.valoracion) {
+      case 'bien': return sum + PUNTAJE_BIEN;
+      case 'regular': return sum + PUNTAJE_REGULAR;
+      case 'mal': return sum + PUNTAJE_MAL;
+      default: return sum;
+    }
+  }, 0);
+
+  const porcentaje = Math.round((puntosObtenidos / totalPuntos) * 100);
+
+  return { porcentaje, totalPuntos, puntosObtenidos, evaluados: itemsEvaluados.length };
+}
+
+/**
+ * Calcula el porcentaje del checklist por categoría.
+ */
+export function calcularChecklistPorCategoria(
+  items: ChecklistItemEval[],
+  categoria: string
+): { porcentaje: number; evaluados: number; total: number } {
+  const itemsCategoria = items.filter(item => item.id.startsWith(categoria));
+  const itemsEvaluados = itemsCategoria.filter(item => item.valoracion !== 'na');
+
+  if (itemsEvaluados.length === 0) {
+    return { porcentaje: 100, evaluados: 0, total: itemsCategoria.length };
+  }
+
+  const totalPuntos = itemsEvaluados.length * PUNTAJE_BIEN;
+  const puntosObtenidos = itemsEvaluados.reduce((sum, item) => {
+    switch (item.valoracion) {
+      case 'bien': return sum + PUNTAJE_BIEN;
+      case 'regular': return sum + PUNTAJE_REGULAR;
+      case 'mal': return sum + PUNTAJE_MAL;
+      default: return sum;
+    }
+  }, 0);
+
+  return {
+    porcentaje: Math.round((puntosObtenidos / totalPuntos) * 100),
+    evaluados: itemsEvaluados.length,
+    total: itemsCategoria.length,
+  };
+}
+
+/**
+ * Calcula el resultado final ponderado de la evaluación.
+ */
+export function calcularResultadoFinal(
+  datos: DatosBasicos,
+  legales: AntecedentesLegales,
+  checklistItems: ChecklistItemEval[],
+  costosReparacion: CostoReparacion[],
+  precioVenta: number
+): ResultadoFinal {
+  const resultadoKm = calcularKilometraje(datos);
+  const resultadoLegales = calcularLegales(legales);
+  const resultadoChecklist = calcularChecklist(checklistItems);
+
+  // Recolectar todas las alertas
+  const alertas: Alerta[] = [...resultadoLegales.alertas];
+
+  // Agregar alerta de kilometraje
+  if (resultadoKm.categoria !== 'normal' && resultadoKm.categoria !== 'bajo') {
+    alertas.push({
+      tipo: resultadoKm.esDescarte ? 'descarte' : 'advertencia',
+      titulo: resultadoKm.esDescarte ? 'Kilometraje excesivo' : 'Kilometraje inusual',
+      mensaje: resultadoKm.mensaje,
+      modulo: 'datosBasicos',
+    });
+  }
+
+  // Verificar descarte inmediato
+  if (resultadoKm.esDescarte || resultadoLegales.esDescarte) {
+    const motivoDescarte = resultadoKm.esDescarte
+      ? resultadoKm.mensaje
+      : resultadoLegales.motivoDescarte || 'Descarte por antecedentes legales';
+
+    return {
+      porcentajeGlobal: 0,
+      porcentajeKilometraje: resultadoKm.porcentaje,
+      porcentajeLegales: resultadoLegales.porcentaje,
+      porcentajeChecklist: resultadoChecklist.porcentaje,
+      veredicto: 'no_comprar',
+      mensajeVeredicto: 'Criterio de descarte detectado. ' + motivoDescarte + ' (Evaluación preliminar según criterios de Car Checker)',
+      esDescarte: true,
+      motivoDescarte,
+      alertas,
+      totalReparaciones: costosReparacion.reduce((sum, c) => sum + c.costoEstimado, 0),
+      precioSugerido: 0,
+    };
+  }
+
+  // Cálculo ponderado
+  const porcentajeGlobal = Math.round(
+    (PESO_KILOMETRAJE * resultadoKm.porcentaje +
+      PESO_LEGALES * resultadoLegales.porcentaje +
+      PESO_CHECKLIST * resultadoChecklist.porcentaje) / 100
+  );
+
+  // Determinar veredicto
+  let veredicto: ResultadoFinal['veredicto'];
+  let mensajeVeredicto: string;
+
+  if (porcentajeGlobal >= 80) {
+    veredicto = 'excelente';
+    mensajeVeredicto = 'Vale la pena continuar con la evaluación. Los criterios registrados no presentan suficientes señales de alerta para descartar el vehículo en esta etapa. Si continúa siendo de tu interés, considera realizar un peritaje profesional antes de comprarlo.';
+  } else if (porcentajeGlobal >= UMBRAL_NO_COMPRAR) {
+    veredicto = 'aceptable';
+    mensajeVeredicto = 'Continúa con precaución. Se identificaron algunos aspectos que requieren atención. Revisa los detalles antes de decidir si vale la pena avanzar hacia un peritaje profesional.';
+  } else if (porcentajeGlobal >= 50) {
+    veredicto = 'riesgoso';
+    mensajeVeredicto = 'Revisa antes de continuar. Se identificaron varias señales de alerta durante esta revisión preliminar. Analiza los hallazgos y los posibles costos antes de continuar.';
+  } else {
+    veredicto = 'no_comprar';
+    mensajeVeredicto = 'Revisa antes de continuar. Se identificaron múltiples señales de alerta y posibles altos costos de reparación. Analiza detalladamente si vale la pena invertir en un peritaje profesional.';
+  }
+
+  // Calcular precio sugerido
+  const totalReparaciones = costosReparacion.reduce((sum, c) => sum + c.costoEstimado, 0);
+  const precioSugerido = Math.max(0, precioVenta - totalReparaciones);
+
+  return {
+    porcentajeGlobal,
+    porcentajeKilometraje: resultadoKm.porcentaje,
+    porcentajeLegales: resultadoLegales.porcentaje,
+    porcentajeChecklist: resultadoChecklist.porcentaje,
+    veredicto,
+    mensajeVeredicto,
+    esDescarte: false,
+    alertas,
+    totalReparaciones,
+    precioSugerido,
+  };
+}

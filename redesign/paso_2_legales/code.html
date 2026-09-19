@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#f7f9fb;}body{overscroll-behavior:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-background": "#191c1e", "secondary-fixed": "#d5e3fc", "on-surface": "#191c1e", "surface-dim": "#d8dadc", "background": "#f7f9fb", "secondary": "#515f74", "inverse-surface": "#2d3133", "surface-container-high": "#e6e8ea", "surface-container": "#eceef0", "on-tertiary": "#ffffff", "secondary-container": "#d5e3fc", "on-primary-fixed": "#101c2c", "error-container": "#ffdad6", "surface-tint": "#535f72", "surface-container-low": "#f2f4f6", "on-error-container": "#93000a", "on-primary-container": "#798498", "tertiary-fixed": "#7ffc97", "surface-container-highest": "#e0e3e5", "tertiary": "#000000", "on-secondary-container": "#57657a", "on-secondary": "#ffffff", "on-surface-variant": "#44474c", "outline": "#75777d", "on-error": "#ffffff", "on-secondary-fixed": "#0d1c2e", "inverse-primary": "#bbc7dd", "on-primary": "#ffffff", "surface": "#f7f9fb", "primary-container": "#101c2c", "tertiary-fixed-dim": "#62df7d", "surface-container-lowest": "#ffffff", "secondary-fixed-dim": "#b9c7df", "on-tertiary-fixed-variant": "#005320", "error": "#ba1a1a", "on-secondary-fixed-variant": "#3a485b", "primary-fixed": "#d7e3fa", "primary-fixed-dim": "#bbc7dd", "surface-bright": "#f7f9fb", "outline-variant": "#c5c6cd", "inverse-on-surface": "#eff1f3", "primary": "#000000", "on-primary-fixed-variant": "#3c4759", "on-tertiary-container": "#009842", "surface-variant": "#e0e3e5", "on-tertiary-fixed": "#002109", "tertiary-container": "#002109" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "gutter-lg": "2rem", "margin-md": "2rem", "gutter": "1rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "gutter-md": "1.5rem", "space-sm": "0.5rem", "margin": "1rem", "space-xl": "2.5rem", "space-md": "1rem", "margin-lg": "3rem" }, fontFamily: { "headline-xl": ["Inter"], "headline-md": ["Inter"], "label-sm": ["Inter"], "tech-data-md": ["JetBrains Mono"], "label-md": ["Inter"], "body-md": ["Inter"], "tech-data-sm": ["JetBrains Mono"], "body-sm": ["Inter"], "body-lg": ["Inter"], "display-lg": ["Inter"], "headline-lg": ["Inter"], "display-lg-mobile": ["Inter"], "tech-data-lg": ["JetBrains Mono"] }, fontSize: { "headline-xl": ["28px", { lineHeight: "36px", letterSpacing: "-0.02em", fontWeight: "600" }], "headline-md": ["18px", { lineHeight: "24px", letterSpacing: "-0.01em", fontWeight: "600" }], "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "600" }], "tech-data-md": ["14px", { lineHeight: "20px", letterSpacing: "-0.01em", fontWeight: "500" }], "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }], "body-md": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }], "tech-data-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.02em", fontWeight: "500" }], "body-sm": ["12px", { lineHeight: "16px", letterSpacing: "0em", fontWeight: "400" }], "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "-0.005em", fontWeight: "400" }], "display-lg": ["40px", { lineHeight: "48px", letterSpacing: "-0.03em", fontWeight: "700" }], "headline-lg": ["22px", { lineHeight: "28px", letterSpacing: "-0.015em", fontWeight: "600" }], "display-lg-mobile": ["32px", { lineHeight: "38px", letterSpacing: "-0.02em", fontWeight: "700" }], "tech-data-lg": ["18px", { lineHeight: "24px", letterSpacing: "-0.02em", fontWeight: "600" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="Brand logo. - Primary color: #0f1b2b
+- Font: inter
+- Mode: light
+- Roundness: rounded-md
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WCrjz8d8upxHfVvrukntZjfDwkPnE7NkmthuKtNMxOPQRpo9_iWE4LEhMjRpcATsLbIQdIyaf34MuPjjl7fc3yWb1FTDSpfVblfY2vSPw-N64Rg4GgCcNJLPLCUovB_2XQl5nGZ2hQ7BsAeF0BWiPFj403HyMptejKvbfyLGR-e69LGk_aV2QBnw9GHbSG1ieQY0wyNUioo3oc3MDg4rNELZj7grEcs3MSDL9cwotz2vaNaqmEejhIp1M"/><span class="font-label-md text-label-md text-on-surface font-semibold tracking-tight">Car Checker</span><div class="h-4 w-[1px] bg-outline-variant mx-1"></div><span class="font-headline-md text-headline-md text-on-surface truncate max-w-[130px]">Evaluation Stepper Identity</span></div><div class="flex items-center gap-space-xs"><button aria-label="Help Assistant" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">help_outline</span></button><button aria-label="Close Evaluation" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface transition-colors" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[22px]">close</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-1"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 bg-surface flex-grow pb-safe"><div class="flex flex-col w-full">
+<!-- Progress Header & Context -->
+<div class="px-margin pt-space-sm pb-space-md">
+<!-- Stepper Indicator -->
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase tracking-wider">Paso 2 de 5 · Historial &amp; Legalidad</span>
+<span class="font-tech-data-sm text-tech-data-sm text-on-surface-variant font-medium">40% Completado</span>
+</div>
+<!-- Progress Bar Track -->
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden mb-space-md">
+<div class="h-full bg-primary-container rounded-full w-[40%] transition-all duration-300"></div>
+</div>
+<!-- Step Main Title & Prompt -->
+<div class="flex flex-col gap-1">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Revisa sus antecedentes</h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-snug">
+        Consulta las entidades oficiales en ventana externa y clasifica el hallazgo para alimentar las alertas del peritaje.
+      </p>
+</div>
+<!-- Verified Vehicle Context Capsule -->
+<div class="mt-space-md p-space-sm bg-surface-container-low rounded-lg flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-full bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[16px]">directions_car</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold leading-tight">Mazda CX-30 Grand Touring</span>
+<span class="font-tech-data-sm text-tech-data-sm text-on-surface-variant">ABC 123 · Modelo 2020 · 42.100 km</span>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-highest px-2 py-0.5 rounded text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-tech-data-sm text-tech-data-sm font-semibold">Paso 1 OK</span>
+</div>
+</div>
+</div>
+<!-- Official Guided Query Sections -->
+<div class="px-margin flex flex-col gap-space-md pb-space-xl">
+<!-- CARD 1: RUNT -->
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm flex flex-col gap-3">
+<!-- Title Bar -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<h2 class="font-headline-md text-headline-md text-on-surface">RUNT Oficial</h2>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container px-2 py-0.5 rounded text-on-surface-variant">Propiedad &amp; Prendas</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Comprueba propietarios históricos, prendas bancarias registradas, embargos o limitaciones directas para transferir el dominio.
+      </p>
+<!-- External Link Action Button -->
+<a class="h-11 w-full bg-surface-container-low hover:bg-surface-container text-on-surface rounded-lg px-3 flex items-center justify-between transition-colors" href="https://www.runt.com.co/consultaCiudadana/#/consultaVehiculo" rel="noopener noreferrer" target="_blank">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">open_in_new</span>
+<span class="font-label-md text-label-md font-medium">Abrir consulta RUNT</span>
+</div>
+<span class="font-tech-data-sm text-tech-data-sm text-on-surface-variant">runt.gov.co ↗</span>
+</a>
+<!-- Decision State Question & Segmented Selector -->
+<div class="pt-1 flex flex-col gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">¿Resultado de la consulta?</span>
+<div aria-label="Estado legal en RUNT" class="flex flex-col gap-2" role="radiogroup">
+<!-- Option 1: Clean (Selected) -->
+<button aria-checked="true" class="w-full min-h-[48px] py-2 px-3 rounded-lg bg-surface-container-high text-on-surface flex items-center justify-between transition-all" role="radio" type="button">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px] text-on-primary-fixed-variant" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-md text-label-md font-semibold text-left">Sin gravámenes / Al día</span>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container-lowest text-on-surface px-2 py-0.5 rounded font-medium">Verificado</span>
+</button>
+<!-- Option 2: Lien / Limitation -->
+<button aria-checked="false" class="w-full min-h-[48px] py-2 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant flex items-center justify-between transition-all" role="radio" type="button">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+<span class="font-label-md text-label-md text-left">Prenda o limitación financiera</span>
+</div>
+</button>
+<!-- Option 3: Seizure / Critical legal stop -->
+<button aria-checked="false" class="w-full min-h-[48px] py-2 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant flex items-center justify-between transition-all" role="radio" type="button">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px]">gavel</span>
+<span class="font-label-md text-label-md text-left">Embargo o proceso judicial activo</span>
+</div>
+</button>
+</div>
+</div>
+</div>
+<!-- CARD 2: SIMIT -->
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm flex flex-col gap-3">
+<!-- Title Bar -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<h2 class="font-headline-md text-headline-md text-on-surface">SIMIT Multas</h2>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container px-2 py-0.5 rounded text-on-surface-variant">Infracciones Nacionales</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Comprueba comparendos pendientes de la placa y del documento del propietario para prevenir bloqueos de traspaso.
+      </p>
+<!-- External Link Action Button -->
+<a class="h-11 w-full bg-surface-container-low hover:bg-surface-container text-on-surface rounded-lg px-3 flex items-center justify-between transition-colors" href="https://www.fcm.org.co/simit/#/home-public" rel="noopener noreferrer" target="_blank">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">open_in_new</span>
+<span class="font-label-md text-label-md font-medium">Abrir consulta SIMIT</span>
+</div>
+<span class="font-tech-data-sm text-tech-data-sm text-on-surface-variant">fcm.org.co ↗</span>
+</a>
+<!-- Decision State Question & Segmented Selector -->
+<div class="pt-1 flex flex-col gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">¿Registra multas pendientes?</span>
+<div aria-label="Estado de multas en SIMIT" class="flex flex-col gap-2" role="radiogroup">
+<!-- Option 1: Clear (Selected) -->
+<button aria-checked="true" class="w-full min-h-[48px] py-2 px-3 rounded-lg bg-surface-container-high text-on-surface flex items-center justify-between transition-all" role="radio" type="button">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px] text-on-primary-fixed-variant" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-md text-label-md font-semibold text-left">Paz y Salvo ($0 COP)</span>
+</div>
+<span class="font-tech-data-sm text-tech-data-sm bg-surface-container-lowest text-on-surface px-2 py-0.5 rounded font-semibold">$0</span>
+</button>
+<!-- Option 2: Fines Pending -->
+<button aria-checked="false" class="w-full min-h-[48px] py-2 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant flex items-center justify-between transition-all" role="radio" type="button">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+<span class="font-label-md text-label-md text-left">Multas pendientes de pago</span>
+</div>
+</button>
+<!-- Option 3: Coercive debt -->
+<button aria-checked="false" class="w-full min-h-[48px] py-2 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant flex items-center justify-between transition-all" role="radio" type="button">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px]">report_problem</span>
+<span class="font-label-md text-label-md text-left">Cobro coactivo con mandamiento</span>
+</div>
+</button>
+</div>
+</div>
+</div>
+<!-- CARD 3: FASECOLDA -->
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm flex flex-col gap-3">
+<!-- Title Bar -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Fasecolda Asegurabilidad</h2>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container px-2 py-0.5 rounded text-on-surface-variant">Historial Siniestros</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Detecta reclamaciones a pólizas todo riesgo por choque, daño estructural, inundación o declaraciones de pérdida total.
+      </p>
+<!-- External Link Action Button -->
+<a class="h-11 w-full bg-surface-container-low hover:bg-surface-container text-on-surface rounded-lg px-3 flex items-center justify-between transition-colors" href="https://guiadevalores.fasecolda.com/" rel="noopener noreferrer" target="_blank">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">open_in_new</span>
+<span class="font-label-md text-label-md font-medium">Abrir consulta Fasecolda</span>
+</div>
+<span class="font-tech-data-sm text-tech-data-sm text-on-surface-variant">fasecolda.com ↗</span>
+</a>
+<!-- Decision State Question & Segmented Selector -->
+<div class="pt-1 flex flex-col gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">¿Reporta reclamaciones o siniestros?</span>
+<div aria-label="Historial de siniestros en Fasecolda" class="flex flex-col gap-2" role="radiogroup">
+<!-- Option 1: No accidents reported -->
+<button aria-checked="false" class="w-full min-h-[48px] py-2 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant flex items-center justify-between transition-all" role="radio" type="button">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px]">shield</span>
+<span class="font-label-md text-label-md text-left">Sin siniestros reportados</span>
+</div>
+</button>
+<!-- Option 2: Minor claim (SELECTED to show live impact feedback) -->
+<div class="rounded-lg bg-surface-container-high p-3 flex flex-col gap-2">
+<button aria-checked="true" class="w-full flex items-center justify-between text-on-surface" role="radio" type="button">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px] text-on-surface" style="font-variation-settings: 'FILL' 1;">priority_high</span>
+<span class="font-label-md text-label-md font-semibold text-left">1 Reclamación leve registrada</span>
+</div>
+<span class="font-tech-data-sm text-tech-data-sm bg-surface-container-lowest text-on-surface px-2 py-0.5 rounded font-medium">Pérdida menor</span>
+</button>
+<div class="bg-surface-container-lowest p-2.5 rounded text-on-surface-variant flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-on-surface mt-0.5">info</span>
+<span class="font-body-sm text-body-sm leading-tight text-on-surface">
+                Reclamación menor en Septiembre 2022. En el <strong>Paso 3 (Checklist 80)</strong> priorizaremos la revisión de alma de paragolpes y torretas.
+              </span>
+</div>
+</div>
+<!-- Option 3: Total loss -->
+<button aria-checked="false" class="w-full min-h-[48px] py-2 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant flex items-center justify-between transition-all" role="radio" type="button">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[20px]">dangerous</span>
+<span class="font-label-md text-label-md text-left">Pérdida de mayor cuantía o total</span>
+</div>
+</button>
+</div>
+</div>
+</div>
+<!-- Live Evaluation Impact Card -->
+<div class="bg-surface-container p-4 rounded-xl flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface shrink-0">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Impacto en el peritaje</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Legalmente limpio para traspaso. El historial asegurador activó <strong>2 puntos de enfoque físico</strong> en carrocería frontal para el siguiente paso.
+        </p>
+</div>
+</div>
+</div>
+<!-- Persistent Floating Footer Action Bar -->
+<div class="sticky bottom-0 w-full bg-surface/95 backdrop-blur-md px-margin py-3 shadow-[0_-4px_16px_rgba(0,0,0,0.04)] pb-safe mt-auto">
+<div class="flex items-center gap-space-sm">
+<!-- Back Secondary Button -->
+<button aria-label="Volver al Paso 1" class="h-12 w-12 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface flex items-center justify-center shrink-0 transition-colors" onclick="history.back()" type="button">
+<span class="material-symbols-outlined text-[22px]">arrow_back</span>
+</button>
+<!-- Primary Next Button -->
+<button class="h-12 flex-1 bg-primary text-on-primary rounded-lg px-4 flex items-center justify-between hover:bg-on-primary-fixed transition-all active:scale-[0.99]" type="button">
+<div class="flex flex-col items-start leading-none gap-0.5">
+<span class="font-label-md text-label-md text-on-primary font-semibold">Continuar a Checklist 80</span>
+<span class="font-tech-data-sm text-tech-data-sm text-on-primary-container">Guardando antecedentes</span>
+</div>
+<span class="material-symbols-outlined text-[20px] text-on-primary">arrow_forward</span>
+</button>
+</div>
+</div>
+</div></main></body></html>
