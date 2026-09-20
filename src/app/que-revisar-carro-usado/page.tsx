@@ -381,6 +381,54 @@ export default function QueRevisarCarroUsadoPage() {
           </div>
         </section>
 
+        <section className="border-t border-[#E2E8F0] pt-10 mb-12">
+  <span className="text-xs font-mono uppercase tracking-wider text-[#64748B]">
+    Más información
+  </span>
+
+  <h2 className="text-2xl font-bold text-[#0F1B2B] mt-2 mb-6">
+    También te puede interesar
+  </h2>
+
+  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+    <Link
+      href="/como-revisar-carro-usado"
+      className="border border-[#E2E8F0] rounded-xl p-5 hover:border-[#0F1B2B] transition-colors"
+    >
+      <h3 className="font-bold text-[#0F1B2B] mb-2">
+        Cómo revisar en un carro usado
+      </h3>
+      <p className="text-sm text-[#475569] leading-6">
+        Consulta los principales componentes que debes revisar.
+      </p>
+    </Link>
+
+    <Link
+      href="/kilometraje-carro-usado"
+      className="border border-[#E2E8F0] rounded-xl p-5 hover:border-[#0F1B2B] transition-colors"
+    >
+      <h3 className="font-bold text-[#0F1B2B] mb-2">
+        Cómo revisar el kilometraje
+      </h3>
+      <p className="text-sm text-[#475569] leading-6">
+        Aprende a interpretar el kilometraje de un vehículo usado.
+      </p>
+    </Link>
+
+    <Link
+      href="/antecedentes-vehiculo-colombia"
+      className="border border-[#E2E8F0] rounded-xl p-5 hover:border-[#0F1B2B] transition-colors"
+    >
+      <h3 className="font-bold text-[#0F1B2B] mb-2">
+        Antecedentes del vehículo
+      </h3>
+      <p className="text-sm text-[#475569] leading-6">
+        Conoce qué información consultar antes de comprar.
+      </p>
+    </Link>
+  </div>
+</section>
+
         {/* CTA */}
         <section className="rounded-2xl bg-[#0F1B2B] px-6 py-8 md:px-10 md:py-10 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
