@@ -22,13 +22,16 @@ export const viewport: Viewport = {
   themeColor: '#0F1B2B',
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
+  
 };
 
 export const metadata: Metadata = {
   title: 'Car Checker Colombia | Revisa un carro usado antes de comprar',
   description:
     'Revisa un carro usado en Colombia antes de comprarlo. Evalúa kilometraje, antecedentes, estado físico y posibles costos ocultos antes de pagar un peritaje profesional.',
+    alternates: {
+  canonical: 'https://carchecker.kodiquett.com',
+},
   manifest: '/manifest.json',
   icons: {
     icon: [
@@ -43,6 +46,23 @@ export const metadata: Metadata = {
     statusBarStyle: 'default',
     title: 'Car Checker',
   },
+
+  openGraph: {
+  title: 'Car Checker Colombia | Revisa un carro usado antes de comprar',
+  description:
+    'Revisa un carro usado en Colombia antes de comprarlo. Evalúa kilometraje, antecedentes, estado físico y posibles costos ocultos antes de pagar un peritaje profesional.',
+  url: 'https://carchecker.kodiquett.com',
+  siteName: 'Car Checker Colombia',
+  locale: 'es_CO',
+  type: 'website',
+},
+twitter: {
+  card: 'summary_large_image',
+  title: 'Car Checker Colombia | Revisa un carro usado antes de comprar',
+  description:
+    'Revisa un carro usado en Colombia antes de comprarlo. Evalúa kilometraje, antecedentes, estado físico y posibles costos ocultos antes de pagar un peritaje profesional.',
+},
+  
 };
 
 export default function RootLayout({

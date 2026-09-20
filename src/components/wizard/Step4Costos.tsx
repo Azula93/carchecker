@@ -111,9 +111,9 @@ export const Step4Costos: React.FC<Step4CostosProps> = ({
           <span
             className={`self-start sm:self-center px-3 py-1 rounded-full text-xs font-semibold font-mono border ${
               totalCostos === 0
-                ? 'bg-[#F0FDF4] border-[#BBF7D0] text-[#16A34A]'
+                ? 'bg-[#F0FDF4] border-[#BBF7D0] text-[#166534]'
                 : totalCostos < 2000000
-                ? 'bg-[#F0FDF4] border-[#BBF7D0] text-[#16A34A]'
+                ? 'bg-[#F0FDF4] border-[#BBF7D0] text-[#166534]'
                 : totalCostos < 6000000
                 ? 'bg-[#FFFBEB] border-[#FDE68A] text-[#D97706]'
                 : 'bg-[#FEF2F2] border-[#FECACA] text-[#DC2626]'
@@ -167,7 +167,7 @@ export const Step4Costos: React.FC<Step4CostosProps> = ({
             <span className="text-xs font-mono font-semibold uppercase tracking-wider text-[#64748B] block mb-1">
               2. Oferta Máxima Recomendada
             </span>
-            <span className="text-2xl sm:text-3xl font-bold font-mono text-[#16A34A] tracking-tight">
+            <span className="text-2xl sm:text-3xl font-bold font-mono text-[#166534] tracking-tight">
               {precioVenta > 0 ? formatCOP(precioSugerido) : 'Ajustar según precio'}
             </span>
           </div>
@@ -195,7 +195,7 @@ export const Step4Costos: React.FC<Step4CostosProps> = ({
 
         {costos.length === 0 ? (
           <div className="text-center py-8 bg-[#F8FAFC] rounded-lg border border-[#E2E8F0] p-6 space-y-2">
-            <PackageOpen className="w-8 h-8 text-[#94A3B8] mx-auto" />
+            <PackageOpen className="w-8 h-8 text-[#475569] mx-auto" />
             <h4 className="text-sm font-semibold text-[#0F1B2B]">
               No se han registrado reparaciones pendientes
             </h4>
@@ -233,7 +233,7 @@ export const Step4Costos: React.FC<Step4CostosProps> = ({
                     </td>
                     <td className="py-3 px-4">
                       <div className="relative max-w-[160px]">
-                        <span className="absolute left-2.5 top-2 text-xs text-[#94A3B8] font-mono">$</span>
+                        <span className="absolute left-2.5 top-2 text-xs text-[#475569] font-mono">$</span>
                         <input
                           type="text"
                           value={item.costoEstimado === 0 ? '' : item.costoEstimado.toLocaleString('es-CO')}
@@ -249,7 +249,7 @@ export const Step4Costos: React.FC<Step4CostosProps> = ({
                       <button
                         type="button"
                         onClick={() => handleEliminarItem(item.id)}
-                        className="p-1 text-[#94A3B8] hover:text-[#DC2626] transition-colors cursor-pointer"
+                        className="p-1 text-[#475569] hover:text-[#DC2626] transition-colors cursor-pointer"
                         title="Eliminar arreglo"
                       >
                         <Trash2 className="w-4 h-4" />
@@ -276,7 +276,7 @@ export const Step4Costos: React.FC<Step4CostosProps> = ({
               value={nuevaDescripcion}
               onChange={(e) => setNuevaDescripcion(e.target.value)}
               placeholder="Ej. Cambio de pastillas delanteras, duplicado de llave..."
-              className="w-full h-10 rounded-lg bg-white border border-[#CBD5E1] px-3 text-xs text-[#0F1B2B] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#0F1B2B]"
+              className="w-full h-10 rounded-lg bg-white border border-[#CBD5E1] px-3 text-xs text-[#0F1B2B] placeholder:text-[#475569] focus:outline-none focus:border-[#0F1B2B]"
             />
           </div>
 
@@ -285,7 +285,7 @@ export const Step4Costos: React.FC<Step4CostosProps> = ({
               Valor estimado (COP)
             </label>
             <div className="relative">
-              <span className="absolute left-2.5 top-2.5 text-xs text-[#94A3B8] font-mono">$</span>
+              <span className="absolute left-2.5 top-2.5 text-xs text-[#475569] font-mono">$</span>
               <input
                 type="text"
                 value={nuevoCosto === 0 ? '' : nuevoCosto.toLocaleString('es-CO')}
@@ -294,7 +294,7 @@ export const Step4Costos: React.FC<Step4CostosProps> = ({
                   setNuevoCosto(val ? parseInt(val, 10) : 0);
                 }}
                 placeholder="0"
-                className="w-full h-10 pl-6 pr-2 rounded-lg bg-white border border-[#CBD5E1] text-xs text-[#0F1B2B] font-mono placeholder:text-[#94A3B8] focus:outline-none focus:border-[#0F1B2B]"
+                className="w-full h-10 pl-6 pr-2 rounded-lg bg-white border border-[#CBD5E1] text-xs text-[#0F1B2B] font-mono placeholder:text-[#475569] focus:outline-none focus:border-[#0F1B2B]"
               />
             </div>
           </div>

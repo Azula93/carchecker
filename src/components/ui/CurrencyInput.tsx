@@ -55,7 +55,7 @@ export const CurrencyInput: React.FC<CurrencyInputProps> = ({
           onChange={handleChange}
           disabled={disabled}
           placeholder={placeholder}
-          className={`block w-full h-12 rounded-lg bg-white border pl-8 pr-16 text-sm sm:text-base text-[#0F1B2B] font-mono tracking-tight placeholder:text-[#94A3B8] focus:outline-none focus:ring-1 transition-all ${
+          className={`block w-full h-12 rounded-lg bg-white border pl-8 pr-16 text-sm sm:text-base text-[#0F1B2B] font-mono tracking-tight placeholder:text-[#475569] focus:outline-none focus:ring-1 transition-all ${
             error
               ? 'border-[#DC2626] focus:border-[#DC2626] focus:ring-[#DC2626]'
               : 'border-[#CBD5E1] focus:border-[#0F1B2B] focus:ring-[#0F1B2B]'

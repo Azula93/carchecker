@@ -76,7 +76,7 @@ export const HeroSection: React.FC = () => {
             <span className="text-[#CBD5E1]">·</span>
             <span>Sin registro previo</span>
             <span className="text-[#CBD5E1]">·</span>
-            <span className="text-[#16A34A] font-semibold">100% gratuita</span>
+            <span className="text-[#166534] font-semibold">100% gratuita</span>
             <span className="text-[#CBD5E1]">·</span>
             <span className="inline-flex items-center gap-1">
               <Timer className="w-3.5 h-3.5" /> 8–12 minutos
@@ -295,16 +295,16 @@ export const HeroSection: React.FC = () => {
               <span className="text-[11px] font-mono text-[#64748B] uppercase tracking-wider block mb-1">
                 Control operativo de campo
               </span>
-              <h4 className="text-lg font-bold text-[#0F1B2B] mb-1">
+              <h3 className="text-lg font-bold text-[#0F1B2B] mb-1">
                 Checklist de inspección física
-              </h4>
+              </h3>
               <p className="text-xs sm:text-sm text-[#475569]">
                 Inspecciona visualmente cada componente y selecciona su estado técnico.
               </p>
             </div>
 
             <div className="flex items-center gap-1.5 p-1.5 bg-[#F1F5F9] rounded-lg w-full max-w-md border border-[#E2E8F0]">
-              <div className="flex-1 py-2 px-2.5 rounded bg-white shadow-xs flex items-center justify-center gap-1 text-[#16A34A] text-xs font-semibold">
+              <div className="flex-1 py-2 px-2.5 rounded bg-white shadow-xs flex items-center justify-center gap-1 text-[#166534] text-xs font-semibold">
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 <span>Bueno</span>
               </div>
@@ -507,7 +507,7 @@ export const HeroSection: React.FC = () => {
             </div>
             <span className="hidden sm:inline text-[#CBD5E1]">→</span>
             <div className="flex items-center gap-2">
-              <span className="font-mono text-xs font-semibold text-[#16A34A]">3. CONTINÚA ✓</span>
+              <span className="font-mono text-xs font-semibold text-[#166534]">3. CONTINÚA ✓</span>
               <span className="text-xs text-[#64748B]">con la inspección física</span>
             </div>
           </div>
@@ -522,9 +522,9 @@ export const HeroSection: React.FC = () => {
               <Gavel className="w-5 h-5 text-[#64748B]" />
             </div>
             <div>
-              <h4 className="text-base font-bold text-[#0F1B2B] mb-1">
-                Car Checker no reemplaza un peritaje profesional
-              </h4>
+              <h3 className="text-base font-bold text-[#0F1B2B] mb-1">
+                Car Checker NO reemplaza un peritaje profesional
+              </h3>
               <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                 Esta es una herramienta de revisión preliminar diseñada para ayudarte a detectar señales de alerta obvias antes de desembolsar el costo de una inspección técnica profesional. No constituye una certificación comercial, dictamen pericial judicial ni diagnóstico mecánico de desarme vinculante.
               </p>
@@ -554,7 +554,7 @@ export const HeroSection: React.FC = () => {
                 <FileCheck2 className="w-5 h-5" />
                 <span>Comenzar evaluación gratuita</span>
               </Link>
-              <span className="text-xs text-[#94A3B8]">
+              <span className="text-xs text-[#475569]">
                 Diseñado para usar directamente junto al vehículo desde cualquier navegador móvil o de escritorio.
               </span>
             </div>

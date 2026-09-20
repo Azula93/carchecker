@@ -130,7 +130,7 @@ export const Step3Checklist: React.FC<Step3ChecklistProps> = ({
               className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-white border border-[#CBD5E1] text-[#0F1B2B] hover:bg-[#F1F5F9] text-xs font-semibold shadow-xs active:scale-95 transition-all self-start sm:self-center shrink-0 cursor-pointer"
               title="Marcar todos los componentes como Bueno de una sola vez"
             >
-              <CheckCheck className="w-4 h-4 text-[#16A34A]" />
+              <CheckCheck className="w-4 h-4 text-[#166534]" />
               <span>Marcar todo como Bueno</span>
             </button>
           )}
@@ -186,7 +186,7 @@ export const Step3Checklist: React.FC<Step3ChecklistProps> = ({
                 <span>{totalHallazgos} hallazgo(s) observados</span>
               </span>
             ) : (
-              <span className="text-[11px] text-[#16A34A] font-semibold">
+              <span className="text-[11px] text-[#166534] font-semibold">
                 Sin fallas registradas
               </span>
             )}

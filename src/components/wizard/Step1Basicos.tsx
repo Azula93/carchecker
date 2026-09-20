@@ -116,7 +116,7 @@ export const Step1Basicos: React.FC<Step1BasicosProps> = ({ datos, onChange }) =
                 value={datos.placa || ''}
                 onChange={handlePlacaChange}
                 placeholder="ABC 123"
-                className="w-full h-12 px-4 rounded-lg bg-white border border-[#CBD5E1] text-[#0F1B2B] font-mono text-base tracking-wider uppercase placeholder:text-[#94A3B8] focus:outline-none focus:border-[#0F1B2B] focus:ring-1 focus:ring-[#0F1B2B] shadow-xs transition-all"
+                className="w-full h-12 px-4 rounded-lg bg-white border border-[#CBD5E1] text-[#0F1B2B] font-mono text-base tracking-wider uppercase placeholder:text-[#475569] focus:outline-none focus:border-[#0F1B2B] focus:ring-1 focus:ring-[#0F1B2B] shadow-xs transition-all"
               />
             </div>
 
@@ -129,7 +129,7 @@ export const Step1Basicos: React.FC<Step1BasicosProps> = ({ datos, onChange }) =
                 value={datos.ciudadPlaca ?? 'BOGOTÁ D.C.'}
                 onChange={(e) => onChange({ ciudadPlaca: e.target.value.toUpperCase() })}
                 placeholder="BOGOTÁ D.C."
-                className="w-full h-12 px-4 rounded-lg bg-white border border-[#CBD5E1] text-xs sm:text-sm text-[#0F1B2B] uppercase placeholder:text-[#94A3B8] focus:outline-none focus:border-[#0F1B2B] focus:ring-1 focus:ring-[#0F1B2B] shadow-xs transition-all"
+                className="w-full h-12 px-4 rounded-lg bg-white border border-[#CBD5E1] text-xs sm:text-sm text-[#0F1B2B] uppercase placeholder:text-[#475569] focus:outline-none focus:border-[#0F1B2B] focus:ring-1 focus:ring-[#0F1B2B] shadow-xs transition-all"
               />
               <datalist id="ciudades-placa">
                 {CIUDADES_COMUNES.map((ciudad) => (
@@ -172,7 +172,7 @@ export const Step1Basicos: React.FC<Step1BasicosProps> = ({ datos, onChange }) =
             value={datos.lineaVehiculo}
             onChange={(e) => onChange({ lineaVehiculo: e.target.value.toUpperCase() })}
             placeholder="EJ. MAZDA CX-30 GRAND TOURING 2.0, RENAULT DUSTER..."
-            className="w-full h-12 px-4 rounded-lg bg-white border border-[#CBD5E1] text-sm sm:text-base text-[#0F1B2B] uppercase placeholder:text-[#94A3B8] focus:outline-none focus:border-[#0F1B2B] focus:ring-1 focus:ring-[#0F1B2B] shadow-xs transition-all"
+            className="w-full h-12 px-4 rounded-lg bg-white border border-[#CBD5E1] text-sm sm:text-base text-[#0F1B2B] uppercase placeholder:text-[#475569] focus:outline-none focus:border-[#0F1B2B] focus:ring-1 focus:ring-[#0F1B2B] shadow-xs transition-all"
           />
         </div>
 
@@ -219,7 +219,7 @@ export const Step1Basicos: React.FC<Step1BasicosProps> = ({ datos, onChange }) =
               value={datos.kilometraje === 0 ? '' : datos.kilometraje.toLocaleString('es-CO')}
               onChange={handleKmChange}
               placeholder="0"
-              className="w-full h-12 px-4 pr-16 rounded-lg bg-white border border-[#CBD5E1] text-base text-[#0F1B2B] font-mono tracking-tight placeholder:text-[#94A3B8] focus:outline-none focus:border-[#0F1B2B] focus:ring-1 focus:ring-[#0F1B2B] shadow-xs transition-all"
+              className="w-full h-12 px-4 pr-16 rounded-lg bg-white border border-[#CBD5E1] text-base text-[#0F1B2B] font-mono tracking-tight placeholder:text-[#475569] focus:outline-none focus:border-[#0F1B2B] focus:ring-1 focus:ring-[#0F1B2B] shadow-xs transition-all"
             />
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4">
               <span className="text-[#64748B] text-xs font-mono font-bold">KM</span>
@@ -256,13 +256,13 @@ export const Step1Basicos: React.FC<Step1BasicosProps> = ({ datos, onChange }) =
 
             {/* Status Pill */}
             {resultadoKm.categoria === 'normal' && (
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#F0FDF4] border border-[#BBF7D0] text-[#16A34A] text-xs font-semibold shadow-2xs">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#F0FDF4] border border-[#BBF7D0] text-[#166534] text-xs font-semibold shadow-2xs">
                 <CheckCircle2 className="w-4 h-4" />
                 <span>Ritmo esperado</span>
               </div>
             )}
             {resultadoKm.categoria === 'bajo' && (
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#F0FDF4] border border-[#BBF7D0] text-[#16A34A] text-xs font-semibold shadow-2xs">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#F0FDF4] border border-[#BBF7D0] text-[#166534] text-xs font-semibold shadow-2xs">
                 <CheckCircle2 className="w-4 h-4" />
                 <span>Uso moderado</span>
               </div>
@@ -375,7 +375,7 @@ export const Step1Basicos: React.FC<Step1BasicosProps> = ({ datos, onChange }) =
                 }`}
               >
                 <div className="text-[10px] font-mono font-bold text-[#0F1B2B]">10k – 15.000 km</div>
-                <div className="text-[11px] font-semibold text-[#16A34A] mt-0.5">Estándar</div>
+                <div className="text-[11px] font-semibold text-[#166534] mt-0.5">Estándar</div>
                 <div className="text-[9px] text-[#64748B] leading-tight">Promedio país</div>
               </div>
 
@@ -464,7 +464,7 @@ export const Step1Basicos: React.FC<Step1BasicosProps> = ({ datos, onChange }) =
                   </div>
                 ) : (
                   <div>
-                    <strong className="text-[#16A34A] block mb-1">
+                    <strong className="text-[#166534] block mb-1">
                       Ritmo estándar esperado (10.000 a 15.000 km/año):
                     </strong>
                     El kilometraje es perfectamente coherente con la antigüedad del vehículo según el promedio automotriz en Colombia. Continúa verificando el estado de conservación general, neumáticos y tapicería.

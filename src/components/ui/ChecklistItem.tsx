@@ -31,7 +31,7 @@ export const ChecklistItem: React.FC<ChecklistItemProps> = ({
       symbol: '✓',
       activeClasses: 'bg-[#F0FDF4] border-[#16A34A] text-[#15803D] ring-2 ring-[#16A34A]/25 shadow-xs',
       badgeClasses: (sel) =>
-        sel ? 'bg-[#16A34A] text-white shadow-2xs' : 'bg-[#DCFCE7] text-[#16A34A]',
+        sel ? 'bg-[#16A34A] text-white shadow-2xs' : 'bg-[#DCFCE7] text-[#166534]',
     },
     {
       valor: 'regular',

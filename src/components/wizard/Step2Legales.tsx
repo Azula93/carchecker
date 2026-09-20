@@ -72,7 +72,7 @@ export const Step2Legales: React.FC<Step2LegalesProps> = ({
               </span>
             </div>
           </div>
-          <div className="flex items-center gap-1.5 bg-[#F0FDF4] border border-[#BBF7D0] px-2.5 py-1 rounded-full text-[#16A34A] text-xs font-semibold">
+          <div className="flex items-center gap-1.5 bg-[#F0FDF4] border border-[#BBF7D0] px-2.5 py-1 rounded-full text-[#166534] text-xs font-semibold">
             <CheckCircle2 className="w-3.5 h-3.5" />
             <span className="hidden sm:inline">Paso 1 Calibrado</span>
           </div>
@@ -103,7 +103,7 @@ export const Step2Legales: React.FC<Step2LegalesProps> = ({
             className="shrink-0 h-10 px-3.5 rounded-lg bg-white hover:bg-[#F0FDF4] border-2 border-[#16A34A] text-[#166534] text-xs font-bold font-mono flex items-center gap-2 shadow-2xs transition-all cursor-pointer active:scale-95"
             title="Copiar placa para pegar en los portales oficiales"
           >
-            {placaCopiada ? <Check className="w-4 h-4 text-[#16A34A]" /> : <Copy className="w-4 h-4" />}
+            {placaCopiada ? <Check className="w-4 h-4 text-[#166534]" /> : <Copy className="w-4 h-4" />}
             <span>{placaCopiada ? '¡Placa copiada!' : `Copiar placa: ${datosBasicos.placa}`}</span>
           </button>
         )}

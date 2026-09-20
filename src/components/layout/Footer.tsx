@@ -69,7 +69,7 @@ export const Footer: React.FC = () => {
                   className="hover:text-[#0F1B2B] transition-colors inline-flex items-center gap-1.5"
                 >
                   <span>RUNT — Historial y Propietarios</span>
-                  <ExternalLink className="w-3 h-3 text-[#94A3B8]" />
+                  <ExternalLink className="w-3 h-3 text-[#475569]" />
                 </a>
               </li>
               <li>
@@ -80,7 +80,7 @@ export const Footer: React.FC = () => {
                   className="hover:text-[#0F1B2B] transition-colors inline-flex items-center gap-1.5"
                 >
                   <span>SIMIT — Comparendos y Multas</span>
-                  <ExternalLink className="w-3 h-3 text-[#94A3B8]" />
+                  <ExternalLink className="w-3 h-3 text-[#475569]" />
                 </a>
               </li>
               <li>
@@ -91,7 +91,7 @@ export const Footer: React.FC = () => {
                   className="hover:text-[#0F1B2B] transition-colors inline-flex items-center gap-1.5"
                 >
                   <span>Fasecolda — Historial de Siniestros</span>
-                  <ExternalLink className="w-3 h-3 text-[#94A3B8]" />
+                  <ExternalLink className="w-3 h-3 text-[#475569]" />
                 </a>
               </li>
             </ul>

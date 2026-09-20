@@ -17,7 +17,7 @@ const alertVariants = cva(
         info:
           'bg-[#F1F5F9] border-[#CBD5E1] text-[#334155] [&>svg]:text-[#0F1B2B]',
         success:
-          'bg-[#F0FDF4] border-[#BBF7D0] text-[#166534] [&>svg]:text-[#16A34A]',
+          'bg-[#F0FDF4] border-[#BBF7D0] text-[#166534] [&>svg]:text-[#166534]',
         warning:
           'bg-[#FFFBEB] border-[#FDE68A] text-[#92400E] [&>svg]:text-[#D97706]',
         destructive:
@@ -101,8 +101,8 @@ const TIPO_CONFIG: Record<
   },
   exito: {
     variant: 'success',
-    badgeClass: 'bg-white text-[#16A34A] border border-[#BBF7D0]',
-    iconClass: 'text-[#16A34A]',
+    badgeClass: 'bg-white text-[#166534] border border-[#BBF7D0]',
+    iconClass: 'text-[#166534]',
     Icon: CheckCircle2,
   },
   advertencia: {
@@ -167,7 +167,7 @@ export const Alert: React.FC<AlertProps> = ({
         <button
           type="button"
           onClick={onDismiss}
-          className="text-[#94A3B8] hover:text-[#0F1B2B] transition-colors p-1 rounded hover:bg-black/5 -mr-1 -mt-1 cursor-pointer"
+          className="text-[#475569] hover:text-[#0F1B2B] transition-colors p-1 rounded hover:bg-black/5 -mr-1 -mt-1 cursor-pointer"
           aria-label="Cerrar alerta"
         >
           <X className="w-4 h-4" />

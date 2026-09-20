@@ -72,7 +72,7 @@ export const StepNavigation: React.FC<StepNavigationProps> = ({
           disabled={siguienteDeshabilitado}
           className={`h-12 flex-1 rounded-lg px-5 font-semibold text-xs sm:text-sm flex items-center justify-between transition-all cursor-pointer shadow-xs active:scale-98 ${
             siguienteDeshabilitado
-              ? 'bg-[#F1F5F9] text-[#94A3B8] border border-[#E2E8F0] cursor-not-allowed shadow-none'
+              ? 'bg-[#F1F5F9] text-[#475569] border border-[#E2E8F0] cursor-not-allowed shadow-none'
               : esDescarte
               ? 'bg-[#FEF2F2] border border-[#DC2626] text-[#DC2626] hover:bg-[#FEE2E2]'
               : 'bg-[#0F1B2B] text-white hover:bg-[#1A2B42]'

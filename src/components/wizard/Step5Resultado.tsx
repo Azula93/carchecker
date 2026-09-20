@@ -82,7 +82,7 @@ export const Step5Resultado: React.FC<Step5ResultadoProps> = ({
             onClick={handleCopiarResumen}
             className="h-10 px-4 rounded-lg bg-white hover:bg-[#F1F5F9] border border-[#CBD5E1] text-[#0F1B2B] text-xs font-semibold shadow-xs flex items-center gap-1.5 cursor-pointer active:scale-95 transition-all"
           >
-            {copiado ? <Check className="w-4 h-4 text-[#16A34A]" /> : <Copy className="w-4 h-4 text-[#64748B]" />}
+            {copiado ? <Check className="w-4 h-4 text-[#166534]" /> : <Copy className="w-4 h-4 text-[#64748B]" />}
             <span>{copiado ? '¡Copiado!' : 'Copiar para WhatsApp'}</span>
           </button>
 
@@ -137,7 +137,7 @@ export const Step5Resultado: React.FC<Step5ResultadoProps> = ({
         </div>
 
         <div className="shrink-0">
-          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#F0FDF4] border border-[#BBF7D0] text-[#16A34A] text-xs font-semibold">
+          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#F0FDF4] border border-[#BBF7D0] text-[#166534] text-xs font-semibold">
             Revisión Completada
           </span>
         </div>
@@ -345,7 +345,7 @@ export const Step5Resultado: React.FC<Step5ResultadoProps> = ({
 
           <div className="p-3.5 bg-[#F0FDF4] rounded-lg border border-[#BBF7D0]">
             <span className="text-[11px] text-[#166534] block font-mono">Oferta sugerida de referencia</span>
-            <span className="text-base sm:text-lg font-bold font-mono text-[#16A34A]">
+            <span className="text-base sm:text-lg font-bold font-mono text-[#166534]">
               {evaluacion.precioVenta > 0 ? formatCOP(resultado.precioSugerido) : 'Ajustar según precio'}
             </span>
           </div>
@@ -358,7 +358,7 @@ export const Step5Resultado: React.FC<Step5ResultadoProps> = ({
             onClick={handleCopiarResumen}
             className="w-full h-11 bg-[#F8FAFC] hover:bg-[#F1F5F9] border border-[#CBD5E1] text-[#0F1B2B] rounded-lg px-4 flex items-center justify-center gap-2 text-xs font-semibold transition-all cursor-pointer"
           >
-            {copiado ? <Check className="w-4 h-4 text-[#16A34A]" /> : <Copy className="w-4 h-4 text-[#64748B]" />}
+            {copiado ? <Check className="w-4 h-4 text-[#166534]" /> : <Copy className="w-4 h-4 text-[#64748B]" />}
             <span>{copiado ? '¡Propuesta copiada al portapapeles!' : 'Copiar propuesta de referencia para WhatsApp'}</span>
           </button>
 
@@ -396,7 +396,7 @@ export const Step5Resultado: React.FC<Step5ResultadoProps> = ({
         <p className="text-[11px] text-[#475569] max-w-2xl mx-auto leading-relaxed">
           Siguiente paso sugerido: Si los datos registrados te resultan favorables y continúas con interés en el vehículo, te sugerimos agendar una inspección técnica formal en un centro de diagnóstico automotriz (CDA) certificado para pruebas especializadas con dinamómetro, escáner profesional y compresión de motor.
         </p>
-        <p className="text-[10px] font-mono text-[#94A3B8] pt-1">
+        <p className="text-[10px] font-mono text-[#475569] pt-1">
           ID REVISIÓN: CC-{new Date().getFullYear()}-{placa.replace(' ', '')} · Estimación orientativa basada en datos aportados por el usuario
         </p>
       </div>

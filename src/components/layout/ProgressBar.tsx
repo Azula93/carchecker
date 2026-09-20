@@ -70,7 +70,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
                   ? 'bg-white border-[#0F1B2B] text-[#0F1B2B] shadow-xs ring-1 ring-[#0F1B2B]'
                   : isCompleted
                   ? 'bg-white border-[#E2E8F0] text-[#0F1B2B] hover:border-[#CBD5E1] cursor-pointer'
-                  : 'bg-[#F8FAFC] border-transparent text-[#94A3B8] cursor-not-allowed opacity-60'
+                  : 'bg-[#F8FAFC] border-transparent text-[#475569] cursor-not-allowed opacity-60'
               }`}
             >
               <div
@@ -78,8 +78,8 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
                   isCurrent
                     ? 'bg-[#0F1B2B] text-white'
                     : isCompleted
-                    ? 'bg-[#F0FDF4] text-[#16A34A] border border-[#BBF7D0]'
-                    : 'bg-[#F1F5F9] text-[#94A3B8]'
+                    ? 'bg-[#F0FDF4] text-[#166534] border border-[#BBF7D0]'
+                    : 'bg-[#F1F5F9] text-[#475569]'
                 }`}
               >
                 {isCompleted ? <Check className="w-3.5 h-3.5" /> : <StepIcon className="w-3.5 h-3.5" />}

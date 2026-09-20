@@ -186,7 +186,7 @@ Color is treated as architectural infrastructure rather than decoration. Deep pe
 Semantic tokens are prohibited from being used for decorative flair, branding accents, or illustrative graphics. They appear solely when signaling mechanical, structural, or legal status. Each status token pairs a high-contrast ink color with a soft tint container and explicit border:
 
 - **Favorable (Bueno):**
-  - Ink: `#16A34A` | Surface: `#F0FDF4` | Border: `#BBF7D0`
+  - Ink: `#166534` | Surface: `#F0FDF4` | Border: `#BBF7D0`
 - **Caution (Regular / Precaución):**
   - Ink: `#D97706` | Surface: `#FFFBEB` | Border: `#FDE68A`
 - **Critical (Malo / Alerta):**
@@ -255,7 +255,7 @@ The central operational pattern of the application. Replaces ambiguous sliders w
   4. `[ — N/A ]`
 - **State Behavior:**
   - *Unselected:* Text `#64748B`, transparent background, zero border.
-  - *Selected (Bueno):* Background `#F0FDF4`, border `1px solid #BBF7D0`, text and icon `#16A34A`, font weight `600`.
+  - *Selected (Bueno):* Background `#F0FDF4`, border `1px solid #BBF7D0`, text and icon `#166534`, font weight `600`.
   - *Selected (Regular):* Background `#FFFBEB`, border `1px solid #FDE68A`, text and icon `#D97706`, font weight `600`.
   - *Selected (Malo):* Background `#FEF2F2`, border `1px solid #FECACA`, text and icon `#DC2626`, font weight `600`.
   - *Selected (N/A):* Background `#FFFFFF`, border `1px solid #CBD5E1`, text and icon `#475569`, font weight `600`.

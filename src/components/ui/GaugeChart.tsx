@@ -28,7 +28,7 @@ export const GaugeChart: React.FC<GaugeChartProps> = ({
   // Semantic color and status mapping
   let strokeColor = '#16A34A'; // Favorable
   let statusText = 'Estimación Favorable';
-  let badgeBg = 'bg-[#F0FDF4] border-[#BBF7D0] text-[#16A34A]';
+  let badgeBg = 'bg-[#F0FDF4] border-[#BBF7D0] text-[#166534]';
 
   if (esDescarte || safePercentage < 50) {
     strokeColor = '#DC2626'; // Error / Discard
