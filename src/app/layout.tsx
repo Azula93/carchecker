@@ -4,6 +4,7 @@ import './globals.css';
 import { Header } from '../components/layout/Header';
 import { Footer } from '../components/layout/Footer';
 import { PwaRegister } from '../components/pwa/PwaRegister';
+import { StructuredData } from './structured-data';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -25,9 +26,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'Car Checker Colombia — Herramienta de Revisión Preliminar de Vehículos Usados',
+  title: 'Car Checker Colombia | Revisa un carro usado antes de comprar',
   description:
-    'Evalúa kilometraje, antecedentes oficiales en RUNT, SIMIT y Fasecolda, inspección física integral y costos de reparación antes de invertir en un peritaje profesional.',
+    'Revisa un carro usado en Colombia antes de comprarlo. Evalúa kilometraje, antecedentes, estado físico y posibles costos ocultos antes de pagar un peritaje profesional.',
   manifest: '/manifest.json',
   icons: {
     icon: [
@@ -56,6 +57,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans selection:bg-brand-secondary selection:text-white">
         <PwaRegister />
+        <StructuredData />
         <Header />
         <main className="flex-1 w-full flex flex-col">
           {children}

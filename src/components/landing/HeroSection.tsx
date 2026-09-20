@@ -40,7 +40,7 @@ export const HeroSection: React.FC = () => {
           {/* Overline Pill Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#E2E8F0] text-[#475569] text-xs font-mono uppercase tracking-wider mb-6 shadow-xs">
             <span className="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse"></span>
-            <span>Herramienta de revisión preliminar</span>
+            <span>Herramienta para revisar un carro usado en Colombia</span>
           </div>
 
           {/* Main Headline */}
@@ -50,7 +50,7 @@ export const HeroSection: React.FC = () => {
 
           {/* Supporting Editorial Subtitle */}
           <p className="text-base md:text-lg text-[#475569] max-w-2xl mx-auto mb-8 font-normal leading-relaxed">
-            Revísalo primero. Detecta señales de alerta estructurales, mecánicas y legales antes de invertir en un peritaje profesional.
+            Revisa un carro usado en Colombia antes de comprarlo. Evalúa kilometraje, antecedentes, estado físico y posibles costos ocultos antes de pagar un peritaje profesional.
           </p>
 
           {/* Primary Action Buttons */}
@@ -98,7 +98,7 @@ export const HeroSection: React.FC = () => {
                 <Car className="w-8 h-8" />
               </div>
               <h2 className="text-xl font-bold text-[#0F1B2B] mb-2">
-                Inspección visual estructurada paso a paso
+                Inspección de un carro usado paso a paso
               </h2>
               <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                 Diseñado para usarse directamente junto al vehículo desde tu teléfono o computador. Registra hallazgos, calcula deducciones y obtén una puntuación estimada antes de pagar un peritaje.
@@ -117,7 +117,7 @@ export const HeroSection: React.FC = () => {
                 Ejes de evaluación
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#0F1B2B]">
-                Revisa lo esencial antes del peritaje
+                Qué revisar antes de comprar un carro usado
               </h2>
             </div>
           </div>
@@ -132,7 +132,7 @@ export const HeroSection: React.FC = () => {
                 <span className="text-[11px] font-mono uppercase text-[#64748B] tracking-wider block mb-1">
                   Eje 01
                 </span>
-                <h3 className="text-lg font-bold text-[#0F1B2B] mb-2">Kilometraje</h3>
+                <h3 className="text-lg font-bold text-[#0F1B2B] mb-2">Kilometraje del carro usado</h3>
                 <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                   Calcula el promedio de km/año contra el estándar colombiano (10.000 a 15.000 km/año) y detecta odómetros sospechosos o desgaste severo.
                 </p>
@@ -189,7 +189,7 @@ export const HeroSection: React.FC = () => {
                 <span className="text-[11px] font-mono uppercase text-[#64748B] tracking-wider block mb-1">
                   Eje 04
                 </span>
-                <h3 className="text-lg font-bold text-[#0F1B2B] mb-2">Costos Ocultos</h3>
+                <h3 className="text-lg font-bold text-[#0F1B2B] mb-2">Costos ocultos de un carro usado</h3>
                 <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                   Estima el presupuesto de reparaciones inmediatas y utilízalo como argumento para negociar el precio final de compra.
                 </p>
