@@ -400,8 +400,141 @@ export const HeroSection: React.FC = () => {
         </div>
       </section>
 
+      {/* 5. GUÍAS PARA COMPRADORES */}
+<section className="w-full py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div className="text-center max-w-2xl mx-auto mb-14">
+      <span className="text-xs font-mono uppercase tracking-wider text-[#64748B] block mb-1">
+        Guías para compradores
+      </span>
+
+      <h2 className="text-2xl sm:text-3xl font-bold text-[#0F1B2B] mb-2">
+        Aprende a revisar un carro usado
+      </h2>
+
+      <p className="text-sm text-[#475569]">
+        Información práctica para evaluar un vehículo usado antes de comprarlo
+        y saber cuándo necesitas un peritaje profesional.
+      </p>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      {/* Artículo 1 */}
+      <Link
+        href="/como-revisar-carro-usado"
+        className="bg-white border border-[#E2E8F0] p-6 rounded-xl flex flex-col shadow-xs hover:border-[#0F1B2B] transition-colors"
+      >
+        <div className="w-10 h-10 rounded-full bg-[#0F1B2B] text-white flex items-center justify-center font-mono text-sm font-semibold mb-5">
+          01
+        </div>
+
+        <span className="text-[11px] font-mono uppercase tracking-wider text-[#64748B] mb-1">
+          Guía
+        </span>
+
+        <h3 className="text-lg font-bold text-[#0F1B2B] mb-2">
+          Cómo revisar un carro usado
+        </h3>
+
+        <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
+          Conoce un proceso ordenado para revisar un vehículo usado antes de
+          comprarlo.
+        </p>
+
+        <span className="mt-5 text-xs font-semibold text-[#0F1B2B]">
+          Leer artículo →
+        </span>
+      </Link>
+
+      {/* Artículo 2 */}
+      <Link
+        href="/que-revisar-carro-usado"
+        className="bg-white border border-[#E2E8F0] p-6 rounded-xl flex flex-col shadow-xs hover:border-[#0F1B2B] transition-colors"
+      >
+        <div className="w-10 h-10 rounded-full bg-[#0F1B2B] text-white flex items-center justify-center font-mono text-sm font-semibold mb-5">
+          02
+        </div>
+
+        <span className="text-[11px] font-mono uppercase tracking-wider text-[#64748B] mb-1">
+          Checklist
+        </span>
+
+        <h3 className="text-lg font-bold text-[#0F1B2B] mb-2">
+          Qué revisar en un carro usado
+        </h3>
+
+        <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
+          Descubre los principales componentes que debes revisar antes de
+          tomar una decisión de compra.
+        </p>
+
+        <span className="mt-5 text-xs font-semibold text-[#0F1B2B]">
+          Leer artículo →
+        </span>
+      </Link>
+
+      {/* Artículo 3 */}
+      <Link
+        href="/kilometraje-carro-usado"
+        className="bg-white border border-[#E2E8F0] p-6 rounded-xl flex flex-col shadow-xs hover:border-[#0F1B2B] transition-colors"
+      >
+        <div className="w-10 h-10 rounded-full bg-[#0F1B2B] text-white flex items-center justify-center font-mono text-sm font-semibold mb-5">
+          03
+        </div>
+
+        <span className="text-[11px] font-mono uppercase tracking-wider text-[#64748B] mb-1">
+          Kilometraje
+        </span>
+
+        <h3 className="text-lg font-bold text-[#0F1B2B] mb-2">
+          Cómo revisar el kilometraje
+        </h3>
+
+        <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
+          Aprende qué significa el kilometraje de un vehículo y qué señales
+          conviene analizar antes de comprar.
+        </p>
+
+        <span className="mt-5 text-xs font-semibold text-[#0F1B2B]">
+          Leer artículo →
+        </span>
+      </Link>
+
+      {/* Artículo 4 */}
+      <Link
+        href="/antecedentes-vehiculo-colombia"
+        className="bg-white border border-[#E2E8F0] p-6 rounded-xl flex flex-col shadow-xs hover:border-[#0F1B2B] transition-colors"
+      >
+        <div className="w-10 h-10 rounded-full bg-[#0F1B2B] text-white flex items-center justify-center font-mono text-sm font-semibold mb-5">
+          04
+        </div>
+
+        <span className="text-[11px] font-mono uppercase tracking-wider text-[#64748B] mb-1">
+          Antecedentes
+        </span>
+
+        <h3 className="text-lg font-bold text-[#0F1B2B] mb-2">
+          Antecedentes de un vehículo
+        </h3>
+
+        <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
+          Conoce qué información consultar y qué revisar antes de comprar un
+          vehículo usado en Colombia.
+        </p>
+
+        <span className="mt-5 text-xs font-semibold text-[#0F1B2B]">
+          Leer artículo →
+        </span>
+      </Link>
+
+    </div>
+  </div>
+</section>
+
       {/* 5. CONSULTA DE ANTECEDENTES OFICIALES (3 Cards) */}
-      <section className="w-full py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]" id="antecedentes">
+      <section className="w-full py-20 bg-white border-b border-[#E2E8F0]" id="antecedentes">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
             <div>

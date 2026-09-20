@@ -1,9 +1,22 @@
+import type { Metadata } from 'next';
 import { WizardContainer } from '../../components/wizard/WizardContainer';
 
-export const metadata = {
-  title: 'Evaluación y Revisión Preliminar — Car Checker Colombia',
+export const metadata: Metadata = {
+  title: 'Evaluación de un carro usado | Car Checker Colombia',
   description:
-    'Realiza una revisión preliminar paso a paso: datos básicos, antecedentes legales, checklist de inspección física integral y matriz de costos de reparación antes de un peritaje profesional.',
+    'Evalúa un carro usado paso a paso en Colombia: kilometraje, antecedentes, inspección física y posibles costos de reparación antes de realizar un peritaje profesional.',
+  alternates: {
+    canonical: 'https://carchecker.kodiquett.com/evaluacion',
+  },
+  openGraph: {
+    title: 'Evaluación de un carro usado | Car Checker Colombia',
+    description:
+      'Realiza una evaluación preliminar de un carro usado antes de comprarlo.',
+    url: 'https://carchecker.kodiquett.com/evaluacion',
+    siteName: 'Car Checker Colombia',
+    locale: 'es_CO',
+    type: 'website',
+  },
 };
 
 export default function EvaluacionPage() {
