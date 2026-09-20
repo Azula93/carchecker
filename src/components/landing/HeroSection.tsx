@@ -45,7 +45,7 @@ export const HeroSection: React.FC = () => {
 
           {/* Main Headline */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] lg:leading-[60px] font-bold text-[#0F1B2B] tracking-tight max-w-4xl mx-auto mb-6">
-            ¿Vale la pena llevar este carro a un peritaje?
+            ¿Cómo revisar un carro usado en Colombia antes de comprarlo?
           </h1>
 
           {/* Supporting Editorial Subtitle */}
@@ -117,7 +117,7 @@ export const HeroSection: React.FC = () => {
                 Ejes de evaluación
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#0F1B2B]">
-                Qué revisar antes de comprar un carro usado
+                Qué revisar en un carro usado antes de comprarlo
               </h2>
             </div>
           </div>
@@ -132,7 +132,7 @@ export const HeroSection: React.FC = () => {
                 <span className="text-[11px] font-mono uppercase text-[#64748B] tracking-wider block mb-1">
                   Eje 01
                 </span>
-                <h3 className="text-lg font-bold text-[#0F1B2B] mb-2">Kilometraje del carro usado</h3>
+                <h3 className="text-lg font-bold text-[#0F1B2B] mb-2">Kilometraje de un carro usado</h3>
                 <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                   Calcula el promedio de km/año contra el estándar colombiano (10.000 a 15.000 km/año) y detecta odómetros sospechosos o desgaste severo.
                 </p>
@@ -151,7 +151,7 @@ export const HeroSection: React.FC = () => {
                 <span className="text-[11px] font-mono uppercase text-[#64748B] tracking-wider block mb-1">
                   Eje 02
                 </span>
-                <h3 className="text-lg font-bold text-[#0F1B2B] mb-2">Antecedentes</h3>
+                <h3 className="text-lg font-bold text-[#0F1B2B] mb-2">Antecedentes de un carro usado</h3>
                 <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                   Consulta guiada de RUNT, SIMIT y Fasecolda para verificar comparendos pendientes, prendas, regrabaciones y siniestros de mayor cuantía.
                 </p>
@@ -170,7 +170,7 @@ export const HeroSection: React.FC = () => {
                 <span className="text-[11px] font-mono uppercase text-[#64748B] tracking-wider block mb-1">
                   Eje 03
                 </span>
-                <h3 className="text-lg font-bold text-[#0F1B2B] mb-2">Inspección Física</h3>
+                <h3 className="text-lg font-bold text-[#0F1B2B] mb-2">Inspección Física de un carro usado</h3>
                 <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                   Chequeo visual de carrocería, pintura, mecánica, habitáculo y prueba de ruta.
                 </p>

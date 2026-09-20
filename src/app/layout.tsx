@@ -62,6 +62,11 @@ twitter: {
   description:
     'Revisa un carro usado en Colombia antes de comprarlo. Evalúa kilometraje, antecedentes, estado físico y posibles costos ocultos antes de pagar un peritaje profesional.',
 },
+
+verification: {
+  google: 'jAkT-r4Ebm19Fa3s1miIE-YzD96-DRIrzXY5cMkVe7Q',
+},
+
   
 };
 
