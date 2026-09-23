@@ -1,7 +1,7 @@
 'use client';
 
 import { Evaluacion, DatosBasicos, AntecedentesLegales, ChecklistItemEval, CostoReparacion, DatosGasolina, DatosCredito, DatosSoat } from '../types/evaluation';
-import { STORAGE_KEY } from './constants';
+import { STORAGE_KEY, STORAGE_KEY_COSTOS } from './constants';
 
 /**
  * Genera un ID único simple.
@@ -224,3 +224,112 @@ export function actualizarDatosSoat(
   guardarEvaluacion(updated);
   return updated;
 }
+
+/**
+ * Estructura de persistencia para el flujo guiado de costos de mantenimiento.
+ */
+export interface EstadoCostosMantenimiento {
+  soat: {
+    calculado: boolean;
+    anual: number;
+    categoria?: string;
+    cilindraje?: number;
+    anioModelo?: number;
+    subcategoria?: string;
+  };
+  impuesto: {
+    calculado: boolean;
+    anual: number;
+    baseGravable?: number;
+    tarifaTexto?: string;
+    categoria?: string;
+    marca?: string;
+    linea?: string;
+    anioModelo?: number;
+  };
+  tecno: {
+    calculado: boolean;
+    anual: number;
+  };
+  gasolina: {
+    calculado: boolean;
+    mensual: number;
+    ciudad: string;
+    kmMes: number;
+    kmPorGalon: number;
+    precioGalon: number;
+  };
+  peajes: {
+    calculado: boolean;
+    mensual: number;
+  };
+  parqueadero: {
+    calculado: boolean;
+    mensual: number;
+  };
+  lavado: {
+    calculado: boolean;
+    mensual: number;
+  };
+  mantenimiento: {
+    calculado: boolean;
+    mensual: number;
+  };
+  fondoReparaciones: {
+    calculado: boolean;
+    mensual: number;
+  };
+  credito: {
+    calculado: boolean;
+    mensual: number;
+    activo: boolean;
+    precioVehiculo?: number;
+    cuotaInicial?: number;
+    plazoMeses?: number;
+    tasaEA?: number;
+  };
+}
+
+/**
+ * Guarda el estado de la calculadora de costos de mantenimiento en localStorage.
+ */
+export function guardarCostosMantenimiento(datos: EstadoCostosMantenimiento): void {
+  try {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem(STORAGE_KEY_COSTOS, JSON.stringify(datos));
+    }
+  } catch (error) {
+    console.error('Error al guardar costos de mantenimiento en localStorage:', error);
+  }
+}
+
+/**
+ * Carga el estado guardado de la calculadora de costos de mantenimiento desde localStorage.
+ */
+export function cargarCostosMantenimiento(): EstadoCostosMantenimiento | null {
+  try {
+    if (typeof window !== 'undefined') {
+      const data = localStorage.getItem(STORAGE_KEY_COSTOS);
+      if (data) {
+        return JSON.parse(data) as EstadoCostosMantenimiento;
+      }
+    }
+  } catch (error) {
+    console.error('Error al cargar costos de mantenimiento desde localStorage:', error);
+  }
+  return null;
+}
+
+/**
+ * Limpia el estado guardado de la calculadora de costos de mantenimiento en localStorage.
+ */
+export function limpiarCostosMantenimiento(): void {
+  try {
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem(STORAGE_KEY_COSTOS);
+    }
+  } catch (error) {
+    console.error('Error al limpiar costos de mantenimiento en localStorage:', error);
+  }
+}
+

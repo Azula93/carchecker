@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { RotateCcw, ArrowRight } from 'lucide-react';
+import { RotateCcw } from 'lucide-react';
 
 interface HeaderProps {
   onReiniciar?: () => void;
@@ -85,10 +85,10 @@ export const Header: React.FC<HeaderProps> = ({ onReiniciar, mostrarReiniciar = 
           {!isEvaluacion && (
             <Link
               href="/evaluacion"
-              className="inline-flex items-center justify-center gap-1.5 px-4 h-10 rounded-lg bg-[#0F1B2B] text-white hover:bg-[#1A2B42] text-sm font-semibold transition-all shadow-xs active:scale-98"
+              className="inline-flex items-center justify-center gap-1.5 px-3 sm:px-4 h-10 rounded-lg bg-[#0F1B2B] text-white hover:bg-[#1A2B42] text-xs sm:text-sm font-semibold transition-all shadow-xs active:scale-98 shrink-0 whitespace-nowrap"
             >
-              <span>Comenzar evaluación</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>Evaluar un vehículo</span>
+              <span aria-hidden="true" className="font-mono">→</span>
             </Link>
           )}
         </div>

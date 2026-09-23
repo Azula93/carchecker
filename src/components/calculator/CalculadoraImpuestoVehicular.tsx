@@ -8,6 +8,7 @@ import {
   AlertCircle,
   CheckCircle2,
   Info,
+  ChevronDown,
 } from 'lucide-react';
 import type {
   CategoriaTablaImpuesto,
@@ -23,6 +24,8 @@ interface CalculadoraImpuestoVehicularProps {
   anioModeloInicial?: number;
   cilindrajeInicial?: number;
   onImpuestoChange?: (impuestoAnual: number, datos: DatosImpuestoVehicular | null) => void;
+  onCerrar?: () => void;
+  yaCalculado?: boolean;
   className?: string;
 }
 
@@ -44,6 +47,8 @@ export const CalculadoraImpuestoVehicular: React.FC<CalculadoraImpuestoVehicular
   anioModeloInicial = 2022,
   cilindrajeInicial,
   onImpuestoChange,
+  onCerrar,
+  yaCalculado = false,
   className = '',
 }) => {
   const [categoria, setCategoria] = useState<CategoriaTablaImpuesto>(categoriaInicial);
@@ -52,6 +57,7 @@ export const CalculadoraImpuestoVehicular: React.FC<CalculadoraImpuestoVehicular
   const [idVehiculo, setIdVehiculo] = useState<string>('');
   const [anioModelo, setAnioModelo] = useState<number>(anioModeloInicial);
   const [cilindraje, setCilindraje] = useState<number | undefined>(cilindrajeInicial);
+  const [haInteractuado, setHaInteractuado] = useState<boolean>(yaCalculado);
 
   const [marcasDisponibles, setMarcasDisponibles] = useState<string[]>([]);
   const [lineasDisponibles, setLineasDisponibles] = useState<Array<{ id: string; linea: string; cilindraje?: number }>>([]);
@@ -63,7 +69,8 @@ export const CalculadoraImpuestoVehicular: React.FC<CalculadoraImpuestoVehicular
 
   // Modo manual fallback
   const [modoManual, setModoManual] = useState<boolean>(false);
-  const [impuestoManual, setImpuestoManual] = useState<number>(0);
+  const [impuestoManual, setImpuestoManual] = useState<number | ''>(0);
+  const [mostrarFuentes, setMostrarFuentes] = useState<boolean>(false);
 
   const onImpuestoChangeRef = useRef(onImpuestoChange);
   useEffect(() => {
@@ -147,14 +154,14 @@ export const CalculadoraImpuestoVehicular: React.FC<CalculadoraImpuestoVehicular
           setDatosImpuesto(json.data);
           setErrorMensaje(null);
           setCoincidencias([]);
-          if (onImpuestoChangeRef.current && !modoManual) {
+          if (onImpuestoChangeRef.current && !modoManual && haInteractuado) {
             onImpuestoChangeRef.current(json.data.impuestoAnualEstimado, json.data);
           }
         } else {
           setDatosImpuesto(null);
           setErrorMensaje(json.message || 'No fue posible determinar la base gravable oficial para este vehículo.');
           setCoincidencias(json.coincidencias || []);
-          if (onImpuestoChangeRef.current && !modoManual) {
+          if (onImpuestoChangeRef.current && !modoManual && haInteractuado) {
             onImpuestoChangeRef.current(0, null);
           }
         }
@@ -172,45 +179,63 @@ export const CalculadoraImpuestoVehicular: React.FC<CalculadoraImpuestoVehicular
     return () => {
       cancel = true;
     };
-  }, [categoria, idVehiculo, marca, linea, anioModelo, cilindraje, modoManual]);
+  }, [categoria, idVehiculo, marca, linea, anioModelo, cilindraje, modoManual, haInteractuado]);
 
-  const formatoCOP = (val: number) => `$ ${val.toLocaleString('es-CO')}`;
+  const formatoCOP = (val: number) => `$${Math.round(val).toLocaleString('es-CO')}`;
 
   return (
     <div className={`p-4 sm:p-5 rounded-xl bg-white border border-[#CBD5E1] shadow-sm space-y-4 ${className}`}>
-      {/* Encabezado */}
-      <div className="flex items-start justify-between border-b border-[#F1F5F9] pb-3">
+      {/* Encabezado con Botón de Cierre Superior Accesible */}
+      <div className="flex items-start justify-between border-b border-[#F1F5F9] pb-3 gap-3">
         <div className="space-y-0.5">
           <div className="flex items-center gap-2">
             <Building2 className="w-4 h-4 text-[#0F1B2B]" />
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#0F1B2B]">
-              Impuesto Vehicular Oficial (MinTransporte 2026)
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#0F1B2B]">
+              Impuesto vehicular 2026
             </span>
           </div>
           <p className="text-[11px] text-[#64748B]">
-            Base gravable oficial (Resolución 20253040048935) y tarifas nacionales (Decreto 1457 de 2025).
+            Cálculo estimado a partir del avalúo fiscal oficial y las tarifas departamentales vigentes.
           </p>
         </div>
 
-        <button
-          type="button"
-          onClick={() => setModoManual(!modoManual)}
-          className="text-[11px] font-mono text-[#0F1B2B] hover:underline cursor-pointer"
-        >
-          {modoManual ? 'Volver a tabla oficial' : 'Ajustar manualmente'}
-        </button>
+        <div className="flex items-center gap-2 shrink-0">
+          <button
+            type="button"
+            onClick={() => {
+              setModoManual(!modoManual);
+              setHaInteractuado(true);
+            }}
+            className="text-[11px] font-mono text-[#0F1B2B] hover:underline cursor-pointer"
+          >
+            {modoManual ? 'Volver a tabla oficial' : 'Ajustar manualmente'}
+          </button>
+          {onCerrar && (
+            <button
+              type="button"
+              onClick={onCerrar}
+              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-[#475569] hover:bg-slate-200 hover:text-[#0F1B2B] transition-colors cursor-pointer"
+              title="Cerrar calculadora"
+            >
+              <span>✕ Cerrar</span>
+            </button>
+          )}
+        </div>
       </div>
 
       {!modoManual ? (
         <>
-          {/* Selectores en Cascada */}
+          {/* Selectores en Cascada - Herramienta Primero */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs">
             {/* 1. Categoría */}
             <div>
               <label className="block font-semibold text-[#0F1B2B] mb-1">Categoría Oficial</label>
               <select
                 value={categoria}
-                onChange={(e) => setCategoria(e.target.value as CategoriaTablaImpuesto)}
+                onChange={(e) => {
+                  setCategoria(e.target.value as CategoriaTablaImpuesto);
+                  setHaInteractuado(true);
+                }}
                 className="w-full h-10 px-2.5 rounded-lg bg-white border border-[#CBD5E1] text-[#0F1B2B] font-medium focus:outline-none focus:border-[#0F1B2B] cursor-pointer"
               >
                 {CATEGORIAS_OPCIONES.map((opt) => (
@@ -226,7 +251,10 @@ export const CalculadoraImpuestoVehicular: React.FC<CalculadoraImpuestoVehicular
               <label className="block font-semibold text-[#0F1B2B] mb-1">Marca</label>
               <select
                 value={marca}
-                onChange={(e) => setMarca(e.target.value)}
+                onChange={(e) => {
+                  setMarca(e.target.value);
+                  setHaInteractuado(true);
+                }}
                 className="w-full h-10 px-2.5 rounded-lg bg-white border border-[#CBD5E1] text-[#0F1B2B] font-medium focus:outline-none focus:border-[#0F1B2B] cursor-pointer uppercase"
               >
                 {marcasDisponibles.map((m) => (
@@ -249,6 +277,7 @@ export const CalculadoraImpuestoVehicular: React.FC<CalculadoraImpuestoVehicular
                     setLinea(sel.linea);
                     setCilindraje(sel.cilindraje);
                   }
+                  setHaInteractuado(true);
                 }}
                 className="w-full h-10 px-2.5 rounded-lg bg-white border border-[#CBD5E1] text-[#0F1B2B] font-medium focus:outline-none focus:border-[#0F1B2B] cursor-pointer uppercase truncate"
               >
@@ -265,7 +294,10 @@ export const CalculadoraImpuestoVehicular: React.FC<CalculadoraImpuestoVehicular
               <label className="block font-semibold text-[#0F1B2B] mb-1">Año Modelo</label>
               <select
                 value={anioModelo}
-                onChange={(e) => setAnioModelo(parseInt(e.target.value, 10))}
+                onChange={(e) => {
+                  setAnioModelo(parseInt(e.target.value, 10));
+                  setHaInteractuado(true);
+                }}
                 className="w-full h-10 px-2.5 rounded-lg bg-white border border-[#CBD5E1] text-[#0F1B2B] font-medium focus:outline-none focus:border-[#0F1B2B] cursor-pointer"
               >
                 {anios.map((y) => (
@@ -287,12 +319,12 @@ export const CalculadoraImpuestoVehicular: React.FC<CalculadoraImpuestoVehicular
 
           {/* Resultado de éxito */}
           {datosImpuesto && !cargando && (
-            <div className="p-4 rounded-xl bg-[#F0FDF4] border border-[#BBF7D0] space-y-3">
-              <div className="flex items-center justify-between">
+            <div className="p-4 sm:p-5 rounded-xl bg-[#F0FDF4] border border-[#BBF7D0] space-y-4">
+              <div className="flex flex-wrap items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#166534]" />
-                  <span className="text-xs font-bold text-[#166534] uppercase font-mono">
-                    Base gravable oficial identificada ({datosImpuesto.vigencia})
+                  <span className="text-xs sm:text-sm font-bold text-[#166534]">
+                    Impuesto vehicular 2026 calculado
                   </span>
                 </div>
                 <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#DCFCE7] text-[#166534] border border-[#BBF7D0] font-semibold">
@@ -300,65 +332,133 @@ export const CalculadoraImpuestoVehicular: React.FC<CalculadoraImpuestoVehicular
                 </span>
               </div>
 
-              {/* Métricas Principales */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
-                <div className="p-2.5 bg-white rounded-lg border border-[#BBF7D0]">
-                  <span className="text-[10px] text-[#64748B] block font-mono">Base Gravable Oficial</span>
-                  <span className="text-sm sm:text-base font-bold font-mono text-[#0F1B2B]">
+              {/* Métricas Principales (Grid responsivo sin truncamiento de números) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4 pt-1">
+                {/* 1. Base gravable oficial */}
+                <div className="p-3.5 bg-white rounded-lg border border-[#BBF7D0] space-y-1 min-w-0">
+                  <span className="text-xs text-[#475569] block font-medium">
+                    Base gravable oficial
+                  </span>
+                  <span className="text-base sm:text-lg xl:text-xl font-bold font-mono text-[#0F1B2B] block tracking-tight">
                     {formatoCOP(datosImpuesto.baseGravable)}
                   </span>
+                  <span className="text-[11px] text-[#64748B] block leading-tight">
+                    Avalúo fiscal MinTransporte
+                  </span>
                 </div>
 
-                <div className="p-2.5 bg-white rounded-lg border border-[#BBF7D0]">
-                  <span className="text-[10px] text-[#64748B] block font-mono">Tarifa Aplicada</span>
-                  <span className="text-sm sm:text-base font-bold font-mono text-[#166534]">
+                {/* 2. Tarifa */}
+                <div className="p-3.5 bg-white rounded-lg border border-[#BBF7D0] space-y-1 min-w-0">
+                  <span className="text-xs text-[#475569] block font-medium">
+                    Tarifa aplicada
+                  </span>
+                  <span className="text-base sm:text-lg xl:text-xl font-bold font-mono text-[#166534] block tracking-tight">
                     {datosImpuesto.tarifaTexto}
                   </span>
-                </div>
-
-                <div className="p-2.5 bg-white rounded-lg border border-[#BBF7D0]">
-                  <span className="text-[10px] text-[#64748B] block font-mono">Impuesto Anual Estimado</span>
-                  <span className="text-sm sm:text-base font-bold font-mono text-[#0F1B2B]">
-                    {formatoCOP(datosImpuesto.impuestoAnualEstimado)}
+                  <span className="text-[11px] text-[#64748B] block leading-tight">
+                    Rango tributario oficial
                   </span>
                 </div>
 
-                <div className="p-2.5 bg-white rounded-lg border border-[#BBF7D0]">
-                  <span className="text-[10px] text-[#64748B] block font-mono">Provisión Mensual</span>
-                  <span className="text-sm sm:text-base font-bold font-mono text-[#166534]">
-                    {formatoCOP(datosImpuesto.provisionMensual)}
+                {/* 3. Impuesto anual */}
+                <div className="p-3.5 bg-white rounded-lg border border-[#BBF7D0] space-y-1 min-w-0">
+                  <span className="text-xs text-[#475569] block font-medium">
+                    Impuesto anual estimado
+                  </span>
+                  <span className="text-base sm:text-lg xl:text-xl font-bold font-mono text-[#0F1B2B] block tracking-tight">
+                    {formatoCOP(datosImpuesto.impuestoAnualEstimado)}
+                  </span>
+                  <span className="text-[11px] text-[#64748B] block leading-tight">
+                    Monto anual para liquidar
+                  </span>
+                </div>
+
+                {/* 4. Si quieres presupuestarlo mes a mes */}
+                <div className="p-3.5 bg-white rounded-lg border border-[#BBF7D0] space-y-1 min-w-0">
+                  <span className="text-xs text-[#166534] block font-semibold">
+                    Para presupuestar cada mes
+                  </span>
+                  <div className="flex flex-wrap items-baseline gap-1">
+                    <span className="text-base sm:text-lg xl:text-xl font-bold font-mono text-[#166534] tracking-tight">
+                      {formatoCOP(datosImpuesto.provisionMensual)}
+                    </span>
+                    <span className="text-xs font-mono font-medium text-[#166534]">
+                      / mes
+                    </span>
+                  </div>
+                  <span className="text-[11px] text-[#166534] block leading-tight">
+                    Provisión mensual (dividir en 12)
                   </span>
                 </div>
               </div>
 
+              {/* Explicación de base gravable fuera de las tarjetas */}
+              <div className="p-2.5 rounded-lg bg-white/90 border border-[#BBF7D0] text-[11px] text-[#475569] leading-relaxed">
+                ℹ️ <strong>Nota sobre el valor oficial:</strong> La base gravable es el avalúo oficial fijado por el Ministerio de Transporte para calcular el impuesto vehicular. No corresponde necesariamente al valor comercial o precio de venta del carro en el mercado.
+              </div>
+
+              {!haInteractuado && (
+                <div className="flex justify-end pt-1">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setHaInteractuado(true);
+                      if (onImpuestoChangeRef.current && datosImpuesto) {
+                        onImpuestoChangeRef.current(datosImpuesto.impuestoAnualEstimado, datosImpuesto);
+                      }
+                    }}
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-[#0F1B2B] text-white hover:bg-[#1A2B42] transition-colors cursor-pointer"
+                  >
+                    <span>Aplicar impuesto a mi presupuesto →</span>
+                  </button>
+                </div>
+              )}
+
               {datosImpuesto.notaEspecial && (
-                <div className="p-2 rounded bg-white/75 border border-[#BBF7D0] text-[11px] text-[#166534]">
+                <div className="p-2.5 rounded-lg bg-white/80 border border-[#BBF7D0] text-xs text-[#166534]">
                   ℹ️ {datosImpuesto.notaEspecial}
                 </div>
               )}
 
-              {/* Trazabilidad de Fuentes Oficiales */}
-              <div className="pt-2 border-t border-[#DCFCE7] flex flex-wrap items-center justify-between text-[11px] text-[#166534] gap-2">
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-0.5">
-                  <span>
-                    <strong>Base Gravable:</strong> {datosImpuesto.fuente.nombre} (Res. {datosImpuesto.fuente.resolucion})
-                  </span>
-                  <span>·</span>
-                  <span>
-                    <strong>Tarifas:</strong> {datosImpuesto.fuente.entidadTarifas} ({datosImpuesto.fuente.decretoTarifas})
-                  </span>
-                </div>
+              {/* Fuentes con patrón colapsable '¿De dónde salen estos datos?' */}
+              <div className="pt-2 border-t border-[#DCFCE7] space-y-2">
+                <button
+                  type="button"
+                  onClick={() => setMostrarFuentes(!mostrarFuentes)}
+                  className="text-xs font-mono text-[#166534] hover:underline cursor-pointer flex items-center gap-1.5 font-medium py-1"
+                >
+                  <span>¿De dónde salen estos datos?</span>
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${mostrarFuentes ? 'rotate-180' : ''}`} />
+                </button>
 
-                {datosImpuesto.fuente.urlBaseGravable && (
-                  <a
-                    href={datosImpuesto.fuente.urlBaseGravable}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 font-semibold hover:underline"
-                  >
-                    <span>Ver publicación MinTransporte</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
+                {mostrarFuentes && (
+                  <div className="p-3.5 rounded-lg bg-white border border-[#BBF7D0] text-xs text-[#475569] space-y-2.5">
+                    <div>
+                      <span className="font-semibold text-[#0F1B2B] block">Base del vehículo:</span>
+                      <p className="text-[11px] text-[#64748B]">
+                        Ministerio de Transporte de Colombia · Resolución 20253040048935
+                      </p>
+                    </div>
+                    <div>
+                      <span className="font-semibold text-[#0F1B2B] block">Tarifas:</span>
+                      <p className="text-[11px] text-[#64748B]">
+                        Ministerio de Hacienda y Crédito Público · Decreto 1457 de 2025
+                      </p>
+                    </div>
+                    {datosImpuesto.fuente.urlBaseGravable && (
+                      <div className="pt-1 border-t border-slate-100">
+                        <a
+                          href={datosImpuesto.fuente.urlBaseGravable}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-xs text-[#1D4ED8] hover:underline font-medium"
+                        >
+                          <span>Ver publicación oficial en MinTransporte</span>
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </a>
+                      </div>
+                    )}
+                  </div>
                 )}
               </div>
             </div>
@@ -416,25 +516,37 @@ export const CalculadoraImpuestoVehicular: React.FC<CalculadoraImpuestoVehicular
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3">
             <div className="relative w-full sm:w-60">
               <span className="absolute left-3 top-2.5 text-xs font-mono text-[#64748B]">$</span>
               <input
                 type="text"
-                value={impuestoManual === 0 ? '' : impuestoManual.toLocaleString('es-CO')}
+                value={impuestoManual === '' ? '' : impuestoManual.toLocaleString('es-CO')}
                 onChange={(e) => {
-                  const val = parseInt(e.target.value.replace(/\D/g, ''), 10) || 0;
-                  setImpuestoManual(val);
-                  if (onImpuestoChange) {
-                    onImpuestoChange(val, null);
+                  const raw = e.target.value.replace(/\D/g, '');
+                  if (raw === '') {
+                    setImpuestoManual('');
+                    if (onImpuestoChange) {
+                      onImpuestoChange(0, null);
+                    }
+                  } else {
+                    const val = parseInt(raw, 10);
+                    setImpuestoManual(val);
+                    if (onImpuestoChange) {
+                      onImpuestoChange(val, null);
+                    }
                   }
                 }}
-                placeholder="Ej. 1.800.000"
-                className="w-full h-10 pl-7 pr-3 rounded-lg bg-white border border-[#CBD5E1] text-xs font-mono text-[#0F1B2B] focus:outline-none focus:border-[#0F1B2B]"
+                placeholder="Ej. 800.000"
+                className="w-full h-11 pl-7 pr-3 rounded-lg bg-white border border-[#CBD5E1] text-xs font-mono font-bold text-[#0F1B2B] focus:outline-none focus:border-[#0F1B2B]"
               />
             </div>
-            <span className="text-xs font-mono text-[#64748B]">
-              Provisión mensual: {formatoCOP(Math.round(impuestoManual / 12))}
+            <span className="text-xs text-[#64748B]">
+              Si quieres presupuestarlo mes a mes:{' '}
+              <strong className="text-[#0F1B2B] font-mono">
+                {formatoCOP(Math.round((typeof impuestoManual === 'number' ? impuestoManual : 0) / 12))}
+              </strong>{' '}
+              / mes
             </span>
           </div>
         </div>

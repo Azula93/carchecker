@@ -51,7 +51,7 @@ export const CurrencyInput: React.FC<CurrencyInputProps> = ({
         <input
           type="text"
           id={id}
-          value={value === 0 ? '' : formatNumber(value)}
+          value={value === undefined || value === null ? '' : formatNumber(value)}
           onChange={handleChange}
           disabled={disabled}
           placeholder={placeholder}

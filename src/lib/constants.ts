@@ -75,6 +75,11 @@ export const PUNTAJE_MAL = 0;
 export const STORAGE_KEY = 'carcheck_evaluacion';
 
 /**
+ * Clave de persistencia en localStorage para la calculadora de costo de mantenimiento.
+ */
+export const STORAGE_KEY_COSTOS = 'carcheck_costo_mantenimiento';
+
+/**
  * Portales y fuentes oficiales de consulta vehicular en Colombia.
  */
 export const ENLACES_PORTALES = {
