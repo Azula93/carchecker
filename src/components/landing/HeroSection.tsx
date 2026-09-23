@@ -9,7 +9,6 @@ import {
   Calculator,
   ExternalLink,
   Timer,
-  ArrowRight,
   Gavel,
   CheckCircle2,
   AlertTriangle,

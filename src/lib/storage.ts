@@ -1,6 +1,6 @@
 'use client';
 
-import { Evaluacion, DatosBasicos, AntecedentesLegales, ChecklistItemEval, CostoReparacion } from '../types/evaluation';
+import { Evaluacion, DatosBasicos, AntecedentesLegales, ChecklistItemEval, CostoReparacion, DatosGasolina, DatosCredito, DatosSoat } from '../types/evaluation';
 import { STORAGE_KEY } from './constants';
 
 /**
@@ -164,6 +164,63 @@ export function actualizarPaso(
   paso: number
 ): Evaluacion {
   const updated = { ...evaluacion, pasoActual: paso };
+  guardarEvaluacion(updated);
+  return updated;
+}
+
+/**
+ * Actualiza los datos de referencia de gasolina obtenidos de fuentes externas.
+ * Es segura y retrocompatible ante evaluaciones que no contengan datosExternos previamente.
+ */
+export function actualizarDatosGasolina(
+  evaluacion: Evaluacion,
+  gasolina: DatosGasolina
+): Evaluacion {
+  const updated: Evaluacion = {
+    ...evaluacion,
+    datosExternos: {
+      ...evaluacion.datosExternos,
+      gasolina,
+    },
+  };
+  guardarEvaluacion(updated);
+  return updated;
+}
+
+/**
+ * Actualiza los datos de referencia de crédito vehicular (SFC) obtenidos de fuentes externas.
+ * Es segura y retrocompatible ante evaluaciones que no contengan datosExternos previamente.
+ */
+export function actualizarDatosCredito(
+  evaluacion: Evaluacion,
+  credito: DatosCredito
+): Evaluacion {
+  const updated: Evaluacion = {
+    ...evaluacion,
+    datosExternos: {
+      ...evaluacion.datosExternos,
+      credito,
+    },
+  };
+  guardarEvaluacion(updated);
+  return updated;
+}
+
+/**
+ * Actualiza los datos de referencia del SOAT (SFC) obtenidos de fuentes oficiales.
+ * Es segura y retrocompatible ante evaluaciones que no contengan datosExternos previamente.
+ */
+export function actualizarDatosSoat(
+  evaluacion: Evaluacion,
+  soat: DatosSoat
+): Evaluacion {
+  const updated: Evaluacion = {
+    ...evaluacion,
+    datosExternos: {
+      ...evaluacion.datosExternos,
+      soat,
+    },
+  };
   guardarEvaluacion(updated);
   return updated;
 }

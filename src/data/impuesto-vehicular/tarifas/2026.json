@@ -1,0 +1,79 @@
+{
+  "vigencia": 2026,
+  "metadata": {
+    "entidad": "Ministerio de Hacienda y Crédito Público",
+    "decreto": "Decreto 1457 del 29 de diciembre de 2025",
+    "fechaExpedicion": "2025-12-29",
+    "fechaVigenciaInicio": "2026-01-01",
+    "fechaVigenciaFin": "2026-12-31",
+    "url": "https://www.minhacienda.gov.co/documents/d/portal/decreto-1457-del-29-de-diciembre-de-2025?download=true",
+    "descripcion": "Por el cual se reajustan los valores absolutos del Impuesto sobre Vehículos Automotores de que trata el artículo 145 de la Ley 488 de 1998 para el año gravable 2026."
+  },
+  "tarifasParticulares": [
+    {
+      "id": "tramo_1",
+      "limiteInferior": 0,
+      "limiteSuperior": 57349000,
+      "tarifa": 0.015,
+      "tarifaPorcentajeTexto": "1,5 %",
+      "descripcion": "Hasta $57.349.000: 1,5%"
+    },
+    {
+      "id": "tramo_2",
+      "limiteInferior": 57349001,
+      "limiteSuperior": 129032000,
+      "tarifa": 0.025,
+      "tarifaPorcentajeTexto": "2,5 %",
+      "descripcion": "Más de $57.349.000 y hasta $129.032.000: 2,5%"
+    },
+    {
+      "id": "tramo_3",
+      "limiteInferior": 129032001,
+      "limiteSuperior": null,
+      "tarifa": 0.035,
+      "tarifaPorcentajeTexto": "3,5 %",
+      "descripcion": "Más de $129.032.000: 3,5%"
+    }
+  ],
+  "tarifasEspeciales": {
+    "electricos": {
+      "norma": "Ley 1964 de 2019, artículo 2",
+      "tarifa": 0.01,
+      "tarifaPorcentajeTexto": "1,0 %",
+      "descripcion": "Los vehículos eléctricos no pueden superar el 1% del valor comercial oficial."
+    },
+    "motocicletas": {
+      "norma": "Ley 488 de 1998, artículo 141",
+      "hasta125cc": {
+        "tarifa": 0.0,
+        "tarifaPorcentajeTexto": "0,0 % (Exenta)",
+        "descripcion": "Motocicletas de hasta 125 c.c. de cilindraje están exentas del impuesto departamental sobre vehículos (pueden aplicar únicamente derechos de semaforización municipal)."
+      },
+      "mas125cc": {
+        "tarifa": 0.015,
+        "tarifaPorcentajeTexto": "1,5 %",
+        "descripcion": "Motocicletas con cilindraje superior a 125 c.c. tributan a una tarifa general del 1,5% sobre la base gravable oficial."
+      }
+    },
+    "hibridos": {
+      "tratamiento": "special_case",
+      "descripcion": "La base gravable se determina en la Tabla 9 oficial de MinTransporte. Los incentivos o descuentos sobre la tarifa (generalmente 40% de descuento o tarifas preferenciales) dependen de la ordenanza fiscal de cada departamento o distrito.",
+      "requiereRegimenDepartamental": true
+    },
+    "carga": {
+      "tratamiento": "special_case",
+      "descripcion": "Los vehículos de transporte público de carga y pasajeros no están gravados con el impuesto vehicular departamental sobre la propiedad (art. 141 Ley 488 de 1998) salvo vehículos particulares de carga.",
+      "requiereRegimenDepartamental": true
+    },
+    "pasajeros": {
+      "tratamiento": "special_case",
+      "descripcion": "Vehículos de pasajeros de servicio público o especial con régimen diferenciado según ordenanza departamental.",
+      "requiereRegimenDepartamental": true
+    },
+    "ambulancias": {
+      "tratamiento": "special_case",
+      "descripcion": "Vehículos de emergencia y ambulancias destinados a la salud pública con tratamiento especial o exención sujeta a registro institucional.",
+      "requiereRegimenDepartamental": true
+    }
+  }
+}

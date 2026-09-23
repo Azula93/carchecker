@@ -356,3 +356,244 @@ export function calcularResultadoFinal(
     precioSugerido,
   };
 }
+
+/**
+ * Resultado del cálculo del gasto de combustible.
+ */
+export interface ResultadoGastoGasolina {
+  /** Gasto mensual estimado en pesos colombianos (COP) */
+  gastoMensual: number;
+  /** Gasto anual estimado (gastoMensual * 12) */
+  gastoAnual: number;
+  /** Galones mensuales consumidos */
+  galonesMes: number;
+  /** Indica si las entradas fueron válidas para el cálculo */
+  valido: boolean;
+}
+
+/**
+ * Calcula el gasto mensual y anual de gasolina según los kilómetros recorridos al mes,
+ * el rendimiento del vehículo (km/galón) y el precio de referencia por galón.
+ *
+ * Fórmula:
+ * Gasto Mensual = (kilometrosMes / kilometrosPorGalon) * precioGalon
+ * Gasto Anual = Gasto Mensual * 12
+ *
+ * Validación:
+ * Requiere que kilometrosMes > 0, kmPorGalon > 0 y precioGalon > 0.
+ * Si algún valor es inválido, retorna 0 de forma segura sin generar NaN o Infinity.
+ */
+export function calcularGastoGasolina(
+  kilometrosMes: number,
+  kmPorGalon: number,
+  precioGalon: number
+): ResultadoGastoGasolina {
+  if (
+    typeof kilometrosMes !== 'number' ||
+    typeof kmPorGalon !== 'number' ||
+    typeof precioGalon !== 'number' ||
+    isNaN(kilometrosMes) ||
+    isNaN(kmPorGalon) ||
+    isNaN(precioGalon) ||
+    kilometrosMes <= 0 ||
+    kmPorGalon <= 0 ||
+    precioGalon <= 0
+  ) {
+    return {
+      gastoMensual: 0,
+      gastoAnual: 0,
+      galonesMes: 0,
+      valido: false,
+    };
+  }
+
+  const galonesMes = kilometrosMes / kmPorGalon;
+  const gastoMensual = Math.round(galonesMes * precioGalon);
+  const gastoAnual = Math.round(gastoMensual * 12);
+
+  return {
+    gastoMensual,
+    gastoAnual,
+    galonesMes: Number(galonesMes.toFixed(1)),
+    valido: true,
+  };
+}
+
+/* ==========================================================================
+   ETAPA 2 — CÁLCULOS DE FINANCIACIÓN Y CRÉDITO VEHICULAR
+   ========================================================================== */
+
+export interface ResultadoCredito {
+  /** Precio total de venta del vehículo */
+  precioVehiculo: number;
+  /** Cuota inicial aportada por el comprador */
+  cuotaInicial: number;
+  /** Monto real financiado a través de crédito (Precio - Cuota Inicial) */
+  montoFinanciado: number;
+  /** Tasa de interés Efectiva Anual (porcentaje, ej. 19.49) */
+  tasaEA: number;
+  /** Tasa de interés Mensual Efectiva (decimal exacto, ej. 0.014947...) */
+  tasaMensual: number;
+  /** Plazo pactado en meses (ej. 12, 24, 36, 48, 60, 72) */
+  plazoMeses: number;
+  /** Cuota fija mensual calculada mediante amortización francesa */
+  cuotaMensual: number;
+  /** Total pagado durante todo el plazo (Cuota mensual * Plazo) */
+  totalPagado: number;
+  /** Total de intereses pagados a la entidad financiera (Total pagado - Monto financiado) */
+  totalIntereses: number;
+  /** Indicador de si los parámetros fueron válidos y el cálculo exitoso */
+  valido: boolean;
+}
+
+/**
+ * Calcula la amortización de un crédito vehicular bajo el sistema de amortización francés.
+ *
+ * Fórmulas financieras oficiales:
+ * 1. Conversión de Efectivo Anual a Mensual Efectiva:
+ *    i_mensual = (1 + EA)^(1/12) - 1
+ *    (Sin redondeos prematuros para preservar precisión matemática).
+ *
+ * 2. Cuota fija mensual (Sistema Francés):
+ *    Cuota = P * [ i * (1 + i)^n ] / [ (1 + i)^n - 1 ]
+ *    Donde:
+ *      P = Monto financiado
+ *      i = Tasa mensual efectiva
+ *      n = Plazo en meses
+ *
+ * 3. Casos particulares y seguridad:
+ *    - Si monto financiado <= 0: cuota = 0, intereses = 0, total = 0.
+ *    - Si tasa mensual == 0: cuota = P / n, intereses = 0, total = P (sin división por cero).
+ *    - Validación estricta contra NaN, Infinity y plazos inválidos.
+ */
+export function calcularCredito(
+  montoFinanciado: number,
+  tasaEA: number,
+  plazoMeses: number,
+  precioVehiculo?: number,
+  cuotaInicial?: number
+): ResultadoCredito {
+  // Validación de tipos y seguridad contra NaN
+  if (
+    typeof montoFinanciado !== 'number' ||
+    typeof tasaEA !== 'number' ||
+    typeof plazoMeses !== 'number' ||
+    isNaN(montoFinanciado) ||
+    isNaN(tasaEA) ||
+    isNaN(plazoMeses) ||
+    plazoMeses <= 0
+  ) {
+    return {
+      precioVehiculo: precioVehiculo ?? 0,
+      cuotaInicial: cuotaInicial ?? 0,
+      montoFinanciado: 0,
+      tasaEA: 0,
+      tasaMensual: 0,
+      plazoMeses: Math.max(1, plazoMeses || 12),
+      cuotaMensual: 0,
+      totalPagado: 0,
+      totalIntereses: 0,
+      valido: false,
+    };
+  }
+
+  const pVehiculo = typeof precioVehiculo === 'number' && !isNaN(precioVehiculo) ? Math.max(0, precioVehiculo) : montoFinanciado;
+  const cInicial = typeof cuotaInicial === 'number' && !isNaN(cuotaInicial) ? Math.max(0, cuotaInicial) : 0;
+  const pFinanciado = Math.max(0, montoFinanciado);
+  const nPlazo = Math.round(plazoMeses);
+  const tEA = Math.max(0, tasaEA);
+
+  // Caso 1: Sin financiación (monto financiado es 0 o la cuota inicial cubre el 100%)
+  if (pFinanciado === 0) {
+    return {
+      precioVehiculo: pVehiculo,
+      cuotaInicial: cInicial > 0 ? cInicial : pVehiculo,
+      montoFinanciado: 0,
+      tasaEA: tEA,
+      tasaMensual: 0,
+      plazoMeses: nPlazo,
+      cuotaMensual: 0,
+      totalPagado: 0,
+      totalIntereses: 0,
+      valido: true,
+    };
+  }
+
+  // Conversión exacta EA -> Mensual Efectiva sin redondeo intermedio
+  // tasaEA se recibe en porcentaje (ej: 19.49)
+  const tasaEADecimal = tEA / 100;
+  const tasaMensual = Math.pow(1 + tasaEADecimal, 1 / 12) - 1;
+
+  // Caso 2: Tasa cero (0% de interés)
+  if (tasaMensual === 0 || tEA === 0) {
+    const cuotaMensual = Math.round(pFinanciado / nPlazo);
+    const totalPagado = cuotaMensual * nPlazo;
+    return {
+      precioVehiculo: pVehiculo,
+      cuotaInicial: cInicial,
+      montoFinanciado: pFinanciado,
+      tasaEA: 0,
+      tasaMensual: 0,
+      plazoMeses: nPlazo,
+      cuotaMensual,
+      totalPagado,
+      totalIntereses: 0,
+      valido: true,
+    };
+  }
+
+  // Caso 3: Amortización francesa convencional
+  const factor = Math.pow(1 + tasaMensual, nPlazo);
+  const cuotaExacta = pFinanciado * ((tasaMensual * factor) / (factor - 1));
+  const cuotaMensual = Math.round(cuotaExacta);
+  const totalPagado = cuotaMensual * nPlazo;
+  const totalIntereses = Math.max(0, totalPagado - pFinanciado);
+
+  return {
+    precioVehiculo: pVehiculo,
+    cuotaInicial: cInicial,
+    montoFinanciado: pFinanciado,
+    tasaEA: tEA,
+    tasaMensual,
+    plazoMeses: nPlazo,
+    cuotaMensual,
+    totalPagado,
+    totalIntereses,
+    valido: true,
+  };
+}
+
+/* ==========================================================================
+   ETAPA 3 — CÁLCULOS Y REGLAS DE SOAT OFICIAL SFC
+   ========================================================================== */
+
+/**
+ * Calcula la antigüedad del vehículo en años frente al año de la tarifa oficial.
+ * Regla oficial SFC:
+ * edad = anioTarifa - anioModelo
+ * Si anioModelo >= anioTarifa (vehículo del año o año siguiente), edad = 0.
+ */
+export function calcularEdadVehiculo(
+  anioModelo: number,
+  anioReferencia = 2026
+): number {
+  if (typeof anioModelo !== 'number' || isNaN(anioModelo) || anioModelo <= 0) {
+    return 0;
+  }
+  const ref =
+    typeof anioReferencia === 'number' && !isNaN(anioReferencia) && anioReferencia > 0
+      ? anioReferencia
+      : 2026;
+  return Math.max(0, ref - Math.round(anioModelo));
+}
+
+/**
+ * Calcula la provisión mensual equivalente a partir del costo anual oficial del SOAT.
+ * Provisión mensual = Math.round(precioAnual / 12)
+ */
+export function calcularProvisionMensualSoat(precioAnual: number): number {
+  if (typeof precioAnual !== 'number' || isNaN(precioAnual) || precioAnual <= 0) {
+    return 0;
+  }
+  return Math.round(precioAnual / 12);
+}

@@ -1,0 +1,202 @@
+{
+  "vigencia": 2026,
+  "baseGravable": {
+    "entidad": "Ministerio de Transporte de Colombia",
+    "resolucion": "20253040048935",
+    "fechaExpedicion": "2025-11-26",
+    "fechaPublicacion": "2025-11-28",
+    "url": "https://mintransporte.gov.co/publicaciones/12234/base-gravable-2026/",
+    "portalSibga": "https://web.mintransporte.gov.co/sibga",
+    "unidadMonetariaOficial": "miles_de_pesos",
+    "tablas": {
+      "tabla_1": {
+        "codigo": "automoviles",
+        "nombre": "Automóviles"
+      },
+      "tabla_2": {
+        "codigo": "camionetas_camperos",
+        "nombre": "Camionetas y Camperos"
+      },
+      "tabla_3": {
+        "codigo": "doble_cabina",
+        "nombre": "Camionetas Doble Cabina"
+      },
+      "tabla_4": {
+        "codigo": "electricos",
+        "nombre": "Vehículos Eléctricos"
+      },
+      "tabla_5": {
+        "codigo": "motocicletas",
+        "nombre": "Motocicletas, Motocarros, Cuatrimotos y relacionados"
+      },
+      "tabla_6": {
+        "codigo": "pasajeros",
+        "nombre": "Pasajeros"
+      },
+      "tabla_7": {
+        "codigo": "carga",
+        "nombre": "Carga Ajustada"
+      },
+      "tabla_8": {
+        "codigo": "ambulancias",
+        "nombre": "Ambulancias"
+      },
+      "tabla_9": {
+        "codigo": "hibridos",
+        "nombre": "Híbridos"
+      }
+    }
+  },
+  "tarifas": {
+    "entidad": "Ministerio de Hacienda y Crédito Público",
+    "decreto": "Decreto 1457 del 29 de diciembre de 2025",
+    "url": "https://www.minhacienda.gov.co/documents/d/portal/decreto-1457-del-29-de-diciembre-de-2025?download=true"
+  },
+  "advertenciaLegal": "Este valor es una estimación calculada a partir de la base gravable oficial y las tarifas nacionales vigentes. La liquidación definitiva corresponde a la autoridad tributaria competente de cada departamento o distrito y depende de las condiciones particulares del vehículo, posibles descuentos por pronto pago o beneficios locales.",
+  "fechaImportacion": "2026-09-22T04:23:48.544Z",
+  "resumenImportacion": [
+    {
+      "vigencia": 2026,
+      "tabla": "Tabla 1.- Automóviles",
+      "codigo": "automoviles",
+      "archivo": "Tabla 1.- Automóviles.xlsx",
+      "registrosLeidos": 4836,
+      "registrosValidos": 4836,
+      "registrosRechazados": 0,
+      "registrosDuplicados": 0,
+      "resultado": "OK"
+    },
+    {
+      "vigencia": 2026,
+      "tabla": "Tabla 2.- Camionetas y Camperos",
+      "codigo": "camionetas_camperos",
+      "archivo": "Tabla 2.- Camionetas y Camperos.xlsx",
+      "registrosLeidos": 3373,
+      "registrosValidos": 3373,
+      "registrosRechazados": 0,
+      "registrosDuplicados": 0,
+      "resultado": "OK"
+    },
+    {
+      "vigencia": 2026,
+      "tabla": "Tabla 3.- Camionetas Doble Cabina",
+      "codigo": "doble_cabina",
+      "archivo": "Tabla 3.- Camionetas Doble Cabina.xlsx",
+      "registrosLeidos": 622,
+      "registrosValidos": 622,
+      "registrosRechazados": 0,
+      "registrosDuplicados": 0,
+      "resultado": "OK"
+    },
+    {
+      "vigencia": 2026,
+      "tabla": "Tabla 4.- Eléctricos",
+      "codigo": "electricos",
+      "archivo": "Tabla 4.- Eléctricos.xlsx",
+      "registrosLeidos": 234,
+      "registrosValidos": 234,
+      "registrosRechazados": 0,
+      "registrosDuplicados": 0,
+      "resultado": "OK"
+    },
+    {
+      "vigencia": 2026,
+      "tabla": "Tabla 5.- Motocicletas, Motocarros, Cuatrimotos y relacionados",
+      "codigo": "motocicletas",
+      "archivo": "Tabla 5.- Motocicletas, Motocarros, Cuatrimotos, Mototriciclos, Motocicletas Eléctricas y Motocarros Eléctricos.xlsx",
+      "registrosLeidos": 2753,
+      "registrosValidos": 2753,
+      "registrosRechazados": 0,
+      "registrosDuplicados": 0,
+      "resultado": "OK"
+    },
+    {
+      "vigencia": 2026,
+      "tabla": "Tabla 6.- Pasajeros",
+      "codigo": "pasajeros",
+      "archivo": "tabla_6_pasajeros.xlsx",
+      "registrosLeidos": 0,
+      "registrosValidos": 0,
+      "registrosRechazados": 0,
+      "registrosDuplicados": 0,
+      "resultado": "OMITIDO_SIN_ARCHIVO"
+    },
+    {
+      "vigencia": 2026,
+      "tabla": "Tabla 7.- Carga",
+      "codigo": "carga",
+      "archivo": "tabla_7_carga.xlsx",
+      "registrosLeidos": 0,
+      "registrosValidos": 0,
+      "registrosRechazados": 0,
+      "registrosDuplicados": 0,
+      "resultado": "OMITIDO_SIN_ARCHIVO"
+    },
+    {
+      "vigencia": 2026,
+      "tabla": "Tabla 8.- Ambulancias",
+      "codigo": "ambulancias",
+      "archivo": "tabla_8_ambulancias.xlsx",
+      "registrosLeidos": 0,
+      "registrosValidos": 0,
+      "registrosRechazados": 0,
+      "registrosDuplicados": 0,
+      "resultado": "OMITIDO_SIN_ARCHIVO"
+    },
+    {
+      "vigencia": 2026,
+      "tabla": "Tabla 9.- Híbridos",
+      "codigo": "hibridos",
+      "archivo": "Tabla 9.- Híbridos.xlsx",
+      "registrosLeidos": 259,
+      "registrosValidos": 259,
+      "registrosRechazados": 0,
+      "registrosDuplicados": 0,
+      "resultado": "OK"
+    }
+  ],
+  "estadoCategorias": {
+    "automoviles": {
+      "status": "available",
+      "registros": 4836,
+      "archivo": "Tabla 1.- Automóviles.xlsx"
+    },
+    "camionetas_camperos": {
+      "status": "available",
+      "registros": 3373,
+      "archivo": "Tabla 2.- Camionetas y Camperos.xlsx"
+    },
+    "doble_cabina": {
+      "status": "available",
+      "registros": 622,
+      "archivo": "Tabla 3.- Camionetas Doble Cabina.xlsx"
+    },
+    "electricos": {
+      "status": "available",
+      "registros": 234,
+      "archivo": "Tabla 4.- Eléctricos.xlsx"
+    },
+    "motocicletas": {
+      "status": "available",
+      "registros": 2753,
+      "archivo": "Tabla 5.- Motocicletas, Motocarros, Cuatrimotos, Mototriciclos, Motocicletas Eléctricas y Motocarros Eléctricos.xlsx"
+    },
+    "pasajeros": {
+      "status": "not_available",
+      "razon": "Archivo XLSX oficial 2026 no disponible para descarga manual actualmente."
+    },
+    "carga": {
+      "status": "not_available",
+      "razon": "Archivo XLSX oficial 2026 no disponible para descarga manual actualmente."
+    },
+    "ambulancias": {
+      "status": "not_available",
+      "razon": "Archivo XLSX oficial 2026 no disponible para descarga manual actualmente."
+    },
+    "hibridos": {
+      "status": "available",
+      "registros": 259,
+      "archivo": "Tabla 9.- Híbridos.xlsx"
+    }
+  }
+}

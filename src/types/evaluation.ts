@@ -1,6 +1,19 @@
-/**
- * Tipos e interfaces del sistema de evaluación de vehículos CarCheck.
- */
+import type { DatosExternos } from './external-data';
+
+export type {
+  DatosExternos,
+  DatosGasolina,
+  DatosCredito,
+  RespuestaCreditoAPI,
+  EstadoRespuestaCredito,
+  DatosSoat,
+  RespuestaSoatAPI,
+  EstadoRespuestaSoat,
+  DatosImpuestoVehicular,
+  RespuestaImpuestoVehicularAPI,
+  EstadoRespuestaImpuesto,
+  CategoriaTablaImpuesto,
+} from './external-data';
 
 /**
  * Datos básicos de identificación y estado general del vehículo.
@@ -192,6 +205,8 @@ export interface Evaluacion {
   precioVenta: number;
   /** Paso actual en el flujo guiado de la aplicación */
   pasoActual: number;
+  /** Datos obtenidos de fuentes externas oficiales (opcional para retrocompatibilidad) */
+  datosExternos?: DatosExternos;
 }
 
 /**

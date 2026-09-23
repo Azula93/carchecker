@@ -1,0 +1,414 @@
+{
+  "metadata": {
+    "anio": 2026,
+    "fuente": "Superintendencia Financiera de Colombia",
+    "urlFuente": "https://www.superfinanciera.gov.co/publicaciones/10114908/soat/",
+    "resolucionCircular": "Circular Externa 022 de 2025",
+    "fechaPublicacion": "2025-12-30",
+    "fechaVigenciaInicio": "2026-01-01",
+    "fechaVigenciaFin": "2026-12-31",
+    "notaLegal": "Tarifa comercial oficial del SOAT que rige a partir del 1 de enero de 2026. Incluye aporte de $2.400 para RUNT y 52% de contribución a la ADRES (Ley 2161 de 2021). Valores redondeados en pesos."
+  },
+  "tarifas": [
+    {
+      "id": "ciclomotor",
+      "categoria": "CICLOMOTOR",
+      "subcategoria": "Ciclomotor",
+      "descripcion": "Ciclomotores de cualquier cilindraje",
+      "criterios": {},
+      "precioAnual": 124100
+    },
+    {
+      "id": "motos-menos-100",
+      "categoria": "MOTOS",
+      "subcategoria": "Menos de 100 c.c.",
+      "descripcion": "Motocicletas de menos de 100 c.c.",
+      "criterios": {
+        "cilindrajeMax": 99.9
+      },
+      "precioAnual": 256200
+    },
+    {
+      "id": "motos-100-200",
+      "categoria": "MOTOS",
+      "subcategoria": "Entre 100 y 200 c.c.",
+      "descripcion": "Motocicletas de 100 a 200 c.c.",
+      "criterios": {
+        "cilindrajeMin": 100,
+        "cilindrajeMax": 200
+      },
+      "precioAnual": 343300
+    },
+    {
+      "id": "motos-mas-200",
+      "categoria": "MOTOS",
+      "subcategoria": "Más de 200 c.c.",
+      "descripcion": "Motocicletas de más de 200 c.c.",
+      "criterios": {
+        "cilindrajeMin": 200.1
+      },
+      "precioAnual": 761400
+    },
+    {
+      "id": "motocarro-tricimoto",
+      "categoria": "MOTO CARRO, TRICIMOTO Y CUADRICICLO",
+      "subcategoria": "General",
+      "descripcion": "Motocarros, tricimotos y cuadriciclos",
+      "criterios": {},
+      "precioAnual": 386900
+    },
+    {
+      "id": "motocarro-5-pasajeros",
+      "categoria": "MOTOCARRO",
+      "subcategoria": "5 pasajeros",
+      "descripcion": "Motocarros con capacidad de 5 pasajeros",
+      "criterios": {
+        "pasajerosMin": 5,
+        "pasajerosMax": 5
+      },
+      "precioAnual": 386900
+    },
+    {
+      "id": "camperos-menos-1500-menos-10",
+      "categoria": "CAMPEROS Y CAMIONETAS",
+      "subcategoria": "Menos de 1.500 c.c. - Menos de 10 años",
+      "descripcion": "Camperos y camionetas de menos de 1.500 c.c. con menos de 10 años de uso",
+      "criterios": {
+        "cilindrajeMax": 1499.9,
+        "edadMax": 9
+      },
+      "precioAnual": 792800
+    },
+    {
+      "id": "camperos-menos-1500-10-mas",
+      "categoria": "CAMPEROS Y CAMIONETAS",
+      "subcategoria": "Menos de 1.500 c.c. - 10 o más años",
+      "descripcion": "Camperos y camionetas de menos de 1.500 c.c. con 10 o más años de uso",
+      "criterios": {
+        "cilindrajeMax": 1499.9,
+        "edadMin": 10
+      },
+      "precioAnual": 953000
+    },
+    {
+      "id": "camperos-1500-2500-menos-10",
+      "categoria": "CAMPEROS Y CAMIONETAS",
+      "subcategoria": "Entre 1.500 y 2.500 c.c. - Menos de 10 años",
+      "descripcion": "Camperos y camionetas de 1.500 a 2.500 c.c. con menos de 10 años de uso",
+      "criterios": {
+        "cilindrajeMin": 1500,
+        "cilindrajeMax": 2500,
+        "edadMax": 9
+      },
+      "precioAnual": 946600
+    },
+    {
+      "id": "camperos-1500-2500-10-mas",
+      "categoria": "CAMPEROS Y CAMIONETAS",
+      "subcategoria": "Entre 1.500 y 2.500 c.c. - 10 o más años",
+      "descripcion": "Camperos y camionetas de 1.500 a 2.500 c.c. con 10 o más años de uso",
+      "criterios": {
+        "cilindrajeMin": 1500,
+        "cilindrajeMax": 2500,
+        "edadMin": 10
+      },
+      "precioAnual": 1121400
+    },
+    {
+      "id": "camperos-mas-2500-menos-10",
+      "categoria": "CAMPEROS Y CAMIONETAS",
+      "subcategoria": "Más de 2.500 c.c. - Menos de 10 años",
+      "descripcion": "Camperos y camionetas de más de 2.500 c.c. con menos de 10 años de uso",
+      "criterios": {
+        "cilindrajeMin": 2500.1,
+        "edadMax": 9
+      },
+      "precioAnual": 1110300
+    },
+    {
+      "id": "camperos-mas-2500-10-mas",
+      "categoria": "CAMPEROS Y CAMIONETAS",
+      "subcategoria": "Más de 2.500 c.c. - 10 o más años",
+      "descripcion": "Camperos y camionetas de más de 2.500 c.c. con 10 o más años de uso",
+      "criterios": {
+        "cilindrajeMin": 2500.1,
+        "edadMin": 10
+      },
+      "precioAnual": 1274000
+    },
+    {
+      "id": "carga-menos-5-ton",
+      "categoria": "CARGA O MIXTO",
+      "subcategoria": "Menos de 5 Toneladas",
+      "descripcion": "Vehículos de carga o mixto de menos de 5 toneladas",
+      "criterios": {
+        "capacidadTonMax": 4.99
+      },
+      "precioAnual": 888400
+    },
+    {
+      "id": "carga-5-15-ton",
+      "categoria": "CARGA O MIXTO",
+      "subcategoria": "Entre 5 y 15 Toneladas",
+      "descripcion": "Vehículos de carga o mixto entre 5 y 15 toneladas",
+      "criterios": {
+        "capacidadTonMin": 5,
+        "capacidadTonMax": 15
+      },
+      "precioAnual": 1282800
+    },
+    {
+      "id": "carga-mas-15-ton",
+      "categoria": "CARGA O MIXTO",
+      "subcategoria": "Más de 15 Toneladas",
+      "descripcion": "Vehículos de carga o mixto de más de 15 toneladas",
+      "criterios": {
+        "capacidadTonMin": 15.01
+      },
+      "precioAnual": 1621900
+    },
+    {
+      "id": "oficiales-menos-1500",
+      "categoria": "OFICIALES ESPECIALES",
+      "subcategoria": "Menos de 1.500 c.c.",
+      "descripcion": "Vehículos oficiales especiales de menos de 1.500 c.c.",
+      "criterios": {
+        "cilindrajeMax": 1499.9
+      },
+      "precioAnual": 999500
+    },
+    {
+      "id": "oficiales-1500-2500",
+      "categoria": "OFICIALES ESPECIALES",
+      "subcategoria": "Entre 1.500 y 2.500 c.c.",
+      "descripcion": "Vehículos oficiales especiales entre 1.500 y 2.500 c.c.",
+      "criterios": {
+        "cilindrajeMin": 1500,
+        "cilindrajeMax": 2500
+      },
+      "precioAnual": 1260200
+    },
+    {
+      "id": "oficiales-mas-2500",
+      "categoria": "OFICIALES ESPECIALES",
+      "subcategoria": "Más de 2.500 c.c.",
+      "descripcion": "Vehículos oficiales especiales de más de 2.500 c.c.",
+      "criterios": {
+        "cilindrajeMin": 2500.1
+      },
+      "precioAnual": 1510600
+    },
+    {
+      "id": "familiares-menos-1500-menos-10",
+      "categoria": "VEHICULOS FAMILIARES",
+      "subcategoria": "Menos de 1.500 c.c. - Menos de 10 años",
+      "descripcion": "Automóviles familiares particulares de menos de 1.500 c.c. con menos de 10 años de uso",
+      "criterios": {
+        "cilindrajeMax": 1499.9,
+        "edadMax": 9
+      },
+      "precioAnual": 447300
+    },
+    {
+      "id": "familiares-menos-1500-10-mas",
+      "categoria": "VEHICULOS FAMILIARES",
+      "subcategoria": "Menos de 1.500 c.c. - 10 o más años",
+      "descripcion": "Automóviles familiares particulares de menos de 1.500 c.c. con 10 o más años de uso",
+      "criterios": {
+        "cilindrajeMax": 1499.9,
+        "edadMin": 10
+      },
+      "precioAnual": 592900
+    },
+    {
+      "id": "familiares-1500-2500-menos-10",
+      "categoria": "VEHICULOS FAMILIARES",
+      "subcategoria": "Entre 1.500 y 2.500 c.c. - Menos de 10 años",
+      "descripcion": "Automóviles familiares particulares de 1.500 a 2.500 c.c. con menos de 10 años de uso",
+      "criterios": {
+        "cilindrajeMin": 1500,
+        "cilindrajeMax": 2500,
+        "edadMax": 9
+      },
+      "precioAnual": 544700
+    },
+    {
+      "id": "familiares-1500-2500-10-mas",
+      "categoria": "VEHICULOS FAMILIARES",
+      "subcategoria": "Entre 1.500 y 2.500 c.c. - 10 o más años",
+      "descripcion": "Automóviles familiares particulares de 1.500 a 2.500 c.c. con 10 o más años de uso",
+      "criterios": {
+        "cilindrajeMin": 1500,
+        "cilindrajeMax": 2500,
+        "edadMin": 10
+      },
+      "precioAnual": 677400
+    },
+    {
+      "id": "familiares-mas-2500-menos-10",
+      "categoria": "VEHICULOS FAMILIARES",
+      "subcategoria": "Más de 2.500 c.c. - Menos de 10 años",
+      "descripcion": "Automóviles familiares particulares de más de 2.500 c.c. con menos de 10 años de uso",
+      "criterios": {
+        "cilindrajeMin": 2500.1,
+        "edadMax": 9
+      },
+      "precioAnual": 636000
+    },
+    {
+      "id": "familiares-mas-2500-10-mas",
+      "categoria": "VEHICULOS FAMILIARES",
+      "subcategoria": "Más de 2.500 c.c. - 10 o más años",
+      "descripcion": "Automóviles familiares particulares de más de 2.500 c.c. con 10 o más años de uso",
+      "criterios": {
+        "cilindrajeMin": 2500.1,
+        "edadMin": 10
+      },
+      "precioAnual": 754300
+    },
+    {
+      "id": "seis-mas-pasajeros-menos-2500-menos-10",
+      "categoria": "VEHICULOS 6 o más pasajeros",
+      "subcategoria": "Menos de 2.500 c.c. - Menos de 10 años",
+      "descripcion": "Vehículos de 6 o más pasajeros de menos de 2.500 c.c. con menos de 10 años de uso",
+      "criterios": {
+        "cilindrajeMax": 2499.9,
+        "edadMax": 9,
+        "pasajerosMin": 6
+      },
+      "precioAnual": 797300
+    },
+    {
+      "id": "seis-mas-pasajeros-menos-2500-10-mas",
+      "categoria": "VEHICULOS 6 o más pasajeros",
+      "subcategoria": "Menos de 2.500 c.c. - 10 o más años",
+      "descripcion": "Vehículos de 6 o más pasajeros de menos de 2.500 c.c. con 10 o más años de uso",
+      "criterios": {
+        "cilindrajeMax": 2499.9,
+        "edadMin": 10,
+        "pasajerosMin": 6
+      },
+      "precioAnual": 1017700
+    },
+    {
+      "id": "seis-mas-pasajeros-mas-2500-menos-10",
+      "categoria": "VEHICULOS 6 o más pasajeros",
+      "subcategoria": "2.500 o más c.c. - Menos de 10 años",
+      "descripcion": "Vehículos de 6 o más pasajeros de 2.500 o más c.c. con menos de 10 años de uso",
+      "criterios": {
+        "cilindrajeMin": 2500,
+        "edadMax": 9,
+        "pasajerosMin": 6
+      },
+      "precioAnual": 1067300
+    },
+    {
+      "id": "seis-mas-pasajeros-mas-2500-10-mas",
+      "categoria": "VEHICULOS 6 o más pasajeros",
+      "subcategoria": "2.500 o más c.c. - 10 o más años",
+      "descripcion": "Vehículos de 6 o más pasajeros de 2.500 o más c.c. con 10 o más años de uso",
+      "criterios": {
+        "cilindrajeMin": 2500,
+        "edadMin": 10,
+        "pasajerosMin": 6
+      },
+      "precioAnual": 1281600
+    },
+    {
+      "id": "negocio-menos-1500-menos-10",
+      "categoria": "AUTOS NEGOCIO",
+      "subcategoria": "Menos de 1.500 c.c. - Menos de 10 años",
+      "descripcion": "Autos de negocio / taxis de menos de 1.500 c.c. con menos de 10 años de uso",
+      "criterios": {
+        "cilindrajeMax": 1499.9,
+        "edadMax": 9
+      },
+      "precioAnual": 281900
+    },
+    {
+      "id": "negocio-menos-1500-10-mas",
+      "categoria": "AUTOS NEGOCIO",
+      "subcategoria": "Menos de 1.500 c.c. - 10 o más años",
+      "descripcion": "Autos de negocio / taxis de menos de 1.500 c.c. con 10 o más años de uso",
+      "criterios": {
+        "cilindrajeMax": 1499.9,
+        "edadMin": 10
+      },
+      "precioAnual": 352000
+    },
+    {
+      "id": "negocio-1500-2500-menos-10",
+      "categoria": "AUTOS NEGOCIO",
+      "subcategoria": "Entre 1.500 y 2.500 c.c. - Menos de 10 años",
+      "descripcion": "Autos de negocio / taxis de 1.500 a 2.500 c.c. con menos de 10 años de uso",
+      "criterios": {
+        "cilindrajeMin": 1500,
+        "cilindrajeMax": 2500,
+        "edadMax": 9
+      },
+      "precioAnual": 350000
+    },
+    {
+      "id": "negocio-1500-2500-10-mas",
+      "categoria": "AUTOS NEGOCIO",
+      "subcategoria": "Entre 1.500 y 2.500 c.c. - 10 o más años",
+      "descripcion": "Autos de negocio / taxis de 1.500 a 2.500 c.c. con 10 o más años de uso",
+      "criterios": {
+        "cilindrajeMin": 1500,
+        "cilindrajeMax": 2500,
+        "edadMin": 10
+      },
+      "precioAnual": 432400
+    },
+    {
+      "id": "negocio-mas-2500-menos-10",
+      "categoria": "AUTOS NEGOCIO",
+      "subcategoria": "Más de 2.500 c.c. - Menos de 10 años",
+      "descripcion": "Autos de negocio / taxis de más de 2.500 c.c. con menos de 10 años de uso",
+      "criterios": {
+        "cilindrajeMin": 2500.1,
+        "edadMax": 9
+      },
+      "precioAnual": 451400
+    },
+    {
+      "id": "negocio-mas-2500-10-mas",
+      "categoria": "AUTOS NEGOCIO",
+      "subcategoria": "Más de 2.500 c.c. - 10 o más años",
+      "descripcion": "Autos de negocio / taxis de más de 2.500 c.c. con 10 o más años de uso",
+      "criterios": {
+        "cilindrajeMin": 2500.1,
+        "edadMin": 10
+      },
+      "precioAnual": 529300
+    },
+    {
+      "id": "buses-busetas-urbanos",
+      "categoria": "BUSES Y BUSETAS URBANOS",
+      "subcategoria": "Urbano",
+      "descripcion": "Buses y busetas de servicio público urbano",
+      "criterios": {},
+      "precioAnual": 673300
+    },
+    {
+      "id": "intermunicipal-menos-10-pasajeros",
+      "categoria": "SERVICIO PUBLICO INTERMUNICIPAL",
+      "subcategoria": "Menos de 10 pasajeros",
+      "descripcion": "Servicio público intermunicipal de menos de 10 pasajeros",
+      "criterios": {
+        "pasajerosMax": 9
+      },
+      "precioAnual": 665500
+    },
+    {
+      "id": "intermunicipal-10-mas-pasajeros",
+      "categoria": "SERVICIO PUBLICO INTERMUNICIPAL",
+      "subcategoria": "10 o más pasajeros",
+      "descripcion": "Servicio público intermunicipal de 10 o más pasajeros",
+      "criterios": {
+        "pasajerosMin": 10
+      },
+      "precioAnual": 965300
+    }
+  ]
+}

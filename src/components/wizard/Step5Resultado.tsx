@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Car,
   Download,
@@ -8,12 +8,14 @@ import {
   Check,
   RotateCcw,
   TrendingDown,
+  Building2,
 } from 'lucide-react';
 import { Evaluacion, ResultadoFinal } from '../../types/evaluation';
 import { formatCOP } from '../../data/repair-costs';
 import { GaugeChart } from '../ui/GaugeChart';
 import { Alert } from '../ui/Alert';
 import { imprimirReportePDF } from '../../lib/pdf-generator';
+import type { DatosImpuestoVehicular, RespuestaImpuestoVehicularAPI } from '@/types/external-data';
 
 interface Step5ResultadoProps {
   evaluacion: Evaluacion;
@@ -27,6 +29,7 @@ export const Step5Resultado: React.FC<Step5ResultadoProps> = ({
   onReiniciar,
 }) => {
   const [copiado, setCopiado] = useState(false);
+  const [impuestoEstimado, setImpuestoEstimado] = useState<DatosImpuestoVehicular | null>(null);
 
   const vehiculoNombre = evaluacion.datosBasicos.lineaVehiculo?.toUpperCase() || 'VEHÍCULO EVALUADO';
   const placa = evaluacion.datosBasicos.placa ? evaluacion.datosBasicos.placa.toUpperCase() : 'ABC 123';
@@ -35,6 +38,37 @@ export const Step5Resultado: React.FC<Step5ResultadoProps> = ({
   const km = evaluacion.datosBasicos.kilometraje || 0;
   const esDescarte = resultado.esDescarte;
   const esInferior65 = resultado.porcentajeGlobal < 65;
+
+  useEffect(() => {
+    let cancel = false;
+    const linea = evaluacion.datosBasicos.lineaVehiculo;
+    const anioModelo = evaluacion.datosBasicos.anioModelo;
+    if (!linea || !anioModelo) return;
+
+    const params = new URLSearchParams({
+      linea,
+      anioModelo: anioModelo.toString(),
+      vigencia: '2026',
+    });
+
+    fetch(`/api/impuesto-vehicular?${params.toString()}`)
+      .then((res) => res.json())
+      .then((json: RespuestaImpuestoVehicularAPI) => {
+        if (cancel) return;
+        if (json.success && json.data) {
+          setImpuestoEstimado(json.data);
+        } else {
+          setImpuestoEstimado(null);
+        }
+      })
+      .catch(() => {
+        if (!cancel) setImpuestoEstimado(null);
+      });
+
+    return () => {
+      cancel = true;
+    };
+  }, [evaluacion.datosBasicos.lineaVehiculo, evaluacion.datosBasicos.anioModelo]);
 
   const scriptNegociacion = `Hola, tras realizar una revisión preliminar de referencia en Car Checker del ${vehiculoNombre} (Placa ${placa} de ${ciudadPlaca}), la puntuación estimada obtenida es de ${resultado.porcentajeGlobal}/100. Se estimaron aproximadamente ${formatCOP(resultado.totalReparaciones)} en posibles arreglos o desgastes a considerar. Con base en esta estimación orientativa, te propongo ${
     evaluacion.precioVenta > 0 ? `un valor de ${formatCOP(resultado.precioSugerido)}` : 'ajustar el precio deduciendo estos posibles costos'
@@ -367,6 +401,50 @@ export const Step5Resultado: React.FC<Step5ResultadoProps> = ({
           </div>
         </div>
       </div>
+
+      {/* Costos de Tenencia Estimados (Informativo Complementario) */}
+      {impuestoEstimado && (
+        <div className="bg-white rounded-xl p-4 sm:p-5 border border-[#E2E8F0] shadow-xs space-y-3">
+          <div className="flex items-center justify-between border-b border-[#F1F5F9] pb-2">
+            <div className="flex items-center gap-2">
+              <Building2 className="w-4 h-4 text-[#0F1B2B]" />
+              <span className="text-xs font-bold uppercase tracking-wider text-[#0F1B2B] font-mono">
+                Costo de Propiedad Estimado · Impuesto Vehicular ({impuestoEstimado.vigencia})
+              </span>
+            </div>
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#F1F5F9] text-[#64748B] font-medium">
+              Informativo · MinTransporte
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="p-3 bg-[#F8FAFC] rounded-lg border border-[#E2E8F0]">
+              <span className="text-[10px] text-[#64748B] block font-mono">Base Gravable Oficial</span>
+              <span className="text-sm font-bold font-mono text-[#0F1B2B]">
+                {formatCOP(impuestoEstimado.baseGravable)}
+              </span>
+            </div>
+
+            <div className="p-3 bg-[#F8FAFC] rounded-lg border border-[#E2E8F0]">
+              <span className="text-[10px] text-[#64748B] block font-mono">Impuesto Anual Estimado ({impuestoEstimado.tarifaTexto})</span>
+              <span className="text-sm font-bold font-mono text-[#0F1B2B]">
+                {formatCOP(impuestoEstimado.impuestoAnualEstimado)}
+              </span>
+            </div>
+
+            <div className="p-3 bg-[#F0FDF4] rounded-lg border border-[#BBF7D0]">
+              <span className="text-[10px] text-[#166534] block font-mono">Provisión Mensual Sugerida</span>
+              <span className="text-sm font-bold font-mono text-[#166534]">
+                {formatCOP(impuestoEstimado.provisionMensual)}
+              </span>
+            </div>
+          </div>
+
+          <p className="text-[10px] text-[#64748B] italic">
+            * Dato estrictamente financiero referencial. No incide en el puntaje de revisión técnica ni en el veredicto del vehículo.
+          </p>
+        </div>
+      )}
 
       {/* Alertas Consolidadas */}
       {resultado.alertas.length > 0 && (
