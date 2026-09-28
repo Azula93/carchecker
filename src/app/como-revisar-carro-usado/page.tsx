@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { NativeBanner } from '@/components/ads/NativeBanner';
 import type { Metadata } from 'next';
 import {
   FileText,
@@ -116,6 +117,8 @@ export default function ComoRevisarCarroUsadoPage() {
             En esta guía encontrarás los 9 pasos metodológicos que puedes seguir antes de llevar un carro usado a un centro de diagnóstico automotriz.
           </p>
         </section>
+
+        <NativeBanner />
 
         {/* Índice interactivo */}
         <nav
