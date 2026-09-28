@@ -26,22 +26,22 @@ export const GaugeChart: React.FC<GaugeChartProps> = ({
   const strokeDashoffset = circumference - (safePercentage / 100) * circumference;
 
   // Semantic color and status mapping
-  let strokeColor = '#16A34A'; // Favorable
+  let strokeColor = '#2EAD68'; // Favorable
   let statusText = 'Estimación Favorable';
-  let badgeBg = 'bg-[#F0FDF4] border-[#BBF7D0] text-[#166534]';
+  let badgeBg = 'bg-[#F0FDF4] border-[#BBF7D0] text-[#2EAD68]';
 
   if (esDescarte || safePercentage < 50) {
-    strokeColor = '#DC2626'; // Error / Discard
+    strokeColor = '#D64545'; // Error / Discard
     statusText = 'Criterio de Descarte';
-    badgeBg = 'bg-[#FEF2F2] border-[#FECACA] text-[#DC2626]';
+    badgeBg = 'bg-[#FEF2F2] border-[#FECACA] text-[#D64545]';
   } else if (safePercentage < 65) {
-    strokeColor = '#D97706'; // Caution / Risk
+    strokeColor = '#E5A72B'; // Caution / Risk
     statusText = 'Riesgo / Revisar hallazgos';
-    badgeBg = 'bg-[#FFFBEB] border-[#FDE68A] text-[#D97706]';
+    badgeBg = 'bg-[#FFFBEB] border-[#FDE68A] text-[#E5A72B]';
   } else if (safePercentage < 80) {
-    strokeColor = '#D97706';
+    strokeColor = '#E5A72B';
     statusText = 'Con Observaciones';
-    badgeBg = 'bg-[#FFFBEB] border-[#FDE68A] text-[#D97706]';
+    badgeBg = 'bg-[#FFFBEB] border-[#FDE68A] text-[#E5A72B]';
   }
 
   const center = size / 2;

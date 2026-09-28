@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
+import Link from 'next/link';
 import {
   Evaluacion,
   DatosBasicos,
@@ -35,6 +36,7 @@ import {
   AlertDialogAction,
   AlertDialogCancel,
 } from '../ui/alert-dialog';
+import { Gauge, ShieldCheck, Calculator, ShieldAlert } from 'lucide-react';
 
 export const WizardContainer: React.FC = () => {
   const [evaluacion, setEvaluacion] = useState<Evaluacion>(() => {
@@ -89,8 +91,8 @@ export const WizardContainer: React.FC = () => {
   if (!evaluacion || !resultadoFinal) {
     return (
       <div className="min-h-[400px] flex items-center justify-center">
-        <div className="flex items-center gap-3 text-[#64748B] text-sm">
-          <div className="w-5 h-5 border-2 border-[#0F1B2B] border-t-transparent rounded-full animate-spin" />
+        <div className="flex items-center gap-3 text-[#66727D] text-sm">
+          <div className="w-5 h-5 border-2 border-[#123B5D] border-t-transparent rounded-full animate-spin" />
           <span>Cargando evaluación...</span>
         </div>
       </div>
@@ -299,8 +301,8 @@ export const WizardContainer: React.FC = () => {
     evaluacion.datosBasicos.kilometraje <= 0;
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-6">
-      {/* Barra de progreso de 5 pasos */}
+    <div className="w-full max-w-5xl mx-auto space-y-6">
+      {/* 1. Barra de Progreso / Stepper Horizontal de 5 pasos */}
       <div className="print:hidden">
         <ProgressBar
           pasoActual={pasoActual}
@@ -309,8 +311,8 @@ export const WizardContainer: React.FC = () => {
         />
       </div>
 
-      {/* Contenedor del paso activo en card limpio con borde de 1px */}
-      <div className="bg-white rounded-xl border border-[#E2E8F0] p-5 sm:p-8 shadow-xs print:bg-transparent print:border-none print:p-0 print:shadow-none">
+      {/* 2. Gran Card Central Blanca (Stitch Design Reference) */}
+      <div className="bg-white rounded-3xl border border-[#E2E8F0] p-6 sm:p-10 shadow-sm print:bg-transparent print:border-none print:p-0 print:shadow-none">
         {pasoActual === 1 && (
           <Step1Basicos
             datos={evaluacion.datosBasicos}
@@ -354,7 +356,7 @@ export const WizardContainer: React.FC = () => {
           />
         )}
 
-        {/* Navegación inferior */}
+        {/* Navegación inferior dentro de la card */}
         <div className="print:hidden">
           <StepNavigation
             pasoActual={pasoActual}
@@ -368,28 +370,101 @@ export const WizardContainer: React.FC = () => {
         </div>
       </div>
 
-      {/* Modal accesible de confirmación Radix UI + Shadcn UI */}
+      {/* 3. Tres Tarjetas de Información Inferiores (Stitch Reference) */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 print:hidden">
+        {/* Card 1: Cálculo de Desgaste */}
+        <div className="bg-white rounded-2xl p-5 border border-[#E2E8F0] shadow-2xs flex items-start gap-3.5">
+          <div className="w-10 h-10 rounded-xl bg-[#EBF3FA] text-[#123B5D] flex items-center justify-center shrink-0">
+            <Gauge className="w-5 h-5" />
+          </div>
+          <div>
+            <h4 className="text-xs sm:text-sm font-bold text-[#17212B] mb-1">
+              Cálculo de Desgaste
+            </h4>
+            <p className="text-xs text-[#66727D] leading-relaxed">
+              Cruza el kilometraje con la tasa de uso en Colombia para detectar anomalías en tacómetro.
+            </p>
+          </div>
+        </div>
+
+        {/* Card 2: Validación RUNT */}
+        <div className="bg-white rounded-2xl p-5 border border-[#E2E8F0] shadow-2xs flex items-start gap-3.5">
+          <div className="w-10 h-10 rounded-xl bg-[#EBF3FA] text-[#123B5D] flex items-center justify-center shrink-0">
+            <ShieldCheck className="w-5 h-5" />
+          </div>
+          <div>
+            <h4 className="text-xs sm:text-sm font-bold text-[#17212B] mb-1">
+              Validación RUNT
+            </h4>
+            <p className="text-xs text-[#66727D] leading-relaxed">
+              La placa nos permitirá contrastar embargos, prendas y multas pendientes en el Paso 2.
+            </p>
+          </div>
+        </div>
+
+        {/* Card 3: Presupuesto Sugerido */}
+        <div className="bg-white rounded-2xl p-5 border border-[#E2E8F0] shadow-2xs flex items-start gap-3.5">
+          <div className="w-10 h-10 rounded-xl bg-[#EBF3FA] text-[#123B5D] flex items-center justify-center shrink-0">
+            <Calculator className="w-5 h-5" />
+          </div>
+          <div>
+            <h4 className="text-xs sm:text-sm font-bold text-[#17212B] mb-1">
+              Presupuesto Sugerido
+            </h4>
+            <p className="text-xs text-[#66727D] leading-relaxed">
+              Determina el costo real de tenencia y mantenimientos correctivos a corto plazo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* 4. Subfooter Institucional */}
+      <div className="pt-4 pb-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-[#66727D] border-t border-[#E2E8F0] print:hidden">
+        <div className="flex items-center gap-2 text-center sm:text-left">
+          <ShieldAlert className="w-4 h-4 text-[#123B5D] shrink-0" />
+          <span>
+            EscaneApp es una herramienta de pre-evaluación analítica preliminar y no sustituye un peritaje técnico profesional certificado.
+          </span>
+        </div>
+        <div className="flex items-center gap-3 shrink-0 text-slate-500">
+          <Link href="/terminos-condiciones" className="hover:text-[#123B5D] transition-colors">
+            Términos de Servicio
+          </Link>
+          <span>·</span>
+          <Link href="/politica-privacidad" className="hover:text-[#123B5D] transition-colors">
+            Privacidad
+          </Link>
+          <span>·</span>
+          <span>© {new Date().getFullYear()} EscaneApp</span>
+        </div>
+      </div>
+
+      {/* Modal accesible de confirmación Radix UI */}
       <AlertDialog
         open={dialogoConfirmacion.abierto}
         onOpenChange={(abierto) =>
           setDialogoConfirmacion((prev) => ({ ...prev, abierto }))
         }
       >
-        <AlertDialogContent>
+        <AlertDialogContent className="rounded-2xl border border-[#E2E8F0] p-6 max-w-md">
           <AlertDialogHeader>
-            <AlertDialogTitle>{dialogoConfirmacion.titulo}</AlertDialogTitle>
-            <AlertDialogDescription>
+            <AlertDialogTitle className="text-lg font-bold text-[#17212B]">
+              {dialogoConfirmacion.titulo}
+            </AlertDialogTitle>
+            <AlertDialogDescription className="text-xs sm:text-sm text-[#66727D] leading-relaxed mt-2">
               {dialogoConfirmacion.descripcion}
             </AlertDialogDescription>
           </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancelar</AlertDialogCancel>
+          <AlertDialogFooter className="mt-6 flex items-center justify-end gap-2.5">
+            <AlertDialogCancel className="rounded-xl border border-[#CBD5E1] text-[#17212B] hover:bg-slate-50 font-semibold text-xs px-4 h-10">
+              Cancelar
+            </AlertDialogCancel>
             <AlertDialogAction
               onClick={() => {
                 dialogoConfirmacion.onConfirmar();
                 setDialogoConfirmacion((prev) => ({ ...prev, abierto: false }));
               }}
-              className="bg-[#DC2626] hover:bg-[#B91C1C] text-white"
+              className="rounded-xl bg-[#D64545] hover:bg-[#B91C1C] text-white font-semibold text-xs px-4 h-10"
             >
               {dialogoConfirmacion.textoAccion || 'Confirmar'}
             </AlertDialogAction>

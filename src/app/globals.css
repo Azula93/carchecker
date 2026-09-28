@@ -1,19 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --background: #F8FAFC;
-  --foreground: #0F1B2B;
+  --background: #F7F9FA;
+  --foreground: #17212B;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  /* Brand / Palette Automotive Precision Minimal */
-  --color-brand-primary: #0F1B2B;
-  --color-brand-primary-hover: #1A2B42;
-  --color-brand-secondary: #515F74;
-  --color-brand-tertiary: #2B4263;
+  /* Brand / Palette EscaneApp */
+  --color-brand-primary: #123B5D;
+  --color-brand-primary-hover: #0E2F4B;
+  --color-brand-accent: #8BCF3F;
+  --color-brand-accent-hover: #7EC134;
+  --color-brand-secondary: #66727D;
   --color-brand-surface: #FFFFFF;
   --color-brand-border: #E2E8F0;
   --color-brand-border-strong: #CBD5E1;
@@ -21,40 +22,44 @@
   /* Surfaces */
   --color-surface-card: #FFFFFF;
   --color-surface-subtle: #F1F5F9;
-  --color-surface-low: #F8FAFC;
+  --color-surface-low: #F7F9FA;
   --color-surface-high: #E2E8F0;
   --color-surface-highest: #CBD5E1;
 
   /* Neutral Typography Colors */
-  --color-text-primary: #0F1B2B;
-  --color-text-secondary: #475569;
-  --color-text-muted: #64748B;
+  --color-text-primary: #17212B;
+  --color-text-secondary: #66727D;
+  --color-text-muted: #66727D;
   --color-text-disabled: #94A3B8;
 
   /* Functional Semantics */
-  --color-status-favorable: #16A34A;
+  --color-status-favorable: #2EAD68;
   --color-status-favorable-bg: #F0FDF4;
   --color-status-favorable-border: #BBF7D0;
 
-  --color-status-warning: #D97706;
+  --color-status-warning: #E5A72B;
   --color-status-warning-bg: #FFFBEB;
   --color-status-warning-border: #FDE68A;
 
-  --color-status-error: #DC2626;
+  --color-status-error: #D64545;
   --color-status-error-bg: #FEF2F2;
   --color-status-error-border: #FECACA;
+
+  --color-status-info: #3578B8;
+  --color-status-info-bg: #EFF6FF;
+  --color-status-info-border: #BFDBFE;
 
   --color-status-discard: #991B1B;
   --color-status-discard-bg: #FEF2F2;
   --color-status-discard-border: #991B1B;
 
-  --color-status-neutral: #64748B;
+  --color-status-neutral: #66727D;
   --color-status-neutral-bg: #F1F5F9;
   --color-status-neutral-border: #E2E8F0;
 
   /* Fonts */
-  --font-sans: var(--font-inter);
-  --font-mono: var(--font-jetbrains-mono);
+  --font-sans: var(--font-manrope), var(--font-inter), sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
 
   /* Typography scale */
   --text-display-lg: 40px;
@@ -144,20 +149,30 @@ body {
   background: #94A3B8;
 }
 
-/* Reglas de impresión para el informe en PDF */
+/* Reglas de impresión para el informe en PDF — EscaneApp */
 @media print {
   @page {
-    margin: 1.5cm;
+    margin: 1.2cm 1.4cm;
     size: A4 portrait;
+  }
+
+  *,
+  *::before,
+  *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
   body {
     background-color: #ffffff !important;
-    color: #000000 !important;
+    color: #17212B !important;
+    font-size: 12px !important;
   }
 
   header,
   footer,
+  nav,
+  button,
   .print\:hidden {
     display: none !important;
   }
@@ -166,9 +181,22 @@ body {
     display: block !important;
   }
 
+  .print\:flex {
+    display: flex !important;
+  }
+
+  .print\:grid {
+    display: grid !important;
+  }
+
   .rounded-3xl,
   .rounded-2xl,
   .rounded-xl {
     break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  a[href]:after {
+    content: none !important;
   }
 }

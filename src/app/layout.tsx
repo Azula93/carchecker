@@ -1,11 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Manrope, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
 import { PwaRegister } from "../components/pwa/PwaRegister";
 import { StructuredData } from "./structured-data";
 import Script from "next/script";
+
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
+});
 
 const inter = Inter({
   variable: "--font-inter",
@@ -20,15 +27,15 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0F1B2B",
+  themeColor: "#123B5D",
   width: "device-width",
   initialScale: 1,
 };
 
 export const metadata: Metadata = {
-  title: "Car Checker Colombia | Revisa un carro usado antes de comprar",
+  title: "EscaneApp | Escanea antes de comprar — Evaluación Inteligente de Vehículos",
   description:
-    "Revisa un carro usado en Colombia antes de comprarlo. Evalúa kilometraje, antecedentes, estado físico y posibles costos ocultos antes de pagar un peritaje profesional.",
+    "Revisa un carro usado en Colombia antes de comprarlo. Evalúa antecedentes oficiales, checklist de 80 puntos y costos ocultos antes de pagar un peritaje profesional.",
   alternates: {
     canonical: "https://carchecker.kodiquett.com",
   },
@@ -44,23 +51,23 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Car Checker",
+    title: "EscaneApp",
   },
 
   openGraph: {
-    title: "Car Checker Colombia | Revisa un carro usado antes de comprar",
+    title: "EscaneApp | Escanea antes de comprar — Evaluación Inteligente de Vehículos",
     description:
-      "Revisa un carro usado en Colombia antes de comprarlo. Evalúa kilometraje, antecedentes, estado físico y posibles costos ocultos antes de pagar un peritaje profesional.",
+      "Revisa un carro usado en Colombia antes de comprarlo. Evalúa antecedentes oficiales, checklist de 80 puntos y costos ocultos antes de pagar un peritaje profesional.",
     url: "https://carchecker.kodiquett.com",
-    siteName: "Car Checker Colombia",
+    siteName: "EscaneApp Colombia",
     locale: "es_CO",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Car Checker Colombia | Revisa un carro usado antes de comprar",
+    title: "EscaneApp | Escanea antes de comprar",
     description:
-      "Revisa un carro usado en Colombia antes de comprarlo. Evalúa kilometraje, antecedentes, estado físico y posibles costos ocultos antes de pagar un peritaje profesional.",
+      "Revisa un carro usado en Colombia antes de comprarlo. Evalúa antecedentes oficiales, checklist de 80 puntos y costos ocultos antes de pagar un peritaje profesional.",
   },
 
   verification: {
@@ -80,9 +87,9 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${manrope.variable} ${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground font-sans selection:bg-brand-secondary selection:text-white">
+      <body className="min-h-full flex flex-col bg-[#F7F9FA] text-[#17212B] font-sans selection:bg-[#8BCF3F]/30 selection:text-[#123B5D]">
         <PwaRegister />
         <StructuredData />
         <Header />

@@ -1,20 +1,28 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import {
+  ShieldCheck,
+  CheckCircle2,
+  ArrowRight,
+  AlertTriangle,
+  FileText,
+  CheckSquare,
+} from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Qué revisar en un carro usado antes de comprarlo',
+  title: 'Qué revisar en un carro usado antes de comprarlo | EscaneApp',
   description:
-    'Conoce qué revisar en un carro usado antes de comprarlo: carrocería, motor, transmisión, interior, neumáticos, sistema eléctrico, documentos y prueba de ruta.',
+    'Conoce qué revisar en un carro usado antes de comprarlo en Colombia: carrocería, motor, transmisión, interior, neumáticos, sistema eléctrico, documentos y prueba de ruta.',
   alternates: {
     canonical:
       'https://carchecker.kodiquett.com/que-revisar-carro-usado',
   },
   openGraph: {
-    title: 'Qué revisar en un carro usado antes de comprarlo',
+    title: 'Qué revisar en un carro usado antes de comprarlo | EscaneApp',
     description:
       'Lista práctica de los principales componentes que debes revisar antes de comprar un vehículo usado en Colombia.',
     url: 'https://carchecker.kodiquett.com/que-revisar-carro-usado',
-    siteName: 'Car Checker Colombia',
+    siteName: 'EscaneApp Colombia',
     locale: 'es_CO',
     type: 'article',
   },
@@ -35,14 +43,26 @@ const articleStructuredData = {
   },
   publisher: {
     '@type': 'Organization',
-    name: 'Car Checker',
+    name: 'EscaneApp',
     url: 'https://carchecker.kodiquett.com',
   },
 };
 
+const PUNTOS_REVISION = [
+  { id: 'carroceria', num: '1', title: 'Carrocería y pintura' },
+  { id: 'vidrios-luces', num: '2', title: 'Vidrios, espejos y luces' },
+  { id: 'neumaticos', num: '3', title: 'Neumáticos y ruedas' },
+  { id: 'motor', num: '4', title: 'Motor y fluidos' },
+  { id: 'transmision', num: '5', title: 'Transmisión y comportamiento mecánico' },
+  { id: 'interior', num: '6', title: 'Interior y equipamiento' },
+  { id: 'electrico', num: '7', title: 'Sistema eléctrico y tablero' },
+  { id: 'prueba-ruta', num: '8', title: 'Prueba de ruta' },
+  { id: 'documentacion', num: '9', title: 'Documentación y antecedentes' },
+];
+
 export default function QueRevisarCarroUsadoPage() {
   return (
-    <main className="w-full bg-white">
+    <main className="w-full bg-[#F7F9FA] min-h-screen text-[#17212B]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -50,409 +70,493 @@ export default function QueRevisarCarroUsadoPage() {
         }}
       />
 
-      <article className="max-w-4xl mx-auto px-5 sm:px-6 py-10 md:py-16">
-
-        {/* Encabezado */}
-        <header className="mb-10">
-          <p className="text-sm font-mono font-semibold text-[#166534] mb-3">
-            GUÍA CAR CHECKER
-          </p>
-
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-[#0F1B2B] leading-tight mb-5">
-            Qué revisar en un carro usado antes de comprarlo
-          </h1>
-
-          <p className="text-lg md:text-xl text-slate-600 leading-8">
-            Antes de comprar un vehículo usado conviene revisar diferentes
-            componentes y no concentrarse únicamente en su apariencia. Esta
-            guía presenta los principales puntos que puedes verificar durante
-            una revisión preliminar.
-          </p>
-        </header>
-
-        {/* Introducción */}
-        <section className="mb-10">
-          <p className="text-slate-700 leading-8 mb-5">
-            Un vehículo puede presentar un buen aspecto exterior y, al mismo
-            tiempo, tener elementos que requieren atención. Por eso es útil
-            realizar una revisión ordenada que incluya la carrocería, el
-            compartimiento del motor, el interior, los neumáticos, los
-            sistemas visibles y su documentación.
-          </p>
-
-          <p className="text-slate-700 leading-8">
-            Esta revisión tiene carácter preliminar. Una evaluación visual no
-            permite determinar por sí sola el estado interno de todos los
-            sistemas del vehículo.
-          </p>
-        </section>
-
-        {/* Índice */}
-        <nav
-          aria-label="Contenido de la guía"
-          className="rounded-xl border border-slate-200 bg-slate-50 p-6 mb-12"
-        >
-          <h2 className="text-lg font-bold text-[#0F1B2B] mb-4">
-            Qué revisar
-          </h2>
-
-          <ol className="space-y-2 text-sm text-slate-700 list-decimal list-inside">
+      <article className="max-w-4xl mx-auto px-4 sm:px-6 py-8 md:py-14">
+        {/* Migas de pan */}
+        <nav aria-label="Migas de pan" className="mb-6">
+          <ol className="flex flex-wrap items-center gap-2 text-xs text-[#66727D]">
             <li>
-              <a href="#carroceria" className="hover:underline">
-                Carrocería y pintura
-              </a>
+              <Link href="/" className="hover:text-[#123B5D] transition-colors font-medium">
+                Inicio
+              </Link>
+            </li>
+            <li aria-hidden="true" className="text-slate-300">
+              /
             </li>
             <li>
-              <a href="#vidrios-luces" className="hover:underline">
-                Vidrios, espejos y luces
-              </a>
-            </li>
-            <li>
-              <a href="#neumaticos" className="hover:underline">
-                Neumáticos y ruedas
-              </a>
-            </li>
-            <li>
-              <a href="#motor" className="hover:underline">
-                Motor y fluidos
-              </a>
-            </li>
-            <li>
-              <a href="#transmision" className="hover:underline">
-                Transmisión y comportamiento mecánico
-              </a>
-            </li>
-            <li>
-              <a href="#interior" className="hover:underline">
-                Interior y equipamiento
-              </a>
-            </li>
-            <li>
-              <a href="#electrico" className="hover:underline">
-                Sistema eléctrico y tablero
-              </a>
-            </li>
-            <li>
-              <a href="#prueba-ruta" className="hover:underline">
-                Prueba de ruta
-              </a>
-            </li>
-            <li>
-              <a href="#documentacion" className="hover:underline">
-                Documentación y antecedentes
-              </a>
+              <span className="text-[#17212B] font-bold">
+                Qué revisar en un carro usado
+              </span>
             </li>
           </ol>
         </nav>
 
-        {/* 1 */}
-        <section id="carroceria" className="mb-12 scroll-mt-24">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#0F1B2B] mb-4">
-            1. Carrocería y pintura
-          </h2>
-
-          <p className="text-slate-700 leading-8 mb-4">
-            Observa la carrocería con buena iluminación y desde diferentes
-            ángulos. El objetivo es identificar diferencias visibles entre las
-            distintas piezas.
-          </p>
-
-          <ul className="space-y-3 text-slate-700 leading-7 list-disc pl-6">
-            <li>Diferencias de color o tonalidad.</li>
-            <li>Golpes, rayones o abolladuras.</li>
-            <li>Desalineación entre paneles.</li>
-            <li>Señales visibles de reparación o repintado.</li>
-            <li>Estado de puertas, capó y baúl.</li>
-            <li>Corrosión visible.</li>
-          </ul>
-        </section>
-
-        {/* 2 */}
-        <section id="vidrios-luces" className="mb-12 scroll-mt-24">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#0F1B2B] mb-4">
-            2. Vidrios, espejos y luces
-          </h2>
-
-          <p className="text-slate-700 leading-8 mb-4">
-            Revisa visualmente los elementos exteriores que intervienen en la
-            visibilidad y señalización del vehículo.
-          </p>
-
-          <ul className="space-y-3 text-slate-700 leading-7 list-disc pl-6">
-            <li>Estado del parabrisas y demás vidrios.</li>
-            <li>Grietas o impactos visibles.</li>
-            <li>Estado de los espejos.</li>
-            <li>Faros delanteros.</li>
-            <li>Luces traseras y direccionales.</li>
-            <li>Luces de freno y reversa.</li>
-          </ul>
-        </section>
-
-        {/* 3 */}
-        <section id="neumaticos" className="mb-12 scroll-mt-24">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#0F1B2B] mb-4">
-            3. Neumáticos y ruedas
-          </h2>
-
-          <p className="text-slate-700 leading-8 mb-4">
-            Los neumáticos permiten observar algunas condiciones relacionadas
-            con el desgaste y el mantenimiento del vehículo.
-          </p>
-
-          <ul className="space-y-3 text-slate-700 leading-7 list-disc pl-6">
-            <li>Desgaste de la banda de rodamiento.</li>
-            <li>Desgaste irregular.</li>
-            <li>Daños visibles en los neumáticos.</li>
-            <li>Estado de los rines.</li>
-            <li>Presencia de golpes o deformaciones visibles.</li>
-            <li>Estado de la llanta de repuesto, si aplica.</li>
-          </ul>
-        </section>
-
-        {/* 4 */}
-        <section id="motor" className="mb-12 scroll-mt-24">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#0F1B2B] mb-4">
-            4. Motor y fluidos
-          </h2>
-
-          <p className="text-slate-700 leading-8 mb-4">
-            La inspección visual del compartimiento del motor puede ayudar a
-            identificar algunas señales que requieren una revisión más
-            profunda.
-          </p>
-
-          <ul className="space-y-3 text-slate-700 leading-7 list-disc pl-6">
-            <li>Fugas visibles.</li>
-            <li>Estado aparente de mangueras y conexiones.</li>
-            <li>Condición visible de depósitos y niveles.</li>
-            <li>Estado de la batería.</li>
-            <li>Ruidos anormales durante el encendido.</li>
-            <li>Humo o emisiones visibles fuera de lo esperado.</li>
-          </ul>
-
-          <div className="rounded-xl border-l-4 border-[#166534] bg-slate-50 p-5 mt-5">
-            <p className="text-slate-700 leading-7">
-              <strong>Importante:</strong> una inspección visual no permite
-              determinar por sí sola el estado interno del motor. Los
-              problemas mecánicos requieren una evaluación técnica adecuada.
-            </p>
+        {/* Encabezado */}
+        <header className="mb-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#123B5D]/10 text-[#123B5D] font-mono font-bold text-xs mb-3">
+            <ShieldCheck className="w-3.5 h-3.5 text-[#123B5D]" />
+            <span>GUÍA ESCANEAPP · INSPECCIÓN TÉCNICA</span>
           </div>
-        </section>
 
-        {/* 5 */}
-        <section id="transmision" className="mb-12 scroll-mt-24">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#0F1B2B] mb-4">
-            5. Transmisión y comportamiento mecánico
-          </h2>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#17212B] leading-tight mb-4">
+            Qué revisar en un carro usado antes de comprarlo
+          </h1>
 
-          <p className="text-slate-700 leading-8 mb-4">
-            Durante la conducción presta atención al comportamiento general
-            del vehículo y a cualquier señal que se aparte de su funcionamiento
-            esperado.
+          <p className="text-base sm:text-lg text-[#66727D] leading-relaxed max-w-3xl">
+            Antes de comprar un vehículo usado conviene revisar diferentes componentes y no concentrarse únicamente en su apariencia. Esta guía presenta los principales puntos que puedes verificar durante una revisión preliminar.
           </p>
+        </header>
 
-          <ul className="space-y-3 text-slate-700 leading-7 list-disc pl-6">
-            <li>Cambios de marcha.</li>
-            <li>Ruidos o vibraciones.</li>
-            <li>Respuesta durante la aceleración.</li>
-            <li>Comportamiento de la dirección.</li>
-            <li>Respuesta del sistema de frenos.</li>
-            <li>Comportamiento de la suspensión.</li>
-          </ul>
-        </section>
-
-        {/* 6 */}
-        <section id="interior" className="mb-12 scroll-mt-24">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#0F1B2B] mb-4">
-            6. Interior y equipamiento
-          </h2>
-
-          <p className="text-slate-700 leading-8 mb-4">
-            El habitáculo también debe formar parte de la revisión. Además
-            del estado estético, verifica el funcionamiento de los elementos
-            que puedas probar.
+        {/* Introducción */}
+        <section className="mb-8 bg-white border border-[#CBD5E1] p-5 sm:p-6 rounded-2xl shadow-xs text-sm sm:text-base text-[#475569] leading-relaxed space-y-3">
+          <p>
+            Un vehículo puede presentar un buen aspecto exterior y, al mismo tiempo, tener elementos que requieren atención. Por eso es útil realizar una revisión ordenada que incluya la carrocería, el compartimiento del motor, el interior, los neumáticos, los sistemas visibles y su documentación.
           </p>
-
-          <ul className="space-y-3 text-slate-700 leading-7 list-disc pl-6">
-            <li>Estado de los asientos.</li>
-            <li>Desgaste del volante y pedales.</li>
-            <li>Cinturones de seguridad.</li>
-            <li>Vidrios eléctricos.</li>
-            <li>Seguros y cerraduras.</li>
-            <li>Sistema de climatización.</li>
-            <li>Sistema multimedia.</li>
-            <li>Controles del vehículo.</li>
-          </ul>
-        </section>
-
-        {/* 7 */}
-        <section id="electrico" className="mb-12 scroll-mt-24">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#0F1B2B] mb-4">
-            7. Sistema eléctrico y tablero
-          </h2>
-
-          <p className="text-slate-700 leading-8 mb-4">
-            Al encender el vehículo, observa el comportamiento del tablero y
-            verifica los sistemas eléctricos que puedan probarse.
-          </p>
-
-          <ul className="space-y-3 text-slate-700 leading-7 list-disc pl-6">
-            <li>Testigos del tablero.</li>
-            <li>Indicadores de funcionamiento.</li>
-            <li>Luces interiores.</li>
-            <li>Claxon.</li>
-            <li>Controles eléctricos.</li>
-            <li>Equipamiento disponible en el vehículo.</li>
-          </ul>
-        </section>
-
-        {/* 8 */}
-        <section id="prueba-ruta" className="mb-12 scroll-mt-24">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#0F1B2B] mb-4">
-            8. Prueba de ruta
-          </h2>
-
-          <p className="text-slate-700 leading-8 mb-4">
-            Si las condiciones son adecuadas y el propietario permite realizar
-            la prueba, conduce el vehículo prestando atención a su
-            comportamiento.
-          </p>
-
-          <ul className="space-y-3 text-slate-700 leading-7 list-disc pl-6">
-            <li>Arranque y respuesta del motor.</li>
-            <li>Cambios de transmisión.</li>
-            <li>Dirección.</li>
-            <li>Frenado.</li>
-            <li>Suspensión.</li>
-            <li>Ruidos y vibraciones.</li>
-            <li>Comportamiento de los testigos.</li>
-          </ul>
-        </section>
-
-        {/* 9 */}
-        <section id="documentacion" className="mb-12 scroll-mt-24">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#0F1B2B] mb-4">
-            9. Documentación y antecedentes
-          </h2>
-
-          <p className="text-slate-700 leading-8 mb-4">
-            La revisión no debe limitarse al estado físico del automóvil.
-            También es importante comprobar la información disponible sobre
-            el vehículo mediante las fuentes oficiales y especializadas
-            correspondientes.
-          </p>
-
-          <p className="text-slate-700 leading-8">
-            Antes de avanzar con la compra, verifica que la información
-            suministrada por el vendedor sea coherente con los datos
-            disponibles y consulta las plataformas oficiales que correspondan.
+          <p className="text-xs sm:text-sm text-[#66727D]">
+            <strong className="text-[#17212B]">Nota:</strong> Esta revisión tiene carácter preliminar. Una evaluación visual no permite determinar por sí sola el estado interno de todos los sistemas del vehículo.
           </p>
         </section>
 
-        {/* Resumen */}
-        <section className="border-t border-slate-200 pt-10 mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#0F1B2B] mb-4">
-            Checklist rápido antes de comprar
-          </h2>
+        {/* Índice interactivo */}
+        <nav
+          aria-label="Contenido de la guía"
+          className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs mb-10"
+        >
+          <div className="flex items-center gap-2 mb-4">
+            <FileText className="w-4 h-4 text-[#123B5D]" />
+            <h2 className="text-base font-bold text-[#17212B]">
+              Puntos clave de revisión
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm">
+            {PUNTOS_REVISION.map((punto) => (
+              <a
+                key={punto.id}
+                href={`#${punto.id}`}
+                className="flex items-center gap-2.5 p-2 rounded-xl text-[#475569] hover:text-[#123B5D] hover:bg-[#F7F9FA] transition-colors"
+              >
+                <span className="w-5 h-5 rounded-md bg-[#123B5D]/10 text-[#123B5D] font-mono font-bold text-xs flex items-center justify-center shrink-0">
+                  {punto.num}
+                </span>
+                <span className="font-medium">{punto.title}</span>
+              </a>
+            ))}
+          </div>
+        </nav>
+
+        {/* Secciones de revisión */}
+        <div className="space-y-6">
+          {/* 1 */}
+          <section id="carroceria" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-4">
+            <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
+              <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
+                1
+              </span>
+              <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
+                Carrocería y pintura
+              </h2>
+            </div>
+
+            <p className="text-sm text-[#475569] leading-relaxed">
+              Observa la carrocería con buena iluminación natural y desde diferentes ángulos. El objetivo es identificar diferencias visibles entre las distintas piezas y uniones estructurales.
+            </p>
+
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+              {[
+                'Diferencias de color o tonalidad entre piezas.',
+                'Golpes, rayones o abolladuras en paneles.',
+                'Desalineación entre paneles, puertas y capó.',
+                'Señales visibles de masilla o repintado en filos.',
+                'Ajuste y cierre suave de puertas, capó y baúl.',
+                'Corrosión visible en guardabarros y parte inferior.',
+              ].map((item, idx) => (
+                <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-[#475569]">
+                  <CheckCircle2 className="w-4 h-4 text-[#2EAD68] shrink-0 mt-0.5" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          {/* 2 */}
+          <section id="vidrios-luces" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-4">
+            <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
+              <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
+                2
+              </span>
+              <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
+                Vidrios, espejos y luces
+              </h2>
+            </div>
+
+            <p className="text-sm text-[#475569] leading-relaxed">
+              Revisa visualmente los elementos exteriores que intervienen en la visibilidad y señalización del vehículo.
+            </p>
+
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+              {[
+                'Estado del parabrisas y sellos de fábrica.',
+                'Grietas, piquetes o impactos visibles en vidrios.',
+                'Estado y ajuste mecánico de espejos laterales.',
+                'Faros delanteros (sin opacidad ni humedad interna).',
+                'Luces traseras y direccionales operativas.',
+                'Luces de freno, reversa y exploradoras.',
+              ].map((item, idx) => (
+                <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-[#475569]">
+                  <CheckCircle2 className="w-4 h-4 text-[#2EAD68] shrink-0 mt-0.5" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          {/* 3 */}
+          <section id="neumaticos" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-4">
+            <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
+              <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
+                3
+              </span>
+              <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
+                Neumáticos y ruedas
+              </h2>
+            </div>
+
+            <p className="text-sm text-[#475569] leading-relaxed">
+              Los neumáticos permiten observar algunas condiciones clave relacionadas con el desgaste de suspensión y el mantenimiento preventivo del vehículo.
+            </p>
+
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+              {[
+                'Profundidad de la banda de rodamiento (> 1.6 mm).',
+                'Desgaste irregular (posible desalineación).',
+                'Huevos, grietas o cortes en los costados.',
+                'Estado general y rayones en los rines.',
+                'Presencia de golpes o deformaciones en pestañas.',
+                'Estado y presión de la llanta de repuesto.',
+              ].map((item, idx) => (
+                <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-[#475569]">
+                  <CheckCircle2 className="w-4 h-4 text-[#2EAD68] shrink-0 mt-0.5" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          {/* 4 */}
+          <section id="motor" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-4">
+            <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
+              <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
+                4
+              </span>
+              <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
+                Motor y fluidos
+              </h2>
+            </div>
+
+            <p className="text-sm text-[#475569] leading-relaxed">
+              La inspección visual del compartimiento del motor puede ayudar a identificar fugas de aceite o refrigerante antes de avanzar en la negociación.
+            </p>
+
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+              {[
+                'Fugas visibles de aceite en tapa de válvulas o cárter.',
+                'Estado aparente de mangueras, correas y abrazaderas.',
+                'Condición y color de depósitos de refrigerante y frenos.',
+                'Estado y sulfatación en bornes de la batería.',
+                'Ruidos anormales o traqueteos durante el encendido.',
+                'Humo azul, blanco o negro visible en el escape.',
+              ].map((item, idx) => (
+                <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-[#475569]">
+                  <CheckCircle2 className="w-4 h-4 text-[#2EAD68] shrink-0 mt-0.5" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="rounded-xl border border-amber-200 bg-amber-50/80 p-4 flex items-start gap-3 mt-3">
+              <AlertTriangle className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
+              <p className="text-xs text-amber-900 leading-relaxed">
+                <strong>Importante:</strong> una inspección visual no permite determinar por sí sola la compresión ni el estado interno del motor. Los ruidos mecánicos requieren una evaluación técnica especializada.
+              </p>
+            </div>
+          </section>
+
+          {/* 5 */}
+          <section id="transmision" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-4">
+            <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
+              <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
+                5
+              </span>
+              <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
+                Transmisión y comportamiento mecánico
+              </h2>
+            </div>
+
+            <p className="text-sm text-[#475569] leading-relaxed">
+              Durante la conducción presta atención al tacto de la caja de cambios y a cualquier respuesta anormal de embrague o dirección.
+            </p>
+
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+              {[
+                'Suavidad y precisión en cambios de marcha.',
+                'Punto de corte y dureza del pedal de embrague.',
+                'Tirones o retardos en cajas automáticas.',
+                'Comportamiento y alineación de la dirección.',
+                'Respuesta, firmeza y ausencia de ruidos al frenar.',
+                'Comportamiento firme y sin rebotes de la suspensión.',
+              ].map((item, idx) => (
+                <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-[#475569]">
+                  <CheckCircle2 className="w-4 h-4 text-[#2EAD68] shrink-0 mt-0.5" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          {/* 6 */}
+          <section id="interior" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-4">
+            <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
+              <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
+                6
+              </span>
+              <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
+                Interior y equipamiento
+              </h2>
+            </div>
+
+            <p className="text-sm text-[#475569] leading-relaxed">
+              El habitáculo debe formar parte de la revisión. Además del estado estético, verifica el funcionamiento de cada botón y accesorio.
+            </p>
+
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+              {[
+                'Estado de tapicería de asientos y techo.',
+                'Desgaste del volante, pomo de cambios y pedales.',
+                'Retracción y anclaje de cinturones de seguridad.',
+                'Elevavidrios eléctricos en las 4 puertas.',
+                'Seguros eléctricos y cierre centralizado.',
+                'Eficiencia del aire acondicionado y calefacción.',
+              ].map((item, idx) => (
+                <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-[#475569]">
+                  <CheckCircle2 className="w-4 h-4 text-[#2EAD68] shrink-0 mt-0.5" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          {/* 7 */}
+          <section id="electrico" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-4">
+            <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
+              <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
+                7
+              </span>
+              <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
+                Sistema eléctrico y tablero
+              </h2>
+            </div>
+
+            <p className="text-sm text-[#475569] leading-relaxed">
+              Al colocar el switch en ignición, observa que todos los testigos enciendan y que se apaguen de manera normal tras el arranque.
+            </p>
+
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+              {[
+                'Testigos de Check Engine, ABS y Airbag.',
+                'Indicadores de temperatura y nivel de combustible.',
+                'Luces de cortesía interior y mandos de volante.',
+                'Funcionamiento del claxon o pito.',
+                'Limpiaparabrisas y chisgueteros de agua.',
+                'Conectores USB, toma de 12V y pantalla central.',
+              ].map((item, idx) => (
+                <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-[#475569]">
+                  <CheckCircle2 className="w-4 h-4 text-[#2EAD68] shrink-0 mt-0.5" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          {/* 8 */}
+          <section id="prueba-ruta" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-4">
+            <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
+              <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
+                8
+              </span>
+              <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
+                Prueba de ruta
+              </h2>
+            </div>
+
+            <p className="text-sm text-[#475569] leading-relaxed">
+              Si las condiciones son seguras y el propietario lo autoriza, conduce el vehículo por diferentes tipos de vía prestando atención a su respuesta.
+            </p>
+
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+              {[
+                'Arranque en frío y estabilidad en ralentí.',
+                'Respuesta de aceleración en subidas y sobrepasos.',
+                'Centrado del volante al soltarlo levemente.',
+                'Frenado en línea recta sin jaloneos laterales.',
+                'Ausencia de golpeteos al pasar por reductores.',
+                'Comportamiento térmico durante el recorrido.',
+              ].map((item, idx) => (
+                <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-[#475569]">
+                  <CheckCircle2 className="w-4 h-4 text-[#2EAD68] shrink-0 mt-0.5" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          {/* 9 */}
+          <section id="documentacion" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-4">
+            <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
+              <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
+                9
+              </span>
+              <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
+                Documentación y antecedentes
+              </h2>
+            </div>
+
+            <p className="text-sm text-[#475569] leading-relaxed">
+              La revisión no debe limitarse al estado físico del automóvil. Comprobar la información legal mediante fuentes oficiales previene estafas y bloqueos de traspaso.
+            </p>
+
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+              {[
+                'Tarjeta de propiedad original (sin tachones).',
+                'Vigencia y autenticidad del SOAT en RUNT.',
+                'Revisión técnico-mecánica vigente en CDA.',
+                'Paz y salvo de impuestos distritales y departamentales.',
+                'Inexistencia de multas pendientes en SIMIT.',
+                'Certificado de tradición libre de embargos o prendas.',
+              ].map((item, idx) => (
+                <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-[#475569]">
+                  <CheckCircle2 className="w-4 h-4 text-[#2EAD68] shrink-0 mt-0.5" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </div>
+
+        {/* Checklist rápido resumido */}
+        <section className="my-12 bg-white rounded-2xl border border-[#CBD5E1] p-6 sm:p-8 shadow-xs">
+          <div className="flex items-center gap-2 mb-2">
+            <CheckSquare className="w-5 h-5 text-[#123B5D]" />
+            <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
+              Checklist rápido antes de comprar
+            </h2>
+          </div>
+          <p className="text-xs sm:text-sm text-[#66727D] mb-5">
+            Comprueba que hayas completado cada una de las 12 verificaciones clave:
+          </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {[
-              'Datos básicos del vehículo',
-              'Kilometraje',
-              'Carrocería y pintura',
-              'Vidrios y luces',
-              'Neumáticos y ruedas',
-              'Motor y fluidos',
-              'Transmisión',
-              'Interior y equipamiento',
-              'Sistema eléctrico',
-              'Prueba de ruta',
-              'Documentación',
-              'Antecedentes',
-            ].map((item) => (
+              'Datos básicos y número de serie (VIN)',
+              'Kilometraje real vs desgaste en cabina',
+              'Carrocería, pintura y alineación de paneles',
+              'Vidrios, faros y señalización exterior',
+              'Neumáticos, rines y llanta de repuesto',
+              'Motor, fugas de fluidos y refrigerante',
+              'Transmisión, embrague y dirección',
+              'Interior, habitáculo y climatización',
+              'Sistema eléctrico y testigos de tablero',
+              'Prueba de ruta en frío y caliente',
+              'SOAT, Tecnomecánica e Impuestos pagos',
+              'Historial de siniestros y antecedentes RUNT',
+            ].map((item, idx) => (
               <div
-                key={item}
-                className="flex items-center gap-3 rounded-lg border border-slate-200 p-4"
+                key={idx}
+                className="flex items-center gap-3 rounded-xl border border-[#CBD5E1] bg-[#F7F9FA] p-3.5 hover:border-[#123B5D]/40 transition-colors"
               >
-                <span className="w-5 h-5 rounded border border-slate-300 shrink-0" />
-                <span className="text-sm text-slate-700">{item}</span>
+                <div className="w-5 h-5 rounded-md bg-white border border-[#CBD5E1] flex items-center justify-center shrink-0">
+                  <span className="w-2 h-2 rounded-xs bg-[#2EAD68]" />
+                </div>
+                <span className="text-xs sm:text-sm font-medium text-[#17212B]">{item}</span>
               </div>
             ))}
           </div>
         </section>
 
-        <section className="border-t border-[#E2E8F0] pt-10 mb-12">
-  <span className="text-xs font-mono uppercase tracking-wider text-[#64748B]">
-    Más información
-  </span>
+        {/* Enlaces relacionados */}
+        <section className="border-t border-[#CBD5E1] pt-10 mb-12">
+          <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#66727D] block mb-1">
+            RECURSOS RELACIONADOS
+          </span>
 
-  <h2 className="text-2xl font-bold text-[#0F1B2B] mt-2 mb-6">
-    También te puede interesar
-  </h2>
-
-  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-    <Link
-      href="/como-revisar-carro-usado"
-      className="border border-[#E2E8F0] rounded-xl p-5 hover:border-[#0F1B2B] transition-colors"
-    >
-      <h3 className="font-bold text-[#0F1B2B] mb-2">
-        Cómo revisar en un carro usado
-      </h3>
-      <p className="text-sm text-[#475569] leading-6">
-        Consulta los principales componentes que debes revisar.
-      </p>
-    </Link>
-
-    <Link
-      href="/kilometraje-carro-usado"
-      className="border border-[#E2E8F0] rounded-xl p-5 hover:border-[#0F1B2B] transition-colors"
-    >
-      <h3 className="font-bold text-[#0F1B2B] mb-2">
-        Cómo revisar el kilometraje
-      </h3>
-      <p className="text-sm text-[#475569] leading-6">
-        Aprende a interpretar el kilometraje de un vehículo usado.
-      </p>
-    </Link>
-
-    <Link
-      href="/antecedentes-vehiculo-colombia"
-      className="border border-[#E2E8F0] rounded-xl p-5 hover:border-[#0F1B2B] transition-colors"
-    >
-      <h3 className="font-bold text-[#0F1B2B] mb-2">
-        Antecedentes del vehículo
-      </h3>
-      <p className="text-sm text-[#475569] leading-6">
-        Conoce qué información consultar antes de comprar.
-      </p>
-    </Link>
-  </div>
-</section>
-
-        {/* CTA */}
-        <section className="rounded-2xl bg-[#0F1B2B] px-6 py-8 md:px-10 md:py-10 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
-            Organiza tu revisión con Car Checker
+          <h2 className="text-xl sm:text-2xl font-bold text-[#17212B] mb-6">
+            También te puede interesar
           </h2>
 
-          <p className="text-slate-300 leading-7 mb-6 max-w-2xl mx-auto">
-            Utiliza nuestra herramienta para registrar los principales
-            aspectos de la revisión preliminar de un vehículo usado.
-          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <Link
+              href="/como-revisar-carro-usado"
+              className="bg-white border border-[#CBD5E1] rounded-2xl p-5 hover:border-[#123B5D] hover:shadow-xs transition-all group"
+            >
+              <h3 className="font-bold text-sm text-[#17212B] mb-1.5 group-hover:text-[#123B5D] transition-colors">
+                Cómo revisar un carro usado
+              </h3>
+              <p className="text-xs text-[#66727D] leading-relaxed">
+                Metodología paso a paso antes de acudir a un peritaje.
+              </p>
+            </Link>
 
-          <Link
-            href="/evaluacion"
-            className="inline-flex items-center justify-center px-6 h-11 rounded-lg bg-white text-[#0F1B2B] text-sm font-semibold hover:bg-slate-100 transition-colors"
-          >
-            Iniciar evaluación
-          </Link>
+            <Link
+              href="/kilometraje-carro-usado"
+              className="bg-white border border-[#CBD5E1] rounded-2xl p-5 hover:border-[#123B5D] hover:shadow-xs transition-all group"
+            >
+              <h3 className="font-bold text-sm text-[#17212B] mb-1.5 group-hover:text-[#123B5D] transition-colors">
+                Cómo revisar el kilometraje
+              </h3>
+              <p className="text-xs text-[#66727D] leading-relaxed">
+                Aprende a interpretar el kilometraje real acumulado.
+              </p>
+            </Link>
+
+            <Link
+              href="/cuanto-cuesta-mantener-carro-usado-colombia"
+              className="bg-white border border-[#CBD5E1] rounded-2xl p-5 hover:border-[#123B5D] hover:shadow-xs transition-all group"
+            >
+              <h3 className="font-bold text-sm text-[#17212B] mb-1.5 group-hover:text-[#123B5D] transition-colors">
+                Calculadora de costos de tenencia
+              </h3>
+              <p className="text-xs text-[#66727D] leading-relaxed">
+                Calcula gasolina, SOAT, impuestos y mantenimiento.
+              </p>
+            </Link>
+          </div>
         </section>
 
-        {/* Aviso */}
-        <p className="text-xs text-slate-500 leading-6 mt-8">
-          <strong>Aviso:</strong> Esta información tiene carácter general y
-          orientativo. Car Checker no sustituye un peritaje, diagnóstico o
-          inspección técnica profesional del vehículo.
+        {/* CTA Banner */}
+        <section className="rounded-2xl bg-[#123B5D] px-6 py-10 sm:px-12 sm:py-12 text-center text-white shadow-md mb-8">
+          <div className="max-w-xl mx-auto space-y-4">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-snug">
+              Organiza tu revisión con EscaneApp
+            </h2>
+
+            <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
+              Utiliza nuestra herramienta interactiva para evaluar el vehículo, detectar alertas de riesgo y estimar costos en minutos.
+            </p>
+
+            <div className="pt-2">
+              <Link
+                href="/evaluacion"
+                className="inline-flex items-center justify-center gap-2 px-7 h-12 rounded-xl bg-[#8BCF3F] hover:bg-[#7ab837] text-[#123B5D] text-sm font-extrabold transition-all shadow-sm active:scale-98"
+              >
+                <span>Iniciar evaluación</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Aviso Legal */}
+        <p className="text-[11px] text-[#66727D] leading-relaxed text-center sm:text-left">
+          <strong>Aviso de orientación:</strong> Esta información tiene carácter general y orientativo. EscaneApp no sustituye un peritaje, diagnóstico mecánico especializado o inspección técnica profesional del vehículo.
         </p>
       </article>
     </main>

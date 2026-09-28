@@ -13,17 +13,17 @@ const alertVariants = cva(
     variants: {
       variant: {
         default:
-          'bg-[#F8FAFC] border-[#E2E8F0] text-[#0F1B2B] [&>svg]:text-[#0F1B2B]',
+          'bg-[#F7F9FA] border-[#E2E8F0] text-[#17212B] [&>svg]:text-[#123B5D]',
         info:
-          'bg-[#F1F5F9] border-[#CBD5E1] text-[#334155] [&>svg]:text-[#0F1B2B]',
+          'bg-[#EFF6FF] border-[#BFDBFE] text-[#1E3A8A] [&>svg]:text-[#3578B8]',
         success:
-          'bg-[#F0FDF4] border-[#BBF7D0] text-[#166534] [&>svg]:text-[#166534]',
+          'bg-[#F0FDF4] border-[#BBF7D0] text-[#166534] [&>svg]:text-[#2EAD68]',
         warning:
-          'bg-[#FFFBEB] border-[#FDE68A] text-[#92400E] [&>svg]:text-[#D97706]',
+          'bg-[#FFFBEB] border-[#FDE68A] text-[#92400E] [&>svg]:text-[#E5A72B]',
         destructive:
-          'bg-[#FEF2F2] border-[#FECACA] text-[#991B1B] [&>svg]:text-[#DC2626]',
+          'bg-[#FEF2F2] border-[#FECACA] text-[#991B1B] [&>svg]:text-[#D64545]',
         descarte:
-          'bg-[#FEF2F2] border-[#DC2626] text-[#7F1D1D] [&>svg]:text-[#DC2626] ring-1 ring-[#DC2626]',
+          'bg-[#FEF2F2] border-[#D64545] text-[#7F1D1D] [&>svg]:text-[#D64545] ring-1 ring-[#D64545]',
       },
     },
     defaultVariants: {
@@ -95,32 +95,32 @@ const TIPO_CONFIG: Record<
 > = {
   info: {
     variant: 'info',
-    badgeClass: 'bg-white text-[#0F1B2B] border border-[#CBD5E1]',
-    iconClass: 'text-[#0F1B2B]',
+    badgeClass: 'bg-white text-[#3578B8] border border-[#BFDBFE]',
+    iconClass: 'text-[#3578B8]',
     Icon: Info,
   },
   exito: {
     variant: 'success',
-    badgeClass: 'bg-white text-[#166534] border border-[#BBF7D0]',
-    iconClass: 'text-[#166534]',
+    badgeClass: 'bg-white text-[#2EAD68] border border-[#BBF7D0]',
+    iconClass: 'text-[#2EAD68]',
     Icon: CheckCircle2,
   },
   advertencia: {
     variant: 'warning',
-    badgeClass: 'bg-white text-[#D97706] border border-[#FDE68A]',
-    iconClass: 'text-[#D97706]',
+    badgeClass: 'bg-white text-[#E5A72B] border border-[#FDE68A]',
+    iconClass: 'text-[#E5A72B]',
     Icon: AlertTriangle,
   },
   peligro: {
     variant: 'destructive',
-    badgeClass: 'bg-white text-[#DC2626] border border-[#FECACA]',
-    iconClass: 'text-[#DC2626]',
+    badgeClass: 'bg-white text-[#D64545] border border-[#FECACA]',
+    iconClass: 'text-[#D64545]',
     Icon: AlertCircle,
   },
   descarte: {
     variant: 'descarte',
-    badgeClass: 'bg-[#DC2626] text-white font-bold',
-    iconClass: 'text-[#DC2626]',
+    badgeClass: 'bg-[#D64545] text-white font-bold',
+    iconClass: 'text-[#D64545]',
     Icon: OctagonAlert,
   },
 };

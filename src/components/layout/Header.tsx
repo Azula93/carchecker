@@ -1,98 +1,242 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { RotateCcw } from 'lucide-react';
+import { RotateCcw, Menu, X, ArrowRight } from 'lucide-react';
+import { EscaneAppLogo } from '../ui/EscaneAppLogo';
 
 interface HeaderProps {
   onReiniciar?: () => void;
   mostrarReiniciar?: boolean;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onReiniciar, mostrarReiniciar = false }) => {
+export const Header: React.FC<HeaderProps> = ({
+  onReiniciar,
+  mostrarReiniciar = false,
+}) => {
   const pathname = usePathname();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const isEvaluacion = pathname?.startsWith('/evaluacion');
+  const isInicio = pathname === '/';
+  const isCostos = pathname?.startsWith('/cuanto-cuesta-mantener');
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-[#E2E8F0] transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
-        {/* Brand Logo with Official Brand Image */}
-        <Link href="/" className="flex items-center gap-2.5 group focus:outline-none" aria-label="Ir al inicio de Car Checker">
-          <div className="relative h-10 w-auto flex items-center">
-            <Image
-              src="/logo-horizontal.png"
-              alt="Car Checker Colombia"
-              width={180}
-              height={36}
-              priority
-              className="h-9 w-auto object-contain transition-transform group-hover:scale-102"
-            />
-          </div>
-          <span className="hidden sm:inline-block text-[10px] font-semibold tracking-wider uppercase px-2 py-0.5 rounded bg-[#F1F5F9] text-[#64748B] border border-[#E2E8F0]">
-            Colombia
-          </span>
+    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-[#E2E8F0] transition-colors">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between gap-4">
+        {/* Brand Logo EscaneApp */}
+        <Link
+          href="/"
+          className="flex items-center gap-2 group focus:outline-none shrink-0"
+          aria-label="Ir al inicio de EscaneApp"
+        >
+          <EscaneAppLogo size="md" />
         </Link>
 
-        {/* Navigation links for Desktop */}
+        {/* Desktop Navigation Links */}
         {!isEvaluacion ? (
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+          <nav className="hidden lg:flex items-center gap-1.5 xl:gap-2 text-[13px] font-medium text-[#66727D]">
             <Link
               href="/"
-              className="text-[#0F1B2B] font-semibold hover:text-[#0F1B2B] transition-colors"
+              className={`px-3 py-1.5 rounded-full transition-all duration-150 ${
+                isInicio
+                  ? 'bg-[#EBF3FA] text-[#123B5D] font-bold shadow-2xs'
+                  : 'hover:text-[#123B5D] hover:bg-slate-100/70'
+              }`}
             >
               Inicio
             </Link>
             <Link
+              href="/evaluacion"
+              className="px-3 py-1.5 rounded-full hover:text-[#123B5D] hover:bg-slate-100/70 transition-all duration-150"
+            >
+              Evaluar vehículo
+            </Link>
+            <Link
+              href="/cuanto-cuesta-mantener-carro-usado-colombia"
+              className={`px-3 py-1.5 rounded-full transition-all duration-150 ${
+                isCostos
+                  ? 'bg-[#EBF3FA] text-[#123B5D] font-bold shadow-2xs'
+                  : 'hover:text-[#123B5D] hover:bg-slate-100/70'
+              }`}
+            >
+              Costos
+            </Link>
+            <Link
+              href="/#guias"
+              className="px-3 py-1.5 rounded-full hover:text-[#123B5D] hover:bg-slate-100/70 transition-all duration-150"
+            >
+              Guías
+            </Link>
+            <Link
               href="/#metodologia"
-              className="hover:text-[#0F1B2B] transition-colors py-1 cursor-pointer"
+              className="px-3 py-1.5 rounded-full hover:text-[#123B5D] hover:bg-slate-100/70 transition-all duration-150"
             >
-              Metodología de Inspección
-            </Link>
-            <Link
-              href="/#antecedentes"
-              className="text-[#64748B] hover:text-[#0F1B2B] transition-colors"
-            >
-              Antecedentes
-            </Link>
-            <Link
-              href="/#aviso-legal"
-              className="text-[#64748B] hover:text-[#0F1B2B] transition-colors"
-            >
-              Aviso legal
+              Metodología
             </Link>
           </nav>
         ) : (
-          <div className="flex items-center gap-2 text-xs text-[#64748B]">
-            <span className="font-medium text-[#0F1B2B]">Revisión preliminar en curso</span>
+          <div className="flex items-center gap-3 sm:gap-6">
+            {/* Status Capsule: Bases de datos oficiales en línea */}
+            <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#EBF3FA] text-[#123B5D] text-xs font-semibold border border-[#D5E6F5]">
+              <span className="w-2 h-2 rounded-full bg-[#2EAD68] animate-pulse"></span>
+              <span>Bases de datos oficiales en línea</span>
+            </div>
+
+            {/* Navigation tabs in evaluation */}
+            <nav className="hidden md:flex items-center gap-2 text-xs font-medium">
+              <Link
+                href="/"
+                className="px-3 py-1.5 rounded-lg text-[#66727D] hover:text-[#123B5D] hover:bg-slate-100 transition-colors"
+              >
+                Inicio
+              </Link>
+              <span className="px-3 py-1.5 rounded-xl bg-[#123B5D] text-white font-bold shadow-2xs">
+                Diagnóstico
+              </span>
+              <Link
+                href="/cuanto-cuesta-mantener-carro-usado-colombia"
+                className="px-3 py-1.5 rounded-lg text-[#66727D] hover:text-[#123B5D] hover:bg-slate-100 transition-colors"
+              >
+                Calculadora
+              </Link>
+              <Link
+                href="/#guias"
+                className="px-3 py-1.5 rounded-lg text-[#66727D] hover:text-[#123B5D] hover:bg-slate-100 transition-colors"
+              >
+                Guías
+              </Link>
+            </nav>
           </div>
         )}
 
-        {/* Action Buttons */}
-        <div className="flex items-center gap-3">
-          {mostrarReiniciar && onReiniciar && (
+        {/* Right CTA & Controls */}
+        <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+          {isEvaluacion && (
+            <div className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#F0FDF4] border border-[#BBF7D0] text-[#166534] text-xs font-semibold">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#2EAD68]"></span>
+              <span>Guardado automático</span>
+            </div>
+          )}
+
+          {!isEvaluacion && (
+            <Link
+              href="/#como-funciona"
+              className="hidden md:inline-flex text-[13px] font-medium text-[#123B5D] hover:text-[#0E2F4B] transition-colors py-1.5"
+            >
+              ¿Cómo funciona?
+            </Link>
+          )}
+
+          {isEvaluacion && onReiniciar && (
             <button
               onClick={onReiniciar}
-              className="text-xs font-semibold text-[#DC2626] hover:text-[#B91C1C] bg-[#FEF2F2] hover:bg-[#FEE2E2] border border-[#FECACA] px-3 py-2 rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs active:scale-95"
-              title="Borrar datos y reiniciar evaluación"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#8BCF3F] text-[#17212B] hover:bg-[#7EC134] text-xs font-bold transition-all shadow-xs active:scale-95"
+              title="Borrar datos y comenzar un nuevo escaneo"
             >
               <RotateCcw className="w-3.5 h-3.5" />
-              <span className="hidden xs:inline">Reiniciar</span>
+              <span>Nuevo Escaneo</span>
             </button>
           )}
 
           {!isEvaluacion && (
             <Link
               href="/evaluacion"
-              className="inline-flex items-center justify-center gap-1.5 px-3 sm:px-4 h-10 rounded-lg bg-[#0F1B2B] text-white hover:bg-[#1A2B42] text-xs sm:text-sm font-semibold transition-all shadow-xs active:scale-98 shrink-0 whitespace-nowrap"
+              className="inline-flex items-center justify-center gap-1.5 px-4 sm:px-5 h-10 rounded-full bg-[#8BCF3F] text-[#17212B] hover:bg-[#7EC134] text-xs sm:text-sm font-bold shadow-xs hover:shadow transition-all duration-200 active:scale-98"
             >
-              <span>Evaluar un vehículo</span>
-              <span aria-hidden="true" className="font-mono">→</span>
+              <span>Escanear vehículo</span>
+              <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
             </Link>
+          )}
+
+          {/* User Icon Avatar circle */}
+          <div className="w-8 h-8 rounded-full bg-[#123B5D] text-white flex items-center justify-center shadow-2xs">
+            <span className="text-xs font-bold">E</span>
+          </div>
+
+          {/* Mobile Menu Button */}
+          {!isEvaluacion && (
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden p-2 rounded-lg text-[#123B5D] hover:bg-slate-100 transition-colors focus:outline-none"
+              aria-label="Abrir menú de navegación"
+            >
+              {mobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
           )}
         </div>
       </div>
+
+      {/* Mobile Drawer Navigation */}
+      {!isEvaluacion && mobileMenuOpen && (
+        <div className="lg:hidden border-t border-[#E2E8F0] bg-white px-4 pt-3 pb-6 space-y-2 shadow-lg animate-fadeIn">
+          <Link
+            href="/"
+            onClick={() => setMobileMenuOpen(false)}
+            className={`block px-4 py-2.5 rounded-lg text-sm ${
+              isInicio
+                ? 'bg-[#EBF3FA] text-[#123B5D] font-bold'
+                : 'text-[#17212B] hover:bg-slate-50 font-medium'
+            }`}
+          >
+            Inicio
+          </Link>
+          <Link
+            href="/evaluacion"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block px-4 py-2.5 rounded-lg text-sm text-[#17212B] hover:bg-slate-50 font-medium"
+          >
+            Evaluar vehículo
+          </Link>
+          <Link
+            href="/cuanto-cuesta-mantener-carro-usado-colombia"
+            onClick={() => setMobileMenuOpen(false)}
+            className={`block px-4 py-2.5 rounded-lg text-sm ${
+              isCostos
+                ? 'bg-[#EBF3FA] text-[#123B5D] font-bold'
+                : 'text-[#17212B] hover:bg-slate-50 font-medium'
+            }`}
+          >
+            Costos
+          </Link>
+          <Link
+            href="/#guias"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block px-4 py-2.5 rounded-lg text-sm text-[#17212B] hover:bg-slate-50 font-medium"
+          >
+            Guías
+          </Link>
+          <Link
+            href="/#metodologia"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block px-4 py-2.5 rounded-lg text-sm text-[#17212B] hover:bg-slate-50 font-medium"
+          >
+            Metodología
+          </Link>
+          <Link
+            href="/#como-funciona"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block px-4 py-2.5 rounded-lg text-sm text-[#17212B] hover:bg-slate-50 font-medium"
+          >
+            ¿Cómo funciona?
+          </Link>
+          <div className="pt-2">
+            <Link
+              href="/evaluacion"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-full bg-[#8BCF3F] text-[#17212B] font-bold text-sm shadow-xs"
+            >
+              <span>Escanear vehículo</span>
+              <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

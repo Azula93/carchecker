@@ -91,7 +91,7 @@ const faqStructuredData = {
 
 export default function CuantoCuestaMantenerCarroUsadoPage() {
   return (
-    <main className="w-full bg-[#F8FAFC]">
+    <main className="w-full bg-[#F7F9FA] min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -105,14 +105,14 @@ export default function CuantoCuestaMantenerCarroUsadoPage() {
         }}
       />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 md:py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         {/* ==================================================== */}
         {/* MIGAS DE PAN (Breadcrumbs)                           */}
         {/* ==================================================== */}
-        <nav aria-label="Migas de pan" className="mb-6">
-          <ol className="flex flex-wrap items-center gap-2 text-xs text-[#475569]">
+        <nav aria-label="Migas de pan" className="mb-6 print:hidden">
+          <ol className="flex flex-wrap items-center gap-2 text-xs text-[#66727D]">
             <li>
-              <Link href="/" className="hover:text-[#0F1B2B] transition-colors">
+              <Link href="/" className="hover:text-[#123B5D] transition-colors font-medium">
                 Inicio
               </Link>
             </li>
@@ -120,7 +120,7 @@ export default function CuantoCuestaMantenerCarroUsadoPage() {
               /
             </li>
             <li>
-              <span className="text-[#0F1B2B] font-medium">
+              <span className="text-[#17212B] font-bold">
                 Costo de mantener un carro usado
               </span>
             </li>
@@ -130,82 +130,81 @@ export default function CuantoCuestaMantenerCarroUsadoPage() {
         {/* ==================================================== */}
         {/* HERO                                                 */}
         {/* ==================================================== */}
-        <header className="mb-8">
-          <p className="text-xs sm:text-sm font-mono font-semibold text-[#166534] mb-2.5 tracking-wide">
-            GUÍA CAR CHECKER · COSTOS Y MANTENIMIENTO
-          </p>
+        <header className="mb-10 print:hidden">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#123B5D]/10 text-[#123B5D] font-mono font-bold text-xs mb-3">
+            <Calculator className="w-3.5 h-3.5 text-[#123B5D]" />
+            <span>GUÍA ESCANEAPP · COSTOS & MANTENIMIENTO TCO</span>
+          </div>
 
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-[#0F1B2B] leading-tight mb-4">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#17212B] leading-tight mb-4">
             ¿Cuánto cuesta mantener un carro usado en Colombia?
           </h1>
 
-          <p className="text-base sm:text-lg text-[#475569] leading-relaxed max-w-3xl">
-            Comprar un carro usado no significa únicamente pagar el precio de compra. Durante su tenencia y uso aparecen gastos obligatorios y operativos que debes presupuestar para no llevarte sorpresas.
+          <p className="text-base sm:text-lg text-[#66727D] leading-relaxed max-w-3xl">
+            Comprar un carro usado no significa únicamente pagar el precio de venta. Durante su tenencia y uso aparecen gastos obligatorios y operativos que debes presupuestar para no llevarte sorpresas.
           </p>
         </header>
 
         {/* ==================================================== */}
         {/* INTRODUCCIÓN BREVE                                  */}
         {/* ==================================================== */}
-        <section className="mb-8 text-sm sm:text-base text-slate-700 leading-relaxed space-y-3">
+        <section className="mb-10 text-sm sm:text-base text-[#475569] leading-relaxed space-y-3 bg-white border border-[#CBD5E1] p-5 sm:p-6 rounded-2xl shadow-xs print:hidden">
           <p>
-            El costo real de un vehículo depende de cuatro factores clave: las <strong>obligaciones legales</strong> (SOAT, impuesto y tecnomecánica), los <strong>gastos de uso</strong> (gasolina y parqueadero), el <strong>mantenimiento mecánico</strong> y la <strong>financiación</strong> si lo compras con crédito.
+            El costo real de un vehículo depende de cuatro factores clave: las <strong className="text-[#17212B]">obligaciones legales</strong> (SOAT, impuesto vehicular y tecnomecánica), los <strong className="text-[#17212B]">gastos directos de uso</strong> (gasolina oficial CREG, parqueadero, peajes y lavado), el <strong className="text-[#17212B]">mantenimiento preventivo e imprevistos</strong> y la <strong className="text-[#17212B]">financiación</strong> si adquieres el vehículo mediante crédito vehicular.
           </p>
         </section>
 
         {/* ==================================================== */}
         {/* ¿CUÁNTO ME VA A COSTAR REALMENTE? (Herramienta)     */}
         {/* ==================================================== */}
-        <section id="calculadora" className="scroll-mt-6 mb-14">
-          <div className="bg-white rounded-2xl border border-[#E2E8F0] p-5 sm:p-8 md:p-10 shadow-xs mb-8">
-            <div className="border-b border-[#E2E8F0] pb-6 mb-8">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F0FDF4] border border-[#BBF7D0] text-[#166534] text-xs font-mono font-semibold mb-3">
-                <Calculator className="w-3.5 h-3.5" />
-                <span>HERRAMIENTA INTERACTIVA DE COSTOS</span>
-              </div>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#0F1B2B]">
-                ¿Cuánto me va a costar realmente?
-              </h2>
-              <p className="text-xs sm:text-sm text-[#475569] mt-1.5 leading-relaxed max-w-2xl">
-                Calcula una estimación de los gastos que tendrás que asumir para usar y mantener un vehículo durante un año con tarifas oficiales vigentes y valores personalizables.
-              </p>
+        <section id="calculadora" className="scroll-mt-6 mb-16">
+          <div className="border-b border-[#E2E8F0] pb-4 mb-8 print:hidden">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8BCF3F]/20 text-[#123B5D] text-xs font-mono font-bold mb-2">
+              <span className="w-2 h-2 rounded-full bg-[#2EAD68] animate-pulse"></span>
+              <span>CALCULADORA INTERACTIVA DE COSTO TOTAL</span>
             </div>
-
-            {/* Componente Interactivo Central */}
-            <CalculadoraCostoReal />
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#17212B]">
+              Calcula el costo real de tu próximo carro
+            </h2>
+            <p className="text-xs sm:text-sm text-[#66727D] mt-1.5 leading-relaxed max-w-2xl">
+              Estima los gastos reales que asumirás durante un año completo con tarifas oficiales vigentes y parámetros 100% personalizables.
+            </p>
           </div>
+
+          {/* Componente Interactivo Central con Grid de 2 Columnas y Sidebar Sticky */}
+          <CalculadoraCostoReal />
         </section>
 
         {/* ==================================================== */}
         {/* CONSEJOS PARA REDUCIR EL COSTO                       */}
         {/* ==================================================== */}
-        <section className="mb-14">
+        <section className="mb-16 print:hidden">
           <div className="mb-6">
-            <span className="text-xs font-mono font-semibold text-[#166534] uppercase tracking-wider block mb-1">
+            <span className="text-xs font-mono font-bold text-[#123B5D] uppercase tracking-wider block mb-1">
               RECOMENDACIONES PRÁCTICAS
             </span>
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#0F1B2B]">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#17212B]">
               Consejos para reducir el costo de mantener un carro usado
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
             {/* Consejo 1 */}
-            <div className="bg-white rounded-xl border border-[#CBD5E1] p-5 sm:p-6 shadow-xs flex flex-col justify-between hover:border-slate-400 transition-colors">
+            <div className="bg-white rounded-2xl border border-[#CBD5E1] p-5 sm:p-6 shadow-xs flex flex-col justify-between hover:border-[#123B5D]/40 transition-all">
               <div className="space-y-2.5">
                 <div className="flex items-center gap-2.5">
-                  <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#0F1B2B] text-white font-mono text-xs font-bold shrink-0">
+                  <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#123B5D] text-white font-mono text-xs font-bold shrink-0">
                     1
                   </span>
-                  <h3 className="text-sm sm:text-base font-bold text-[#0F1B2B]">
+                  <h3 className="text-sm sm:text-base font-bold text-[#17212B]">
                     Revisa el estado del vehículo antes de comprar
                   </h3>
                 </div>
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed pl-9">
+                <p className="text-xs sm:text-sm text-[#66727D] leading-relaxed pl-9">
                   Un carro que requiera cambio urgente de llantas, embrague o suspensión puede costarte millones adicionales en sus primeros meses. Consulta nuestra guía sobre{' '}
                   <Link
                     href="/que-revisar-carro-usado"
-                    className="font-semibold text-[#166534] hover:underline underline-offset-4"
+                    className="font-bold text-[#123B5D] hover:underline underline-offset-4"
                   >
                     qué revisar en un carro usado →
                   </Link>
@@ -214,21 +213,21 @@ export default function CuantoCuestaMantenerCarroUsadoPage() {
             </div>
 
             {/* Consejo 2 */}
-            <div className="bg-white rounded-xl border border-[#CBD5E1] p-5 sm:p-6 shadow-xs flex flex-col justify-between hover:border-slate-400 transition-colors">
+            <div className="bg-white rounded-2xl border border-[#CBD5E1] p-5 sm:p-6 shadow-xs flex flex-col justify-between hover:border-[#123B5D]/40 transition-all">
               <div className="space-y-2.5">
                 <div className="flex items-center gap-2.5">
-                  <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#0F1B2B] text-white font-mono text-xs font-bold shrink-0">
+                  <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#123B5D] text-white font-mono text-xs font-bold shrink-0">
                     2
                   </span>
-                  <h3 className="text-sm sm:text-base font-bold text-[#0F1B2B]">
+                  <h3 className="text-sm sm:text-base font-bold text-[#17212B]">
                     Consulta los antecedentes antes de pagar
                   </h3>
                 </div>
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed pl-9">
+                <p className="text-xs sm:text-sm text-[#66727D] leading-relaxed pl-9">
                   Asegúrate de que el vehículo esté al día en impuestos y no arrastre multas o embargos. Aprende cómo{' '}
                   <Link
                     href="/antecedentes-vehiculo-colombia"
-                    className="font-semibold text-[#166534] hover:underline underline-offset-4"
+                    className="font-bold text-[#123B5D] hover:underline underline-offset-4"
                   >
                     consultar antecedentes de un vehículo en Colombia →
                   </Link>
@@ -237,34 +236,34 @@ export default function CuantoCuestaMantenerCarroUsadoPage() {
             </div>
 
             {/* Consejo 3 */}
-            <div className="bg-white rounded-xl border border-[#CBD5E1] p-5 sm:p-6 shadow-xs flex flex-col justify-between hover:border-slate-400 transition-colors">
+            <div className="bg-white rounded-2xl border border-[#CBD5E1] p-5 sm:p-6 shadow-xs flex flex-col justify-between hover:border-[#123B5D]/40 transition-all">
               <div className="space-y-2.5">
                 <div className="flex items-center gap-2.5">
-                  <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#0F1B2B] text-white font-mono text-xs font-bold shrink-0">
+                  <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#123B5D] text-white font-mono text-xs font-bold shrink-0">
                     3
                   </span>
-                  <h3 className="text-sm sm:text-base font-bold text-[#0F1B2B]">
+                  <h3 className="text-sm sm:text-base font-bold text-[#17212B]">
                     Conduce de forma eficiente
                   </h3>
                 </div>
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed pl-9">
+                <p className="text-xs sm:text-sm text-[#66727D] leading-relaxed pl-9">
                   Evitar aceleraciones bruscas, mantener la presión adecuada en las llantas y reducir peso innecesario puede disminuir el consumo real de gasolina entre un 10% y un 20% mensual.
                 </p>
               </div>
             </div>
 
             {/* Consejo 4 */}
-            <div className="bg-white rounded-xl border border-[#CBD5E1] p-5 sm:p-6 shadow-xs flex flex-col justify-between hover:border-slate-400 transition-colors">
+            <div className="bg-white rounded-2xl border border-[#CBD5E1] p-5 sm:p-6 shadow-xs flex flex-col justify-between hover:border-[#123B5D]/40 transition-all">
               <div className="space-y-2.5">
                 <div className="flex items-center gap-2.5">
-                  <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#0F1B2B] text-white font-mono text-xs font-bold shrink-0">
+                  <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#123B5D] text-white font-mono text-xs font-bold shrink-0">
                     4
                   </span>
-                  <h3 className="text-sm sm:text-base font-bold text-[#0F1B2B]">
+                  <h3 className="text-sm sm:text-base font-bold text-[#17212B]">
                     No descuides los cambios de aceite
                   </h3>
                 </div>
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed pl-9">
+                <p className="text-xs sm:text-sm text-[#66727D] leading-relaxed pl-9">
                   El mantenimiento preventivo programado es hasta 5 veces más económico que reparar daños mayores en motor o transmisión provocados por lubricación deficiente.
                 </p>
               </div>
@@ -275,12 +274,12 @@ export default function CuantoCuestaMantenerCarroUsadoPage() {
         {/* ==================================================== */}
         {/* PREGUNTAS FRECUENTES (FAQ con Acordeones)            */}
         {/* ==================================================== */}
-        <section className="mb-14">
+        <section className="mb-16 print:hidden">
           <div className="mb-6">
-            <span className="text-xs font-mono font-semibold text-[#166534] uppercase tracking-wider block mb-1">
+            <span className="text-xs font-mono font-bold text-[#123B5D] uppercase tracking-wider block mb-1">
               RESOLUCIÓN DE DUDAS
             </span>
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#0F1B2B]">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#17212B]">
               Preguntas frecuentes sobre el costo de mantener un carro en Colombia
             </h2>
           </div>
@@ -291,48 +290,48 @@ export default function CuantoCuestaMantenerCarroUsadoPage() {
         {/* ==================================================== */}
         {/* TAMBIÉN TE PUEDE INTERESAR                           */}
         {/* ==================================================== */}
-        <section className="mb-14 border-t border-[#E2E8F0] pt-8">
-          <span className="text-[11px] font-mono uppercase tracking-wider text-[#64748B] block mb-1">
+        <section className="mb-16 border-t border-[#CBD5E1] pt-10 print:hidden">
+          <span className="text-[11px] font-mono uppercase tracking-wider text-[#66727D] font-bold block mb-1">
             RECURSOS RELACIONADOS
           </span>
 
-          <h2 className="text-xl sm:text-2xl font-bold text-[#0F1B2B] mb-5">
+          <h2 className="text-xl sm:text-2xl font-extrabold text-[#17212B] mb-6">
             También te puede interesar
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             <Link
               href="/que-revisar-carro-usado"
-              className="bg-white border border-[#E2E8F0] rounded-xl p-5 hover:border-[#0F1B2B] hover:shadow-xs transition-all group"
+              className="bg-white border border-[#CBD5E1] rounded-2xl p-6 hover:border-[#123B5D] hover:shadow-xs transition-all group"
             >
-              <h3 className="font-bold text-sm text-[#0F1B2B] mb-1.5 group-hover:text-[#166534] transition-colors">
+              <h3 className="font-bold text-sm text-[#17212B] mb-2 group-hover:text-[#123B5D] transition-colors">
                 Qué revisar en un carro usado
               </h3>
-              <p className="text-xs text-[#475569] leading-relaxed">
+              <p className="text-xs text-[#66727D] leading-relaxed">
                 Lista de inspección de motor, carrocería, frenos e interiores antes de comprar.
               </p>
             </Link>
 
             <Link
               href="/kilometraje-carro-usado"
-              className="bg-white border border-[#E2E8F0] rounded-xl p-5 hover:border-[#0F1B2B] hover:shadow-xs transition-all group"
+              className="bg-white border border-[#CBD5E1] rounded-2xl p-6 hover:border-[#123B5D] hover:shadow-xs transition-all group"
             >
-              <h3 className="font-bold text-sm text-[#0F1B2B] mb-1.5 group-hover:text-[#166534] transition-colors">
+              <h3 className="font-bold text-sm text-[#17212B] mb-2 group-hover:text-[#123B5D] transition-colors">
                 Revisión del kilometraje
               </h3>
-              <p className="text-xs text-[#475569] leading-relaxed">
+              <p className="text-xs text-[#66727D] leading-relaxed">
                 Aprende a interpretar el kilometraje real anual y compararlo con el desgaste físico.
               </p>
             </Link>
 
             <Link
               href="/antecedentes-vehiculo-colombia"
-              className="bg-white border border-[#E2E8F0] rounded-xl p-5 hover:border-[#0F1B2B] hover:shadow-xs transition-all group"
+              className="bg-white border border-[#CBD5E1] rounded-2xl p-6 hover:border-[#123B5D] hover:shadow-xs transition-all group"
             >
-              <h3 className="font-bold text-sm text-[#0F1B2B] mb-1.5 group-hover:text-[#166534] transition-colors">
+              <h3 className="font-bold text-sm text-[#17212B] mb-2 group-hover:text-[#123B5D] transition-colors">
                 Antecedentes del vehículo
               </h3>
-              <p className="text-xs text-[#475569] leading-relaxed">
+              <p className="text-xs text-[#66727D] leading-relaxed">
                 Historial de siniestros, embargos, comparendos pendientes y limitaciones a la propiedad.
               </p>
             </Link>
@@ -342,20 +341,20 @@ export default function CuantoCuestaMantenerCarroUsadoPage() {
         {/* ==================================================== */}
         {/* CTA FINAL: INICIAR EVALUACIÓN                        */}
         {/* ==================================================== */}
-        <section className="rounded-2xl bg-[#0F1B2B] px-6 py-8 sm:px-10 sm:py-10 text-center mb-8 shadow-md">
-          <div className="max-w-xl mx-auto space-y-3">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-snug">
+        <section className="rounded-2xl bg-[#123B5D] px-6 py-10 sm:px-12 sm:py-12 text-center mb-10 shadow-md print:hidden">
+          <div className="max-w-xl mx-auto space-y-4">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white leading-snug">
               ¿Estás pensando comprar un carro usado?
             </h2>
 
-            <p className="text-xs sm:text-sm text-[#CBD5E1] leading-relaxed">
-              Evalúalo antes de comprarlo con CarChecker. Detecta alertas mecánicas, kilometrajes sospechosos y antecedentes legales en minutos.
+            <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
+              Evalúalo antes de comprarlo con EscaneApp. Detecta alertas mecánicas, kilometrajes sospechosos y antecedentes legales en minutos.
             </p>
 
             <div className="pt-2">
               <Link
                 href="/evaluacion"
-                className="inline-flex items-center justify-center gap-2 px-6 h-11 rounded-lg bg-white text-[#0F1B2B] text-sm font-semibold hover:bg-slate-100 transition-colors shadow-xs"
+                className="inline-flex items-center justify-center gap-2 px-7 h-12 rounded-xl bg-[#8BCF3F] hover:bg-[#7ab837] text-[#123B5D] text-sm font-extrabold transition-all shadow-sm active:scale-98"
               >
                 <span>Iniciar evaluación</span>
                 <ArrowRight className="w-4 h-4" />
@@ -367,7 +366,7 @@ export default function CuantoCuestaMantenerCarroUsadoPage() {
         {/* ==================================================== */}
         {/* AVISO DE ALCANCE LEGAL                              */}
         {/* ==================================================== */}
-        <p className="text-[11px] text-[#64748B] leading-relaxed text-center sm:text-left">
+        <p className="text-[11px] text-[#66727D] leading-relaxed text-center sm:text-left print:hidden">
           <strong>Aviso de orientación:</strong> Los cálculos y referencias presentados en este portal corresponden a estimaciones promedio basadas en datos oficiales vigentes en Colombia. No constituyen una cotización vinculante ni reemplazan una inspección mecánica o peritaje profesional presencial.
         </p>
       </div>

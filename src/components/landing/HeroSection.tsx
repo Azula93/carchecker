@@ -1,695 +1,827 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
-  Car,
-  Gauge,
-  ShieldCheck,
-  ClipboardCheck,
-  Calculator,
+  ArrowRight,
   ExternalLink,
-  Timer,
-  Gavel,
+  ShieldCheck,
+  Check,
+  Car,
+  Calculator,
+  BookOpen,
   CheckCircle2,
-  AlertTriangle,
-  XCircle,
-  MinusCircle,
-  FileCheck2,
+  Clock,
+  Sparkles,
 } from 'lucide-react';
 import { ENLACES_PORTALES } from '../../lib/constants';
 
 export const HeroSection: React.FC = () => {
   return (
-    <div className="w-full flex flex-col">
-      {/* 1. HERO SECTION (Apple Minimal + Automotive Structural Precision) */}
-      <section className="relative w-full pt-10 md:pt-14 pb-16 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
-          {/* Brand Logo Showcase from public/logos (1).png */}
-          <div className="mb-5 flex justify-center">
-            <Image
-              src="/logos (1).png"
-              alt="Car Checker Colombia — Logo Oficial"
-              width={260}
-              height={130}
-              priority
-              className="h-16 sm:h-20 w-auto object-contain"
-            />
-          </div>
-
-          {/* Overline Pill Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#E2E8F0] text-[#475569] text-xs font-mono uppercase tracking-wider mb-6 shadow-xs">
-            <span className="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse"></span>
-            <span>Herramienta para revisar un carro usado en Colombia</span>
-          </div>
-
-          {/* Main Headline */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] lg:leading-[60px] font-bold text-[#0F1B2B] tracking-tight max-w-4xl mx-auto mb-6">
-            ¿Cómo revisar un carro usado en Colombia antes de comprarlo?
-          </h1>
-
-          {/* Supporting Editorial Subtitle */}
-          <p className="text-base md:text-lg text-[#475569] max-w-2xl mx-auto mb-8 font-normal leading-relaxed">
-            Revisa un carro usado en Colombia antes de comprarlo. Evalúa kilometraje, antecedentes, estado físico y posibles costos ocultos antes de pagar un peritaje profesional.
-          </p>
-
-          {/* Primary Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6 w-full max-w-md">
-            <Link
-              href="/evaluacion"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 h-12 rounded-lg bg-[#0F1B2B] text-white text-sm font-semibold shadow-sm hover:bg-[#1A2B42] transition-all duration-200 active:scale-98"
-            >
-              <Car className="w-5 h-5" />
-              <span>Comenzar evaluación</span>
-            </Link>
-            <a
-              href="#metodologia"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 h-12 rounded-lg bg-white border border-[#CBD5E1] text-[#0F1B2B] text-sm font-semibold hover:bg-[#F1F5F9] transition-colors"
-            >
-              <span>Explorar metodología</span>
-            </a>
-          </div>
-
-          {/* Microcopy Technical Specs */}
-          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs font-mono text-[#64748B] mb-12">
-            <span>Revisión preliminar</span>
-            <span className="text-[#CBD5E1]">·</span>
-            <span>Sin registro previo</span>
-            <span className="text-[#CBD5E1]">·</span>
-            <span className="text-[#166534] font-semibold">100% gratuita</span>
-            <span className="text-[#CBD5E1]">·</span>
-            <span className="inline-flex items-center gap-1">
-              <Timer className="w-3.5 h-3.5" /> 8–12 minutos
-            </span>
-          </div>
-
-          {/* Inspection Studio Banner with HUD Markers */}
-          <div className="relative w-full max-w-5xl mx-auto rounded-xl overflow-hidden border border-[#E2E8F0] shadow-sm bg-white p-6 sm:p-10 flex flex-col items-center justify-center">
-            <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-[11px] font-mono text-[#0F1B2B]">
-              <span className="w-2 h-2 rounded-full bg-[#16A34A]"></span>
-              <span className="font-semibold uppercase tracking-wider">MODO INSPECCIÓN TÉCNICA</span>
-            </div>
-            <div className="absolute bottom-4 right-4 hidden sm:flex items-center gap-3 px-3 py-1.5 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-[11px] font-mono text-[#475569]">
-              <span>INSPECCIÓN FÍSICA MULTICRITERIO</span>
-            </div>
-
-            <div className="py-8 sm:py-12 flex flex-col items-center text-center max-w-lg">
-              <div className="w-16 h-16 rounded-2xl bg-[#F1F5F9] border border-[#E2E8F0] flex items-center justify-center text-[#0F1B2B] mb-4 shadow-xs">
-                <Car className="w-8 h-8" />
+    <div className="w-full flex flex-col bg-[#F7F9FA] text-[#17212B] overflow-x-hidden">
+      {/* ========================================================
+          1. HERO SECTION (Composición de Referencia)
+         ======================================================== */}
+      <section className="relative w-full pt-8 md:pt-14 pb-16 md:pb-24 bg-[#F7F9FA]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            {/* Lado Izquierdo: Copy y CTAs */}
+            <div className="lg:col-span-6 flex flex-col items-start text-left">
+              {/* Overline Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EBF7DF] border border-[#D7EFC2] text-[#3B6615] text-[11px] font-bold uppercase tracking-wider mb-6">
+                <span className="w-2 h-2 rounded-full bg-[#8BCF3F] animate-pulse"></span>
+                <span>EVALUACIÓN INTELIGENTE DE VEHÍCULOS</span>
               </div>
-              <h2 className="text-xl font-bold text-[#0F1B2B] mb-2">
-                Inspección de un carro usado paso a paso
-              </h2>
-              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                Diseñado para usarse directamente junto al vehículo desde tu teléfono o computador. Registra hallazgos, calcula deducciones y obtén una puntuación estimada antes de pagar un peritaje.
+
+              {/* Título Principal */}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] lg:leading-[1.15] font-extrabold text-[#17212B] tracking-tight mb-6">
+                ¿VISTE UN AUTO
+                <br />
+                QUE TE GUSTA?
+                <br />
+                ANTES DE COMPRARLO,
+                <br />
+                <span className="inline-block bg-[#E2EEF8] text-[#123B5D] px-3 py-1 rounded-xl mt-1.5 shadow-2xs font-extrabold">
+                  ESCANÉALO.
+                </span>
+              </h1>
+
+              {/* Texto Descriptivo */}
+              <p className="text-sm sm:text-base text-[#66727D] max-w-xl mb-8 leading-relaxed font-normal">
+                EscaneApp es la herramienta que unifica lo que debes revisar en un vehículo usado: datos de bases públicas, puntos de inspección crítica y costos ocultos en un solo lugar.
               </p>
+
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto">
+                <Link
+                  href="/evaluacion"
+                  className="inline-flex items-center justify-center gap-2 px-7 h-12 rounded-full bg-[#8BCF3F] text-[#17212B] text-sm font-bold shadow-xs hover:bg-[#7EC134] hover:shadow transition-all duration-200 active:scale-98"
+                >
+                  <span>Escanear vehículo</span>
+                  <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+                </Link>
+
+                <Link
+                  href="/cuanto-cuesta-mantener-carro-usado-colombia"
+                  className="inline-flex items-center justify-center gap-2 px-6 h-12 rounded-full bg-white border border-[#CBD5E1] text-[#17212B] text-sm font-semibold hover:bg-slate-50 transition-colors shadow-2xs"
+                >
+                  <span>Calcular costos</span>
+                  <ArrowRight className="w-4 h-4 text-[#66727D]" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Lado Derecho: Imagen del Vehículo + Gauge + Tarjeta de Costo */}
+            <div className="lg:col-span-6 relative w-full flex justify-center">
+              <div className="relative w-full max-w-lg lg:max-w-none rounded-3xl overflow-hidden border border-[#E2E8F0] shadow-md bg-white">
+                {/* Imagen del vehículo en estudio fotográfico */}
+                <div className="relative w-full h-[280px] sm:h-[360px] md:h-[400px]">
+                  <Image
+                    src="/unnamed.jpg"
+                    alt="Inspección inteligente de vehículo sedán en estudio"
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover object-center"
+                  />
+                  {/* Overlay gradiente muy sutil para destacar las tarjetas flotantes */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-black/10 pointer-events-none"></div>
+                </div>
+
+                {/* 1. GAUGE DE PUNTUACIÓN (Superpuesto en esquina superior izquierda con efecto glass) */}
+                <div className="absolute top-3.5 sm:top-5 left-3.5 sm:left-5 bg-white/70 backdrop-blur-xl rounded-2xl p-3.5 sm:p-4 shadow-[0_8px_32px_0_rgba(15,27,43,0.14)] border border-white/60 flex flex-col items-center min-w-[130px] sm:min-w-[150px] animate-fadeIn">
+                  {/* Etiqueta Superior */}
+                  <span className="text-[9px] sm:text-[10px] font-extrabold text-[#66727D] uppercase tracking-wider mb-2 text-center">
+                    PUNTUACIÓN ESTIMADA
+                  </span>
+
+                  {/* Gauge Circular SVG */}
+                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center">
+                    <svg
+                      className="w-full h-full -rotate-90 transform"
+                      viewBox="0 0 100 100"
+                    >
+                      {/* Fondo del arco */}
+                      <circle
+                        cx="50"
+                        cy="50"
+                        r="40"
+                        fill="transparent"
+                        stroke="#E2E8F0"
+                        strokeWidth="8"
+                        strokeDasharray="251.2"
+                        strokeDashoffset="62.8"
+                        strokeLinecap="round"
+                      />
+                      {/* Progreso del arco (75 / 100 -> color atención #E5A72B) */}
+                      <circle
+                        cx="50"
+                        cy="50"
+                        r="40"
+                        fill="transparent"
+                        stroke="#E5A72B"
+                        strokeWidth="8"
+                        strokeDasharray="251.2"
+                        strokeDashoffset="110"
+                        strokeLinecap="round"
+                        className="transition-all duration-1000 ease-out"
+                      />
+                    </svg>
+
+                    {/* Contenido Central */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+                      <div className="flex items-baseline gap-0.5 leading-none">
+                        <span className="text-xl sm:text-2xl font-extrabold text-[#17212B]">
+                          75
+                        </span>
+                        <span className="text-[10px] sm:text-xs text-[#66727D] font-medium">
+                          /100
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Estado del Gauge */}
+                  <div className="mt-2 px-2.5 py-0.5 rounded-full bg-[#FEF3C7]/90 border border-[#FDE68A] text-[#B45309] text-[10px] font-bold shadow-2xs">
+                    Revisar
+                  </div>
+                </div>
+
+                {/* 2. TARJETA DE COSTO DE PROPIEDAD (Superpuesta en esquina inferior derecha con efecto glass) */}
+                <div className="absolute bottom-3.5 sm:bottom-5 right-3.5 sm:right-5 bg-white/70 backdrop-blur-xl rounded-2xl p-3.5 sm:p-4 shadow-[0_8px_32px_0_rgba(15,27,43,0.14)] border border-white/60 min-w-[210px] sm:min-w-[250px] animate-fadeIn">
+                  <div className="flex items-center justify-between gap-2 mb-1">
+                    <span className="text-[9px] font-extrabold tracking-wider text-[#66727D] uppercase">
+                      COSTO REAL
+                    </span>
+                    <span className="text-[9px] font-bold text-[#123B5D] bg-[#EBF3FA] px-1.5 py-0.5 rounded">
+                      Proyección
+                    </span>
+                  </div>
+
+                  <p className="text-[11px] text-[#66727D] font-medium">
+                    Costo de propiedad
+                  </p>
+                  <div className="flex items-baseline gap-1 my-1">
+                    <span className="text-base sm:text-lg font-extrabold text-[#123B5D]">
+                      $7.820.000
+                    </span>
+                    <span className="text-[11px] text-[#66727D]">/ año</span>
+                  </div>
+
+                  {/* Barra de desglose multicriterio */}
+                  <div className="w-full h-1.5 rounded-full bg-[#E2E8F0]/80 overflow-hidden flex gap-0.5 mt-2">
+                    <div className="h-full bg-[#3578B8] w-[55%]" title="Combustible: 55%"></div>
+                    <div className="h-full bg-[#8BCF3F] w-[25%]" title="Mantenimiento: 25%"></div>
+                    <div className="h-full bg-[#E5A72B] w-[20%]" title="Impuestos y SOAT: 20%"></div>
+                  </div>
+
+                  <div className="flex items-center justify-between text-[9px] text-[#66727D] mt-1.5 font-medium">
+                    <span>Combustible 55%</span>
+                    <span>Mant. 25%</span>
+                    <span>SOAT 20%</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. EJES DE EVALUACIÓN (4-Column Layout) */}
-      <section className="w-full py-20 bg-white border-b border-[#E2E8F0]">
+      {/* ========================================================
+          2. SECCIÓN DE SERVICIOS ("NUESTROS SERVICIOS")
+         ======================================================== */}
+      <section className="w-full py-16 md:py-20 bg-white border-y border-[#E2E8F0]" id="servicios">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-            <div>
-              <span className="text-xs font-mono uppercase tracking-wider text-[#64748B] block mb-1">
-                Ejes de evaluación
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#0F1B2B]">
-                Qué revisar en un carro usado antes de comprarlo
-              </h2>
+          {/* Header de Sección */}
+          <div className="max-w-3xl mb-12">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EBF7DF] text-[#3B6615] text-[11px] font-bold uppercase tracking-wider mb-3">
+              <Sparkles className="w-3.5 h-3.5 text-[#8BCF3F]" />
+              <span>NUESTROS SERVICIOS</span>
             </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#17212B] tracking-tight mb-3">
+              TODO LO QUE NECESITAS ANTES DE COMPRAR UN CARRO USADO.
+            </h2>
+            <p className="text-sm sm:text-base text-[#66727D] leading-relaxed">
+              Tres herramientas diseñadas para evaluar aspectos técnicos, legales y financieros de forma independiente o complementaria.
+            </p>
+          </div>
+
+          {/* Grid de Servicios */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+            {/* Card Principal: EVALUAR UN VEHÍCULO (Col 7) */}
+            <div className="lg:col-span-7 bg-[#F7F9FA] border border-[#E2E8F0] rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-2xs hover:shadow-sm transition-all duration-200">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-[#EBF3FA] text-[#123B5D]">
+                    MÓDULO PRINCIPAL
+                  </span>
+                  <div className="w-10 h-10 rounded-2xl bg-white border border-[#E2E8F0] flex items-center justify-center text-[#123B5D] shadow-2xs">
+                    <Car className="w-5 h-5" />
+                  </div>
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-extrabold text-[#17212B] mb-3">
+                  EVALUAR UN VEHÍCULO
+                </h3>
+                <p className="text-xs sm:text-sm text-[#66727D] leading-relaxed mb-6">
+                  Realiza una revisión completa paso a paso: historial en bases oficiales, checklist visual de 80 puntos y proyección de costos ocultos de reparación.
+                </p>
+
+                {/* Pastilla con los 4 Ejes / Checks */}
+                <div className="bg-white border border-[#E2E8F0] rounded-2xl p-4 sm:p-5 mb-8 shadow-2xs">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-semibold text-[#17212B]">
+                    <div className="flex items-center gap-2">
+                      <span className="w-4 h-4 rounded-full bg-[#EBF7DF] text-[#3B6615] flex items-center justify-center shrink-0">
+                        <Check className="w-2.5 h-2.5 stroke-[3]" />
+                      </span>
+                      <span>Historial y antecedentes</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="w-4 h-4 rounded-full bg-[#EBF7DF] text-[#3B6615] flex items-center justify-center shrink-0">
+                        <Check className="w-2.5 h-2.5 stroke-[3]" />
+                      </span>
+                      <span>Revisión de 80 puntos críticos</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="w-4 h-4 rounded-full bg-[#EBF7DF] text-[#3B6615] flex items-center justify-center shrink-0">
+                        <Check className="w-2.5 h-2.5 stroke-[3]" />
+                      </span>
+                      <span>Proyección de costos ocultos</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="w-4 h-4 rounded-full bg-[#EBF7DF] text-[#3B6615] flex items-center justify-center shrink-0">
+                        <Check className="w-2.5 h-2.5 stroke-[3]" />
+                      </span>
+                      <span>Score unificado</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <Link
+                  href="/evaluacion"
+                  className="inline-flex items-center justify-center gap-2 px-6 h-11 rounded-full bg-[#8BCF3F] text-[#17212B] text-xs sm:text-sm font-bold shadow-xs hover:bg-[#7EC134] transition-colors"
+                >
+                  <span>Escanear vehículo</span>
+                  <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Columna Derecha: Tarjetas Secundarias Apiladas (Col 5) */}
+            <div className="lg:col-span-5 flex flex-col gap-6">
+              {/* Card 2: CALCULAR COSTO REAL */}
+              <div className="bg-[#F7F9FA] border border-[#E2E8F0] rounded-3xl p-6 sm:p-7 flex flex-col justify-between flex-1 shadow-2xs hover:shadow-sm transition-all duration-200">
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#66727D]">
+                      MÓDULO DE COSTOS
+                    </span>
+                    <div className="w-8 h-8 rounded-xl bg-white border border-[#E2E8F0] flex items-center justify-center text-[#123B5D]">
+                      <Calculator className="w-4 h-4" />
+                    </div>
+                  </div>
+                  <h3 className="text-lg font-bold text-[#17212B] mb-2">
+                    CALCULAR COSTO REAL
+                  </h3>
+                  <p className="text-xs text-[#66727D] leading-relaxed mb-4">
+                    Calcula los gastos reales de tener el vehículo: consumo de combustible según kilometraje estimado, mantenimiento anual y gastos recurrentes.
+                  </p>
+                </div>
+                <div>
+                  <Link
+                    href="/cuanto-cuesta-mantener-carro-usado-colombia"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#123B5D] hover:text-[#0E2F4B] transition-colors group"
+                  >
+                    <span>Ir a la calculadora</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Card 3: APRENDER ANTES DE COMPRAR */}
+              <div className="bg-[#F7F9FA] border border-[#E2E8F0] rounded-3xl p-6 sm:p-7 flex flex-col justify-between flex-1 shadow-2xs hover:shadow-sm transition-all duration-200">
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#66727D]">
+                      GUÍAS Y RECURSOS
+                    </span>
+                    <div className="w-8 h-8 rounded-xl bg-white border border-[#E2E8F0] flex items-center justify-center text-[#123B5D]">
+                      <BookOpen className="w-4 h-4" />
+                    </div>
+                  </div>
+                  <h3 className="text-lg font-bold text-[#17212B] mb-2">
+                    APRENDER ANTES DE COMPRAR
+                  </h3>
+                  <p className="text-xs text-[#66727D] leading-relaxed mb-4">
+                    Aprende qué revisar en cada componente con guías prácticas paso a paso para que no dependas de nadie antes de solicitar un peritaje oficial.
+                  </p>
+                </div>
+                <div>
+                  <Link
+                    href="/#guias"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#123B5D] hover:text-[#0E2F4B] transition-colors group"
+                  >
+                    <span>Ver guías</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================
+          3. SECCIÓN "¿CÓMO FUNCIONA ESCANEAPP?" (4 Pasos)
+         ======================================================== */}
+      <section className="w-full py-16 md:py-24 bg-[#F7F9FA]" id="como-funciona">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* Lado Izquierdo: Fotografía de inspección con puertas abiertas */}
+            <div className="lg:col-span-5 relative w-full">
+              <div className="relative w-full h-[320px] sm:h-[420px] rounded-3xl overflow-hidden border border-[#E2E8F0] shadow-md bg-white">
+                <Image
+                  src="/pexels-mikebird-20475072.jpg"
+                  alt="Inspección detallada de vehículo con puertas y baúl abiertos"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  className="object-cover object-center"
+                />
+
+                {/* Floating dark badge inferior */}
+                <div className="absolute bottom-4 left-4 right-4 bg-[#123B5D]/95 backdrop-blur-md rounded-2xl p-4 border border-white/10 shadow-lg text-white">
+                  <div className="flex items-center gap-2 mb-1">
+                    <CheckCircle2 className="w-4 h-4 text-[#8BCF3F] shrink-0" />
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#8BCF3F]">
+                      MÉTODO ESTRUCTURADO
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-200 font-normal leading-relaxed">
+                    Pasos guiados y objetivos, sin conocimiento técnico previo.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Lado Derecho: Los 4 Pasos */}
+            <div className="lg:col-span-7 flex flex-col">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EBF7DF] text-[#3B6615] text-[11px] font-bold uppercase tracking-wider mb-3 w-fit">
+                <span>EL PROCESO EN 4 PASOS</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#17212B] tracking-tight mb-3">
+                ¿CÓMO FUNCIONA ESCANEAPP?
+              </h2>
+              <p className="text-xs sm:text-sm text-[#66727D] leading-relaxed mb-8 max-w-xl">
+                El proceso combina consulta de bases públicas, inspección visual asistida y cálculo de costos ocultos para darte un veredicto preliminar antes de pagar un peritaje profesional.
+              </p>
+
+              {/* 4 Pasos Apilados */}
+              <div className="space-y-3.5">
+                {/* Paso 01 */}
+                <div className="bg-white border border-[#E2E8F0] rounded-2xl p-4 sm:p-5 flex items-start gap-4 shadow-2xs hover:border-[#CBD5E1] transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-[#EBF3FA] text-[#123B5D] font-mono text-xs font-extrabold flex items-center justify-center shrink-0">
+                    01
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-bold text-[#17212B] mb-1">
+                      REVISA
+                    </h3>
+                    <p className="text-xs text-[#66727D] leading-relaxed">
+                      Ingresa los datos del vehículo: modelo, kilometraje y valor preliminar.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Paso 02 */}
+                <div className="bg-white border border-[#E2E8F0] rounded-2xl p-4 sm:p-5 flex items-start gap-4 shadow-2xs hover:border-[#CBD5E1] transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-[#EBF3FA] text-[#123B5D] font-mono text-xs font-extrabold flex items-center justify-center shrink-0">
+                    02
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-bold text-[#17212B] mb-1">
+                      CONSULTA
+                    </h3>
+                    <p className="text-xs text-[#66727D] leading-relaxed">
+                      Consulta antecedentes y siniestros en las fuentes oficiales integradas: RUNT, SIMIT y Fasecolda.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Paso 03 */}
+                <div className="bg-white border border-[#E2E8F0] rounded-2xl p-4 sm:p-5 flex items-start gap-4 shadow-2xs hover:border-[#CBD5E1] transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-[#EBF3FA] text-[#123B5D] font-mono text-xs font-extrabold flex items-center justify-center shrink-0">
+                    03
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-bold text-[#17212B] mb-1">
+                      INSPECCIONA
+                    </h3>
+                    <p className="text-xs text-[#66727D] leading-relaxed">
+                      Revisa los elementos clave del vehículo mediante nuestra lista de 80 puntos estructurada por áreas.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Paso 04 */}
+                <div className="bg-white border border-[#E2E8F0] rounded-2xl p-4 sm:p-5 flex items-start gap-4 shadow-2xs hover:border-[#CBD5E1] transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-[#EBF7DF] text-[#3B6615] font-mono text-xs font-extrabold flex items-center justify-center shrink-0">
+                    04
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className="text-sm font-bold text-[#17212B]">
+                        DECIDE
+                      </h3>
+                      {/* Puntos de semáforo */}
+                      <div className="flex items-center gap-1 ml-1">
+                        <span className="w-2 h-2 rounded-full bg-[#2EAD68]"></span>
+                        <span className="w-2 h-2 rounded-full bg-[#E5A72B]"></span>
+                        <span className="w-2 h-2 rounded-full bg-[#D64545]"></span>
+                      </div>
+                    </div>
+                    <p className="text-xs text-[#66727D] leading-relaxed">
+                      Accede al reporte final con análisis completo y recomendaciones claras para tomar decisiones con criterio antes de comprar.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================
+          4. SECCIÓN GUÍAS ("APRENDE A REVISAR UN CARRO USADO.")
+         ======================================================== */}
+      <section className="w-full py-16 md:py-20 bg-white border-t border-[#E2E8F0]" id="guias">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-12">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EBF7DF] text-[#3B6615] text-[11px] font-bold uppercase tracking-wider mb-3">
+              <span>GUÍAS TÉCNICAS PARA COMPRADORES</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#17212B] tracking-tight mb-3">
+              APRENDE A REVISAR UN CARRO USADO.
+            </h2>
+            <p className="text-xs sm:text-sm text-[#66727D] leading-relaxed">
+              Guías prácticas para la inspección de vehículos con criterios técnicos.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Card 1: Kilometraje */}
-            <div className="bg-[#F8FAFC] border border-[#E2E8F0] p-6 rounded-xl flex flex-col justify-between hover:border-[#CBD5E1] transition-all shadow-xs">
-              <div>
-                <div className="w-10 h-10 rounded-lg bg-white border border-[#E2E8F0] flex items-center justify-center text-[#0F1B2B] mb-5">
-                  <Gauge className="w-5 h-5" />
-                </div>
-                <span className="text-[11px] font-mono uppercase text-[#64748B] tracking-wider block mb-1">
-                  Eje 01
-                </span>
-                <h3 className="text-lg font-bold text-[#0F1B2B] mb-2">Kilometraje de un carro usado</h3>
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                  Calcula el promedio de km/año contra el estándar colombiano (10.000 a 15.000 km/año) y detecta odómetros sospechosos o desgaste severo.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-[#E2E8F0] flex items-center justify-between text-xs font-mono text-[#64748B]">
-                <span>Fórmula analítica</span>
-              </div>
-            </div>
-
-            {/* Card 2: Antecedentes */}
-            <div className="bg-[#F8FAFC] border border-[#E2E8F0] p-6 rounded-xl flex flex-col justify-between hover:border-[#CBD5E1] transition-all shadow-xs">
-              <div>
-                <div className="w-10 h-10 rounded-lg bg-white border border-[#E2E8F0] flex items-center justify-center text-[#0F1B2B] mb-5">
-                  <ShieldCheck className="w-5 h-5" />
-                </div>
-                <span className="text-[11px] font-mono uppercase text-[#64748B] tracking-wider block mb-1">
-                  Eje 02
-                </span>
-                <h3 className="text-lg font-bold text-[#0F1B2B] mb-2">Antecedentes de un carro usado</h3>
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                  Consulta guiada de RUNT, SIMIT y Fasecolda para verificar comparendos pendientes, prendas, regrabaciones y siniestros de mayor cuantía.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-[#E2E8F0] flex items-center justify-between text-xs font-mono text-[#64748B]">
-                <span>3 Bases oficiales</span>
-              </div>
-            </div>
-
-            {/* Card 3: Inspección Física */}
-            <div className="bg-[#F8FAFC] border border-[#E2E8F0] p-6 rounded-xl flex flex-col justify-between hover:border-[#CBD5E1] transition-all shadow-xs">
-              <div>
-                <div className="w-10 h-10 rounded-lg bg-white border border-[#E2E8F0] flex items-center justify-center text-[#0F1B2B] mb-5">
-                  <ClipboardCheck className="w-5 h-5" />
-                </div>
-                <span className="text-[11px] font-mono uppercase text-[#64748B] tracking-wider block mb-1">
-                  Eje 03
-                </span>
-                <h3 className="text-lg font-bold text-[#0F1B2B] mb-2">Inspección Física de un carro usado</h3>
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                  Chequeo visual de carrocería, pintura, mecánica, habitáculo y prueba de ruta.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-[#E2E8F0] flex items-center justify-between text-xs font-mono text-[#64748B]">
-                <span>Checkeo rápido</span>
-              </div>
-            </div>
-
-            {/* Card 4: Costos */}
-            <div className="bg-[#F8FAFC] border border-[#E2E8F0] p-6 rounded-xl flex flex-col justify-between hover:border-[#CBD5E1] transition-all shadow-xs">
-              <div>
-                <div className="w-10 h-10 rounded-lg bg-white border border-[#E2E8F0] flex items-center justify-center text-[#0F1B2B] mb-5">
-                  <Calculator className="w-5 h-5" />
-                </div>
-                <span className="text-[11px] font-mono uppercase text-[#64748B] tracking-wider block mb-1">
-                  Eje 04
-                </span>
-                <h3 className="text-lg font-bold text-[#0F1B2B] mb-2">Costos ocultos de un carro usado</h3>
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                  Estima el presupuesto de reparaciones inmediatas y utilízalo como argumento para negociar el precio final de compra.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-[#E2E8F0] flex items-center justify-between text-xs font-mono text-[#64748B]">
-                <span>Poder de negociación</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. METODOLOGÍA TÉCNICA (5 ÁREAS) */}
-      <section className="w-full py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]" id="metodologia">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
-            <span className="text-xs font-mono uppercase tracking-wider text-[#64748B] block mb-1">
-              Inspección integral en campo
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0F1B2B] mb-3">
-              Metodología de 5 áreas técnicas
-            </h2>
-            <p className="text-sm md:text-base text-[#475569] leading-relaxed">
-              Diseñada para recorrer el automóvil en un flujo ergonómico continuo y metódico, sin omitir puntos de falla estructural ni detalles mecánicos.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            {/* Area 1 */}
-            <div className="bg-white border border-[#E2E8F0] p-5 rounded-xl shadow-xs flex flex-col justify-between">
-              <div>
-                <span className="text-2xl font-bold font-mono text-[#0F1B2B] block mb-3">01</span>
-                <h3 className="text-base font-bold text-[#0F1B2B] mb-1.5">Estructura y carrocería</h3>
-                <p className="text-xs text-[#475569] leading-relaxed">
-                  Líneas de paneles, puntas de chasis, espesores de pintura, corrosión y soldaduras de fábrica.
-                </p>
-              </div>
-              <div className="mt-5 text-[11px] font-mono text-[#64748B] font-medium">
-                15 verificaciones
-              </div>
-            </div>
-
-            {/* Area 2 */}
-            <div className="bg-white border border-[#E2E8F0] p-5 rounded-xl shadow-xs flex flex-col justify-between">
-              <div>
-                <span className="text-2xl font-bold font-mono text-[#0F1B2B] block mb-3">02</span>
-                <h3 className="text-base font-bold text-[#0F1B2B] mb-1.5">Motor y mecánica</h3>
-                <p className="text-xs text-[#475569] leading-relaxed">
-                  Fugas de fluidos, ruidos en ralentí, mangueras, correas, batería y humo del escape.
-                </p>
-              </div>
-              <div className="mt-5 text-[11px] font-mono text-[#64748B] font-medium">
-                14 verificaciones
-              </div>
-            </div>
-
-            {/* Area 3 */}
-            <div className="bg-white border border-[#E2E8F0] p-5 rounded-xl shadow-xs flex flex-col justify-between">
-              <div>
-                <span className="text-2xl font-bold font-mono text-[#0F1B2B] block mb-3">03</span>
-                <h3 className="text-base font-bold text-[#0F1B2B] mb-1.5">Habitáculo e interior</h3>
-                <p className="text-xs text-[#475569] leading-relaxed">
-                  Climatización, testigos del tablero, cojiniería, elevavidrios y humedad oculta.
-                </p>
-              </div>
-              <div className="mt-5 text-[11px] font-mono text-[#64748B] font-medium">
-                14 verificaciones
-              </div>
-            </div>
-
-            {/* Area 4 */}
-            <div className="bg-white border border-[#E2E8F0] p-5 rounded-xl shadow-xs flex flex-col justify-between">
-              <div>
-                <span className="text-2xl font-bold font-mono text-[#0F1B2B] block mb-3">04</span>
-                <h3 className="text-base font-bold text-[#0F1B2B] mb-1.5">Prueba de ruta</h3>
-                <p className="text-xs text-[#475569] leading-relaxed">
-                  Caja de cambios, embrague, vibraciones de frenado, suspensión, dirección y rampa en reversa.
-                </p>
-              </div>
-              <div className="mt-5 text-[11px] font-mono text-[#64748B] font-medium">
-                15 verificaciones
-              </div>
-            </div>
-
-            {/* Area 5 */}
-            <div className="bg-white border border-[#E2E8F0] p-5 rounded-xl shadow-xs flex flex-col justify-between">
-              <div>
-                <span className="text-2xl font-bold font-mono text-[#0F1B2B] block mb-3">05</span>
-                <h3 className="text-base font-bold text-[#0F1B2B] mb-1.5">Inspección inferior y legal</h3>
-                <p className="text-xs text-[#475569] leading-relaxed">
-                  Chasis sin remiendos, exosto, ejes, improntas vs tarjeta de propiedad y kit reglamentario.
-                </p>
-              </div>
-              <div className="mt-5 text-[11px] font-mono text-[#64748B] font-medium">
-                22 verificaciones
-              </div>
-            </div>
-          </div>
-
-          {/* Interactive Preview of 4-State Segmented Control */}
-          <div className="mt-10 p-6 md:p-8 rounded-xl bg-white border border-[#E2E8F0] shadow-xs flex flex-col lg:flex-row items-center justify-between gap-6">
-            <div className="max-w-xl">
-              <span className="text-[11px] font-mono text-[#64748B] uppercase tracking-wider block mb-1">
-                Control operativo de campo
-              </span>
-              <h3 className="text-lg font-bold text-[#0F1B2B] mb-1">
-                Checklist de inspección física
-              </h3>
-              <p className="text-xs sm:text-sm text-[#475569]">
-                Inspecciona visualmente cada componente y selecciona su estado técnico.
-              </p>
-            </div>
-
-            <div className="flex items-center gap-1.5 p-1.5 bg-[#F1F5F9] rounded-lg w-full max-w-md border border-[#E2E8F0]">
-              <div className="flex-1 py-2 px-2.5 rounded bg-white shadow-xs flex items-center justify-center gap-1 text-[#166534] text-xs font-semibold">
-                <CheckCircle2 className="w-3.5 h-3.5" />
-                <span>Bueno</span>
-              </div>
-              <div className="flex-1 py-2 px-2.5 rounded flex items-center justify-center gap-1 text-[#D97706] text-xs font-medium">
-                <AlertTriangle className="w-3.5 h-3.5" />
-                <span>Regular</span>
-              </div>
-              <div className="flex-1 py-2 px-2.5 rounded flex items-center justify-center gap-1 text-[#DC2626] text-xs font-medium">
-                <XCircle className="w-3.5 h-3.5" />
-                <span>Malo</span>
-              </div>
-              <div className="flex-1 py-2 px-2.5 rounded flex items-center justify-center gap-1 text-[#64748B] text-xs font-medium">
-                <MinusCircle className="w-3.5 h-3.5" />
-                <span>N/A</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. CÓMO FUNCIONA CAR CHECKER (4 Pasos) */}
-      <section className="w-full py-20 bg-white border-b border-[#E2E8F0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs font-mono uppercase tracking-wider text-[#64748B] block mb-1">
-              Flujo de trabajo
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0F1B2B] mb-2">
-              Así funciona Car Checker
-            </h2>
-            <p className="text-sm text-[#475569]">
-              Cuatro pasos metódicos diseñados para ser ejecutados directamente frente al vehículo o anuncio del vendedor.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Step 1 */}
-            <div className="bg-[#F8FAFC] border border-[#E2E8F0] p-6 rounded-xl flex flex-col shadow-xs">
-              <div className="w-10 h-10 rounded-full bg-[#0F1B2B] text-white flex items-center justify-center font-mono text-sm font-semibold mb-5">
-                1
-              </div>
-              <span className="text-[11px] font-mono uppercase tracking-wider text-[#64748B] mb-1">
-                Paso 01
-              </span>
-              <h3 className="text-lg font-bold text-[#0F1B2B] mb-2">REVISA</h3>
-              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                Ingresa datos básicos: placa, línea, año modelo y kilometraje actual. El algoritmo calcula el ritmo de desgaste por año.
-              </p>
-            </div>
-
-            {/* Step 2 */}
-            <div className="bg-[#F8FAFC] border border-[#E2E8F0] p-6 rounded-xl flex flex-col shadow-xs">
-              <div className="w-10 h-10 rounded-full bg-[#0F1B2B] text-white flex items-center justify-center font-mono text-sm font-semibold mb-5">
-                2
-              </div>
-              <span className="text-[11px] font-mono uppercase tracking-wider text-[#64748B] mb-1">
-                Paso 02
-              </span>
-              <h3 className="text-lg font-bold text-[#0F1B2B] mb-2">CONSULTA</h3>
-              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                Verifica antecedentes legales en los enlaces oficiales (RUNT, SIMIT, Fasecolda) y registra los hallazgos en la plataforma.
-              </p>
-            </div>
-
-            {/* Step 3 */}
-            <div className="bg-[#F8FAFC] border border-[#E2E8F0] p-6 rounded-xl flex flex-col shadow-xs">
-              <div className="w-10 h-10 rounded-full bg-[#0F1B2B] text-white flex items-center justify-center font-mono text-sm font-semibold mb-5">
-                3
-              </div>
-              <span className="text-[11px] font-mono uppercase tracking-wider text-[#64748B] mb-1">
-                Paso 03
-              </span>
-              <h3 className="text-lg font-bold text-[#0F1B2B] mb-2">INSPECCIONA</h3>
-              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                Sigue la lista guiada de chequeo visual junto al carro seleccionando Bueno, Regular, Malo o N/A con instrucciones prácticas.
-              </p>
-            </div>
-
-            {/* Step 4 */}
-            <div className="bg-[#F8FAFC] border border-[#E2E8F0] p-6 rounded-xl flex flex-col shadow-xs">
-              <div className="w-10 h-10 rounded-full bg-[#0F1B2B] text-white flex items-center justify-center font-mono text-sm font-semibold mb-5">
-                4
-              </div>
-              <span className="text-[11px] font-mono uppercase tracking-wider text-[#64748B] mb-1">
-                Paso 04
-              </span>
-              <h3 className="text-lg font-bold text-[#0F1B2B] mb-2">DECIDE</h3>
-              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                Obtén una puntuación estimada de referencia, costos ocultos proyectados de reparación y argumentos concretos de negociación antes de peritar.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. GUÍAS PARA COMPRADORES */}
-<section className="w-full py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    <div className="text-center max-w-2xl mx-auto mb-14">
-      <span className="text-xs font-mono uppercase tracking-wider text-[#64748B] block mb-1">
-        Guías para compradores
-      </span>
-
-      <h2 className="text-2xl sm:text-3xl font-bold text-[#0F1B2B] mb-2">
-        Aprende a revisar un carro usado
-      </h2>
-
-      <p className="text-sm text-[#475569]">
-        Información práctica para evaluar un vehículo usado antes de comprarlo
-        y saber cuándo necesitas un peritaje profesional.
-      </p>
-    </div>
-
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-      {/* Artículo 1 */}
-      <Link
-        href="/como-revisar-carro-usado"
-        className="bg-white border border-[#E2E8F0] p-6 rounded-xl flex flex-col shadow-xs hover:border-[#0F1B2B] transition-colors"
-      >
-        <div className="w-10 h-10 rounded-full bg-[#0F1B2B] text-white flex items-center justify-center font-mono text-sm font-semibold mb-5">
-          01
-        </div>
-
-        <span className="text-[11px] font-mono uppercase tracking-wider text-[#64748B] mb-1">
-          Guía
-        </span>
-
-        <h3 className="text-lg font-bold text-[#0F1B2B] mb-2">
-          Cómo revisar un carro usado
-        </h3>
-
-        <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-          Conoce un proceso ordenado para revisar un vehículo usado antes de
-          comprarlo.
-        </p>
-
-        <span className="mt-5 text-xs font-semibold text-[#0F1B2B]">
-          Leer artículo →
-        </span>
-      </Link>
-
-      {/* Artículo 2 */}
-      <Link
-        href="/que-revisar-carro-usado"
-        className="bg-white border border-[#E2E8F0] p-6 rounded-xl flex flex-col shadow-xs hover:border-[#0F1B2B] transition-colors"
-      >
-        <div className="w-10 h-10 rounded-full bg-[#0F1B2B] text-white flex items-center justify-center font-mono text-sm font-semibold mb-5">
-          02
-        </div>
-
-        <span className="text-[11px] font-mono uppercase tracking-wider text-[#64748B] mb-1">
-          Checklist
-        </span>
-
-        <h3 className="text-lg font-bold text-[#0F1B2B] mb-2">
-          Qué revisar en un carro usado
-        </h3>
-
-        <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-          Descubre los principales componentes que debes revisar antes de
-          tomar una decisión de compra.
-        </p>
-
-        <span className="mt-5 text-xs font-semibold text-[#0F1B2B]">
-          Leer artículo →
-        </span>
-      </Link>
-
-      {/* Artículo 3 */}
-      <Link
-        href="/kilometraje-carro-usado"
-        className="bg-white border border-[#E2E8F0] p-6 rounded-xl flex flex-col shadow-xs hover:border-[#0F1B2B] transition-colors"
-      >
-        <div className="w-10 h-10 rounded-full bg-[#0F1B2B] text-white flex items-center justify-center font-mono text-sm font-semibold mb-5">
-          03
-        </div>
-
-        <span className="text-[11px] font-mono uppercase tracking-wider text-[#64748B] mb-1">
-          Kilometraje
-        </span>
-
-        <h3 className="text-lg font-bold text-[#0F1B2B] mb-2">
-          Cómo revisar el kilometraje
-        </h3>
-
-        <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-          Aprende qué significa el kilometraje de un vehículo y qué señales
-          conviene analizar antes de comprar.
-        </p>
-
-        <span className="mt-5 text-xs font-semibold text-[#0F1B2B]">
-          Leer artículo →
-        </span>
-      </Link>
-
-      {/* Artículo 4 */}
-      <Link
-        href="/antecedentes-vehiculo-colombia"
-        className="bg-white border border-[#E2E8F0] p-6 rounded-xl flex flex-col shadow-xs hover:border-[#0F1B2B] transition-colors"
-      >
-        <div className="w-10 h-10 rounded-full bg-[#0F1B2B] text-white flex items-center justify-center font-mono text-sm font-semibold mb-5">
-          04
-        </div>
-
-        <span className="text-[11px] font-mono uppercase tracking-wider text-[#64748B] mb-1">
-          Antecedentes
-        </span>
-
-        <h3 className="text-lg font-bold text-[#0F1B2B] mb-2">
-          Antecedentes de un vehículo
-        </h3>
-
-        <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-          Conoce qué información consultar y qué revisar antes de comprar un
-          vehículo usado en Colombia.
-        </p>
-
-        <span className="mt-5 text-xs font-semibold text-[#0F1B2B]">
-          Leer artículo →
-        </span>
-      </Link>
-
-    </div>
-  </div>
-</section>
-
-      {/* 5. CONSULTA DE ANTECEDENTES OFICIALES (3 Cards) */}
-      <section className="w-full py-20 bg-white border-b border-[#E2E8F0]" id="antecedentes">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-            <div>
-              <span className="text-xs font-mono uppercase tracking-wider text-[#64748B] block mb-1">
-                Acceso directo a fuentes estatales
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#0F1B2B]">
-                Consulta de antecedentes oficiales
-              </h2>
-            </div>
-            <p className="text-sm text-[#475569] max-w-lg">
-              Consulta directamente las fuentes oficiales del Estado colombiano y registra los resultados en tu evaluación. Car Checker no almacena claves ni finge conexiones inexistentes.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {/* Card 1: RUNT */}
-            <div className="bg-white border border-[#E2E8F0] p-6 sm:p-8 rounded-xl shadow-xs flex flex-col justify-between">
+            {/* Guía 1: Motor */}
+            <Link
+              href="/como-revisar-carro-usado"
+              className="bg-[#F7F9FA] border border-[#E2E8F0] p-6 rounded-3xl flex flex-col justify-between hover:border-[#123B5D] hover:shadow-xs transition-all duration-200 group"
+            >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="px-2.5 py-0.5 rounded bg-[#F1F5F9] text-[#0F1B2B] text-xs font-mono uppercase font-semibold">
-                    Oficial
+                  <span className="px-2.5 py-0.5 rounded-full bg-white border border-[#E2E8F0] text-[10px] font-bold text-[#123B5D]">
+                    Motor
                   </span>
-                  <span className="text-xs font-mono text-[#64748B]">MinTransporte</span>
+                  <span className="inline-flex items-center gap-1 text-[10px] text-[#66727D] font-medium">
+                    <Clock className="w-3 h-3" /> 5 min
+                  </span>
                 </div>
-                <h3 className="text-xl font-bold text-[#0F1B2B] mb-2">RUNT Ciudadano</h3>
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed mb-6">
-                  Historial de propietarios anteriores, limitaciones a la propiedad, prendas bancarias vigentes, embargos y antecedentes de servicio público o escuela.
+                <h3 className="text-base font-bold text-[#17212B] mb-2 group-hover:text-[#123B5D] transition-colors">
+                  ¿Cómo revisar un motor usado?
+                </h3>
+                <p className="text-xs text-[#66727D] leading-relaxed">
+                  El motor es el componente más costoso. Aprende a detectar fugas, humo del escape y ruidos.
                 </p>
               </div>
-              <a
-                href={ENLACES_PORTALES.RUNT}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full h-11 inline-flex items-center justify-between px-4 rounded-lg bg-[#F8FAFC] border border-[#CBD5E1] text-[#0F1B2B] text-xs font-semibold hover:bg-[#F1F5F9] transition-colors"
-              >
-                <span>Consultar en RUNT</span>
-                <ExternalLink className="w-4 h-4 text-[#64748B]" />
-              </a>
+              <span className="mt-5 text-xs font-bold text-[#123B5D] inline-flex items-center gap-1">
+                Leer guía <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              </span>
+            </Link>
+
+            {/* Guía 2: Pintura */}
+            <Link
+              href="/que-revisar-carro-usado"
+              className="bg-[#F7F9FA] border border-[#E2E8F0] p-6 rounded-3xl flex flex-col justify-between hover:border-[#123B5D] hover:shadow-xs transition-all duration-200 group"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="px-2.5 py-0.5 rounded-full bg-white border border-[#E2E8F0] text-[10px] font-bold text-[#123B5D]">
+                    Pintura
+                  </span>
+                  <span className="inline-flex items-center gap-1 text-[10px] text-[#66727D] font-medium">
+                    <Clock className="w-3 h-3" /> 4 min
+                  </span>
+                </div>
+                <h3 className="text-base font-bold text-[#17212B] mb-2 group-hover:text-[#123B5D] transition-colors">
+                  Defectos en la pintura del auto
+                </h3>
+                <p className="text-xs text-[#66727D] leading-relaxed">
+                  Diferencias de coloración, piel de naranja, repintados sospechosos y soldaduras de fábrica.
+                </p>
+              </div>
+              <span className="mt-5 text-xs font-bold text-[#123B5D] inline-flex items-center gap-1">
+                Leer guía <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              </span>
+            </Link>
+
+            {/* Guía 3: Chasis */}
+            <Link
+              href="/kilometraje-carro-usado"
+              className="bg-[#F7F9FA] border border-[#E2E8F0] p-6 rounded-3xl flex flex-col justify-between hover:border-[#123B5D] hover:shadow-xs transition-all duration-200 group"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="px-2.5 py-0.5 rounded-full bg-white border border-[#E2E8F0] text-[10px] font-bold text-[#123B5D]">
+                    Chasis
+                  </span>
+                  <span className="inline-flex items-center gap-1 text-[10px] text-[#66727D] font-medium">
+                    <Clock className="w-3 h-3" /> 6 min
+                  </span>
+                </div>
+                <h3 className="text-base font-bold text-[#17212B] mb-2 group-hover:text-[#123B5D] transition-colors">
+                  ¿Cómo detectar colisiones anteriores?
+                </h3>
+                <p className="text-xs text-[#66727D] leading-relaxed">
+                  Puntos clave de soporte de chasis, soldaduras sospechosas y piezas reemplazadas tras un choque.
+                </p>
+              </div>
+              <span className="mt-5 text-xs font-bold text-[#123B5D] inline-flex items-center gap-1">
+                Leer guía <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              </span>
+            </Link>
+
+            {/* Guía 4: Legal */}
+            <Link
+              href="/antecedentes-vehiculo-colombia"
+              className="bg-[#F7F9FA] border border-[#E2E8F0] p-6 rounded-3xl flex flex-col justify-between hover:border-[#123B5D] hover:shadow-xs transition-all duration-200 group"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="px-2.5 py-0.5 rounded-full bg-white border border-[#E2E8F0] text-[10px] font-bold text-[#123B5D]">
+                    Legal
+                  </span>
+                  <span className="inline-flex items-center gap-1 text-[10px] text-[#66727D] font-medium">
+                    <Clock className="w-3 h-3" /> 5 min
+                  </span>
+                </div>
+                <h3 className="text-base font-bold text-[#17212B] mb-2 group-hover:text-[#123B5D] transition-colors">
+                  Antecedentes legales críticos
+                </h3>
+                <p className="text-xs text-[#66727D] leading-relaxed">
+                  Embargos, prendas, multas pendientes y limitaciones que impiden el traspaso legal del auto.
+                </p>
+              </div>
+              <span className="mt-5 text-xs font-bold text-[#123B5D] inline-flex items-center gap-1">
+                Leer guía <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================
+          5. SECCIÓN FUENTES OFICIALES (RUNT, SIMIT, FASECOLDA)
+         ======================================================== */}
+      <section className="w-full py-16 md:py-24 bg-[#F7F9FA] border-t border-[#E2E8F0]" id="metodologia">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-12">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EBF7DF] text-[#3B6615] text-[11px] font-bold uppercase tracking-wider mb-3">
+              <span>VERIFICACIÓN OFICIAL</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#17212B] tracking-tight mb-3">
+              CONSULTA LAS FUENTES OFICIALES
+            </h2>
+            <p className="text-xs sm:text-sm text-[#66727D] leading-relaxed">
+              Para evitar fraudes o problemas legales, consulta siempre las fuentes del Estado antes de negociar. Enlaces directos a los portales oficiales de Colombia:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {/* Card 1: RUNT */}
+            <div className="bg-white border border-[#E2E8F0] rounded-3xl overflow-hidden shadow-2xs hover:shadow-sm transition-all duration-200 flex flex-col justify-between">
+              <div>
+                <div className="relative w-full h-44 bg-slate-100 border-b border-[#E2E8F0]">
+                  <Image
+                    src="/unnamed (1).jpg"
+                    alt="Documentos oficiales del RUNT y llaves de vehículo"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#66727D] block mb-1">
+                    Registro Único Nacional de Tránsito
+                  </span>
+                  <h3 className="text-xl font-extrabold text-[#17212B] mb-2">
+                    RUNT
+                  </h3>
+                  <p className="text-xs text-[#66727D] leading-relaxed">
+                    Historial de propietarios, accidentes registrados, estado del SOAT y revisión técnico-mecánica.
+                  </p>
+                </div>
+              </div>
+              <div className="p-6 pt-0">
+                <a
+                  href={ENLACES_PORTALES.RUNT}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full h-11 inline-flex items-center justify-between px-4 rounded-xl bg-[#F7F9FA] border border-[#CBD5E1] text-[#17212B] text-xs font-bold hover:bg-[#EBF3FA] hover:text-[#123B5D] transition-colors"
+                >
+                  <span>Consultar RUNT</span>
+                  <ExternalLink className="w-3.5 h-3.5 text-[#66727D]" />
+                </a>
+              </div>
             </div>
 
             {/* Card 2: SIMIT */}
-            <div className="bg-white border border-[#E2E8F0] p-6 sm:p-8 rounded-xl shadow-xs flex flex-col justify-between">
+            <div className="bg-white border border-[#E2E8F0] rounded-3xl overflow-hidden shadow-2xs hover:shadow-sm transition-all duration-200 flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="px-2.5 py-0.5 rounded bg-[#F1F5F9] text-[#0F1B2B] text-xs font-mono uppercase font-semibold">
-                    Multas
-                  </span>
-                  <span className="text-xs font-mono text-[#64748B]">Fedemunicipios</span>
+                <div className="relative w-full h-44 bg-[#F8FAFC] border-b border-[#E2E8F0] flex items-center justify-center p-6">
+                  <Image
+                    src="/logo-landing.png"
+                    alt="Logotipo oficial SIMIT Federación Colombiana de Municipios"
+                    width={220}
+                    height={70}
+                    className="object-contain max-h-24 w-auto"
+                  />
                 </div>
-                <h3 className="text-xl font-bold text-[#0F1B2B] mb-2">SIMIT Infracciones</h3>
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed mb-6">
-                  Comparendos pendientes por fotomultas o agentes de tránsito, acuerdos de pago activos y restricciones legales para realizar el traspaso.
-                </p>
+                <div className="p-6">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#66727D] block mb-1">
+                    Sistema Integrado de Multas
+                  </span>
+                  <h3 className="text-xl font-extrabold text-[#17212B] mb-2">
+                    SIMIT
+                  </h3>
+                  <p className="text-xs text-[#66727D] leading-relaxed">
+                    Consulta de comparendos, fotomultas y acuerdos de pago pendientes a nivel nacional que impiden el traspaso.
+                  </p>
+                </div>
               </div>
-              <a
-                href={ENLACES_PORTALES.SIMIT}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full h-11 inline-flex items-center justify-between px-4 rounded-lg bg-[#F8FAFC] border border-[#CBD5E1] text-[#0F1B2B] text-xs font-semibold hover:bg-[#F1F5F9] transition-colors"
-              >
-                <span>Consultar en SIMIT</span>
-                <ExternalLink className="w-4 h-4 text-[#64748B]" />
-              </a>
+              <div className="p-6 pt-0">
+                <a
+                  href={ENLACES_PORTALES.SIMIT}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full h-11 inline-flex items-center justify-between px-4 rounded-xl bg-[#F7F9FA] border border-[#CBD5E1] text-[#17212B] text-xs font-bold hover:bg-[#EBF3FA] hover:text-[#123B5D] transition-colors"
+                >
+                  <span>Consultar SIMIT</span>
+                  <ExternalLink className="w-3.5 h-3.5 text-[#66727D]" />
+                </a>
+              </div>
             </div>
 
             {/* Card 3: FASECOLDA */}
-            <div className="bg-white border border-[#E2E8F0] p-6 sm:p-8 rounded-xl shadow-xs flex flex-col justify-between">
+            <div className="bg-white border border-[#E2E8F0] rounded-3xl overflow-hidden shadow-2xs hover:shadow-sm transition-all duration-200 flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="px-2.5 py-0.5 rounded bg-[#F1F5F9] text-[#0F1B2B] text-xs font-mono uppercase font-semibold">
-                    Siniestros
-                  </span>
-                  <span className="text-xs font-mono text-[#64748B]">Aseguradoras</span>
+                <div className="relative w-full h-44 bg-[#F8FAFC] border-b border-[#E2E8F0] flex items-center justify-center p-6">
+                  <Image
+                    src="/Logo-Fasecolda-50-anos.webp"
+                    alt="Logotipo oficial Fasecolda 50 años"
+                    width={220}
+                    height={70}
+                    className="object-contain max-h-24 w-auto"
+                  />
                 </div>
-                <h3 className="text-xl font-bold text-[#0F1B2B] mb-2">Fasecolda Guía</h3>
-                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed mb-6">
-                  Historial de reclamaciones a pólizas todo riesgo por pérdida parcial o total de mayor cuantía y valor asegurado comercial de referencia.
+                <div className="p-6">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#66727D] block mb-1">
+                    Federación de Aseguradores Colombianos
+                  </span>
+                  <h3 className="text-xl font-extrabold text-[#17212B] mb-2">
+                    FASECOLDA
+                  </h3>
+                  <p className="text-xs text-[#66727D] leading-relaxed">
+                    Guía de valores comerciales de vehículos y consulta de siniestros declarados ante aseguradoras.
+                  </p>
+                </div>
+              </div>
+              <div className="p-6 pt-0">
+                <a
+                  href={ENLACES_PORTALES.FASECOLDA}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full h-11 inline-flex items-center justify-between px-4 rounded-xl bg-[#F7F9FA] border border-[#CBD5E1] text-[#17212B] text-xs font-bold hover:bg-[#EBF3FA] hover:text-[#123B5D] transition-colors"
+                >
+                  <span>Consultar Guía</span>
+                  <ExternalLink className="w-3.5 h-3.5 text-[#66727D]" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* ========================================================
+              6. BLOQUE DE TRANSPARENCIA Y HONESTIDAD TÉCNICA
+             ======================================================== */}
+          <div className="max-w-3xl mx-auto my-12 bg-[#123B5D] text-white rounded-3xl p-6 sm:p-8 shadow-md border border-[#1A4B74] text-center flex flex-col items-center">
+            <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-[#8BCF3F] mb-4">
+              <ShieldCheck className="w-6 h-6" />
+            </div>
+            <h3 className="text-lg sm:text-xl font-bold mb-2 tracking-tight">
+              Transparencia y honestidad técnica
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-300 max-w-xl leading-relaxed">
+              EscaneApp no es un peritaje oficial ni reemplaza la inspección de un perito certificado. Es una herramienta de preevaluación estructurada para descartar opciones antes de gastar en un peritaje presencial.
+            </p>
+          </div>
+
+          {/* ========================================================
+              7. AVISO SOBRE EL PERITAJE PROFESIONAL (4 Columnas)
+             ======================================================== */}
+          <div className="bg-white border border-[#E2E8F0] rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xs" id="aviso-legal">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-8 pb-4 border-b border-[#E2E8F0]">
+              <span className="px-2.5 py-1 rounded-md bg-[#FFFBEB] text-[#B45309] text-[10px] font-extrabold uppercase tracking-wider w-fit">
+                LÍMITES DE LA HERRAMIENTA
+              </span>
+              <h3 className="text-base sm:text-lg font-extrabold text-[#17212B] tracking-tight">
+                ESCANEAPP TE AYUDA A REVISAR, NO REEMPLAZA UN PERITAJE.
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs text-[#66727D]">
+              <div>
+                <h4 className="font-bold text-[#17212B] mb-2 text-sm">
+                  1. Para descartar antes
+                </h4>
+                <p className="leading-relaxed">
+                  Funciona como un filtro analítico preliminar para descartar autos con problemas evidentes antes de pagar peritajes mayores.
                 </p>
               </div>
-              <a
-                href={ENLACES_PORTALES.FASECOLDA}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full h-11 inline-flex items-center justify-between px-4 rounded-lg bg-[#F8FAFC] border border-[#CBD5E1] text-[#0F1B2B] text-xs font-semibold hover:bg-[#F1F5F9] transition-colors"
-              >
-                <span>Consultar en Fasecolda</span>
-                <ExternalLink className="w-4 h-4 text-[#64748B]" />
-              </a>
-            </div>
-          </div>
 
-          {/* 3-Step Process Flow Banner */}
-          <div className="w-full py-4 px-6 rounded-xl bg-white border border-[#E2E8F0] flex flex-col sm:flex-row items-center justify-around gap-4 text-center">
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-xs font-semibold text-[#0F1B2B]">1. CONSULTA ↗</span>
-              <span className="text-xs text-[#64748B]">en pestañas separadas</span>
-            </div>
-            <span className="hidden sm:inline text-[#CBD5E1]">→</span>
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-xs font-semibold text-[#0F1B2B]">2. REGISTRA ✍</span>
-              <span className="text-xs text-[#64748B]">los hallazgos en Car Checker</span>
-            </div>
-            <span className="hidden sm:inline text-[#CBD5E1]">→</span>
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-xs font-semibold text-[#166534]">3. CONTINÚA ✓</span>
-              <span className="text-xs text-[#64748B]">con la inspección física</span>
-            </div>
-          </div>
-        </div>
-      </section>
+              <div>
+                <h4 className="font-bold text-[#17212B] mb-2 text-sm">
+                  2. Qué puedes verificar
+                </h4>
+                <p className="leading-relaxed">
+                  Condición del vehículo, historial básico, desgastes visibles y costos estimativos que influyen en el precio y la decisión.
+                </p>
+              </div>
 
-      {/* 6. AVISO LEGAL DE ALCANCE */}
-      <section className="w-full py-12 bg-white border-b border-[#E2E8F0]" id="aviso-legal">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#F8FAFC] border border-[#E2E8F0] p-6 rounded-xl flex flex-col sm:flex-row items-start gap-4 shadow-xs">
-            <div className="p-2.5 rounded-lg bg-white border border-[#E2E8F0] text-[#0F1B2B] shrink-0">
-              <Gavel className="w-5 h-5 text-[#64748B]" />
-            </div>
-            <div>
-              <h3 className="text-base font-bold text-[#0F1B2B] mb-1">
-                Car Checker NO reemplaza un peritaje profesional
-              </h3>
-              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                Esta es una herramienta de revisión preliminar diseñada para ayudarte a detectar señales de alerta obvias antes de desembolsar el costo de una inspección técnica profesional. No constituye una certificación comercial, dictamen pericial judicial ni diagnóstico mecánico de desarme vinculante.
-              </p>
+              <div>
+                <h4 className="font-bold text-[#17212B] mb-2 text-sm">
+                  3. Si todo luce correcto, perita
+                </h4>
+                <p className="leading-relaxed">
+                  Si el auto pasa la inspección visual preliminar y los antecedentes son limpios, contrata un peritaje profesional con equipos de diagnóstico.
+                </p>
+              </div>
+
+              <div>
+                <h4 className="font-bold text-[#17212B] mb-2 text-sm">
+                  4. No somos intermediarios
+                </h4>
+                <p className="leading-relaxed">
+                  No recibimos comisiones del vendedor ni de talleres. Nuestra herramienta es independiente y orientada al comprador.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 7. CTA FINAL */}
-      <section className="w-full py-20 bg-[#F8FAFC]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white border border-[#E2E8F0] p-10 md:p-16 rounded-2xl shadow-sm text-center relative overflow-hidden">
-            <div className="relative z-10 flex flex-col items-center">
-              <span className="text-xs font-mono uppercase tracking-wider text-[#64748B] mb-3">
-                Toma el control de tu compra
-              </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0F1B2B] tracking-tight mb-4">
-                ¿Ya tienes un carro en mente?
-              </h2>
-              <p className="text-sm md:text-base text-[#475569] max-w-xl mb-8 leading-relaxed">
-                Revísalo antes de invertir en el peritaje. Evita anticipos de dinero en vehículos con señales críticas de alerta.
-              </p>
-              <Link
-                href="/evaluacion"
-                className="inline-flex items-center justify-center gap-2 px-10 h-12 rounded-lg bg-[#0F1B2B] text-white text-sm font-semibold shadow-sm hover:bg-[#1A2B42] transition-colors mb-4 active:scale-98"
-              >
-                <FileCheck2 className="w-5 h-5" />
-                <span>Comenzar evaluación gratuita</span>
-              </Link>
-              <span className="text-xs text-[#475569]">
-                Diseñado para usar directamente junto al vehículo desde cualquier navegador móvil o de escritorio.
-              </span>
-            </div>
+      {/* ========================================================
+          8. CTA FINAL (Bloque Oscuro)
+         ======================================================== */}
+      <section className="w-full py-20 md:py-28 bg-[#123B5D] text-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/15 text-[#8BCF3F] text-[11px] font-bold uppercase tracking-wider mb-4">
+            <span className="w-2 h-2 rounded-full bg-[#8BCF3F]"></span>
+            <span>PREEVALUACIÓN DISPONIBLE</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-white">
+            ¿YA TIENES UN CARRO EN MENTE?
+          </h2>
+
+          <p className="text-sm sm:text-base text-slate-300 max-w-xl mb-8 leading-relaxed">
+            Haz una evaluación preliminar antes de pagar un peritaje completo o cerrar el negocio. Sin registro previo.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10 w-full sm:w-auto">
+            <Link
+              href="/evaluacion"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 h-12 rounded-full bg-[#8BCF3F] text-[#17212B] text-sm font-bold shadow-sm hover:bg-[#7EC134] transition-colors"
+            >
+              <span>Escanear vehículo</span>
+              <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+            </Link>
+
+            <Link
+              href="/cuanto-cuesta-mantener-carro-usado-colombia"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 h-12 rounded-full bg-[#18446B] border border-white/20 text-white text-sm font-semibold hover:bg-[#1E5280] transition-colors"
+            >
+              <span>Calcular costos</span>
+            </Link>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs text-slate-300 font-medium">
+            <span className="flex items-center gap-1.5">
+              <Check className="w-4 h-4 text-[#8BCF3F] stroke-[2.5]" /> 80 Puntos Clave
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Check className="w-4 h-4 text-[#8BCF3F] stroke-[2.5]" /> Bases Legales RUNT / SIMIT
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Check className="w-4 h-4 text-[#8BCF3F] stroke-[2.5]" /> Estimación de Costos Ocultos
+            </span>
           </div>
         </div>
       </section>

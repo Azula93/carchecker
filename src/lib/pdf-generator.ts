@@ -29,7 +29,7 @@ export function generarResumenTexto(evaluacion: Evaluacion, resultado: Resultado
     estadoTexto = 'FAVORABLE CON CONDICIONES (65-79%)';
   }
 
-  const texto = `*Reporte Car Checker — Estimación Preliminar*
+  const texto = `*Reporte EscaneApp — Estimación Preliminar*
 *Vehículo:* ${vehiculo} ${placa}
 *Recorrido:* ${km}
 *Puntuación Estimada:* ${resultado.porcentajeGlobal}/100 — ${estadoTexto}
@@ -45,7 +45,7 @@ ${evaluacion.precioVenta > 0 ? `• Precio publicado: ${formatCOP(evaluacion.pre
 
 ${resultado.alertas.length > 0 ? `*Señales de alerta registradas:* ${resultado.alertas.length}` : '• Sin alertas críticas'}
 
-Generado con Car Checker Colombia (Revisión y estimación preliminar).
+Generado con EscaneApp Colombia (Escanea antes de comprar).
 _Aviso: Esta estimación es únicamente orientativa y se basa en los datos ingresados. No sustituye un peritaje técnico en un CDA ni una cotización formal en talleres o almacenes._`;
 
   return texto;
