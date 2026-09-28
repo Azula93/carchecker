@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   description:
     "Revisa un carro usado en Colombia antes de comprarlo. Evalúa antecedentes oficiales, checklist de 80 puntos y costos ocultos antes de pagar un peritaje profesional.",
   alternates: {
-    canonical: "https://carchecker.kodiquett.com",
+    canonical: "https://escaneapp.com",
   },
   manifest: "/manifest.json",
   icons: {
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     title: "EscaneApp | Escanea antes de comprar — Evaluación Inteligente de Vehículos",
     description:
       "Revisa un carro usado en Colombia antes de comprarlo. Evalúa antecedentes oficiales, checklist de 80 puntos y costos ocultos antes de pagar un peritaje profesional.",
-    url: "https://carchecker.kodiquett.com",
+    url: "https://escaneapp.com",
     siteName: "EscaneApp Colombia",
     locale: "es_CO",
     type: "website",

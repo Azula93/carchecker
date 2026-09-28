@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://carchecker.kodiquett.com/sitemap.xml',
+    sitemap: 'https://escaneapp.com/sitemap.xml',
   };
 }
