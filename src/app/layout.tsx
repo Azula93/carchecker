@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     description:
       "Revisa un carro usado en Colombia antes de comprarlo. Evalúa antecedentes oficiales, checklist y costos ocultos antes de pagar un peritaje profesional.",
     url: "https://escaneapp.com",
-    siteName: "EscaneApp Colombia",
+    siteName: "EscaneApp",
     locale: "es_CO",
     type: "website",
   },
@@ -89,17 +89,21 @@ export default function RootLayout({
       lang="es"
       className={`${manrope.variable} ${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
+        <head>
+      <Script
+        id="google-adsense"
+        async
+        strategy="beforeInteractive"
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4990996804813930"
+        crossOrigin="anonymous"
+      />
+    </head>
       <body className="min-h-full flex flex-col bg-[#F7F9FA] text-[#17212B] font-sans selection:bg-[#8BCF3F]/30 selection:text-[#123B5D]">
         <PwaRegister />
         <StructuredData />
         <Header />
         <main className="flex-1 w-full flex flex-col">{children}</main>
         <Footer />
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4990996804813930"
-          crossOrigin="anonymous"
-        />
       </body>
     </html>
   );
