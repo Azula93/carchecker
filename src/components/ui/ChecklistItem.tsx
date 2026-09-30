@@ -1,7 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Lightbulb, Search } from 'lucide-react';
+import React from 'react';
 import { ChecklistItemDef, ValoracionChecklist } from '../../types/evaluation';
 import { formatCOP } from '../../data/repair-costs';
 
@@ -16,8 +15,6 @@ export const ChecklistItem: React.FC<ChecklistItemProps> = ({
   valoracion,
   onValoracionChange,
 }) => {
-  const [showTip, setShowTip] = useState(false);
-
   const opciones: {
     valor: ValoracionChecklist;
     label: string;
@@ -72,25 +69,13 @@ export const ChecklistItem: React.FC<ChecklistItemProps> = ({
       }`}
     >
       <div className="flex flex-col gap-1.5">
-        <div className="flex items-start justify-between gap-2 flex-wrap">
-          <div className="flex items-center gap-2 flex-wrap min-w-0">
-            <span className="text-[10px] font-mono text-[#123B5D] bg-[#EBF3FA] px-2 py-0.5 rounded-full border border-[#D5E6F5] uppercase font-bold shrink-0">
-              {item.id}
-            </span>
-            <h3 className="text-sm sm:text-base font-bold text-[#17212B] tracking-tight">
-              {item.nombre}
-            </h3>
-          </div>
-
-          <button
-            type="button"
-            onClick={() => setShowTip(!showTip)}
-            className="text-xs inline-flex items-center gap-1.5 text-[#123B5D] bg-[#EBF3FA] hover:bg-[#DEEEFB] border border-[#D5E6F5] px-2.5 py-1 rounded-lg transition-colors font-bold shrink-0 cursor-pointer"
-            title="Ver guía de verificación para este componente"
-          >
-            <Lightbulb className="w-3.5 h-3.5 text-[#E5A72B] shrink-0" />
-            <span className="text-[11px]">¿Cómo revisar?</span>
-          </button>
+        <div className="flex items-center gap-2 flex-wrap min-w-0">
+          <span className="text-[10px] font-mono text-[#123B5D] bg-[#EBF3FA] px-2 py-0.5 rounded-full border border-[#D5E6F5] uppercase font-bold shrink-0">
+            {item.id}
+          </span>
+          <h3 className="text-sm sm:text-base font-bold text-[#17212B] tracking-tight">
+            {item.nombre}
+          </h3>
         </div>
 
         {/* Tip / Inspection prompt hint */}
@@ -136,17 +121,6 @@ export const ChecklistItem: React.FC<ChecklistItemProps> = ({
           );
         })}
       </div>
-
-      {/* Expandable Inspection Guide Drawer */}
-      {showTip && (
-        <div className="mt-1 p-3.5 bg-[#F8FAFC] border border-[#CBD5E1] rounded-xl text-xs text-[#17212B] flex items-start gap-2.5 animate-fadeIn">
-          <Search className="w-4 h-4 text-[#123B5D] shrink-0 mt-0.5" />
-          <div className="flex-1 leading-relaxed">
-            <span className="font-bold text-[#123B5D]">Pauta técnica de verificación: </span>
-            <span className="text-[#66727D]">{item.tip}</span>
-          </div>
-        </div>
-      )}
     </article>
   );
 };

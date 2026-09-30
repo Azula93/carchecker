@@ -52,14 +52,14 @@ export const Step2Legales: React.FC<Step2LegalesProps> = ({
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EBF3FA] text-[#123B5D] text-xs font-bold w-fit">
             <span className="w-2 h-2 rounded-full bg-[#8BCF3F] animate-pulse"></span>
-            <span>HISTORIAL &amp; LEGALIDAD · En curso</span>
+            <span>HISTORIAL &amp; LEGALIDAD</span>
           </div>
 
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-[#123B5D] text-xs font-semibold shadow-2xs w-fit">
             <Scale className="w-4 h-4 text-[#3578B8]" />
             <div className="flex flex-col leading-tight">
-              <span className="font-bold text-[11px]">Bases Oficiales</span>
-              <span className="text-[10px] text-[#66727D]">RUNT · SIMIT · Fasecolda</span>
+              <span className="font-bold text-[11px]">Sitios Oficiales</span>
+              <span className="text-[10px] text-[#66727D]">RUNT · SIMIT · FASECOLDA</span>
             </div>
           </div>
         </div>
@@ -68,7 +68,7 @@ export const Step2Legales: React.FC<Step2LegalesProps> = ({
           Revisa sus antecedentes oficiales
         </h2>
         <p className="text-xs sm:text-sm text-[#66727D] mt-1.5 leading-relaxed max-w-3xl">
-          Consulta las entidades oficiales en ventana externa y clasifica los hallazgos para recalibrar las alertas y verificar si el traspaso es jurídicamente viable.
+          Consulta las entidades oficiales y clasifica los hallazgos para recalibrar las alertas y verificar si el traspaso es jurídicamente viable.
         </p>
 
         {/* Vehículo Seleccionado Capsule */}
@@ -130,7 +130,7 @@ export const Step2Legales: React.FC<Step2LegalesProps> = ({
           <div className="flex items-center justify-between border-b border-[#F1F5F9] pb-3">
             <div className="flex items-center gap-2">
               <div className="w-2.5 h-2.5 rounded-full bg-[#123B5D]"></div>
-              <h3 className="text-base sm:text-lg font-bold text-[#17212B]">RUNT Ciudadano</h3>
+              <h3 className="text-base sm:text-lg font-bold text-[#17212B]">RUNT</h3>
             </div>
             <span className="text-[11px] font-mono uppercase px-2.5 py-0.5 rounded-full bg-[#EBF3FA] text-[#123B5D] font-bold border border-[#D5E6F5]">
               Propiedad &amp; Prendas
@@ -152,10 +152,10 @@ export const Step2Legales: React.FC<Step2LegalesProps> = ({
                   <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#8BCF3F] bg-white/10 px-2 py-0.5 rounded">
                     Paso 1 · Consulta Externa
                   </span>
-                  <span className="text-[11px] text-slate-300">• Abre en pestaña nueva</span>
+                  {/* <span className="text-[11px] text-slate-300">• Abre en pestaña nueva</span> */}
                 </div>
                 <span className="text-sm font-bold text-white block mt-0.5">
-                  Portal Oficial del RUNT Ciudadano
+                  Portal Oficial del RUNT
                 </span>
               </div>
             </div>
@@ -166,7 +166,7 @@ export const Step2Legales: React.FC<Step2LegalesProps> = ({
               rel="noopener noreferrer"
               className="h-11 px-5 rounded-xl bg-[#8BCF3F] hover:bg-[#7EC134] text-[#17212B] font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer shrink-0 shadow-xs active:scale-95"
             >
-              <span>Abrir RUNT Ciudadano ↗</span>
+              <span>Ir al RUNT ↗</span>
             </a>
           </div>
 
@@ -245,15 +245,15 @@ export const Step2Legales: React.FC<Step2LegalesProps> = ({
           <div className="flex items-center justify-between border-b border-[#F1F5F9] pb-3">
             <div className="flex items-center gap-2">
               <div className="w-2.5 h-2.5 rounded-full bg-[#123B5D]"></div>
-              <h3 className="text-base sm:text-lg font-bold text-[#17212B]">SIMIT Infracciones &amp; Multas</h3>
+              <h3 className="text-base sm:text-lg font-bold text-[#17212B]">SIMIT </h3>
             </div>
             <span className="text-[11px] font-mono uppercase px-2.5 py-0.5 rounded-full bg-[#EBF3FA] text-[#123B5D] font-bold border border-[#D5E6F5]">
-              Comparendos Nacionales
+              Infracciones &amp; Multas
             </span>
           </div>
 
           <p className="text-xs sm:text-sm text-[#66727D] leading-relaxed">
-            Verifica comparendos pendientes de la placa y de la cédula del propietario actual. Cualquier deuda pendiente bloquea el traspaso legal en el RUNT.
+            Verifica comparendos pendientes de la placa del vehículo. Cualquier deuda pendiente bloquea el traspaso legal en el RUNT.
           </p>
 
           {/* Enlace al Portal */}
@@ -267,7 +267,7 @@ export const Step2Legales: React.FC<Step2LegalesProps> = ({
                   <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#E5A72B] bg-white/10 px-2 py-0.5 rounded">
                     Paso 1 · Consulta Externa
                   </span>
-                  <span className="text-[11px] text-slate-300">• Abre en pestaña nueva</span>
+                  {/* <span className="text-[11px] text-slate-300">• Abre en pestaña nueva</span> */}
                 </div>
                 <span className="text-sm font-bold text-white block mt-0.5">
                   Portal Oficial SIMIT (Multas y Comparendos)
@@ -281,7 +281,7 @@ export const Step2Legales: React.FC<Step2LegalesProps> = ({
               rel="noopener noreferrer"
               className="h-11 px-5 rounded-xl bg-[#E5A72B] hover:bg-[#D97706] text-[#17212B] font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer shrink-0 shadow-xs active:scale-95"
             >
-              <span>Abrir SIMIT Multas ↗</span>
+              <span>Ir al SIMIT ↗</span>
             </a>
           </div>
 
@@ -306,10 +306,10 @@ export const Step2Legales: React.FC<Step2LegalesProps> = ({
           <div className="flex items-center justify-between border-b border-[#F1F5F9] pb-3">
             <div className="flex items-center gap-2">
               <div className="w-2.5 h-2.5 rounded-full bg-[#123B5D]"></div>
-              <h3 className="text-base sm:text-lg font-bold text-[#17212B]">Fasecolda Siniestralidad</h3>
+              <h3 className="text-base sm:text-lg font-bold text-[#17212B]">FASECOLDA </h3>
             </div>
             <span className="text-[11px] font-mono uppercase px-2.5 py-0.5 rounded-full bg-[#EBF3FA] text-[#123B5D] font-bold border border-[#D5E6F5]">
-              Historial Asegurador
+              Siniestralidad
             </span>
           </div>
 
@@ -328,7 +328,7 @@ export const Step2Legales: React.FC<Step2LegalesProps> = ({
                   <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#8BCF3F] bg-white/10 px-2 py-0.5 rounded">
                     Paso 1 · Consulta Externa
                   </span>
-                  <span className="text-[11px] text-slate-300">• Abre en pestaña nueva</span>
+                  {/* <span className="text-[11px] text-slate-300">• Abre en pestaña nueva</span> */}
                 </div>
                 <span className="text-sm font-bold text-white block mt-0.5">
                   Portal Fasecolda (Historial de Accidentes)
@@ -342,7 +342,7 @@ export const Step2Legales: React.FC<Step2LegalesProps> = ({
               rel="noopener noreferrer"
               className="h-11 px-5 rounded-xl bg-[#8BCF3F] hover:bg-[#7EC134] text-[#17212B] font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer shrink-0 shadow-xs active:scale-95"
             >
-              <span>Abrir Historial Fasecolda ↗</span>
+              <span>Ir a Fasecolda ↗</span>
             </a>
           </div>
 

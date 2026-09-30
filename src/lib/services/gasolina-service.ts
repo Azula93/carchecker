@@ -178,7 +178,7 @@ async function obtenerTablaCREG(): Promise<TablaCREGExtraida> {
       signal: controller.signal,
       headers: {
         'User-Agent':
-          'CarCheckColombia/2.4 (https://carchecker.kodiquett.com; contacto@carchecker.com)',
+          'EscaneAppColombia/2.4 (https://carchecker.kodiquett.com; azuladev93@gmail.com)',
         Accept: 'text/html,application/xhtml+xml',
       },
       // Revalidación Next.js a nivel de caché HTTP

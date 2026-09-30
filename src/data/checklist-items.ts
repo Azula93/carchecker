@@ -12,7 +12,7 @@ export const CHECKLIST_ITEMS: ChecklistItemDef[] = [
   { id: 'ext-08', nombre: 'Manijas de puertas', categoria: 'exterior', tip: 'Abra y cierre todas las puertas. Las manijas deben ser firmes, sin juego ni crujidos' },
   { id: 'ext-09', nombre: 'Cauchos del techo (Alerta vuelco)', categoria: 'exterior', tip: '[ATENCIÓN] Si los cauchos/empaques del techo están nuevos en un carro viejo, puede indicar que el vehículo volcó y fue reparado' },
   { id: 'ext-10', nombre: 'Vida útil de llantas', categoria: 'exterior', tip: 'Prueba de la moneda de $500: inserte la moneda en la ranura del labrado. Si se hunde completamente, la llanta está bien. Si queda expuesta, necesita cambio' },
-  { id: 'ext-11', nombre: 'Chichones internos en llantas', categoria: 'exterior', tip: 'Pase la mano por la parte interna de cada llanta. Abultamientos o chichones significan daño estructural irreparable' },
+  { id: 'ext-11', nombre: 'Protuberancias internas en llantas', categoria: 'exterior', tip: 'Pase la mano por la parte interna de cada llanta. Abultamientos significan daño estructural irreparable' },
   { id: 'ext-12', nombre: 'Luces delanteras', categoria: 'exterior', tip: 'Encienda luces bajas, altas y direccionales. Verifique que no estén opacas o con humedad interna' },
   { id: 'ext-13', nombre: 'Luces traseras y stops', categoria: 'exterior', tip: 'Pida a alguien que pise el freno mientras usted verifica atrás. Revise reversa y direccionales' },
   { id: 'ext-14', nombre: 'Emblemas y molduras', categoria: 'exterior', tip: 'Verifique que todos los emblemas estén originales y bien adheridos. Faltantes pueden indicar reparaciones' },

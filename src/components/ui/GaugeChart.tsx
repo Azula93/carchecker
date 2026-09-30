@@ -130,12 +130,6 @@ export const GaugeChart: React.FC<GaugeChartProps> = ({
           </span>
         </div>
       </div>
-
-      <div className="flex justify-between w-full max-w-[200px] text-[10px] text-[#64748B] font-mono -mt-1">
-        <span>0</span>
-        <span className="text-[#D97706] font-semibold">65 mín</span>
-        <span>100</span>
-      </div>
     </div>
   );
 };

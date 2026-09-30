@@ -2,7 +2,7 @@ import { Evaluacion, ResultadoFinal } from '../types/evaluation';
 import { formatCOP } from '../data/repair-costs';
 
 /**
- * Función que abre la ventana de impresión optimizada para PDF de Car Checker.
+ * Función que abre la ventana de impresión optimizada para PDF de EscaneApp.
  */
 export function imprimirReportePDF(): void {
   if (typeof window !== 'undefined') {

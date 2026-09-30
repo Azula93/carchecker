@@ -17,6 +17,7 @@ import {
   limpiarEvaluacion,
 } from '../../lib/storage';
 import { calcularResultadoFinal } from '../../lib/calculations';
+import { imprimirReportePDF } from '../../lib/pdf-generator';
 import { getCostoByChecklistId } from '../../data/repair-costs';
 import { CHECKLIST_ITEMS } from '../../data/checklist-items';
 import { ProgressBar } from '../layout/ProgressBar';
@@ -366,14 +367,16 @@ export const WizardContainer: React.FC = () => {
             onLimpiarPaso={handleLimpiarPasoActual}
             siguienteDeshabilitado={pasoActual === 1 && paso1Invalido}
             esDescarte={resultadoFinal.esDescarte}
+            onDescargarReporte={imprimirReportePDF}
+            onReiniciar={handleReiniciar}
           />
         </div>
       </div>
 
       {/* 3. Tres Tarjetas de Información Inferiores (Stitch Reference) */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 print:hidden">
+      {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 print:hidden"> */}
         {/* Card 1: Cálculo de Desgaste */}
-        <div className="bg-white rounded-2xl p-5 border border-[#E2E8F0] shadow-2xs flex items-start gap-3.5">
+        {/* <div className="bg-white rounded-2xl p-5 border border-[#E2E8F0] shadow-2xs flex items-start gap-3.5">
           <div className="w-10 h-10 rounded-xl bg-[#EBF3FA] text-[#123B5D] flex items-center justify-center shrink-0">
             <Gauge className="w-5 h-5" />
           </div>
@@ -385,10 +388,10 @@ export const WizardContainer: React.FC = () => {
               Cruza el kilometraje con la tasa de uso en Colombia para detectar anomalías en tacómetro.
             </p>
           </div>
-        </div>
+        </div> */}
 
         {/* Card 2: Validación RUNT */}
-        <div className="bg-white rounded-2xl p-5 border border-[#E2E8F0] shadow-2xs flex items-start gap-3.5">
+        {/* <div className="bg-white rounded-2xl p-5 border border-[#E2E8F0] shadow-2xs flex items-start gap-3.5">
           <div className="w-10 h-10 rounded-xl bg-[#EBF3FA] text-[#123B5D] flex items-center justify-center shrink-0">
             <ShieldCheck className="w-5 h-5" />
           </div>
@@ -400,10 +403,10 @@ export const WizardContainer: React.FC = () => {
               La placa nos permitirá contrastar embargos, prendas y multas pendientes en el Paso 2.
             </p>
           </div>
-        </div>
+        </div> */}
 
         {/* Card 3: Presupuesto Sugerido */}
-        <div className="bg-white rounded-2xl p-5 border border-[#E2E8F0] shadow-2xs flex items-start gap-3.5">
+        {/* <div className="bg-white rounded-2xl p-5 border border-[#E2E8F0] shadow-2xs flex items-start gap-3.5">
           <div className="w-10 h-10 rounded-xl bg-[#EBF3FA] text-[#123B5D] flex items-center justify-center shrink-0">
             <Calculator className="w-5 h-5" />
           </div>
@@ -415,8 +418,8 @@ export const WizardContainer: React.FC = () => {
               Determina el costo real de tenencia y mantenimientos correctivos a corto plazo.
             </p>
           </div>
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
 
       {/* 4. Subfooter Institucional */}
       <div className="pt-4 pb-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-[#66727D] border-t border-[#E2E8F0] print:hidden">

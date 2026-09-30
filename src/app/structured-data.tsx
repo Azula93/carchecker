@@ -4,10 +4,10 @@ export function StructuredData() {
     '@graph': [
       {
         '@type': 'WebApplication',
-        '@id': 'https://carchecker.kodiquett.com/#webapp',
-        name: 'Car Checker',
-        alternateName: 'Car Checker Colombia',
-        url: 'https://carchecker.kodiquett.com',
+        '@id': 'https://escaneapp.com/#webapp',
+        name: 'EscaneApp',
+        alternateName: 'EscaneApp Colombia',
+        url: 'https://escaneapp.com',
         description:
           'Herramienta de revisión preliminar de vehículos usados en Colombia. Permite evaluar kilometraje, antecedentes, estado físico y posibles costos ocultos antes de realizar un peritaje profesional.',
         applicationCategory: 'UtilitiesApplication',
@@ -17,9 +17,9 @@ export function StructuredData() {
       },
       {
         '@type': 'Organization',
-        '@id': 'https://carchecker.kodiquett.com/#organization',
-        name: 'Car Checker',
-        url: 'https://carchecker.kodiquett.com',
+        '@id': 'https://escaneapp.com/#organization',
+        name: 'EscaneApp',
+        url: 'https://escaneapp.com',
       },
     ],
   };

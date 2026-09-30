@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description:
       "Guía práctica para organizar la revisión de antecedentes de un vehículo usado antes de comprarlo.",
     url: "https://carchecker.kodiquett.com/antecedentes-vehiculo-colombia",
-    siteName: "Car Checker Colombia",
+    siteName: "EscaneApp Colombia",
     locale: "es_CO",
     type: "article",
   },
@@ -38,7 +38,7 @@ const articleStructuredData = {
   },
   publisher: {
     "@type": "Organization",
-    name: "Car Checker",
+    name: "EscaneApp",
     url: "https://carchecker.kodiquett.com",
   },
 };
@@ -57,7 +57,7 @@ export default function AntecedentesVehiculoColombiaPage() {
         {/* Header */}
         <header className="mb-10">
           <p className="text-sm font-mono font-semibold text-[#166534] mb-3">
-            GUÍA CAR CHECKER · ANTECEDENTES
+            GUÍA ESCANEAPP · ANTECEDENTES
           </p>
 
           <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-[#0F1B2B] leading-tight mb-5">
@@ -380,7 +380,7 @@ export default function AntecedentesVehiculoColombiaPage() {
         {/* CTA */}
         <section className="rounded-2xl bg-[#0F1B2B] px-6 py-8 md:px-10 md:py-10 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
-            Organiza tus hallazgos con Car Checker
+            Organiza tus hallazgos con EscaneApp
           </h2>
 
           <p className="text-slate-300 leading-7 mb-6 max-w-2xl mx-auto">
@@ -399,7 +399,7 @@ export default function AntecedentesVehiculoColombiaPage() {
         <p className="text-xs text-slate-500 leading-6 mt-8">
           <strong>Aviso:</strong> Las consultas de antecedentes deben realizarse
           directamente en las plataformas oficiales o fuentes correspondientes.
-          Car Checker funciona como herramienta de organización y revisión
+          EscaneApp funciona como herramienta de organización y revisión
           preliminar y no sustituye las consultas oficiales ni un peritaje
           profesional.
         </p>

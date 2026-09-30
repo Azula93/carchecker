@@ -96,17 +96,17 @@ export const Step1Basicos: React.FC<Step1BasicosProps> = ({ datos, onChange }) =
           {/* Badge izquierdo */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EBF3FA] text-[#123B5D] text-xs font-bold w-fit">
             <span className="w-2 h-2 rounded-full bg-[#8BCF3F] animate-pulse"></span>
-            <span>BÁSICOS &amp; KILOMETRAJE · En curso</span>
+            <span>BÁSICOS</span>
           </div>
 
           {/* Badge derecho */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-[#123B5D] text-xs font-semibold shadow-2xs w-fit">
+          {/* <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-[#123B5D] text-xs font-semibold shadow-2xs w-fit">
             <ShieldCheck className="w-4 h-4 text-[#2EAD68]" />
             <div className="flex flex-col leading-tight">
               <span className="font-bold text-[11px]">Fase Preliminar</span>
               <span className="text-[10px] text-[#66727D]">100% Confidencial</span>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <h2 className="text-2xl sm:text-3xl font-extrabold text-[#17212B] tracking-tight">
@@ -157,7 +157,7 @@ export const Step1Basicos: React.FC<Step1BasicosProps> = ({ datos, onChange }) =
               >
                 Municipio de matrícula <span className="text-xs font-normal text-[#66727D]">(Opcional)</span>
               </label>
-              <span className="text-[11px] text-[#66727D]">Tránsito RUNT</span>
+              
             </div>
             <div className="relative">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-[#66727D]">
@@ -211,7 +211,7 @@ export const Step1Basicos: React.FC<Step1BasicosProps> = ({ datos, onChange }) =
             >
               Línea, marca y versión <span className="text-[#D64545]">*</span>
             </label>
-            <span className="text-[11px] text-[#66727D]">Tal como en tarjeta de propiedad</span>
+            
           </div>
           <div className="relative">
             <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-[#66727D]">
@@ -273,9 +273,9 @@ export const Step1Basicos: React.FC<Step1BasicosProps> = ({ datos, onChange }) =
                 htmlFor="kilometraje"
                 className="block text-xs sm:text-sm font-bold text-[#17212B]"
               >
-                Kilometraje actual registrado en odómetro <span className="text-[#D64545]">*</span>
+                Kilometraje actual<span className="text-[#D64545]">*</span>
               </label>
-              <span className="text-xs font-medium text-[#66727D]">Uso óptimo esperado</span>
+              
             </div>
 
             <div className="relative">
@@ -299,12 +299,12 @@ export const Step1Basicos: React.FC<Step1BasicosProps> = ({ datos, onChange }) =
           </div>
         </div>
 
-        <p className="text-[11px] text-[#66727D] -mt-2">
+        {/* <p className="text-[11px] text-[#66727D] -mt-2">
           Digita el número visible en el cuadro de instrumentos sin decimales. Se cruzará con la media nacional esperada.
-        </p>
+        </p> */}
 
         {/* Callout de Diagnóstico de Uso en Colombia (Stitch Reference) */}
-        {resultadoKm ? (
+        {/* {resultadoKm ? (
           <div className="p-4 sm:p-5 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE] shadow-2xs flex items-start gap-3.5">
             <div className="w-9 h-9 rounded-xl bg-[#3578B8] text-white flex items-center justify-center shrink-0 shadow-2xs">
               <BarChart3 className="w-5 h-5" />
@@ -340,7 +340,7 @@ export const Step1Basicos: React.FC<Step1BasicosProps> = ({ datos, onChange }) =
               <strong>Diagnóstico de Uso en Colombia:</strong> Ingresa el kilometraje para contrastarlo en tiempo real con el estándar colombiano.
             </span>
           </div>
-        )}
+        )} */}
       </div>
 
       {/* Detalle Desplegable del Análisis de Kilometraje */}

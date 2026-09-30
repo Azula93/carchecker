@@ -35,7 +35,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "EscaneApp | Escanea antes de comprar — Evaluación Inteligente de Vehículos",
   description:
-    "Revisa un carro usado en Colombia antes de comprarlo. Evalúa antecedentes oficiales, checklist de 80 puntos y costos ocultos antes de pagar un peritaje profesional.",
+    "Revisa un carro usado en Colombia antes de comprarlo. Evalúa antecedentes oficiales, checklist y costos ocultos antes de pagar un peritaje profesional.",
   alternates: {
     canonical: "https://escaneapp.com",
   },
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "EscaneApp | Escanea antes de comprar — Evaluación Inteligente de Vehículos",
     description:
-      "Revisa un carro usado en Colombia antes de comprarlo. Evalúa antecedentes oficiales, checklist de 80 puntos y costos ocultos antes de pagar un peritaje profesional.",
+      "Revisa un carro usado en Colombia antes de comprarlo. Evalúa antecedentes oficiales, checklist y costos ocultos antes de pagar un peritaje profesional.",
     url: "https://escaneapp.com",
     siteName: "EscaneApp Colombia",
     locale: "es_CO",
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "EscaneApp | Escanea antes de comprar",
     description:
-      "Revisa un carro usado en Colombia antes de comprarlo. Evalúa antecedentes oficiales, checklist de 80 puntos y costos ocultos antes de pagar un peritaje profesional.",
+      "Revisa un carro usado en Colombia antes de comprarlo. Evalúa antecedentes oficiales, checklist y costos ocultos antes de pagar un peritaje profesional.",
   },
 
   verification: {

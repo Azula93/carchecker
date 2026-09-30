@@ -305,7 +305,7 @@ export function calcularResultadoFinal(
       porcentajeLegales: resultadoLegales.porcentaje,
       porcentajeChecklist: resultadoChecklist.porcentaje,
       veredicto: 'no_comprar',
-      mensajeVeredicto: 'Criterio de descarte detectado. ' + motivoDescarte + ' (Evaluación preliminar según criterios de Car Checker)',
+      mensajeVeredicto: 'Criterio de descarte detectado. ' + motivoDescarte + ' (Evaluación preliminar según criterios de EscaneApp)',
       esDescarte: true,
       motivoDescarte,
       alertas,

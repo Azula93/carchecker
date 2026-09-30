@@ -73,7 +73,7 @@ async function fetchDesdeSFC(): Promise<DatosCredito | null> {
 
     const headers: Record<string, string> = {
       Accept: 'application/json',
-      'User-Agent': 'CarCheck-Colombia/2.0 (VerificadorVehicular; contacto@carcheck.co)',
+      'User-Agent': 'EscaneApp-Colombia/2.0 (VerificadorVehicular; azuladev93@gmail.com)',
     };
 
     // Si existe token opcional en variables de entorno, se incluye

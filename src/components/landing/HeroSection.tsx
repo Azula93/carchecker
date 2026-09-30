@@ -78,7 +78,7 @@ export const HeroSection: React.FC = () => {
                 {/* Imagen del vehículo en estudio fotográfico */}
                 <div className="relative w-full h-[280px] sm:h-[360px] md:h-[400px]">
                   <Image
-                    src="/unnamed.jpg"
+                    src="/pexels-mikebird-20475010.jpg"
                     alt="Inspección inteligente de vehículo sedán en estudio"
                     fill
                     priority
@@ -90,7 +90,7 @@ export const HeroSection: React.FC = () => {
                 </div>
 
                 {/* 1. GAUGE DE PUNTUACIÓN (Superpuesto en esquina superior izquierda con efecto glass) */}
-                <div className="absolute top-3.5 sm:top-5 left-3.5 sm:left-5 bg-white/70 backdrop-blur-xl rounded-2xl p-3.5 sm:p-4 shadow-[0_8px_32px_0_rgba(15,27,43,0.14)] border border-white/60 flex flex-col items-center min-w-[130px] sm:min-w-[150px] animate-fadeIn">
+                <div className="absolute top-3.5 sm:top-5 left-3.5 sm:left-5 bg-white/70  rounded-2xl p-3.5 sm:p-4 shadow-[0_8px_32px_0_rgba(15,27,43,0.14)] border border-white/60 flex flex-col items-center min-w-[130px] sm:min-w-[150px] animate-fadeIn">
                   {/* Etiqueta Superior */}
                   <span className="text-[9px] sm:text-[10px] font-extrabold text-[#66727D] uppercase tracking-wider mb-2 text-center">
                     PUNTUACIÓN ESTIMADA
@@ -149,10 +149,10 @@ export const HeroSection: React.FC = () => {
                 </div>
 
                 {/* 2. TARJETA DE COSTO DE PROPIEDAD (Superpuesta en esquina inferior derecha con efecto glass) */}
-                <div className="absolute bottom-3.5 sm:bottom-5 right-3.5 sm:right-5 bg-white/70 backdrop-blur-xl rounded-2xl p-3.5 sm:p-4 shadow-[0_8px_32px_0_rgba(15,27,43,0.14)] border border-white/60 min-w-[210px] sm:min-w-[250px] animate-fadeIn">
+                <div className="absolute bottom-3.5 sm:bottom-5 right-3.5 sm:right-5 bg-white/70  rounded-2xl p-3.5 sm:p-4 shadow-[0_8px_32px_0_rgba(15,27,43,0.14)] border border-white/60 min-w-[210px] sm:min-w-[250px] animate-fadeIn">
                   <div className="flex items-center justify-between gap-2 mb-1">
                     <span className="text-[9px] font-extrabold tracking-wider text-[#66727D] uppercase">
-                      COSTO REAL
+                      COSTO ESTIMADO
                     </span>
                     <span className="text-[9px] font-bold text-[#123B5D] bg-[#EBF3FA] px-1.5 py-0.5 rounded">
                       Proyección
@@ -203,7 +203,7 @@ export const HeroSection: React.FC = () => {
               TODO LO QUE NECESITAS ANTES DE COMPRAR UN CARRO USADO.
             </h2>
             <p className="text-sm sm:text-base text-[#66727D] leading-relaxed">
-              Tres herramientas diseñadas para evaluar aspectos técnicos, legales y financieros de forma independiente o complementaria.
+              Herramientas diseñadas para evaluar aspectos técnicos, legales y financieros de forma independiente o complementaria.
             </p>
           </div>
 
@@ -460,13 +460,13 @@ export const HeroSection: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EBF7DF] text-[#3B6615] text-[11px] font-bold uppercase tracking-wider mb-3">
-              <span>GUÍAS TÉCNICAS PARA COMPRADORES</span>
+              <span>GUÍAS PARA COMPRADORES</span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#17212B] tracking-tight mb-3">
               APRENDE A REVISAR UN CARRO USADO.
             </h2>
             <p className="text-xs sm:text-sm text-[#66727D] leading-relaxed">
-              Guías prácticas para la inspección de vehículos con criterios técnicos.
+              Información práctica para evaluar un vehículo usado antes de comprarlo y saber cuándo necesitas un peritaje profesional.
             </p>
           </div>
 
@@ -479,17 +479,17 @@ export const HeroSection: React.FC = () => {
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="px-2.5 py-0.5 rounded-full bg-white border border-[#E2E8F0] text-[10px] font-bold text-[#123B5D]">
-                    Motor
+                    Guía
                   </span>
                   <span className="inline-flex items-center gap-1 text-[10px] text-[#66727D] font-medium">
                     <Clock className="w-3 h-3" /> 5 min
                   </span>
                 </div>
                 <h3 className="text-base font-bold text-[#17212B] mb-2 group-hover:text-[#123B5D] transition-colors">
-                  ¿Cómo revisar un motor usado?
+                  ¿Cómo revisar un carro usado?
                 </h3>
                 <p className="text-xs text-[#66727D] leading-relaxed">
-                  El motor es el componente más costoso. Aprende a detectar fugas, humo del escape y ruidos.
+                  Conoce un proceso ordenado para revisar un vehículo usado antes de comprarlo.
                 </p>
               </div>
               <span className="mt-5 text-xs font-bold text-[#123B5D] inline-flex items-center gap-1">
@@ -505,17 +505,17 @@ export const HeroSection: React.FC = () => {
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="px-2.5 py-0.5 rounded-full bg-white border border-[#E2E8F0] text-[10px] font-bold text-[#123B5D]">
-                    Pintura
+                    Checklist
                   </span>
                   <span className="inline-flex items-center gap-1 text-[10px] text-[#66727D] font-medium">
                     <Clock className="w-3 h-3" /> 4 min
                   </span>
                 </div>
                 <h3 className="text-base font-bold text-[#17212B] mb-2 group-hover:text-[#123B5D] transition-colors">
-                  Defectos en la pintura del auto
+                  Qué componentes revisar en un carro usado
                 </h3>
                 <p className="text-xs text-[#66727D] leading-relaxed">
-                  Diferencias de coloración, piel de naranja, repintados sospechosos y soldaduras de fábrica.
+                  Descubre los principales componentes que debes revisar antes de tomar una deceisión de compra.
                 </p>
               </div>
               <span className="mt-5 text-xs font-bold text-[#123B5D] inline-flex items-center gap-1">
@@ -531,17 +531,17 @@ export const HeroSection: React.FC = () => {
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="px-2.5 py-0.5 rounded-full bg-white border border-[#E2E8F0] text-[10px] font-bold text-[#123B5D]">
-                    Chasis
+                    Kilometraje
                   </span>
                   <span className="inline-flex items-center gap-1 text-[10px] text-[#66727D] font-medium">
                     <Clock className="w-3 h-3" /> 6 min
                   </span>
                 </div>
                 <h3 className="text-base font-bold text-[#17212B] mb-2 group-hover:text-[#123B5D] transition-colors">
-                  ¿Cómo detectar colisiones anteriores?
+                  ¿Cómo revisar el kilometraje?
                 </h3>
                 <p className="text-xs text-[#66727D] leading-relaxed">
-                  Puntos clave de soporte de chasis, soldaduras sospechosas y piezas reemplazadas tras un choque.
+                  Aprende que significa el kilometraje y que señales conviene analizar antes de comprar.
                 </p>
               </div>
               <span className="mt-5 text-xs font-bold text-[#123B5D] inline-flex items-center gap-1">
@@ -557,17 +557,17 @@ export const HeroSection: React.FC = () => {
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="px-2.5 py-0.5 rounded-full bg-white border border-[#E2E8F0] text-[10px] font-bold text-[#123B5D]">
-                    Legal
+                    Antecedentes
                   </span>
                   <span className="inline-flex items-center gap-1 text-[10px] text-[#66727D] font-medium">
                     <Clock className="w-3 h-3" /> 5 min
                   </span>
                 </div>
                 <h3 className="text-base font-bold text-[#17212B] mb-2 group-hover:text-[#123B5D] transition-colors">
-                  Antecedentes legales críticos
+                  Antecedentes de un vehículo.
                 </h3>
                 <p className="text-xs text-[#66727D] leading-relaxed">
-                  Embargos, prendas, multas pendientes y limitaciones que impiden el traspaso legal del auto.
+                  Conoce que información consular y qué revisar antes de comprar un vehículo usado en Colombia.
                 </p>
               </div>
               <span className="mt-5 text-xs font-bold text-[#123B5D] inline-flex items-center gap-1">
@@ -585,7 +585,7 @@ export const HeroSection: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EBF7DF] text-[#3B6615] text-[11px] font-bold uppercase tracking-wider mb-3">
-              <span>VERIFICACIÓN OFICIAL</span>
+              <span>ACCESO A FUENTES OFICIALES</span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#17212B] tracking-tight mb-3">
               CONSULTA LAS FUENTES OFICIALES
@@ -601,8 +601,8 @@ export const HeroSection: React.FC = () => {
               <div>
                 <div className="relative w-full h-44 bg-slate-100 border-b border-[#E2E8F0]">
                   <Image
-                    src="/unnamed (1).jpg"
-                    alt="Documentos oficiales del RUNT y llaves de vehículo"
+                    src="/logo-runt.png"
+                    alt="logo del  registro único nacional de tránsito"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover"
@@ -616,7 +616,7 @@ export const HeroSection: React.FC = () => {
                     RUNT
                   </h3>
                   <p className="text-xs text-[#66727D] leading-relaxed">
-                    Historial de propietarios, accidentes registrados, estado del SOAT y revisión técnico-mecánica.
+                    Historial de propietarios anteriores, limitaciones a la propiedad, prendas bancarias vigentes, embargos y antecedentes de servicio público o escuela.
                   </p>
                 </div>
               </div>
@@ -625,7 +625,7 @@ export const HeroSection: React.FC = () => {
                   href={ENLACES_PORTALES.RUNT}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full h-11 inline-flex items-center justify-between px-4 rounded-xl bg-[#F7F9FA] border border-[#CBD5E1] text-[#17212B] text-xs font-bold hover:bg-[#EBF3FA] hover:text-[#123B5D] transition-colors"
+                  className="inline-flex items-center gap-2 px-4 h-10 rounded-xl bg-[#F7F9FA] border border-[#CBD5E1] text-[#17212B] text-xs font-bold hover:bg-[#EBF3FA] hover:text-[#123B5D] hover:border-[#123B5D] transition-all"
                 >
                   <span>Consultar RUNT</span>
                   <ExternalLink className="w-3.5 h-3.5 text-[#66727D]" />
@@ -638,7 +638,7 @@ export const HeroSection: React.FC = () => {
               <div>
                 <div className="relative w-full h-44 bg-[#F8FAFC] border-b border-[#E2E8F0] flex items-center justify-center p-6">
                   <Image
-                    src="/logo-landing.png"
+                    src="/logo-simit.png"
                     alt="Logotipo oficial SIMIT Federación Colombiana de Municipios"
                     width={220}
                     height={70}
@@ -653,7 +653,7 @@ export const HeroSection: React.FC = () => {
                     SIMIT
                   </h3>
                   <p className="text-xs text-[#66727D] leading-relaxed">
-                    Consulta de comparendos, fotomultas y acuerdos de pago pendientes a nivel nacional que impiden el traspaso.
+                    Comparendos pendientes por fotomultas o agentes de tránsito, acuerdos de pago activos y restricciones legales para realizar el traspaso.
                   </p>
                 </div>
               </div>
@@ -662,7 +662,7 @@ export const HeroSection: React.FC = () => {
                   href={ENLACES_PORTALES.SIMIT}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full h-11 inline-flex items-center justify-between px-4 rounded-xl bg-[#F7F9FA] border border-[#CBD5E1] text-[#17212B] text-xs font-bold hover:bg-[#EBF3FA] hover:text-[#123B5D] transition-colors"
+                  className="inline-flex items-center gap-2 px-4 h-10 rounded-xl bg-[#F7F9FA] border border-[#CBD5E1] text-[#17212B] text-xs font-bold hover:bg-[#EBF3FA] hover:text-[#123B5D] hover:border-[#123B5D] transition-all"
                 >
                   <span>Consultar SIMIT</span>
                   <ExternalLink className="w-3.5 h-3.5 text-[#66727D]" />
@@ -675,7 +675,7 @@ export const HeroSection: React.FC = () => {
               <div>
                 <div className="relative w-full h-44 bg-[#F8FAFC] border-b border-[#E2E8F0] flex items-center justify-center p-6">
                   <Image
-                    src="/Logo-Fasecolda-50-anos.webp"
+                    src="/logo-fasecolda.png"
                     alt="Logotipo oficial Fasecolda 50 años"
                     width={220}
                     height={70}
@@ -690,7 +690,7 @@ export const HeroSection: React.FC = () => {
                     FASECOLDA
                   </h3>
                   <p className="text-xs text-[#66727D] leading-relaxed">
-                    Guía de valores comerciales de vehículos y consulta de siniestros declarados ante aseguradoras.
+                    Historial de reclamaciones a pólizas todo riesgo por pérdida parcial o total de mayor cuantía y valor asegurado comercial de referencia.
                   </p>
                 </div>
               </div>
@@ -699,9 +699,9 @@ export const HeroSection: React.FC = () => {
                   href={ENLACES_PORTALES.FASECOLDA}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full h-11 inline-flex items-center justify-between px-4 rounded-xl bg-[#F7F9FA] border border-[#CBD5E1] text-[#17212B] text-xs font-bold hover:bg-[#EBF3FA] hover:text-[#123B5D] transition-colors"
+                  className="inline-flex items-center gap-2 px-4 h-10 rounded-xl bg-[#F7F9FA] border border-[#CBD5E1] text-[#17212B] text-xs font-bold hover:bg-[#EBF3FA] hover:text-[#123B5D] hover:border-[#123B5D] transition-all"
                 >
-                  <span>Consultar Guía</span>
+                  <span>Consultar FASECOLDA</span>
                   <ExternalLink className="w-3.5 h-3.5 text-[#66727D]" />
                 </a>
               </div>
@@ -792,7 +792,7 @@ export const HeroSection: React.FC = () => {
           </h2>
 
           <p className="text-sm sm:text-base text-slate-300 max-w-xl mb-8 leading-relaxed">
-            Haz una evaluación preliminar antes de pagar un peritaje completo o cerrar el negocio. Sin registro previo.
+            Haz una evaluación preliminar antes de pagar un peritaje completo o cerrar el negocio.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10 w-full sm:w-auto">
@@ -814,10 +814,10 @@ export const HeroSection: React.FC = () => {
 
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs text-slate-300 font-medium">
             <span className="flex items-center gap-1.5">
-              <Check className="w-4 h-4 text-[#8BCF3F] stroke-[2.5]" /> 80 Puntos Clave
+              <Check className="w-4 h-4 text-[#8BCF3F] stroke-[2.5]" /> Puntos Clave
             </span>
             <span className="flex items-center gap-1.5">
-              <Check className="w-4 h-4 text-[#8BCF3F] stroke-[2.5]" /> Bases Legales RUNT / SIMIT
+              <Check className="w-4 h-4 text-[#8BCF3F] stroke-[2.5]" /> Bases Legales  RUNT / SIMIT / FASECOLDA
             </span>
             <span className="flex items-center gap-1.5">
               <Check className="w-4 h-4 text-[#8BCF3F] stroke-[2.5]" /> Estimación de Costos Ocultos

@@ -114,7 +114,7 @@ export const Step5Resultado: React.FC<Step5ResultadoProps> = ({
     };
   }, [evaluacion.datosBasicos.lineaVehiculo, evaluacion.datosBasicos.anioModelo]);
 
-  const scriptNegociacion = `Hola, tras realizar una revisión preliminar de referencia en Car Checker del ${vehiculoNombre} (Placa ${placa} de ${ciudadPlaca}), la puntuación estimada obtenida es de ${resultado.porcentajeGlobal}/100. Se estimaron aproximadamente ${formatCOP(resultado.totalReparaciones)} en posibles arreglos o desgastes a considerar. Con base en esta estimación orientativa, te propongo ${
+  const scriptNegociacion = `Hola, tras realizar una revisión preliminar de referencia en EscaneApp del ${vehiculoNombre} (Placa ${placa} de ${ciudadPlaca}), la puntuación estimada obtenida es de ${resultado.porcentajeGlobal}/100. Se estimaron aproximadamente ${formatCOP(resultado.totalReparaciones)} en posibles arreglos o desgastes a considerar. Con base en esta estimación orientativa, te propongo ${
     evaluacion.precioVenta > 0 ? `un valor de ${formatCOP(resultado.precioSugerido)}` : 'ajustar el precio deduciendo estos posibles costos'
   } para evaluar el negocio. (Nota: Es una estimación de referencia y no sustituye un peritaje técnico formal).`;
 
@@ -153,30 +153,22 @@ export const Step5Resultado: React.FC<Step5ResultadoProps> = ({
           <div className="flex items-center gap-2.5 flex-wrap">
             <button
               type="button"
-              onClick={imprimirReportePDF}
-              className="h-11 px-5 rounded-xl bg-[#123B5D] hover:bg-[#0E2F4B] text-white text-xs font-bold shadow-sm flex items-center gap-2 cursor-pointer active:scale-95 transition-all"
-            >
-              <Download className="w-4 h-4 text-[#8BCF3F]" />
-              <span>Descargar Reporte PDF</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={handleCopiarResumen}
-              className="h-11 px-5 rounded-xl bg-[#8BCF3F] hover:bg-[#7CBF32] text-[#123B5D] text-xs font-black shadow-sm flex items-center gap-2 cursor-pointer active:scale-95 transition-all"
-            >
-              {copiado ? <Check className="w-4 h-4 text-[#123B5D]" /> : <Copy className="w-4 h-4 text-[#123B5D]" />}
-              <span>{copiado ? '¡Copiado!' : 'Copiar para WhatsApp'}</span>
-            </button>
-
-            <button
-              type="button"
               onClick={onReiniciar}
-              className="h-11 px-4 rounded-xl bg-[#FEF2F2] hover:bg-[#FEE2E2] text-[#D64545] border border-[#FECACA] text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer active:scale-95"
+              className="h-11 px-4 rounded-xl bg-white hover:bg-slate-50 text-[#66727D] hover:text-[#123B5D] border border-[#CBD5E1] text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer active:scale-95 shadow-2xs"
               title="Iniciar nueva evaluación desde cero"
             >
               <RotateCcw className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Nueva</span>
+              <span>Nuevo Escaneo</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={imprimirReportePDF}
+              className="h-11 px-5 rounded-xl bg-[#123B5D] hover:bg-[#0E2F4B] text-white text-xs font-bold shadow-xs flex items-center gap-2 cursor-pointer active:scale-95 transition-all"
+              title="Descargar o imprimir informe técnico en PDF"
+            >
+              <Download className="w-4 h-4 text-[#8BCF3F]" />
+              <span>Descargar Reporte (PDF)</span>
             </button>
           </div>
         </div>
@@ -529,7 +521,7 @@ export const Step5Resultado: React.FC<Step5ResultadoProps> = ({
               <div className="flex items-center gap-2">
                 <span className="font-black text-xl tracking-tight text-[#123B5D]">ESCANEAPP</span>
                 <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#8BCF3F]/20 text-[#123B5D] border border-[#8BCF3F]/40">
-                  REPORTE EJECUTIVO
+                  Reporte
                 </span>
               </div>
               <p className="text-[11px] text-[#66727D] font-medium">
@@ -752,7 +744,7 @@ export const Step5Resultado: React.FC<Step5ResultadoProps> = ({
             <strong>Aviso Importante:</strong> Este informe es una herramienta informativa preliminar basada estrictamente en los datos ingresados por el usuario. No constituye un dictamen pericial oficial, certificación de asegurabilidad ni reemplaza el peritaje técnico en un Centro de Diagnóstico Automotor (CDA) legalmente constituido. Se recomienda realizar una prueba técnica en dinamómetro y escaneo computarizado antes de cualquier desembolso de dinero.
           </p>
           <div className="flex items-center justify-between text-[9px] font-mono text-[#94A3B8] pt-1">
-            <span>https://carchecker.kodiquett.com/evaluacion</span>
+            <span>www.escaneapp.com</span>
             <span>ID REVISIÓN: ESC-{anio}-{placa.replace(/\s+/g, '')}</span>
           </div>
         </div>

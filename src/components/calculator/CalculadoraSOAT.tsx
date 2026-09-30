@@ -170,7 +170,7 @@ export const CalculadoraSOAT: React.FC<CalculadoraSOATProps> = ({
             SOAT 2026
           </h3>
           <p className="text-xs sm:text-sm text-[#475569] mt-0.5">
-            Selecciona las características de tu vehículo para obtener la tarifa oficial exacta fijada por la Superintendencia Financiera.
+            Selecciona las características de tu vehículo para obtener la tarifa oficial fijada por la Superintendencia Financiera.
           </p>
         </div>
 
@@ -208,9 +208,9 @@ export const CalculadoraSOAT: React.FC<CalculadoraSOATProps> = ({
               </option>
             ))}
           </select>
-          <span className="text-[11px] text-[#64748B] mt-1 block">
+          {/* <span className="text-[11px] text-[#64748B] mt-1 block">
             Clasificación oficial según tarjeta de propiedad
-          </span>
+          </span> */}
         </div>
 
         {/* 1.2 Cilindraje en c.c. (si aplica) */}

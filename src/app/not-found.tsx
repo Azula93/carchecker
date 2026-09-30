@@ -20,7 +20,7 @@ export default function NotFound() {
           href="/"
           className="inline-flex items-center justify-center px-6 h-11 rounded-lg bg-[#0F1B2B] text-white text-sm font-semibold hover:bg-[#1A2B42] transition-colors"
         >
-          Volver a Car Checker
+          Volver a EscaneApp
         </Link>
       </div>
     </main>

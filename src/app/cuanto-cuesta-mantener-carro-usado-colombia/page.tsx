@@ -10,14 +10,14 @@ export const metadata: Metadata = {
     'Calcula cuánto cuesta realmente mantener un carro usado en Colombia. Incluye gasolina con precios CREG, SOAT oficial SFC, tecnomecánica, impuesto vehicular, mantenimiento y financiación.',
   alternates: {
     canonical:
-      'https://carchecker.kodiquett.com/cuanto-cuesta-mantener-carro-usado-colombia',
+      'https://escaneapp.com/cuanto-cuesta-mantener-carro-usado-colombia',
   },
   openGraph: {
     title: '¿Cuánto cuesta mantener un carro usado en Colombia?',
     description:
       'Calcula cuánto cuesta realmente mantener un carro usado en Colombia. Incluye gasolina, SOAT, tecnomecánica, impuesto vehicular, mantenimiento y financiación.',
-    url: 'https://carchecker.kodiquett.com/cuanto-cuesta-mantener-carro-usado-colombia',
-    siteName: 'Car Checker Colombia',
+    url: 'https://escaneapp.com/cuanto-cuesta-mantener-carro-usado-colombia',
+    siteName: 'EscaneApp Colombia',
     locale: 'es_CO',
     type: 'article',
   },
@@ -44,11 +44,11 @@ const FAQ_ITEMS: FaqItem[] = [
     respuesta:
       'No. El impuesto sobre vehículos automotores es una obligación tributaria que se cancela una sola vez al año ante la Secretaría de Hacienda de tu departamento o distrito. La cifra mensual que muestra la calculadora es un equivalente de referencia para que reserves periódicamente el dinero de ese pago.',
   },
-  {
-    pregunta: '¿Cuánto cuesta la revisión tecnomecánica?',
-    respuesta:
-      'El costo suele ubicarse en un rango de $280.000 a $350.000 COP al año en Centros de Diagnóstico Automotor (CDA) autorizados por el Ministerio de Transporte. En vehículos particulares nuevos empieza a exigirse al cumplir el quinto o sexto año desde su fecha de matrícula inicial.',
-  },
+  // {
+  //   pregunta: '¿Cuánto cuesta la revisión tecnomecánica?',
+  //   respuesta:
+  //     'El costo suele ubicarse en un rango de $280.000 a $350.000 COP al año en Centros de Diagnóstico Automotor (CDA) autorizados por el Ministerio de Transporte. En vehículos particulares nuevos empieza a exigirse al cumplir el quinto o sexto año desde su fecha de matrícula inicial.',
+  // },
   {
     pregunta: '¿Cuánto debería reservar para reparaciones imprevistas en un carro usado?',
     respuesta:
@@ -71,7 +71,7 @@ const articleStructuredData = {
   },
   publisher: {
     '@type': 'Organization',
-    name: 'Car Checker',
+    name: 'EscaneApp',
     url: 'https://carchecker.kodiquett.com',
   },
 };
@@ -133,7 +133,7 @@ export default function CuantoCuestaMantenerCarroUsadoPage() {
         <header className="mb-10 print:hidden">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#123B5D]/10 text-[#123B5D] font-mono font-bold text-xs mb-3">
             <Calculator className="w-3.5 h-3.5 text-[#123B5D]" />
-            <span>GUÍA ESCANEAPP · COSTOS & MANTENIMIENTO TCO</span>
+            <span>GUÍA ESCANEAPP · COSTOS & MANTENIMIENTO</span>
           </div>
 
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#17212B] leading-tight mb-4">
@@ -148,11 +148,11 @@ export default function CuantoCuestaMantenerCarroUsadoPage() {
         {/* ==================================================== */}
         {/* INTRODUCCIÓN BREVE                                  */}
         {/* ==================================================== */}
-        <section className="mb-10 text-sm sm:text-base text-[#475569] leading-relaxed space-y-3 bg-white border border-[#CBD5E1] p-5 sm:p-6 rounded-2xl shadow-xs print:hidden">
+        {/* <section className="mb-10 text-sm sm:text-base text-[#475569] leading-relaxed space-y-3 bg-white border border-[#CBD5E1] p-5 sm:p-6 rounded-2xl shadow-xs print:hidden">
           <p>
             El costo real de un vehículo depende de cuatro factores clave: las <strong className="text-[#17212B]">obligaciones legales</strong> (SOAT, impuesto vehicular y tecnomecánica), los <strong className="text-[#17212B]">gastos directos de uso</strong> (gasolina oficial CREG, parqueadero, peajes y lavado), el <strong className="text-[#17212B]">mantenimiento preventivo e imprevistos</strong> y la <strong className="text-[#17212B]">financiación</strong> si adquieres el vehículo mediante crédito vehicular.
           </p>
-        </section>
+        </section> */}
 
         {/* ==================================================== */}
         {/* ¿CUÁNTO ME VA A COSTAR REALMENTE? (Herramienta)     */}
@@ -161,13 +161,13 @@ export default function CuantoCuestaMantenerCarroUsadoPage() {
           <div className="border-b border-[#E2E8F0] pb-4 mb-8 print:hidden">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8BCF3F]/20 text-[#123B5D] text-xs font-mono font-bold mb-2">
               <span className="w-2 h-2 rounded-full bg-[#2EAD68] animate-pulse"></span>
-              <span>CALCULADORA INTERACTIVA DE COSTO TOTAL</span>
+              <span>ESTIMACIÓN INTERACTIVA DE COSTO TOTAL</span>
             </div>
             <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#17212B]">
-              Calcula el costo real de tu próximo carro
+              Estima el costo real de tu próximo carro
             </h2>
             <p className="text-xs sm:text-sm text-[#66727D] mt-1.5 leading-relaxed max-w-2xl">
-              Estima los gastos reales que asumirás durante un año completo con tarifas oficiales vigentes y parámetros 100% personalizables.
+              Estima los gastos reales que asumirás durante el año con tarifas oficiales vigentes y parámetros 100% personalizables.
             </p>
           </div>
 
@@ -220,7 +220,7 @@ export default function CuantoCuestaMantenerCarroUsadoPage() {
                     2
                   </span>
                   <h3 className="text-sm sm:text-base font-bold text-[#17212B]">
-                    Consulta los antecedentes antes de pagar
+                    Revisa los antecedentes antes de pagar
                   </h3>
                 </div>
                 <p className="text-xs sm:text-sm text-[#66727D] leading-relaxed pl-9">

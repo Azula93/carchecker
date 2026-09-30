@@ -39,7 +39,7 @@ export const Footer: React.FC = () => {
                   href="/evaluacion"
                   className="text-slate-400 hover:text-[#8BCF3F] transition-colors font-medium"
                 >
-                  Iniciar escaneo técnico
+                  Iniciar escaneo del vehículo
                 </Link>
               </li>
               <li>
@@ -47,7 +47,7 @@ export const Footer: React.FC = () => {
                   href="/#metodologia"
                   className="text-slate-400 hover:text-white transition-colors"
                 >
-                  Metodología de 80 puntos
+                  Fuentes Oficiales
                 </Link>
               </li>
               <li>
@@ -106,15 +106,15 @@ export const Footer: React.FC = () => {
           {/* Col 3: TÉRMINOS Y LEGAL */}
           <div className="lg:col-span-2">
             <h4 className="font-bold text-[11px] uppercase tracking-wider text-white mb-4">
-              TÉRMINOS Y LEGAL
+              TÉRMINOS Y CONTACTO
             </h4>
             <ul className="space-y-2.5 text-xs">
               <li>
                 <Link
-                  href="/terminos-condiciones"
-                  className="text-slate-400 hover:text-white transition-colors"
+                  href="/contacto"
+                  className="text-slate-400 hover:text-[#8BCF3F] transition-colors font-medium"
                 >
-                  Términos y condiciones
+                  Contacto
                 </Link>
               </li>
               <li>
@@ -127,12 +127,13 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
-                  href="/#aviso-legal"
+                  href="/terminos-condiciones"
                   className="text-slate-400 hover:text-white transition-colors"
                 >
-                  Aviso legal / orientación
+                  Términos y condiciones
                 </Link>
               </li>
+              
             </ul>
           </div>
         </div>
@@ -141,8 +142,6 @@ export const Footer: React.FC = () => {
         <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 gap-3">
           <p>© {new Date().getFullYear()} EscaneApp Colombia. Todos los derechos reservados.</p>
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#8BCF3F] animate-pulse"></span>
-            <span className="text-slate-300 font-medium">Sistema calibrado para Colombia</span>
           </div>
         </div>
       </div>

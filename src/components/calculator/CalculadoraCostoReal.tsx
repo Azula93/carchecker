@@ -676,19 +676,19 @@ export const CalculadoraCostoReal: React.FC = () => {
     </div>
   );
 
-  const renderTipCard = () => (
-    <div className="bg-white rounded-2xl p-5 border border-[#E2E8F0] shadow-xs flex items-start gap-3.5">
-      <div className="w-8 h-8 rounded-xl bg-[#EFF6FF] text-[#123B5D] flex items-center justify-center shrink-0">
-        <HelpCircle className="w-4 h-4 text-[#123B5D]" />
-      </div>
-      <div className="space-y-1">
-        <h5 className="font-bold text-xs text-[#17212B]">¿Cómo evitar pagar de más?</h5>
-        <p className="text-xs text-[#66727D] leading-relaxed">
-          Revisar si el vehículo tiene deudas de impuestos atrasados o comparendos del dueño anterior antes de firmar traspaso.
-        </p>
-      </div>
-    </div>
-  );
+  // const renderTipCard = () => (
+  //   <div className="bg-white rounded-2xl p-5 border border-[#E2E8F0] shadow-xs flex items-start gap-3.5">
+  //     <div className="w-8 h-8 rounded-xl bg-[#EFF6FF] text-[#123B5D] flex items-center justify-center shrink-0">
+  //       <HelpCircle className="w-4 h-4 text-[#123B5D]" />
+  //     </div>
+  //     <div className="space-y-1">
+  //       <h5 className="font-bold text-xs text-[#17212B]">¿Cómo evitar pagar de más?</h5>
+  //       <p className="text-xs text-[#66727D] leading-relaxed">
+  //         Revisar si el vehículo tiene deudas de impuestos atrasados o comparendos del dueño anterior antes de firmar traspaso.
+  //       </p>
+  //     </div>
+  //   </div>
+  // );
 
   return (
     <div className="w-full space-y-8 not-prose text-[#17212B]">
@@ -1151,7 +1151,7 @@ export const CalculadoraCostoReal: React.FC = () => {
                       onClick={() => togglePanel('tecnoManual')}
                       className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold bg-[#123B5D] text-white hover:bg-[#0E2F4B] active:scale-95 transition-all shadow-xs cursor-pointer"
                     >
-                      <span>Calcular CDA</span>
+                      <span>Calcular RTM</span>
                       <span className="font-mono">→</span>
                     </button>
                   ) : (
@@ -2074,7 +2074,7 @@ export const CalculadoraCostoReal: React.FC = () => {
           href="/evaluacion"
           className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#8BCF3F] hover:bg-[#7ab837] text-[#123B5D] font-extrabold text-xs sm:text-sm shrink-0 transition-all shadow-sm active:scale-98"
         >
-          <span>Diagnosticar Placa</span>
+          <span>Escanear Vehículo</span>
           <span>↗</span>
         </Link>
       </div>
@@ -2290,7 +2290,7 @@ export const CalculadoraCostoReal: React.FC = () => {
       {/* ==================================================== */}
       <div className="hidden lg:block lg:col-span-4 sticky top-24 space-y-6 print:hidden">
         {renderResumenCard(false)}
-        {renderTipCard()}
+        {/* {renderTipCard()} */}
       </div>
 
     {/* CIERRE DEL GRID DE 2 COLUMNAS (lg:grid-cols-12) */}

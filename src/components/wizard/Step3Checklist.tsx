@@ -115,7 +115,7 @@ export const Step3Checklist: React.FC<Step3ChecklistProps> = ({
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EBF3FA] text-[#123B5D] text-xs font-bold w-fit mb-2">
               <span className="w-2 h-2 rounded-full bg-[#8BCF3F] animate-pulse"></span>
-              <span>INSPECCIÓN FÍSICA · En curso</span>
+              <span>INSPECCIÓN FÍSICA</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#17212B] tracking-tight">
               Checklist de inspección física

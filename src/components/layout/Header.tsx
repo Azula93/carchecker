@@ -21,6 +21,7 @@ export const Header: React.FC<HeaderProps> = ({
   const isEvaluacion = pathname?.startsWith('/evaluacion');
   const isInicio = pathname === '/';
   const isCostos = pathname?.startsWith('/cuanto-cuesta-mantener');
+  const isContacto = pathname === '/contacto';
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-[#E2E8F0] transition-colors">
@@ -31,95 +32,61 @@ export const Header: React.FC<HeaderProps> = ({
           className="flex items-center gap-2 group focus:outline-none shrink-0"
           aria-label="Ir al inicio de EscaneApp"
         >
-          <EscaneAppLogo size="md" />
+          <EscaneAppLogo size="md" showTagline={true} />
         </Link>
 
-        {/* Desktop Navigation Links */}
-        {!isEvaluacion ? (
-          <nav className="hidden lg:flex items-center gap-1.5 xl:gap-2 text-[13px] font-medium text-[#66727D]">
-            <Link
-              href="/"
-              className={`px-3 py-1.5 rounded-full transition-all duration-150 ${
-                isInicio
-                  ? 'bg-[#EBF3FA] text-[#123B5D] font-bold shadow-2xs'
-                  : 'hover:text-[#123B5D] hover:bg-slate-100/70'
-              }`}
-            >
-              Inicio
-            </Link>
-            <Link
-              href="/evaluacion"
-              className="px-3 py-1.5 rounded-full hover:text-[#123B5D] hover:bg-slate-100/70 transition-all duration-150"
-            >
-              Evaluar vehículo
-            </Link>
-            <Link
-              href="/cuanto-cuesta-mantener-carro-usado-colombia"
-              className={`px-3 py-1.5 rounded-full transition-all duration-150 ${
-                isCostos
-                  ? 'bg-[#EBF3FA] text-[#123B5D] font-bold shadow-2xs'
-                  : 'hover:text-[#123B5D] hover:bg-slate-100/70'
-              }`}
-            >
-              Costos
-            </Link>
-            <Link
-              href="/#guias"
-              className="px-3 py-1.5 rounded-full hover:text-[#123B5D] hover:bg-slate-100/70 transition-all duration-150"
-            >
-              Guías
-            </Link>
-            <Link
-              href="/#metodologia"
-              className="px-3 py-1.5 rounded-full hover:text-[#123B5D] hover:bg-slate-100/70 transition-all duration-150"
-            >
-              Metodología
-            </Link>
-          </nav>
-        ) : (
-          <div className="flex items-center gap-3 sm:gap-6">
-            {/* Status Capsule: Bases de datos oficiales en línea */}
-            <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#EBF3FA] text-[#123B5D] text-xs font-semibold border border-[#D5E6F5]">
-              <span className="w-2 h-2 rounded-full bg-[#2EAD68] animate-pulse"></span>
-              <span>Bases de datos oficiales en línea</span>
-            </div>
-
-            {/* Navigation tabs in evaluation */}
-            <nav className="hidden md:flex items-center gap-2 text-xs font-medium">
-              <Link
-                href="/"
-                className="px-3 py-1.5 rounded-lg text-[#66727D] hover:text-[#123B5D] hover:bg-slate-100 transition-colors"
-              >
-                Inicio
-              </Link>
-              <span className="px-3 py-1.5 rounded-xl bg-[#123B5D] text-white font-bold shadow-2xs">
-                Diagnóstico
-              </span>
-              <Link
-                href="/cuanto-cuesta-mantener-carro-usado-colombia"
-                className="px-3 py-1.5 rounded-lg text-[#66727D] hover:text-[#123B5D] hover:bg-slate-100 transition-colors"
-              >
-                Calculadora
-              </Link>
-              <Link
-                href="/#guias"
-                className="px-3 py-1.5 rounded-lg text-[#66727D] hover:text-[#123B5D] hover:bg-slate-100 transition-colors"
-              >
-                Guías
-              </Link>
-            </nav>
-          </div>
-        )}
+        {/* Desktop Navigation Links (Consistent across all pages including /evaluacion) */}
+        <nav className="hidden lg:flex items-center gap-1.5 xl:gap-2 text-[13px] font-medium text-[#66727D]">
+          <Link
+            href="/"
+            className={`px-3 py-1.5 rounded-full transition-all duration-150 ${
+              isInicio
+                ? 'bg-[#EBF3FA] text-[#123B5D] font-bold shadow-2xs'
+                : 'hover:text-[#123B5D] hover:bg-slate-100/70'
+            }`}
+          >
+            Inicio
+          </Link>
+          <Link
+            href="/evaluacion"
+            className={`px-3 py-1.5 rounded-full transition-all duration-150 ${
+              isEvaluacion
+                ? 'bg-[#EBF3FA] text-[#123B5D] font-bold shadow-2xs'
+                : 'hover:text-[#123B5D] hover:bg-slate-100/70'
+            }`}
+          >
+            Evaluar vehículo
+          </Link>
+          <Link
+            href="/cuanto-cuesta-mantener-carro-usado-colombia"
+            className={`px-3 py-1.5 rounded-full transition-all duration-150 ${
+              isCostos
+                ? 'bg-[#EBF3FA] text-[#123B5D] font-bold shadow-2xs'
+                : 'hover:text-[#123B5D] hover:bg-slate-100/70'
+            }`}
+          >
+            Costos
+          </Link>
+          <Link
+            href="/#guias"
+            className="px-3 py-1.5 rounded-full hover:text-[#123B5D] hover:bg-slate-100/70 transition-all duration-150"
+          >
+            Guías
+          </Link>
+          <Link
+            href="/contacto"
+            className={`px-3 py-1.5 rounded-full transition-all duration-150 ${
+              isContacto
+                ? 'bg-[#EBF3FA] text-[#123B5D] font-bold shadow-2xs'
+                : 'hover:text-[#123B5D] hover:bg-slate-100/70'
+            }`}
+          >
+            Contacto
+          </Link>
+        </nav>
 
         {/* Right CTA & Controls */}
         <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
-          {isEvaluacion && (
-            <div className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#F0FDF4] border border-[#BBF7D0] text-[#166534] text-xs font-semibold">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2EAD68]"></span>
-              <span>Guardado automático</span>
-            </div>
-          )}
-
           {!isEvaluacion && (
             <Link
               href="/#como-funciona"
@@ -150,30 +117,23 @@ export const Header: React.FC<HeaderProps> = ({
             </Link>
           )}
 
-          {/* User Icon Avatar circle */}
-          <div className="w-8 h-8 rounded-full bg-[#123B5D] text-white flex items-center justify-center shadow-2xs">
-            <span className="text-xs font-bold">E</span>
-          </div>
-
           {/* Mobile Menu Button */}
-          {!isEvaluacion && (
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg text-[#123B5D] hover:bg-slate-100 transition-colors focus:outline-none"
-              aria-label="Abrir menú de navegación"
-            >
-              {mobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
-          )}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden p-2 rounded-lg text-[#123B5D] hover:bg-slate-100 transition-colors focus:outline-none"
+            aria-label="Abrir menú de navegación"
+          >
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </button>
         </div>
       </div>
 
       {/* Mobile Drawer Navigation */}
-      {!isEvaluacion && mobileMenuOpen && (
+      {mobileMenuOpen && (
         <div className="lg:hidden border-t border-[#E2E8F0] bg-white px-4 pt-3 pb-6 space-y-2 shadow-lg animate-fadeIn">
           <Link
             href="/"
@@ -189,7 +149,11 @@ export const Header: React.FC<HeaderProps> = ({
           <Link
             href="/evaluacion"
             onClick={() => setMobileMenuOpen(false)}
-            className="block px-4 py-2.5 rounded-lg text-sm text-[#17212B] hover:bg-slate-50 font-medium"
+            className={`block px-4 py-2.5 rounded-lg text-sm ${
+              isEvaluacion
+                ? 'bg-[#EBF3FA] text-[#123B5D] font-bold'
+                : 'text-[#17212B] hover:bg-slate-50 font-medium'
+            }`}
           >
             Evaluar vehículo
           </Link>
@@ -212,29 +176,35 @@ export const Header: React.FC<HeaderProps> = ({
             Guías
           </Link>
           <Link
-            href="/#metodologia"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block px-4 py-2.5 rounded-lg text-sm text-[#17212B] hover:bg-slate-50 font-medium"
-          >
-            Metodología
-          </Link>
-          <Link
             href="/#como-funciona"
             onClick={() => setMobileMenuOpen(false)}
             className="block px-4 py-2.5 rounded-lg text-sm text-[#17212B] hover:bg-slate-50 font-medium"
           >
             ¿Cómo funciona?
           </Link>
-          <div className="pt-2">
-            <Link
-              href="/evaluacion"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-full bg-[#8BCF3F] text-[#17212B] font-bold text-sm shadow-xs"
-            >
-              <span>Escanear vehículo</span>
-              <ArrowRight className="w-4 h-4 stroke-[2.5]" />
-            </Link>
-          </div>
+          <Link
+            href="/contacto"
+            onClick={() => setMobileMenuOpen(false)}
+            className={`block px-4 py-2.5 rounded-lg text-sm ${
+              isContacto
+                ? 'bg-[#EBF3FA] text-[#123B5D] font-bold'
+                : 'text-[#17212B] hover:bg-slate-50 font-medium'
+            }`}
+          >
+            Contacto
+          </Link>
+          {!isEvaluacion && (
+            <div className="pt-2">
+              <Link
+                href="/evaluacion"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-full bg-[#8BCF3F] text-[#17212B] font-bold text-sm shadow-xs"
+              >
+                <span>Escanear vehículo</span>
+                <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+              </Link>
+            </div>
+          )}
         </div>
       )}
     </header>

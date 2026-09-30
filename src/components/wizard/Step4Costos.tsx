@@ -71,16 +71,16 @@ export const Step4Costos: React.FC<Step4CostosProps> = ({
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EBF3FA] text-[#123B5D] text-xs font-bold w-fit">
             <span className="w-2 h-2 rounded-full bg-[#8BCF3F] animate-pulse"></span>
-            <span>COSTOS OCULTOS · En curso</span>
+            <span>COSTOS OCULTOS</span>
           </div>
 
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-[#123B5D] text-xs font-semibold shadow-2xs w-fit">
+          {/* <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-[#123B5D] text-xs font-semibold shadow-2xs w-fit">
             <Calculator className="w-4 h-4 text-[#3578B8]" />
             <div className="flex flex-col leading-tight">
               <span className="font-bold text-[11px]">Presupuesto Técnico</span>
               <span className="text-[10px] text-[#66727D]">Apalancamiento de compra</span>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <h2 className="text-2xl sm:text-3xl font-extrabold text-[#17212B] tracking-tight">
@@ -154,7 +154,7 @@ export const Step4Costos: React.FC<Step4CostosProps> = ({
                   </strong>
                 </>
               ) : (
-                'Ingresa el precio pedido por el vendedor abajo para calcular el porcentaje de deducción recomendada.'
+                'Ingresa abajo el precio pedido por el vendedor para calcular el porcentaje de deducción recomendada.'
               )}
             </p>
           </div>
