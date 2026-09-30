@@ -18,6 +18,7 @@ import { GaugeChart } from '../ui/GaugeChart';
 import { Alert } from '../ui/Alert';
 import { imprimirReportePDF } from '../../lib/pdf-generator';
 import type { DatosImpuestoVehicular, RespuestaImpuestoVehicularAPI } from '@/types/external-data';
+import { Banner300x250 } from '../ads/Banner300x250';
 
 interface Step5ResultadoProps {
   evaluacion: Evaluacion;
@@ -506,6 +507,8 @@ export const Step5Resultado: React.FC<Step5ResultadoProps> = ({
           </p>
         </div>
       </div>
+
+      <Banner300x250 />
 
       {/* ======================================================== */}
       {/* REPORTE EJECUTIVO PDF — ESCANEAPP (Visible solo al imprimir) */}

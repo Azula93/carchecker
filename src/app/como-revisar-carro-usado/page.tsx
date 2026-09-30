@@ -10,6 +10,7 @@ import {
   HelpCircle,
   Wrench,
 } from 'lucide-react';
+import { Banner300x250 } from '@/components/ads/Banner300x250';
 
 export const metadata: Metadata = {
   title: 'Cómo revisar un carro usado en Colombia antes de comprarlo | EscaneApp',
@@ -212,6 +213,8 @@ export default function ComoRevisarCarroUsadoPage() {
             </div>
           </section>
 
+          <Banner300x250 />
+
           {/* 3 */}
           <section id="antecedentes" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-4">
             <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
@@ -346,6 +349,8 @@ export default function ComoRevisarCarroUsadoPage() {
               ))}
             </ul>
           </section>
+
+          <NativeBanner />
 
           {/* 7 */}
           <section id="prueba-ruta" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-4">
@@ -521,6 +526,8 @@ export default function ComoRevisarCarroUsadoPage() {
           <strong>Aviso de orientación:</strong> La información de esta guía tiene carácter general y orientativo. EscaneApp no sustituye un peritaje, diagnóstico técnico especializado o inspección profesional del vehículo.
         </p>
       </article>
+
+      <Banner300x250 />
     </main>
   );
 }

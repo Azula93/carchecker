@@ -16,6 +16,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { ENLACES_PORTALES } from '../../lib/constants';
+import { NativeBanner } from '../ads/NativeBanner';
 
 export const HeroSection: React.FC = () => {
   return (
@@ -333,7 +334,9 @@ export const HeroSection: React.FC = () => {
           </div>
         </div>
       </section>
-
+      
+        <NativeBanner />
+        
       {/* ========================================================
           3. SECCIÓN "¿CÓMO FUNCIONA ESCANEAPP?" (4 Pasos)
          ======================================================== */}
