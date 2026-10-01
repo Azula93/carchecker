@@ -1,17 +1,12 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { obtenerTasaCreditoVigente } from '@/lib/services/credito-service';
 import { RespuestaCreditoAPI } from '@/types/external-data';
 
 // Revalidar en Next.js cada 12 horas (43200 segundos)
 export const revalidate = 43200;
 
-export async function GET(
-  request: NextRequest
-): Promise<NextResponse<RespuestaCreditoAPI>> {
-  const { searchParams } = new URL(request.url);
-  const forzar = searchParams.get('forzar') === 'true';
-
-  const resultado = await obtenerTasaCreditoVigente(forzar);
+export async function GET(): Promise<NextResponse<RespuestaCreditoAPI>> {
+  const resultado = await obtenerTasaCreditoVigente();
 
   // Se retorna HTTP 200 en casos manejados de negocio (éxito, cached, stale_data o not_available)
   // para permitir que la interfaz de usuario procese las banderas semánticas sin provocar errores no capturados.

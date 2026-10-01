@@ -161,14 +161,12 @@ async function fetchDesdeSFC(): Promise<DatosCredito | null> {
 /**
  * Función principal para obtener la tasa de referencia vigente de crédito vehicular
  */
-export async function obtenerTasaCreditoVigente(
-  forzarConsulta = false
-): Promise<RespuestaCreditoAPI> {
+export async function obtenerTasaCreditoVigente(): Promise<RespuestaCreditoAPI> {
   const hoy = getFechaHoyColombia();
   const ahoraMs = Date.now();
 
   // 1. EVALUAR CACHÉ EXISTENTE
-  if (!forzarConsulta && cacheCredito) {
+  if (cacheCredito) {
     const { datos, fetchedAtMs } = cacheCredito;
     const vigenteOficialmente = esTasaOficialmenteVigente(
       datos.fechaInicioVigencia,

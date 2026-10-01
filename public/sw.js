@@ -1,4 +1,4 @@
-const CACHE_NAME = 'carcheck-v1';
+const CACHE_NAME = 'carcheck-v2';
 const ASSETS_TO_CACHE = [
   '/',
   '/evaluacion',
@@ -31,6 +31,11 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
+
+  const url = new URL(event.request.url);
+
+  // Excluir rutas de API: no interceptar ni almacenar en Cache Storage
+  if (url.pathname.startsWith('/api/')) return;
 
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
