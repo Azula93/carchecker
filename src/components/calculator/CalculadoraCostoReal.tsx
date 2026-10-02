@@ -34,7 +34,6 @@ import {
 import { CalculadoraCredito } from './CalculadoraCredito';
 import { CalculadoraSOAT } from './CalculadoraSOAT';
 import { CalculadoraImpuestoVehicular } from './CalculadoraImpuestoVehicular';
-import { Banner300x250 } from '../ads/Banner300x250';
 
 // 13 ciudades oficiales reguladas por la CREG
 const CIUDADES_CREG = [
@@ -1712,8 +1711,6 @@ export const CalculadoraCostoReal: React.FC = () => {
 
         </div>
       </section>
-
-      <Banner300x250 />
 
       {/* ==================================================== */}
       {/* PASO 3: MANTENIMIENTO Y REPARACIONES                */}

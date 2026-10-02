@@ -34,6 +34,9 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(event.request.url);
 
+  // Evitar interceptar solicitudes cross-origin (anuncios y servicios externos)
+  if (url.origin !== self.location.origin) return;
+
   // Excluir rutas de API: no interceptar ni almacenar en Cache Storage
   if (url.pathname.startsWith('/api/')) return;
 
@@ -73,8 +76,23 @@ self.addEventListener('fetch', (event) => {
         .catch(() => {
           // Si no hay red y no está en caché, intentar devolver raíz si es navegación
           if (event.request.mode === 'navigate') {
-            return caches.match('/evaluacion');
+            return caches.match('/evaluacion').then((fallback) => {
+              return (
+                fallback ||
+                new Response('Modo fuera de línea disponible en /evaluacion', {
+                  status: 503,
+                  statusText: 'Service Unavailable',
+                  headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+                })
+              );
+            });
           }
+
+          // Para otros recursos same-origin que fallen la red, devolver Response válida (nunca undefined)
+          return new Response(null, {
+            status: 504,
+            statusText: 'Gateway Timeout',
+          });
         });
     })
   );
