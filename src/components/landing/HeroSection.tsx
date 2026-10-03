@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -82,7 +80,8 @@ export const HeroSection: React.FC = () => {
                     alt="Inspección inteligente de vehículo sedán en estudio"
                     fill
                     priority
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    fetchPriority="high"
+                    sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 512px, 584px"
                     className="object-cover object-center"
                   />
                   {/* Overlay gradiente muy sutil para destacar las tarjetas flotantes */}
@@ -347,6 +346,7 @@ export const HeroSection: React.FC = () => {
                   src="/pexels-mikebird-20475072.jpg"
                   alt="Inspección detallada de vehículo con puertas y baúl abiertos"
                   fill
+                  loading="lazy"
                   sizes="(max-width: 768px) 100vw, 40vw"
                   className="object-cover object-center"
                 />

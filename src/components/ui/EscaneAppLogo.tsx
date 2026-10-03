@@ -8,6 +8,7 @@ interface EscaneAppLogoProps {
   showTagline?: boolean;
   variant?: 'full' | 'horizontal' | 'icon' | 'vertical';
   alt?: string;
+  priority?: boolean;
 }
 
 export const EscaneAppLogo: React.FC<EscaneAppLogoProps> = ({
@@ -17,6 +18,7 @@ export const EscaneAppLogo: React.FC<EscaneAppLogoProps> = ({
   showTagline = false,
   variant = 'full',
   alt = 'EscaneApp — Analiza, Compara, Decide',
+  priority = false,
 }) => {
   const isDark = theme === 'dark';
 
@@ -57,7 +59,7 @@ export const EscaneAppLogo: React.FC<EscaneAppLogoProps> = ({
         alt={alt}
         width={width}
         height={height}
-        priority
+        priority={priority}
         className={`object-contain ${heightClasses[size]} transition-transform duration-200 group-hover:scale-[1.02]`}
       />
     </div>
