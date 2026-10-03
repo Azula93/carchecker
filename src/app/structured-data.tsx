@@ -3,11 +3,21 @@ export function StructuredData() {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'WebApplication',
-        '@id': 'https://escaneapp.com/#webapp',
+        '@type': 'WebSite',
+        '@id': 'https://www.escaneapp.com/#website',
+        url: 'https://www.escaneapp.com/',
         name: 'EscaneApp',
         alternateName: 'EscaneApp Colombia',
-        url: 'https://escaneapp.com',
+        description:
+          'Herramienta para evaluar vehículos usados en Colombia antes de comprarlos.',
+        inLanguage: 'es-CO',
+      },
+      {
+        '@type': 'WebApplication',
+        '@id': 'https://www.escaneapp.com/#webapp',
+        name: 'EscaneApp',
+        alternateName: 'EscaneApp Colombia',
+        url: 'https://www.escaneapp.com/',
         description:
           'Herramienta de revisión preliminar de vehículos usados en Colombia. Permite evaluar kilometraje, antecedentes, estado físico y posibles costos ocultos antes de realizar un peritaje profesional.',
         applicationCategory: 'UtilitiesApplication',
@@ -17,9 +27,9 @@ export function StructuredData() {
       },
       {
         '@type': 'Organization',
-        '@id': 'https://escaneapp.com/#organization',
+        '@id': 'https://www.escaneapp.com/#organization',
         name: 'EscaneApp',
-        url: 'https://escaneapp.com',
+        url: 'https://www.escaneapp.com/',
       },
     ],
   };

@@ -27,21 +27,39 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "EscaneApp | Escanea antes de comprar — Evaluación Inteligente de Vehículos",
-  description:
-    "Revisa un carro usado en Colombia antes de comprarlo. Evalúa antecedentes oficiales, checklist y costos ocultos antes de pagar un peritaje profesional.",
-  alternates: {
-    canonical: "https://escaneapp.com",
+  metadataBase: new URL("https://www.escaneapp.com"),
+
+  title: {
+    default:
+      "EscaneApp | Evalúa un carro usado antes de comprarlo",
+    template: "%s | EscaneApp",
   },
+
+  description:
+    "Evalúa un carro usado en Colombia antes de comprarlo. Consulta antecedentes, revisa 80 puntos de inspección y estima sus costos antes de pagar un peritaje.",
+
+  alternates: {
+    canonical: "https://www.escaneapp.com/",
+  },
+
   manifest: "/manifest.json",
+
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon.png", type: "image/png" },
+      {
+        url: "/favicon.ico",
+        sizes: "any",
+      },
+      {
+        url: "/favicon.png",
+        type: "image/png",
+        sizes: "48x48",
+      },
     ],
-    shortcut: "/favicon.png",
+    shortcut: "/favicon.ico",
     apple: "/apple-icon.png",
   },
+
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
@@ -49,27 +67,28 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "EscaneApp | Escanea antes de comprar — Evaluación Inteligente de Vehículos",
+    title: "EscaneApp | Evalúa un carro usado antes de comprarlo",
     description:
-      "Revisa un carro usado en Colombia antes de comprarlo. Evalúa antecedentes oficiales, checklist y costos ocultos antes de pagar un peritaje profesional.",
-    url: "https://escaneapp.com",
+      "Evalúa un carro usado en Colombia antes de comprarlo. Consulta antecedentes, revisa 80 puntos y estima sus costos.",
+    url: "https://www.escaneapp.com/",
     siteName: "EscaneApp",
     locale: "es_CO",
     type: "website",
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "EscaneApp | Escanea antes de comprar",
+    title: "EscaneApp | Evalúa un carro usado antes de comprarlo",
     description:
-      "Revisa un carro usado en Colombia antes de comprarlo. Evalúa antecedentes oficiales, checklist y costos ocultos antes de pagar un peritaje profesional.",
+      "Evalúa un carro usado en Colombia antes de comprarlo. Consulta antecedentes, revisa 80 puntos y estima sus costos.",
   },
 
   verification: {
-    google: "jAkT-r4Ebm19Fa3s1miIE-YzD96-DRIrzXY5cMkVe7Q",
+    
 
     other: {
-  'google-adsense-account': 'ca-pub-4990996804813930',
-},
+      "google-adsense-account": "ca-pub-4990996804813930",
+    },
   },
 };
 
