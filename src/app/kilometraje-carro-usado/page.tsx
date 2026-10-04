@@ -10,19 +10,18 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Cómo revisar el kilometraje de un carro usado | EscaneApp',
+  title: 'Cómo revisar el kilometraje de un carro usado',
   description:
     'Aprende cómo analizar el kilometraje de un carro usado en Colombia, qué señales revisar y por qué el kilometraje debe compararse con el desgaste físico del vehículo.',
   alternates: {
-    canonical:
-      'https://carchecker.kodiquett.com/kilometraje-carro-usado',
+    canonical: '/kilometraje-carro-usado',
   },
   openGraph: {
     title: 'Cómo revisar el kilometraje de un carro usado | EscaneApp',
     description:
       'Guía para interpretar el kilometraje de un vehículo usado y compararlo con su estado general antes de comprarlo en Colombia.',
-    url: 'https://carchecker.kodiquett.com/kilometraje-carro-usado',
-    siteName: 'EscaneApp Colombia',
+    url: 'https://www.escaneapp.com/kilometraje-carro-usado',
+    siteName: 'EscaneApp',
     locale: 'es_CO',
     type: 'article',
   },
@@ -32,25 +31,25 @@ const articleStructuredData = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   '@id':
-    'https://carchecker.kodiquett.com/kilometraje-carro-usado#article',
+    'https://www.escaneapp.com/kilometraje-carro-usado#article',
   headline: 'Cómo revisar el kilometraje de un carro usado',
   description:
     'Guía para interpretar el kilometraje de un vehículo usado y compararlo con su estado general antes de comprarlo.',
-  url: 'https://carchecker.kodiquett.com/kilometraje-carro-usado',
+  url: 'https://www.escaneapp.com/kilometraje-carro-usado',
   inLanguage: 'es-CO',
   isPartOf: {
-    '@id': 'https://carchecker.kodiquett.com/#webapp',
+    '@id': 'https://www.escaneapp.com/#webapp',
   },
   publisher: {
     '@type': 'Organization',
     name: 'EscaneApp',
-    url: 'https://carchecker.kodiquett.com',
+    url: 'https://www.escaneapp.com',
   },
 };
 
 export default function KilometrajeCarroUsadoPage() {
   return (
-    <main className="w-full bg-[#F7F9FA] min-h-screen text-[#17212B]">
+    <div className="w-full bg-[#F7F9FA] min-h-screen text-[#17212B]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -366,6 +365,6 @@ export default function KilometrajeCarroUsadoPage() {
           <strong>Aviso de orientación:</strong> La información de esta guía es general y orientativa. El kilometraje no permite determinar por sí solo el estado mecánico de un vehículo y no sustituye una inspección profesional.
         </p>
       </article>
-    </main>
+    </div>
   );
 }

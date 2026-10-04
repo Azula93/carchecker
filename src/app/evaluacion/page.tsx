@@ -2,17 +2,17 @@ import type { Metadata } from 'next';
 import { WizardContainer } from '../../components/wizard/WizardContainer';
 
 export const metadata: Metadata = {
-  title: 'Evaluación de un carro usado | EscaneApp',
+  title: 'Evaluación de un carro usado',
   description:
     'Evalúa un carro usado paso a paso: kilometraje, antecedentes, inspección física y posibles costos de reparación antes de realizar un peritaje profesional.',
   alternates: {
-    canonical: 'https://escaneapp.com/evaluacion',
+    canonical: '/evaluacion',
   },
   openGraph: {
     title: 'Evaluación de un carro usado | EscaneApp',
     description:
       'Realiza una evaluación preliminar de un carro usado antes de comprarlo.',
-    url: 'https://escaneapp.com/evaluacion',
+    url: 'https://www.escaneapp.com/evaluacion',
     siteName: 'EscaneApp',
     locale: 'es_CO',
     type: 'website',

@@ -133,6 +133,15 @@ export const Footer: React.FC = () => {
                   Términos y condiciones
                 </Link>
               </li>
+
+              <li>
+                <Link
+                  href="/acerca-de"
+                  className="text-slate-400 hover:text-white transition-colors"
+                >
+                  Acerca de EscaneApp
+                </Link>
+              </li>
               
             </ul>
           </div>

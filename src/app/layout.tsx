@@ -38,10 +38,6 @@ export const metadata: Metadata = {
   description:
     "Evalúa un carro usado en Colombia antes de comprarlo. Consulta antecedentes, revisa 80 puntos de inspección y estima sus costos antes de pagar un peritaje.",
 
-  alternates: {
-    canonical: "https://www.escaneapp.com/",
-  },
-
   manifest: "/manifest.json",
 
   icons: {
@@ -70,7 +66,6 @@ export const metadata: Metadata = {
     title: "EscaneApp | Evalúa un carro usado antes de comprarlo",
     description:
       "Evalúa un carro usado en Colombia antes de comprarlo. Consulta antecedentes, revisa 80 puntos y estima sus costos.",
-    url: "https://www.escaneapp.com/",
     siteName: "EscaneApp",
     locale: "es_CO",
     type: "website",

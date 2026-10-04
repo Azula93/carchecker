@@ -9,15 +9,14 @@ export const metadata: Metadata = {
   description:
     'Calcula cuánto cuesta realmente mantener un carro usado en Colombia. Incluye gasolina con precios CREG, SOAT oficial SFC, tecnomecánica, impuesto vehicular, mantenimiento y financiación.',
   alternates: {
-    canonical:
-      'https://escaneapp.com/cuanto-cuesta-mantener-carro-usado-colombia',
+    canonical: '/cuanto-cuesta-mantener-carro-usado-colombia',
   },
   openGraph: {
     title: '¿Cuánto cuesta mantener un carro usado en Colombia?',
     description:
       'Calcula cuánto cuesta realmente mantener un carro usado en Colombia. Incluye gasolina, SOAT, tecnomecánica, impuesto vehicular, mantenimiento y financiación.',
-    url: 'https://escaneapp.com/cuanto-cuesta-mantener-carro-usado-colombia',
-    siteName: 'EscaneApp Colombia',
+    url: 'https://www.escaneapp.com/cuanto-cuesta-mantener-carro-usado-colombia',
+    siteName: 'EscaneApp',
     locale: 'es_CO',
     type: 'article',
   },
@@ -60,19 +59,19 @@ const articleStructuredData = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   '@id':
-    'https://carchecker.kodiquett.com/cuanto-cuesta-mantener-carro-usado-colombia#article',
+    'https://www.escaneapp.com/cuanto-cuesta-mantener-carro-usado-colombia#article',
   headline: '¿Cuánto cuesta mantener un carro usado en Colombia?',
   description:
     'Calcula cuánto cuesta realmente mantener un carro usado en Colombia con tarifas oficiales de SOAT, impuestos, gasolina CREG y mantenimiento.',
-  url: 'https://carchecker.kodiquett.com/cuanto-cuesta-mantener-carro-usado-colombia',
+  url: 'https://www.escaneapp.com/cuanto-cuesta-mantener-carro-usado-colombia',
   inLanguage: 'es-CO',
   isPartOf: {
-    '@id': 'https://carchecker.kodiquett.com/#webapp',
+    '@id': 'https://www.escaneapp.com/#webapp',
   },
   publisher: {
     '@type': 'Organization',
     name: 'EscaneApp',
-    url: 'https://carchecker.kodiquett.com',
+    url: 'https://www.escaneapp.com',
   },
 };
 
@@ -91,7 +90,7 @@ const faqStructuredData = {
 
 export default function CuantoCuestaMantenerCarroUsadoPage() {
   return (
-    <main className="w-full bg-[#F7F9FA] min-h-screen">
+    <div className="w-full bg-[#F7F9FA] min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -370,6 +369,6 @@ export default function CuantoCuestaMantenerCarroUsadoPage() {
           <strong>Aviso de orientación:</strong> Los cálculos y referencias presentados en este portal corresponden a estimaciones promedio basadas en datos oficiales vigentes en Colombia. No constituyen una cotización vinculante ni reemplazan una inspección mecánica o peritaje profesional presencial.
         </p>
       </div>
-    </main>
+    </div>
   );
 }

@@ -7,16 +7,15 @@ export const metadata: Metadata = {
   description:
     "Conoce qué información revisar sobre los antecedentes de un vehículo usado en Colombia y cómo organizar las consultas antes de comprarlo.",
   alternates: {
-    canonical:
-      "https://carchecker.kodiquett.com/antecedentes-vehiculo-colombia",
+    canonical: "/antecedentes-vehiculo-colombia",
   },
   openGraph: {
     title:
       "Antecedentes de un vehículo en Colombia: qué consultar antes de comprar",
     description:
       "Guía práctica para organizar la revisión de antecedentes de un vehículo usado antes de comprarlo.",
-    url: "https://carchecker.kodiquett.com/antecedentes-vehiculo-colombia",
-    siteName: "EscaneApp Colombia",
+    url: "https://www.escaneapp.com/antecedentes-vehiculo-colombia",
+    siteName: "EscaneApp",
     locale: "es_CO",
     type: "article",
   },
@@ -26,26 +25,26 @@ const articleStructuredData = {
   "@context": "https://schema.org",
   "@type": "Article",
   "@id":
-    "https://carchecker.kodiquett.com/antecedentes-vehiculo-colombia#article",
+    "https://www.escaneapp.com/antecedentes-vehiculo-colombia#article",
   headline:
     "Antecedentes de un vehículo en Colombia: qué consultar antes de comprar",
   description:
     "Guía práctica para organizar la revisión de antecedentes de un vehículo usado antes de comprarlo.",
-  url: "https://carchecker.kodiquett.com/antecedentes-vehiculo-colombia",
+  url: "https://www.escaneapp.com/antecedentes-vehiculo-colombia",
   inLanguage: "es-CO",
   isPartOf: {
-    "@id": "https://carchecker.kodiquett.com/#webapp",
+    "@id": "https://www.escaneapp.com/#webapp",
   },
   publisher: {
     "@type": "Organization",
     name: "EscaneApp",
-    url: "https://carchecker.kodiquett.com",
+    url: "https://www.escaneapp.com",
   },
 };
 
 export default function AntecedentesVehiculoColombiaPage() {
   return (
-    <main className="w-full bg-white">
+    <div className="w-full bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -404,6 +403,6 @@ export default function AntecedentesVehiculoColombiaPage() {
           profesional.
         </p>
       </article>
-    </main>
+    </div>
   );
 }

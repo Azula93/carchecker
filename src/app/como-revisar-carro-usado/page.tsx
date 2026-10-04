@@ -11,19 +11,18 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Cómo revisar un carro usado en Colombia antes de comprarlo | EscaneApp',
+  title: 'Cómo revisar un carro usado en Colombia antes de comprarlo',
   description:
     'Aprende qué revisar en un carro usado antes de comprarlo en Colombia: kilometraje, antecedentes, carrocería, motor, interior, prueba de ruta y posibles costos de reparación.',
   alternates: {
-    canonical:
-      'https://carchecker.kodiquett.com/como-revisar-carro-usado',
+    canonical: '/como-revisar-carro-usado',
   },
   openGraph: {
     title: 'Cómo revisar un carro usado en Colombia antes de comprarlo | EscaneApp',
     description:
       'Guía práctica para revisar un vehículo usado antes de comprarlo y detectar posibles señales de alerta antes de realizar un peritaje profesional.',
-    url: 'https://carchecker.kodiquett.com/como-revisar-carro-usado',
-    siteName: 'EscaneApp Colombia',
+    url: 'https://www.escaneapp.com/como-revisar-carro-usado',
+    siteName: 'EscaneApp',
     locale: 'es_CO',
     type: 'article',
   },
@@ -33,19 +32,19 @@ const articleStructuredData = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   '@id':
-    'https://carchecker.kodiquett.com/como-revisar-carro-usado#article',
+    'https://www.escaneapp.com/como-revisar-carro-usado#article',
   headline: 'Cómo revisar un carro usado en Colombia antes de comprarlo',
   description:
     'Guía práctica para revisar un vehículo usado antes de comprarlo y detectar posibles señales de alerta antes de realizar un peritaje profesional.',
-  url: 'https://carchecker.kodiquett.com/como-revisar-carro-usado',
+  url: 'https://www.escaneapp.com/como-revisar-carro-usado',
   inLanguage: 'es-CO',
   isPartOf: {
-    '@id': 'https://carchecker.kodiquett.com/#webapp',
+    '@id': 'https://www.escaneapp.com/#webapp',
   },
   publisher: {
     '@type': 'Organization',
     name: 'EscaneApp',
-    url: 'https://carchecker.kodiquett.com',
+    url: 'https://www.escaneapp.com',
   },
 };
 
@@ -63,7 +62,7 @@ const PASOS_GUIA = [
 
 export default function ComoRevisarCarroUsadoPage() {
   return (
-    <main className="w-full bg-[#F7F9FA] min-h-screen text-[#17212B]">
+    <div className="w-full bg-[#F7F9FA] min-h-screen text-[#17212B]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -518,6 +517,6 @@ export default function ComoRevisarCarroUsadoPage() {
           <strong>Aviso de orientación:</strong> La información de esta guía tiene carácter general y orientativo. EscaneApp no sustituye un peritaje, diagnóstico técnico especializado o inspección profesional del vehículo.
         </p>
       </article>
-    </main>
+    </div>
   );
 }

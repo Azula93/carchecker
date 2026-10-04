@@ -10,19 +10,18 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Qué revisar en un carro usado antes de comprarlo | EscaneApp',
+  title: 'Qué revisar en un carro usado antes de comprarlo',
   description:
     'Conoce qué revisar en un carro usado antes de comprarlo en Colombia: carrocería, motor, transmisión, interior, neumáticos, sistema eléctrico, documentos y prueba de ruta.',
   alternates: {
-    canonical:
-      'https://carchecker.kodiquett.com/que-revisar-carro-usado',
+    canonical: '/que-revisar-carro-usado',
   },
   openGraph: {
     title: 'Qué revisar en un carro usado antes de comprarlo | EscaneApp',
     description:
       'Lista práctica de los principales componentes que debes revisar antes de comprar un vehículo usado en Colombia.',
-    url: 'https://carchecker.kodiquett.com/que-revisar-carro-usado',
-    siteName: 'EscaneApp Colombia',
+    url: 'https://www.escaneapp.com/que-revisar-carro-usado',
+    siteName: 'EscaneApp',
     locale: 'es_CO',
     type: 'article',
   },
@@ -32,19 +31,19 @@ const articleStructuredData = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   '@id':
-    'https://carchecker.kodiquett.com/que-revisar-carro-usado#article',
+    'https://www.escaneapp.com/que-revisar-carro-usado#article',
   headline: 'Qué revisar en un carro usado antes de comprarlo',
   description:
     'Lista práctica de los principales componentes que debes revisar antes de comprar un vehículo usado en Colombia.',
-  url: 'https://carchecker.kodiquett.com/que-revisar-carro-usado',
+  url: 'https://www.escaneapp.com/que-revisar-carro-usado',
   inLanguage: 'es-CO',
   isPartOf: {
-    '@id': 'https://carchecker.kodiquett.com/#webapp',
+    '@id': 'https://www.escaneapp.com/#webapp',
   },
   publisher: {
     '@type': 'Organization',
     name: 'EscaneApp',
-    url: 'https://carchecker.kodiquett.com',
+    url: 'https://www.escaneapp.com',
   },
 };
 
@@ -62,7 +61,7 @@ const PUNTOS_REVISION = [
 
 export default function QueRevisarCarroUsadoPage() {
   return (
-    <main className="w-full bg-[#F7F9FA] min-h-screen text-[#17212B]">
+    <div className="w-full bg-[#F7F9FA] min-h-screen text-[#17212B]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -559,6 +558,6 @@ export default function QueRevisarCarroUsadoPage() {
           <strong>Aviso de orientación:</strong> Esta información tiene carácter general y orientativo. EscaneApp no sustituye un peritaje, diagnóstico mecánico especializado o inspección técnica profesional del vehículo.
         </p>
       </article>
-    </main>
+    </div>
   );
 }

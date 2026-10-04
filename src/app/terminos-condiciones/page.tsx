@@ -1,12 +1,17 @@
-export const metadata = {
-  title: "Términos y Condiciones | EscaneApp",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Términos y Condiciones",
   description:
     "Términos y condiciones de uso de EscaneApp, herramienta de revisión preliminar de vehículos usados.",
+  alternates: {
+    canonical: "/terminos-condiciones",
+  },
 };
 
 export default function TerminosCondicionesPage() {
   return (
-    <main className="w-full bg-[#F8FAFC] py-12 md:py-16">
+    <div className="w-full bg-[#F8FAFC] py-12 md:py-16">
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white border border-[#E2E8F0] rounded-2xl p-6 sm:p-8 md:p-12">
           <span className="text-xs font-mono uppercase tracking-wider text-[#64748B]">
@@ -18,7 +23,7 @@ export default function TerminosCondicionesPage() {
           </h1>
 
           <p className="text-sm text-[#64748B] mb-10">
-            Última actualización: 20 de septiembre de 2026
+            Última actualización: 04 de octubre de 2026
           </p>
 
           <div className="space-y-8 text-sm md:text-base text-[#475569] leading-relaxed">
@@ -132,7 +137,7 @@ export default function TerminosCondicionesPage() {
 
             <section>
               <h2 className="text-xl font-bold text-[#0F1B2B] mb-3">
-                7. Disponibilidad del servicio
+                8. Disponibilidad del servicio
               </h2>
               <p>
                 EscaneApp puede modificar, actualizar, suspender o retirar
@@ -201,6 +206,6 @@ export default function TerminosCondicionesPage() {
           </div>
         </div>
       </article>
-    </main>
+    </div>
   );
 }

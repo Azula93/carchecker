@@ -1,12 +1,17 @@
-export const metadata = {
-  title: "Política de Privacidad | EscaneApp",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Política de Privacidad",
   description:
     "Política de privacidad de EscaneApp y tratamiento de la información utilizada durante la revisión preliminar de vehículos usados.",
+  alternates: {
+    canonical: "/politica-privacidad",
+  },
 };
 
 export default function PoliticaPrivacidadPage() {
   return (
-    <main className="w-full bg-[#F8FAFC] py-12 md:py-16">
+    <div className="w-full bg-[#F8FAFC] py-12 md:py-16">
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white border border-[#E2E8F0] rounded-2xl p-6 sm:p-8 md:p-12">
           <span className="text-xs font-mono uppercase tracking-wider text-[#64748B]">
@@ -18,7 +23,7 @@ export default function PoliticaPrivacidadPage() {
           </h1>
 
           <p className="text-sm text-[#64748B] mb-10">
-            Última actualización: 29 de septiembre de 2026
+            Última actualización: 04 de octubre de 2026
           </p>
 
           <div className="space-y-8 text-sm md:text-base text-[#475569] leading-relaxed">
@@ -132,10 +137,32 @@ export default function PoliticaPrivacidadPage() {
               </p>
 
               <p className="mt-3">
-                EscaneApp puede utilizar Google AdSense u otros servicios
-                publicitarios de terceros para mostrar anuncios. Estos servicios
-                pueden utilizar cookies o tecnologías similares para
-                proporcionar y medir publicidad.
+                EscaneApp utiliza Google AdSense para mostrar anuncios en
+                algunas páginas. Google y sus socios publicitarios utilizan
+                cookies y tecnologías similares para mostrar anuncios basados en
+                las visitas anteriores del usuario a este y a otros sitios web,
+                y para medir su rendimiento. Puedes inhabilitar la publicidad
+                personalizada en la{" "}
+                <a
+                  href="https://adssettings.google.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold text-[#123B5D] hover:underline"
+                >
+                  Configuración de anuncios de Google
+                </a>{" "}
+                y consultar más información en{" "}
+                <a
+                  href="https://policies.google.com/technologies/partner-sites"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold text-[#123B5D] hover:underline"
+                >
+                  cómo utiliza Google los datos de los sitios que usan sus
+                  servicios
+                </a>
+                . Algunos anuncios pueden ser mostrados por otros proveedores
+                externos, que tienen sus propias políticas de privacidad.
               </p>
             </section>
 
@@ -263,16 +290,6 @@ export default function PoliticaPrivacidadPage() {
                 encuentra sujeto a sus propias políticas de privacidad y
                 condiciones de uso.
               </p>
-
-              <p className="text-slate-600 leading-7">
-                Si en el futuro EscaneApp incorpora servicios de analítica,
-                publicidad, cookies u otras tecnologías que impliquen la
-                recopilación, almacenamiento o intercambio de información, esta
-                política de privacidad será actualizada para informar sobre
-                dichas tecnologías, sus finalidades y, cuando corresponda, los
-                mecanismos de consentimiento y control disponibles para los
-                usuarios.
-              </p>
             </section>
 
             <section id="derechos-del-titular">
@@ -310,32 +327,9 @@ export default function PoliticaPrivacidadPage() {
                 política.
               </p>
             </section>
-
-            <section id="contacto">
-              <h2 className="text-2xl font-bold text-[#0F1B2B] mb-4">
-                Contacto
-              </h2>
-
-              <p className="text-slate-600 leading-7 mb-4">
-                Para realizar consultas, solicitudes o manifestar inquietudes
-                relacionadas con esta Política de Privacidad y el tratamiento de
-                datos personales, puedes comunicarte con EscaneApp a través del
-                siguiente medio:
-              </p>
-
-              <p className="text-slate-600 leading-7">
-                <strong>Correo electrónico:</strong>{" "}
-                <a
-                  href="mailto:azuladev93@gmail.com"
-                  className="text-[#0F1B2B] font-semibold underline hover:no-underline"
-                >
-                  azuladev93@gmail.com
-                </a>
-              </p>
-            </section>
           </div>
         </div>
       </article>
-    </main>
+    </div>
   );
 }

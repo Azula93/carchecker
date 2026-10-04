@@ -14,18 +14,18 @@ import {
 import { ContactForm } from '@/components/contact/ContactForm';
 
 export const metadata: Metadata = {
-  title: 'Contacto | EscaneApp',
+  title: 'Contacto',
   description:
     'Ponte en contacto con EscaneApp para resolver dudas, reportar errores o compartir sugerencias sobre nuestra herramienta para evaluar vehículos usados.',
   alternates: {
-    canonical: 'https://carchecker.kodiquett.com/contacto',
+    canonical: '/contacto',
   },
   openGraph: {
     title: 'Contacto | EscaneApp',
     description:
       'Ponte en contacto con EscaneApp para resolver dudas, reportar errores o compartir sugerencias sobre nuestra herramienta para evaluar vehículos usados.',
-    url: 'https://carchecker.kodiquett.com/contacto',
-    siteName: 'EscaneApp Colombia',
+    url: 'https://www.escaneapp.com/contacto',
+    siteName: 'EscaneApp',
     locale: 'es_CO',
     type: 'website',
   },
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 
 export default function ContactoPage() {
   return (
-    <main className="w-full bg-[#F7F9FA] min-h-screen text-[#17212B]">
+    <div className="w-full bg-[#F7F9FA] min-h-screen text-[#17212B]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         {/* ==================================================== */}
         {/* BREADCRUMBS                                          */}
@@ -239,6 +239,6 @@ export default function ContactoPage() {
           </div>
         </section>
       </div>
-    </main>
+    </div>
   );
 }

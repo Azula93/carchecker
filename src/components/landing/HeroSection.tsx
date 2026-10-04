@@ -34,9 +34,9 @@ export const HeroSection: React.FC = () => {
 
               {/* Título Principal */}
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] lg:leading-[1.15] font-extrabold text-[#17212B] tracking-tight mb-6">
-                ¿VISTE UN AUTO
+                REVISA UN CARRO
                 <br />
-                QUE TE GUSTA?
+                USADO EN COLOMBIA
                 <br />
                 ANTES DE COMPRARLO,
                 <br />
@@ -47,7 +47,7 @@ export const HeroSection: React.FC = () => {
 
               {/* Texto Descriptivo */}
               <p className="text-sm sm:text-base text-[#66727D] max-w-xl mb-8 leading-relaxed font-normal">
-                EscaneApp es la herramienta que unifica lo que debes revisar en un vehículo usado: datos de bases públicas, puntos de inspección crítica y costos ocultos en un solo lugar.
+                ¿Viste un auto que te gusta? Antes de comprarlo, escanéalo. EscaneApp unifica antecedentes oficiales (RUNT, SIMIT, Fasecolda), una revisión de 80 puntos y los costos ocultos en un solo lugar
               </p>
 
               {/* CTAs */}
@@ -515,7 +515,7 @@ export const HeroSection: React.FC = () => {
                   Qué componentes revisar en un carro usado
                 </h3>
                 <p className="text-xs text-[#66727D] leading-relaxed">
-                  Descubre los principales componentes que debes revisar antes de tomar una deceisión de compra.
+                  Descubre los principales componentes que debes revisar antes de tomar una decisión de compra.
                 </p>
               </div>
               <span className="mt-5 text-xs font-bold text-[#123B5D] inline-flex items-center gap-1">
@@ -541,7 +541,7 @@ export const HeroSection: React.FC = () => {
                   ¿Cómo revisar el kilometraje?
                 </h3>
                 <p className="text-xs text-[#66727D] leading-relaxed">
-                  Aprende que significa el kilometraje y que señales conviene analizar antes de comprar.
+                  Aprende qué significa el kilometraje y qué señales conviene analizar antes de comprar.
                 </p>
               </div>
               <span className="mt-5 text-xs font-bold text-[#123B5D] inline-flex items-center gap-1">
@@ -567,7 +567,7 @@ export const HeroSection: React.FC = () => {
                   Antecedentes de un vehículo.
                 </h3>
                 <p className="text-xs text-[#66727D] leading-relaxed">
-                  Conoce que información consular y qué revisar antes de comprar un vehículo usado en Colombia.
+                  Conoce que información consultar y qué revisar antes de comprar un vehículo usado en Colombia.
                 </p>
               </div>
               <span className="mt-5 text-xs font-bold text-[#123B5D] inline-flex items-center gap-1">
