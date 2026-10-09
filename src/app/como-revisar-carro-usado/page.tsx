@@ -108,16 +108,16 @@ const faqStructuredData = {
 };
 
 const PASOS_GUIA = [
-  { id: 'preparacion', num: '0', title: 'Antes de revisar: prepara la inspección' },
-  { id: 'paso-1', num: '1', title: 'Verifica la identidad y los documentos' },
-  { id: 'paso-2', num: '2', title: 'Comprueba si el kilometraje es coherente' },
-  { id: 'paso-3', num: '3', title: 'Examina la carrocería y reparaciones previas' },
-  { id: 'paso-4', num: '4', title: 'Revisa el motor y componentes accesibles' },
-  { id: 'paso-5', num: '5', title: 'Comprueba el interior y sistemas de seguridad' },
-  { id: 'paso-6', num: '6', title: 'Realiza una prueba de ruta segura' },
-  { id: 'paso-7', num: '7', title: 'Calcula los gastos antes de negociar' },
-  { id: 'paso-8', num: '8', title: 'Decide si necesitas un peritaje profesional' },
-  { id: 'paso-9', num: '9', title: 'Organiza los resultados y toma una decisión' },
+  { id: 'paso-1', num: '1', title: 'Antes de revisar el carro: prepara la inspección' },
+  { id: 'paso-2', num: '2', title: 'Verifica la identidad y los documentos del vehículo' },
+  { id: 'paso-3', num: '3', title: 'Comprueba si el kilometraje es coherente' },
+  { id: 'paso-4', num: '4', title: 'Examina la carrocería y reparaciones previas' },
+  { id: 'paso-5', num: '5', title: 'Revisa el motor y componentes accesibles' },
+  { id: 'paso-6', num: '6', title: 'Comprueba el interior y sistemas de seguridad' },
+  { id: 'paso-7', num: '7', title: 'Realiza una prueba de ruta únicamente si es segura' },
+  { id: 'paso-8', num: '8', title: 'Calcula los gastos antes de negociar' },
+  { id: 'paso-9', num: '9', title: 'Decide si necesitas un peritaje profesional' },
+  { id: 'paso-10', num: '10', title: 'Organiza los resultados y toma una decisión' },
 ];
 
 export default function ComoRevisarCarroUsadoPage() {
@@ -160,7 +160,7 @@ export default function ComoRevisarCarroUsadoPage() {
         <header className="mb-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#123B5D]/10 text-[#123B5D] font-mono font-bold text-xs mb-3">
             <ShieldCheck className="w-3.5 h-3.5 text-[#123B5D]" />
-            <span>GUÍA METODOLÓGICA PRE-COMPRA · COLOMBIA</span>
+            <span>DECÁLOGO PRE-COMPRA · REVISIÓN EN COLOMBIA</span>
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#17212B] leading-tight mb-4">
@@ -190,7 +190,7 @@ export default function ComoRevisarCarroUsadoPage() {
             Antes de comprometer tu dinero, conviene seguir un procedimiento ordenado para revisar el vehículo, contrastar la información del vendedor y detectar los aspectos que necesitan una verificación adicional.
           </p>
           <p>
-            Esta guía explica cómo realizar una preevaluación de un carro usado en Colombia, incluso si no tienes conocimientos avanzados de mecánica. El objetivo es ayudarte a identificar señales de alerta, documentar los hallazgos y decidir cuándo necesitas una inspección profesional.
+            Esta guía explica cómo realizar una preevaluación de un carro usado en Colombia mediante este decálogo práctico, incluso si no tienes conocimientos avanzados de mecánica. El objetivo es ayudarte a identificar señales de alerta, documentar los hallazgos y decidir cuándo necesitas una inspección profesional.
           </p>
           <div className="p-4 rounded-xl bg-[#F7F9FA] border border-[#E2E8F0] flex items-start gap-3">
             <AlertCircle className="w-5 h-5 text-[#123B5D] shrink-0 mt-0.5" />
@@ -208,7 +208,7 @@ export default function ComoRevisarCarroUsadoPage() {
           <div className="flex items-center gap-2 mb-4">
             <FileText className="w-4 h-4 text-[#123B5D]" />
             <h2 className="text-base font-bold text-[#17212B]">
-              Contenido de la guía paso a paso
+              Decálogo de revisión paso a paso
             </h2>
           </div>
 
@@ -230,11 +230,11 @@ export default function ComoRevisarCarroUsadoPage() {
 
         {/* Secciones de contenido */}
         <div className="space-y-10">
-          {/* Preparación */}
-          <section id="preparacion" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-5">
+          {/* Paso 1 */}
+          <section id="paso-1" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-5">
             <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
-              <span className="w-7 h-7 rounded-lg bg-[#123B5D]/10 text-[#123B5D] text-xs font-bold font-mono flex items-center justify-center shrink-0">
-                0
+              <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
+                1
               </span>
               <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
                 Antes de revisar el carro: prepara la inspección
@@ -284,11 +284,11 @@ export default function ComoRevisarCarroUsadoPage() {
             </p>
           </section>
 
-          {/* Paso 1 */}
-          <section id="paso-1" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-5">
+          {/* Paso 2 */}
+          <section id="paso-2" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-5">
             <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
               <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
-                1
+                2
               </span>
               <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
                 Verifica la identidad y los documentos del vehículo
@@ -336,66 +336,163 @@ export default function ComoRevisarCarroUsadoPage() {
             <div className="rounded-xl border border-[#CBD5E1] bg-[#F7F9FA] p-5 space-y-4">
               <h3 className="text-base font-bold text-[#17212B] flex items-center gap-2">
                 <FileCheck className="w-4 h-4 text-[#123B5D]" />
-                Consulta los antecedentes disponibles
+                Consulta los antecedentes y la situación documental
               </h3>
               <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                En Colombia puedes utilizar fuentes oficiales para comprobar distintos aspectos de la situación del vehículo:
+                Antes de comprar un carro usado, verifica la información documental y los antecedentes que puedas consultar en fuentes oficiales y especializadas. Cada servicio tiene un alcance diferente; por eso, una sola consulta no debe interpretarse como una certificación completa del vehículo.
               </p>
 
               <div className="space-y-3">
-                <div className="p-3 bg-white rounded-lg border border-[#E2E8F0]">
+                <div className="p-3.5 bg-white rounded-lg border border-[#E2E8F0] space-y-1.5">
                   <a
                     href="https://www.runt.gov.co/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-bold text-xs sm:text-sm text-[#123B5D] hover:underline inline-flex items-center gap-1.5"
                   >
-                    <span>RUNT — Registro Único Nacional de Tránsito</span>
+                    <span>RUNT: consulta la información registrada del vehículo</span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
-                  <p className="text-xs text-[#66727D] mt-1">
-                    Consulta los servicios disponibles para verificar información vehicular y los registros correspondientes.
+                  <p className="text-xs text-[#475569] leading-relaxed">
+                    El Registro Único Nacional de Tránsito (RUNT) dispone de servicios de consulta para revisar información que reposa en sus registros.
+                  </p>
+                  <p className="text-xs text-[#475569] leading-relaxed">
+                    Puedes comenzar en el{' '}
+                    <a
+                      href="https://www.runt.gov.co/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#123B5D] font-bold hover:underline"
+                    >
+                      portal oficial del RUNT
+                    </a>
+                    , ingresar a la consulta ciudadana y revisar los datos disponibles para el vehículo que estás evaluando.
+                  </p>
+                  <p className="text-xs text-[#475569] leading-relaxed">
+                    Utiliza la información que efectivamente aparezca en el servicio consultado para contrastar los datos del carro y verificar los registros disponibles, como los relacionados con el SOAT y la revisión técnico-mecánica cuando se encuentren incluidos en la consulta.
+                  </p>
+                  <p className="text-xs text-[#66727D] leading-relaxed">
+                    No supongas que una consulta general del RUNT permite confirmar todos los accidentes, reparaciones, daños estructurales, prendas, embargos o regrabaciones. Para verificar una situación específica, identifica primero qué registro o documento oficial corresponde y consulta a la autoridad o entidad competente.
                   </p>
                 </div>
 
-                <div className="p-3 bg-white rounded-lg border border-[#E2E8F0]">
+                <div className="p-3.5 bg-white rounded-lg border border-[#E2E8F0] space-y-1.5">
                   <a
                     href="https://www.fcm.org.co/simit/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-bold text-xs sm:text-sm text-[#123B5D] hover:underline inline-flex items-center gap-1.5"
                   >
-                    <span>SIMIT — Sistema Integrado de Información sobre Multas y Sanciones por Infracciones de Tránsito</span>
+                    <span>SIMIT: multas y comparendos</span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
-                  <p className="text-xs text-[#66727D] mt-1">
-                    Consulta la información relacionada con multas y comparendos.
+                  <p className="text-xs text-[#475569] leading-relaxed">
+                    El{' '}
+                    <a
+                      href="https://www.fcm.org.co/simit/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#123B5D] font-bold hover:underline"
+                    >
+                      Sistema Integrado de Información sobre Multas y Sanciones por Infracciones de Tránsito (SIMIT)
+                    </a>{' '}
+                    permite consultar información relacionada con multas y comparendos.
+                  </p>
+                  <p className="text-xs text-[#66727D] leading-relaxed">
+                    Revisa la información correspondiente y confirma las obligaciones y los requisitos aplicables a la transferencia del vehículo antes de cerrar el negocio. La consulta del SIMIT no sustituye la revisión de los demás documentos necesarios para el traspaso.
+                  </p>
+                </div>
+
+                <div className="p-3.5 bg-white rounded-lg border border-[#E2E8F0] space-y-1.5">
+                  <a
+                    href="https://www.fasecolda.com/ramos/automoviles/historial-de-accidentes-de-vehiculos-asegurados/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold text-xs sm:text-sm text-[#123B5D] hover:underline inline-flex items-center gap-1.5"
+                  >
+                    <span>Fasecolda: historial de accidentes de vehículos asegurados</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                  <p className="text-xs text-[#475569] leading-relaxed">
+                    La Federación de Aseguradores Colombianos (Fasecolda) ofrece una consulta pública denominada{' '}
+                    <a
+                      href="https://www.fasecolda.com/ramos/automoviles/historial-de-accidentes-de-vehiculos-asegurados/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#123B5D] font-bold hover:underline"
+                    >
+                      Historial de accidentes de vehículos asegurados
+                    </a>
+                    .
+                  </p>
+                  <p className="text-xs text-[#475569] leading-relaxed">
+                    Según la información publicada por la entidad, el servicio permite consultar reportes de pérdidas de mayor cuantía por daños producto de una colisión a partir de 2008, siempre que el vehículo haya estado asegurado o cuente con el historial de pólizas requerido para disponer de esa información.
+                  </p>
+                  <div className="pt-1">
+                    <p className="text-xs font-bold text-[#17212B] mb-1">
+                      Esta consulta es útil como una comprobación complementaria, pero tiene limitaciones:
+                    </p>
+                    <ul className="space-y-1 text-xs text-[#475569]">
+                      <li className="flex items-start gap-1.5">
+                        <span className="text-[#123B5D] font-bold">•</span>
+                        <span>No equivale a un historial completo de todos los accidentes del vehículo.</span>
+                      </li>
+                      <li className="flex items-start gap-1.5">
+                        <span className="text-[#123B5D] font-bold">•</span>
+                        <span>No permite descartar daños menores o reparaciones que no hayan generado un reporte incluido en el sistema.</span>
+                      </li>
+                      <li className="flex items-start gap-1.5">
+                        <span className="text-[#123B5D] font-bold">•</span>
+                        <span>La ausencia de resultados no demuestra que el carro nunca haya sufrido un accidente.</span>
+                      </li>
+                      <li className="flex items-start gap-1.5">
+                        <span className="text-[#123B5D] font-bold">•</span>
+                        <span>Un resultado positivo debe interpretarse de acuerdo con la información reportada por el servicio y contrastarse con los soportes disponibles.</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <p className="text-xs text-[#66727D] leading-relaxed pt-1">
+                    Si el vendedor afirma que el vehículo nunca ha sufrido accidentes, utiliza esta consulta como una fuente adicional, no como prueba definitiva de esa declaración.
                   </p>
                 </div>
               </div>
 
-              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                Según el caso, también debes verificar la vigencia del SOAT y de la revisión técnico-mecánica, cuando corresponda, así como las condiciones documentales y las posibles limitaciones que puedan afectar el traspaso.
-              </p>
+              <div className="pt-2 border-t border-[#E2E8F0]">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#17212B] mb-2.5">
+                  ¿Qué otros aspectos debes verificar?
+                </h4>
+                <p className="text-xs text-[#66727D] mb-2">Según el vehículo y la operación, comprueba también:</p>
+                <ul className="space-y-1.5 text-xs text-[#475569]">
+                  {[
+                    'La identidad del vendedor y su relación con el propietario registrado.',
+                    'La coincidencia de los datos de identificación del vehículo.',
+                    'La vigencia de los documentos exigibles.',
+                    'La existencia de limitaciones o situaciones jurídicas que puedan afectar el traspaso, mediante los registros o documentos competentes.',
+                    'La documentación que respalde las reparaciones importantes declaradas por el vendedor.',
+                  ].map((aspecto, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#2EAD68] shrink-0 mt-0.5" />
+                      <span>{aspecto}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-              <p className="text-xs text-[#66727D] leading-relaxed">
-                Una consulta no equivale a una certificación completa de los antecedentes del vehículo. No supongas que una búsqueda general revela todos los accidentes, reparaciones, daños estructurales u obligaciones existentes.
-              </p>
-            </div>
+              <div className="rounded-xl border border-amber-200 bg-amber-50/80 p-3.5 text-xs text-amber-950 leading-relaxed font-medium">
+                Si detectas inconsistencias documentales o señales de posible alteración en los números de identificación, suspende la negociación hasta obtener una verificación competente.
+              </div>
 
-            <div className="rounded-xl border border-amber-200 bg-amber-50/80 p-4 flex items-start gap-3">
-              <AlertTriangle className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
-              <p className="text-xs text-amber-900 leading-relaxed">
-                Si hay inconsistencias en los números de identificación o sospechas de alteración, suspende la evaluación hasta obtener una verificación competente.
+              <p className="text-xs text-[#475569] leading-relaxed font-semibold">
+                No entregues dinero basándote únicamente en una captura de pantalla, una consulta parcial o la palabra del vendedor. Contrasta la información en los servicios correspondientes y aclara las dudas relevantes antes de continuar.
               </p>
             </div>
           </section>
 
-          {/* Paso 2 */}
-          <section id="paso-2" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-5">
+          {/* Paso 3 */}
+          <section id="paso-3" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-5">
             <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
               <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
-                2
+                3
               </span>
               <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
                 Comprueba si el kilometraje es coherente
@@ -413,27 +510,23 @@ export default function ComoRevisarCarroUsadoPage() {
             </div>
 
             <p className="text-sm text-[#475569] leading-relaxed">
-              El kilometraje permite conocer parte del uso que ha tenido un carro, pero no determina por sí solo su estado mecánico.
+              Registra la lectura actual del odómetro y compárala con las facturas de mantenimiento, las órdenes de servicio y otros documentos fechados que permitan reconstruir el historial del vehículo.
             </p>
 
             <p className="text-sm text-[#475569] leading-relaxed">
-              Anota la lectura actual y compárala con las facturas de mantenimiento, órdenes de servicio y otros registros fechados que puedas consultar.
-            </p>
-
-            <p className="text-sm text-[#475569] leading-relaxed">
-              Después, observa el desgaste del volante, los pedales, el asiento del conductor y los controles de uso frecuente. Evalúa si ese desgaste parece coherente con el kilometraje declarado y el historial disponible.
+              Después, observa el desgaste del volante, los pedales, el asiento del conductor y los controles de uso frecuente. Estas señales pueden aportar contexto, pero no permiten determinar por sí solas el kilometraje real ni confirmar una posible alteración del odómetro.
             </p>
 
             <div className="rounded-xl border border-amber-200 bg-amber-50/80 p-5 space-y-3">
               <h3 className="text-xs font-bold uppercase tracking-wider text-amber-900">
-                Presta especial atención a estas señales:
+                Presta atención a las siguientes situaciones:
               </h3>
               <ul className="space-y-2">
                 {[
-                  'Una lectura actual inferior a otra documentada anteriormente.',
-                  'Registros que presentan diferencias sin explicación.',
-                  'Un historial de mantenimiento con vacíos importantes.',
-                  'Un desgaste que merece aclaración frente al uso declarado.',
+                  'El kilometraje actual es inferior a una lectura documentada anteriormente.',
+                  'Existen diferencias entre los registros que el vendedor no puede explicar.',
+                  'El historial de mantenimiento presenta vacíos que dificultan reconstruir el uso del vehículo.',
+                  'El desgaste observado parece poco coherente con el kilometraje declarado y la información disponible.',
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-amber-950">
                     <AlertTriangle className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
@@ -444,8 +537,12 @@ export default function ComoRevisarCarroUsadoPage() {
             </div>
 
             <p className="text-xs sm:text-sm text-[#66727D] leading-relaxed">
-              Estas observaciones no demuestran por sí solas que el odómetro haya sido alterado. Algunos componentes pueden haberse reemplazado y el desgaste depende de las condiciones de uso y mantenimiento.
+              Estas señales justifican una comprobación adicional, pero no demuestran por sí solas que el odómetro haya sido manipulado. Algunos componentes pueden haberse reemplazado y el desgaste depende de las condiciones de uso, el mantenimiento y los hábitos de conducción.
             </p>
+
+            <div className="p-4 rounded-xl bg-white border border-[#CBD5E1] text-xs sm:text-sm text-[#17212B] leading-relaxed">
+              <strong>No clasifiques un carro como normal o anormal únicamente por los kilómetros recorridos en un año.</strong> Evalúa la evolución de las lecturas, los documentos disponibles y el estado general del vehículo. Si persisten las inconsistencias, solicita una evaluación profesional antes de negociar.
+            </div>
 
             <div className="rounded-xl border border-[#CBD5E1] bg-[#F7F9FA] p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div className="flex items-start gap-3">
@@ -460,11 +557,11 @@ export default function ComoRevisarCarroUsadoPage() {
             </div>
           </section>
 
-          {/* Paso 3 */}
-          <section id="paso-3" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-5">
+          {/* Paso 4 */}
+          <section id="paso-4" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-5">
             <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
               <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
-                3
+                4
               </span>
               <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
                 Examina la carrocería y las señales de reparaciones anteriores
@@ -509,11 +606,11 @@ export default function ComoRevisarCarroUsadoPage() {
             </div>
           </section>
 
-          {/* Paso 4 */}
-          <section id="paso-4" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-5">
+          {/* Paso 5 */}
+          <section id="paso-5" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-5">
             <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
               <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
-                4
+                5
               </span>
               <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
                 Revisa el motor y los componentes accesibles
@@ -544,10 +641,23 @@ export default function ComoRevisarCarroUsadoPage() {
 
             <div className="space-y-4 pt-2">
               <h3 className="text-base font-bold text-[#17212B]">
-                Durante el arranque
+                Durante el arranque: observa los testigos del tablero
               </h3>
               <p className="text-sm text-[#475569] leading-relaxed">
-                Si las condiciones son seguras, observa cómo enciende el motor, escucha si aparecen ruidos inusuales y comprueba si quedan testigos de advertencia encendidos.
+                Al encender el vehículo, observa cómo se comportan los indicadores y testigos del tablero. Algunos realizan una comprobación inicial al activar el encendido; otros pueden funcionar de manera diferente según el sistema y las instrucciones del fabricante.
+              </p>
+              <p className="text-sm text-[#475569] leading-relaxed">
+                Comprueba si permanece encendida alguna luz de advertencia después del arranque y consulta el manual del propietario para interpretar su significado.
+              </p>
+
+              <div className="rounded-xl border border-amber-200 bg-amber-50/80 p-4">
+                <p className="text-xs sm:text-sm text-amber-950 leading-relaxed font-medium">
+                  Presta especial atención a las advertencias relacionadas con la presión del aceite, el sistema de frenos, la temperatura del motor y otros sistemas de seguridad. Si aparece una advertencia grave o persiste un comportamiento anormal, evita continuar la prueba de conducción hasta determinar si es seguro hacerlo.
+                </p>
+              </div>
+
+              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
+                No asumas que todos los testigos deben encenderse y apagarse de la misma manera en todos los vehículos. Tampoco concluyas que el tablero está funcionando correctamente solo porque no observas advertencias: algunas anomalías requieren comprobaciones adicionales.
               </p>
 
               <div>
@@ -585,11 +695,11 @@ export default function ComoRevisarCarroUsadoPage() {
             </div>
           </section>
 
-          {/* Paso 5 */}
-          <section id="paso-5" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-5">
+          {/* Paso 6 */}
+          <section id="paso-6" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-5">
             <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
               <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
-                5
+                6
               </span>
               <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
                 Comprueba el interior y los sistemas de seguridad
@@ -648,11 +758,11 @@ export default function ComoRevisarCarroUsadoPage() {
             </div>
           </section>
 
-          {/* Paso 6 */}
-          <section id="paso-6" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-5">
+          {/* Paso 7 */}
+          <section id="paso-7" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-5">
             <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
               <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
-                6
+                7
               </span>
               <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
                 Realiza una prueba de ruta únicamente si es segura
@@ -714,6 +824,25 @@ export default function ComoRevisarCarroUsadoPage() {
               </ul>
             </div>
 
+            {/* Temperatura del motor e indicadores */}
+            <div className="rounded-xl border border-[#CBD5E1] bg-[#F7F9FA] p-5 space-y-3">
+              <h3 className="text-base font-bold text-[#17212B]">
+                Temperatura del motor e indicadores
+              </h3>
+              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
+                Durante la prueba de ruta, observa el indicador de temperatura o la información equivalente que proporcione el vehículo. Interpreta su comportamiento de acuerdo con el manual del propietario, ya que la forma de mostrar la temperatura y las condiciones normales de funcionamiento pueden variar entre modelos.
+              </p>
+              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
+                <strong>No utilices como regla universal que la aguja debe permanecer exactamente en la mitad del indicador.</strong> Lo relevante es comprobar si el sistema funciona dentro de las condiciones previstas por el fabricante y si aparecen advertencias de sobrecalentamiento.
+              </p>
+              <div className="rounded-lg border border-red-200 bg-red-50 p-3 text-xs text-red-950 leading-relaxed font-medium">
+                Si el indicador muestra una temperatura anormal, aparece una advertencia de sobrecalentamiento o percibes señales compatibles con un problema del sistema de refrigeración, detén el vehículo en un lugar seguro y sigue las instrucciones del fabricante. No abras el depósito ni el sistema de refrigeración cuando estén calientes o presurizados.
+              </div>
+              <p className="text-xs text-[#66727D] leading-relaxed">
+                La ausencia de una advertencia visible tampoco descarta por sí sola un problema de refrigeración. Si observas anomalías o no puedes interpretar el indicador, solicita una evaluación técnica antes de comprar el vehículo.
+              </p>
+            </div>
+
             <div className="rounded-xl border border-[#CBD5E1] bg-[#F7F9FA] p-4 text-xs text-[#475569] leading-relaxed space-y-2">
               <p>
                 <strong>Precaución:</strong> No hagas maniobras bruscas para provocar síntomas ni sueltes el volante para comprobar si el vehículo se desvía.
@@ -727,11 +856,11 @@ export default function ComoRevisarCarroUsadoPage() {
             </div>
           </section>
 
-          {/* Paso 7 */}
-          <section id="paso-7" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-5">
+          {/* Paso 8 */}
+          <section id="paso-8" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-5">
             <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
               <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
-                7
+                8
               </span>
               <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
                 Calcula los gastos antes de negociar
@@ -824,11 +953,11 @@ export default function ComoRevisarCarroUsadoPage() {
             </p>
           </section>
 
-          {/* Paso 8 */}
-          <section id="paso-8" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-5">
+          {/* Paso 9 */}
+          <section id="paso-9" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-5">
             <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
               <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
-                8
+                9
               </span>
               <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
                 Decide si necesitas un peritaje profesional
@@ -884,11 +1013,11 @@ export default function ComoRevisarCarroUsadoPage() {
             </p>
           </section>
 
-          {/* Paso 9 */}
-          <section id="paso-9" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-6">
+          {/* Paso 10 */}
+          <section id="paso-10" className="rounded-2xl border border-[#CBD5E1] bg-white p-6 sm:p-7 shadow-xs scroll-mt-24 space-y-6">
             <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
               <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
-                9
+                10
               </span>
               <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
                 Organiza los resultados y toma una decisión
@@ -1132,6 +1261,21 @@ export default function ComoRevisarCarroUsadoPage() {
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
                 <span className="text-[#66727D]">. Portal oficial de consulta de multas y comparendos.</span>
+              </div>
+            </li>
+            <li className="flex items-start gap-2.5 text-xs sm:text-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#123B5D] mt-2 shrink-0" />
+              <div>
+                <a
+                  href="https://www.fasecolda.com/ramos/automoviles/camara/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold text-[#123B5D] hover:underline inline-flex items-center gap-1"
+                >
+                  <span>Fasecolda — Historial de accidentes de vehículos asegurados</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+                <span className="text-[#66727D]">. Fuente especializada para consultar reportes de pérdidas de mayor cuantía por daños producto de una colisión, dentro del alcance temporal y de aseguramiento definido por el servicio.</span>
               </div>
             </li>
           </ul>
