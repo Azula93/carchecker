@@ -497,25 +497,25 @@ export const HeroSection: React.FC = () => {
               </span>
             </Link>
 
-            {/* Guía 2: Pintura */}
+            {/* Guía 2: Peritaje */}
             <Link
-              href="/que-revisar-carro-usado"
+              href="/costo-peritaje-colombia"
               className="bg-[#F7F9FA] border border-[#E2E8F0] p-6 rounded-3xl flex flex-col justify-between hover:border-[#123B5D] hover:shadow-xs transition-all duration-200 group"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="px-2.5 py-0.5 rounded-full bg-white border border-[#E2E8F0] text-[10px] font-bold text-[#123B5D]">
-                    Checklist
+                    Precios Peritaje
                   </span>
                   <span className="inline-flex items-center gap-1 text-[10px] text-[#66727D] font-medium">
-                    <Clock className="w-3 h-3" /> 4 min
+                    <Clock className="w-3 h-3" /> 5 min
                   </span>
                 </div>
                 <h3 className="text-base font-bold text-[#17212B] mb-2 group-hover:text-[#123B5D] transition-colors">
-                  Qué componentes revisar en un carro usado
+                  ¿Cuánto cuesta un peritaje vehicular?
                 </h3>
                 <p className="text-xs text-[#66727D] leading-relaxed">
-                  Descubre los principales componentes que debes revisar antes de tomar una decisión de compra.
+                  Tarifas en Colombia, qué incluye cada paquete y preguntas clave antes de contratar.
                 </p>
               </div>
               <span className="mt-5 text-xs font-bold text-[#123B5D] inline-flex items-center gap-1">

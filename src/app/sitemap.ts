@@ -23,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/que-revisar-carro-usado`,
+      url: `${baseUrl}/costo-peritaje-colombia`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,

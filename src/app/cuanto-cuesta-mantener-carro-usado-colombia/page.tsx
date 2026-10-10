@@ -202,10 +202,10 @@ export default function CuantoCuestaMantenerCarroUsadoPage() {
                 <p className="text-xs sm:text-sm text-[#66727D] leading-relaxed pl-9">
                   Un carro que requiera cambio urgente de llantas, embrague o suspensión puede costarte millones adicionales en sus primeros meses. Consulta nuestra guía sobre{' '}
                   <Link
-                    href="/que-revisar-carro-usado"
+                    href="/costo-peritaje-colombia"
                     className="font-bold text-[#123B5D] hover:underline underline-offset-4"
                   >
-                    qué revisar en un carro usado →
+                    cuánto cuesta un peritaje vehicular →
                   </Link>
                 </p>
               </div>
@@ -300,14 +300,14 @@ export default function CuantoCuestaMantenerCarroUsadoPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             <Link
-              href="/que-revisar-carro-usado"
+              href="/costo-peritaje-colombia"
               className="bg-white border border-[#CBD5E1] rounded-2xl p-6 hover:border-[#123B5D] hover:shadow-xs transition-all group"
             >
               <h3 className="font-bold text-sm text-[#17212B] mb-2 group-hover:text-[#123B5D] transition-colors">
-                Qué revisar en un carro usado
+                Cuánto cuesta un peritaje
               </h3>
               <p className="text-xs text-[#66727D] leading-relaxed">
-                Lista de inspección de motor, carrocería, frenos e interiores antes de comprar.
+                Tarifas de peritaje en Colombia, qué incluye cada paquete y preguntas clave.
               </p>
             </Link>
 
