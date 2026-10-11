@@ -109,26 +109,38 @@ export const StepNavigation: React.FC<StepNavigationProps> = ({
             )}
           </div>
         ) : (
-          <button
-            type="button"
-            onClick={onSiguiente}
-            disabled={siguienteDeshabilitado}
-            className={`h-12 sm:h-14 min-w-[240px] rounded-2xl px-6 sm:px-8 font-extrabold text-xs sm:text-sm flex items-center justify-between gap-4 transition-all cursor-pointer shadow-xs active:scale-98 ${
-              siguienteDeshabilitado
-                ? 'bg-[#F1F5F9] text-[#66727D] border border-[#E2E8F0] cursor-not-allowed shadow-none'
-                : esDescarte
-                ? 'bg-[#FEF2F2] border border-[#D64545] text-[#D64545] hover:bg-[#FEE2E2]'
-                : 'bg-[#8BCF3F] text-[#17212B] hover:bg-[#7EC134] hover:shadow'
-            }`}
-          >
-            <div className="flex flex-col items-start text-left leading-tight">
-              <span className="text-sm sm:text-base font-extrabold">{tituloBoton}</span>
-              <span className="text-[10px] sm:text-[11px] font-medium opacity-85">
-                {subtituloBoton}
-              </span>
-            </div>
-            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5] shrink-0" />
-          </button>
+          <div className="flex flex-col items-stretch sm:items-end gap-1.5">
+            <button
+              type="button"
+              onClick={onSiguiente}
+              disabled={siguienteDeshabilitado}
+              title={
+                siguienteDeshabilitado
+                  ? 'Completa la línea del vehículo y un kilometraje mayor a 0 para continuar'
+                  : undefined
+              }
+              className={`h-12 sm:h-14 min-w-[240px] rounded-2xl px-6 sm:px-8 font-extrabold text-xs sm:text-sm flex items-center justify-between gap-4 transition-all cursor-pointer shadow-xs active:scale-98 ${
+                siguienteDeshabilitado
+                  ? 'bg-[#F1F5F9] text-[#66727D] border border-[#E2E8F0] cursor-not-allowed shadow-none'
+                  : esDescarte
+                  ? 'bg-[#FEF2F2] border border-[#D64545] text-[#D64545] hover:bg-[#FEE2E2]'
+                  : 'bg-[#8BCF3F] text-[#17212B] hover:bg-[#7EC134] hover:shadow'
+              }`}
+            >
+              <div className="flex flex-col items-start text-left leading-tight">
+                <span className="text-sm sm:text-base font-extrabold">{tituloBoton}</span>
+                <span className="text-[10px] sm:text-[11px] font-medium opacity-85">
+                  {subtituloBoton}
+                </span>
+              </div>
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5] shrink-0" />
+            </button>
+            {siguienteDeshabilitado && (
+              <p className="text-[11px] text-[#66727D] text-left sm:text-right" role="status" aria-live="polite">
+                Ingresa la línea del vehículo y su kilometraje para avanzar al Paso 2.
+              </p>
+            )}
+          </div>
         )}
       </div>
 

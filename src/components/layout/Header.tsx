@@ -29,7 +29,7 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Brand Logo EscaneApp */}
         <Link
           href="/"
-          className="flex items-center gap-2 group focus:outline-none shrink-0"
+          className="flex items-center gap-2 group rounded-xl p-1 -m-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#123B5D] focus-visible:ring-offset-2 shrink-0 transition-shadow"
           aria-label="Ir al inicio de EscaneApp"
         >
           <EscaneAppLogo size="md" showTagline={true} />
@@ -110,7 +110,7 @@ export const Header: React.FC<HeaderProps> = ({
           {!isEvaluacion && (
             <Link
               href="/evaluacion"
-              className="inline-flex items-center justify-center gap-1.5 px-4 sm:px-5 h-10 rounded-full bg-[#8BCF3F] text-[#17212B] hover:bg-[#7EC134] text-xs sm:text-sm font-bold shadow-xs hover:shadow transition-all duration-200 active:scale-98"
+              className="hidden sm:inline-flex items-center justify-center gap-1.5 px-4 sm:px-5 h-10 rounded-full bg-[#8BCF3F] text-[#17212B] hover:bg-[#7EC134] text-xs sm:text-sm font-bold shadow-xs hover:shadow transition-all duration-200 active:scale-98"
             >
               <span>Escanear vehículo</span>
               <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />

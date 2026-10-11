@@ -15,14 +15,14 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Cómo revisar un carro usado en Colombia antes de comprarlo | EscaneApp',
+  title: 'Cómo revisar un carro usado en Colombia antes de comprarlo',
   description:
     'Guía paso a paso para realizar una preevaluación de un carro usado en Colombia: documentos, kilometraje, carrocería, motor, interior, prueba de ruta y cuándo solicitar un peritaje profesional.',
   alternates: {
     canonical: '/como-revisar-carro-usado',
   },
   openGraph: {
-    title: 'Cómo revisar un carro usado en Colombia antes de comprarlo | EscaneApp',
+    title: 'Cómo revisar un carro usado en Colombia antes de comprarlo',
     description:
       'Guía paso a paso para realizar una preevaluación de un carro usado en Colombia: documentos, kilometraje, carrocería, motor, interior, prueba de ruta y peritaje profesional.',
     url: 'https://www.escaneapp.com/como-revisar-carro-usado',

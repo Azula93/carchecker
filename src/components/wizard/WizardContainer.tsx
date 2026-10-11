@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import {
   Evaluacion,
@@ -40,21 +40,22 @@ import {
 import { Gauge, ShieldCheck, Calculator, ShieldAlert } from 'lucide-react';
 
 export const WizardContainer: React.FC = () => {
-  const [evaluacion, setEvaluacion] = useState<Evaluacion>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = cargarEvaluacion();
-      if (saved) return saved;
-    }
-    return crearEvaluacionNueva();
-  });
+  const [evaluacion, setEvaluacion] = useState<Evaluacion>(() => crearEvaluacionNueva());
+  const [pasoActual, setPasoActual] = useState<number>(1);
 
-  const [pasoActual, setPasoActual] = useState<number>(() => {
-    if (typeof window !== 'undefined') {
+  // Cargar evaluación y paso guardados de manera segura tras el montaje en el cliente
+  useEffect(() => {
+    const timer = setTimeout(() => {
       const saved = cargarEvaluacion();
-      if (saved?.pasoActual) return saved.pasoActual;
-    }
-    return 1;
-  });
+      if (saved) {
+        setEvaluacion(saved);
+        if (saved.pasoActual) {
+          setPasoActual(saved.pasoActual);
+        }
+      }
+    }, 0);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Estado para el modal accesible de confirmación Radix UI
   const [dialogoConfirmacion, setDialogoConfirmacion] = useState<{
@@ -303,6 +304,9 @@ export const WizardContainer: React.FC = () => {
 
   return (
     <div className="w-full max-w-5xl mx-auto space-y-6">
+      {/* Encabezado principal semántico accesible para SEO y lectores de pantalla */}
+      <h1 className="sr-only">Evaluación de carro usado — EscaneApp</h1>
+
       {/* 1. Barra de Progreso / Stepper Horizontal de 5 pasos */}
       <div className="print:hidden">
         <ProgressBar

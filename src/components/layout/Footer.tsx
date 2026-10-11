@@ -12,7 +12,11 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-12">
           {/* Identity & Mission */}
           <div className="lg:col-span-4 space-y-4">
-            <Link href="/" className="inline-block focus:outline-none">
+            <Link
+              href="/"
+              className="inline-block rounded-xl p-1 -m-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8BCF3F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D2235] transition-shadow"
+              aria-label="Ir al inicio de EscaneApp"
+            >
               <EscaneAppLogo theme="dark" size="md" showTagline={true} />
             </Link>
             <p className="text-xs leading-relaxed text-slate-400 max-w-sm pt-1">

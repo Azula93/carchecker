@@ -15,14 +15,14 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Antecedentes de un vehículo en Colombia: qué consultar antes de comprar | EscaneApp',
+  title: 'Antecedentes de un vehículo en Colombia: qué consultar antes de comprar',
   description:
     'Guía completa para consultar antecedentes de un vehículo usado en Colombia: RUNT, SIMIT, Fasecolda, revisión documental, contraste de información y checklist.',
   alternates: {
     canonical: '/antecedentes-vehiculo-colombia',
   },
   openGraph: {
-    title: 'Antecedentes de un vehículo en Colombia: qué consultar antes de comprar | EscaneApp',
+    title: 'Antecedentes de un vehículo en Colombia: qué consultar antes de comprar',
     description:
       'Aprende qué consultar en RUNT, SIMIT y Fasecolda antes de comprar un carro usado en Colombia y cómo contrastar los antecedentes con el vehículo físico.',
     url: 'https://www.escaneapp.com/antecedentes-vehiculo-colombia',

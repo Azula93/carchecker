@@ -205,7 +205,7 @@ export const ContactForm: React.FC = () => {
       </div>
 
       {/* Botón de Envío */}
-      <div className="pt-2">
+      <div className="pt-2 space-y-2">
         <button
           type="submit"
           className="w-full h-12 rounded-xl bg-[#123B5D] hover:bg-[#0E2F4B] text-white text-sm font-bold flex items-center justify-center gap-2 transition-all cursor-pointer shadow-sm active:scale-98"
@@ -213,6 +213,9 @@ export const ContactForm: React.FC = () => {
           <Send className="w-4 h-4 text-[#8BCF3F]" />
           <span>Enviar mensaje</span>
         </button>
+        <p className="text-[11px] text-[#66727D] text-center">
+          Al pulsar este botón se abrirá tu aplicación de correo predeterminada con los datos listos para enviar.
+        </p>
       </div>
 
       <div className="flex items-center gap-2 text-[11px] text-[#66727D] pt-1">

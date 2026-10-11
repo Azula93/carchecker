@@ -15,14 +15,14 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Cómo revisar el kilometraje de un carro usado y detectar inconsistencias | EscaneApp',
+  title: 'Cómo revisar el kilometraje de un carro usado y detectar inconsistencias',
   description:
     'Aprende a analizar el kilometraje de un carro usado en Colombia: cálculo del promedio anual, comparación con desgaste físico, documentos, escáner OBD2 y checklist de verificación.',
   alternates: {
     canonical: '/kilometraje-carro-usado',
   },
   openGraph: {
-    title: 'Cómo revisar el kilometraje de un carro usado y detectar inconsistencias | EscaneApp',
+    title: 'Cómo revisar el kilometraje de un carro usado y detectar inconsistencias',
     description:
       'Guía práctica para comparar el odómetro con el desgaste real y los documentos antes de comprar un vehículo de segunda mano en Colombia.',
     url: 'https://www.escaneapp.com/kilometraje-carro-usado',
