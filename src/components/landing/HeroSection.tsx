@@ -729,7 +729,7 @@ export const HeroSection: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             
             {/* Guía 1 */}
             <Link
@@ -828,6 +828,58 @@ export const HeroSection: React.FC = () => {
                 </h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
                   Prendas bancarias, medidas cautelares y trámites que pueden anular una compraventa.
+                </p>
+              </div>
+              <span className="mt-6 text-xs font-semibold text-slate-900 inline-flex items-center gap-1 group-hover:text-emerald-700">
+                Leer guía <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </Link>
+
+            {/* Guía 5 */}
+            <Link
+              href="/traspaso-carro-usado-colombia"
+              className="bg-[#F8FAFC] border border-slate-200 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-400 hover:shadow-xs transition-all duration-200 group"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="px-2 py-0.5 rounded bg-white border border-slate-200 text-[10px] font-mono font-semibold text-slate-700">
+                    Trámites y Costos
+                  </span>
+                  <span className="inline-flex items-center gap-1 text-[11px] text-slate-500 font-mono">
+                    <Clock className="w-3 h-3" /> 6 min
+                  </span>
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-slate-900 mb-2 group-hover:text-emerald-700 transition-colors leading-snug">
+                  Traspaso de vehículo: costos y requisitos 2026
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Quién paga qué (50/50 vs retención 1%), paz y salvo SIMIT y cómo evitar el peligroso traspaso abierto.
+                </p>
+              </div>
+              <span className="mt-6 text-xs font-semibold text-slate-900 inline-flex items-center gap-1 group-hover:text-emerald-700">
+                Leer guía <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </Link>
+
+            {/* Guía 6 */}
+            <Link
+              href="/carros-salvamento-perdida-total-fasecolda"
+              className="bg-[#F8FAFC] border border-slate-200 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-400 hover:shadow-xs transition-all duration-200 group"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="px-2 py-0.5 rounded bg-white border border-slate-200 text-[10px] font-mono font-semibold text-slate-700">
+                    Siniestros
+                  </span>
+                  <span className="inline-flex items-center gap-1 text-[11px] text-slate-500 font-mono">
+                    <Clock className="w-3 h-3" /> 7 min
+                  </span>
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-slate-900 mb-2 group-hover:text-emerald-700 transition-colors leading-snug">
+                  Carros salvamento y pérdida total en Fasecolda
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Cómo detectar choques estructurales graves, problemas de asegurabilidad y cuánto debe castigarse su precio.
                 </p>
               </div>
               <span className="mt-6 text-xs font-semibold text-slate-900 inline-flex items-center gap-1 group-hover:text-emerald-700">

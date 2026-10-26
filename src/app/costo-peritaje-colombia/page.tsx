@@ -13,16 +13,16 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '¿Cuánto cuesta un peritaje vehicular en Colombia? Precios y Guía',
+  title: 'Precios de Peritaje Vehicular en Colombia 2026: ¿Cuánto Cuesta?',
   description:
-    'Precios reales de peritaje vehicular en Colombia: cuánto cobran Colserauto, Automás y Elperito. Diferencias entre básico y completo y qué incluye cada paquete.',
+    'Tarifas reales de peritaje vehicular en Colombia 2026. Precios de Automás, Colserauto y Elperito para carros, camionetas y camiones. ¿Qué incluye y quién paga?',
   alternates: {
     canonical: '/costo-peritaje-colombia',
   },
   openGraph: {
-    title: '¿Cuánto cuesta un peritaje vehicular en Colombia? Precios y Guía',
+    title: 'Precios de Peritaje Vehicular en Colombia 2026: ¿Cuánto Cuesta?',
     description:
-      'Compara precios de peritaje vehicular en Colombia, paquetes en sede y a domicilio, y qué pruebas mecánicas y legales pedir antes de comprar.',
+      'Tarifas actualizadas de peritaje vehicular en Colombia 2026. Compara precios de Automás, Colserauto y Elperito para carros y camiones.',
     url: 'https://www.escaneapp.com/costo-peritaje-colombia',
     siteName: 'EscaneApp',
     locale: 'es_CO',
@@ -32,15 +32,15 @@ export const metadata: Metadata = {
         url: '/artppal-pexels-freestockpro-12969398.jpg',
         width: 1200,
         height: 630,
-        alt: 'Peritaje vehicular en Colombia y revisión técnica',
+        alt: 'Precios de peritaje vehicular en Colombia 2026 y revisión técnica',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: '¿Cuánto cuesta un peritaje vehicular en Colombia? Precios y Guía',
+    title: 'Precios de Peritaje Vehicular en Colombia 2026: ¿Cuánto Cuesta?',
     description:
-      'Compara precios de peritaje vehicular en Colombia, qué incluye cada paquete y consejos clave antes de contratar.',
+      'Tarifas y comparativa de precios de peritaje vehicular en Colombia 2026: Automás, Colserauto, camiones y revisión de choques.',
     images: ['/artppal-pexels-freestockpro-12969398.jpg'],
   },
 };
@@ -49,14 +49,14 @@ const articleStructuredData = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   '@id': 'https://www.escaneapp.com/costo-peritaje-colombia#article',
-  headline: '¿Cuánto cuesta un peritaje vehicular en Colombia y qué incluye?',
+  headline: '¿Cuánto cuesta un peritaje vehicular en Colombia en 2026 y qué incluye?',
   description:
-    'Guía completa sobre tarifas de peritaje en Colombia, comparación entre paquetes básicos y completos, pruebas incluidas y consejos para compradores de carros usados.',
+    'Guía completa de tarifas de peritaje vehicular en Colombia 2026. Precios para carros, camiones y motos en Automás, Colserauto y Elperito.',
   url: 'https://www.escaneapp.com/costo-peritaje-colombia',
   image: 'https://www.escaneapp.com/artppal-pexels-freestockpro-12969398.jpg',
   inLanguage: 'es-CO',
   datePublished: '2025-01-10T08:00:00+00:00',
-  dateModified: '2026-10-25T12:00:00+00:00',
+  dateModified: '2026-10-25T22:25:00+00:00',
   author: [
     {
       '@type': 'Organization',
@@ -84,18 +84,42 @@ const faqStructuredData = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: '¿Cuánto cuesta un peritaje para carro en Colombia?',
+      name: '¿Cuánto cuesta un peritaje para carro en Colombia en 2026?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'En promedio, un peritaje básico cuesta entre $169.000 y $296.000 COP (solo inspección visual). Un peritaje completo y recomendado cuesta entre $327.000 y $456.000 COP e incluye escáner electrónico, chasis en elevador y prueba de ruta. Para autos de alta gama puede superar los $600.000 COP.',
+        text: 'En 2026, un peritaje básico para carro cuesta entre $169.000 y $296.000 COP (solo inspección visual y documentos). Un peritaje completo y recomendado cuesta entre $327.000 y $456.000 COP e incluye escáner electrónico OBD2, chasis en elevador, compresión y prueba de ruta. Para autos de alta gama o camionetas de lujo oscila entre $520.000 y $684.000 COP.',
       },
     },
     {
       '@type': 'Question',
-      name: '¿Quién debe pagar el peritaje: el comprador o el vendedor?',
+      name: '¿Cuánto cuesta el peritaje en empresas como Automás y Colserauto?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Por costumbre en Colombia lo paga el comprador, ya que el informe es para su propia seguridad e independencia. Sin embargo, en muchos casos las partes acuerdan pagar mitad y mitad si el vehículo aprueba la revisión.',
+        text: 'En Automás, el peritaje liviano en sede ronda los $296.000 COP y el peritaje a domicilio aproximadamente $426.000 COP. En Colserauto, el Plan Basic cuesta cerca de $294.100 COP y el Plan Excellence completo con prueba de ruta y compresión alrededor de $455.900 COP.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Cuánto cuesta el peritaje de un camión o vehículo de carga pesada?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'El peritaje de camiones (livianos tipo NHR/Turbo o pesados de 2 y 3 ejes) cuesta entre $450.000 y $850.000 COP. Requiere fosas de inspección industrial para camiones, verificación de chasis reforzado, sistema de frenos de aire (neumático) y diagnóstico diésel.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Cuánto cuesta un peritaje vehicular por choque o siniestro?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Un peritaje técnico específico de choque o colisión cuesta entre $200.000 y $380.000 COP. Evalúa si el impacto afectó las puntas del chasis, compactos o parales, y si el vehículo cuenta con salvamento o pérdida de aseguradora en Fasecolda.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Quién debe pagar el peritaje de un carro: comprador o vendedor?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Por costumbre en Colombia lo paga el comprador, ya que el informe es para su propia seguridad e independencia. Sin embargo, en muchos casos las partes acuerdan pagar mitad y mitad si el vehículo aprueba la revisión, o el vendedor reembolsa el peritaje si ocultó un daño estructural grave.',
       },
     },
     {
@@ -172,7 +196,7 @@ export default function CostoPeritajeColombiaPage() {
             </li>
             <li>
               <span className="text-slate-900 font-bold">
-                Costo de peritaje vehicular en Colombia
+                Precios de peritaje vehicular en Colombia 2026
               </span>
             </li>
           </ol>
@@ -182,21 +206,21 @@ export default function CostoPeritajeColombiaPage() {
         <header className="mb-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/5 text-slate-900 border border-slate-200/90 font-mono font-semibold text-xs mb-3">
             <DollarSign className="w-3.5 h-3.5 text-emerald-600" />
-            <span>GUÍA DE TARIFAS Y SERVICIOS · COLOMBIA</span>
+            <span>GUÍA DE TARIFAS Y SERVICIOS 2026 · COLOMBIA</span>
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 leading-[1.15] mb-4">
-            ¿Cuánto cuesta un peritaje vehicular en Colombia y qué incluye?
+            ¿Cuánto cuesta un peritaje vehicular en Colombia en 2026 y qué incluye?
           </h1>
 
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl mb-6">
-            Llevar un carro a peritaje es la inversión más inteligente que puedes hacer antes de comprarlo: te permite saber si fue chocado, si el motor está desgastado o si tiene problemas de papeles, evitando perder millones de pesos.
+            Llevar un carro o camión a peritaje es la inversión más inteligente que puedes hacer antes de comprarlo en Colombia: te permite saber si fue chocado, si el motor está desgastado o si tiene embargos y antecedentes, evitando perder millones de pesos.
           </p>
 
           <div className="relative w-full h-64 sm:h-80 md:h-96 rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm">
             <Image
               src="/artppal-pexels-freestockpro-12969398.jpg"
-              alt="Peritaje vehicular en Colombia y revisión técnica"
+              alt="Precios de peritaje vehicular en Colombia 2026 y revisión técnica"
               fill
               priority
               sizes="(max-width: 768px) 100vw, 896px"
@@ -205,13 +229,52 @@ export default function CostoPeritajeColombiaPage() {
           </div>
         </header>
 
+        {/* Resumen rápido de marcas líderes 2026 */}
+        <div className="mb-8 p-5 sm:p-6 rounded-2xl bg-slate-900 text-white shadow-xs space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-slate-800 pb-3">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <h2 className="text-sm sm:text-base font-black font-mono tracking-wide uppercase text-emerald-400">
+                Tarifas de referencia por marca líder (Vigencia 2026)
+              </h2>
+            </div>
+            <span className="text-[11px] font-mono text-slate-400">Bogotá · Medellín · Cali · Barranquilla</span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+            <div className="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1">
+              <span className="text-xs font-mono font-bold text-slate-300 block">Automás</span>
+              <div className="text-base font-black text-white font-mono">$296.000 – $426.000</div>
+              <p className="text-[11px] text-slate-400 leading-tight">
+                Liviano en sede desde $296k · A domicilio con escáner ~$426k.
+              </p>
+            </div>
+
+            <div className="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1">
+              <span className="text-xs font-mono font-bold text-slate-300 block">Colserauto</span>
+              <div className="text-base font-black text-white font-mono">$294.100 – $455.900</div>
+              <p className="text-[11px] text-slate-400 leading-tight">
+                Plan Basic desde $294k · Plan Excellence completo ~$455.900.
+              </p>
+            </div>
+
+            <div className="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700/80 space-y-1">
+              <span className="text-xs font-mono font-bold text-slate-300 block">Elperito.com</span>
+              <div className="text-base font-black text-white font-mono">$194.000 – $327.000</div>
+              <p className="text-[11px] text-slate-400 leading-tight">
+                Básico estructura desde $194k · Completo con ruta y escáner ~$327k.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Introducción */}
         <section className="mb-8 bg-white border border-slate-200/90 p-6 sm:p-7 rounded-2xl shadow-xs text-sm sm:text-base text-slate-700 leading-relaxed space-y-4">
           <p>
-            En Colombia, el peritaje es como la revisión médica integral de un vehículo. Un técnico capacitado revisa la carrocería con aparatos de medición, sube el carro a una rampa para revisar el chasis por debajo, le conecta un escáner electrónico al computador de a bordo y revisa que los números de motor y chasis coincidan con los documentos oficiales.
+            En Colombia, el peritaje es como la revisión médica integral de un vehículo. Un técnico automotriz capacitado revisa la carrocería con medidor de pintura micrométrico, sube el carro a una rampa para revisar el chasis y suspensiones por debajo, le conecta un escáner electrónico al computador OBD2 y verifica que las improntas de motor y chasis coincidan con el RUNT.
           </p>
           <p>
-            Sin embargo, los precios varían notablemente según la empresa y el paquete que elijas: van desde <strong>$169.000 COP</strong> para revisiones básicas hasta más de <strong>$680.000 COP</strong> para paquetes completos en vehículos de alta gama.
+            En <strong>2026</strong>, los precios van desde <strong>$169.000 COP</strong> para revisiones visuales básicas en CDA, entre <strong>$327.000 y $456.000 COP</strong> para peritajes completos recomendados, hasta más de <strong>$680.000 COP</strong> para vehículos prémium y <strong>$850.000 COP</strong> para camiones y vehículos pesados de carga.
           </p>
         </section>
 
@@ -222,43 +285,53 @@ export default function CostoPeritajeColombiaPage() {
               1
             </span>
             <h2 className="text-xl sm:text-2xl font-black text-slate-900">
-              Tarifas promedio de peritaje en Colombia
+              Tarifas promedio de peritaje en Colombia 2026
             </h2>
           </div>
 
           <p className="text-sm text-slate-700 leading-relaxed">
-            Para facilitarte la comparación, los paquetes de peritaje en el mercado colombiano se dividen principalmente en <strong>tres niveles</strong> según qué tan profunda sea la inspección:
+            Para facilitarte la comparación según el tipo de carro o camión que vayas a comprar, las tarifas en el mercado colombiano se dividen principalmente en <strong>cuatro categorías</strong>:
           </p>
 
           {/* Tarjetas resumen por nivel */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 pt-1">
-            <div className="p-5 rounded-xl border border-slate-200/90 bg-slate-50 space-y-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 pt-1">
+            <div className="p-4 rounded-xl border border-slate-200/90 bg-slate-50 space-y-2">
               <span className="inline-block px-2 py-0.5 rounded text-[11px] font-bold font-mono bg-slate-800 text-white uppercase tracking-wider">
                 Nivel 1 · Básico
               </span>
-              <div className="text-xl font-black text-slate-900 font-mono">$169.000 – $296.000</div>
+              <div className="text-lg font-black text-slate-900 font-mono">$169.000 – $296.000</div>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Revisión visual general de pintura y carrocería, luces y consulta básica de papeles en el RUNT. No incluye elevador ni escáner profundo.
+                Revisión visual general de pintura y carrocería, luces y consulta de antecedentes RUNT. No incluye elevador ni escáner profundo.
               </p>
             </div>
 
-            <div className="p-5 rounded-xl border-2 border-emerald-600/40 bg-emerald-50/40 space-y-2 relative shadow-xs">
+            <div className="p-4 rounded-xl border-2 border-emerald-600/40 bg-emerald-50/40 space-y-2 relative shadow-xs">
               <span className="inline-block px-2 py-0.5 rounded text-[11px] font-bold font-mono bg-emerald-700 text-white uppercase tracking-wider">
-                Nivel 2 · Completo (Recomendado)
+                Nivel 2 · Completo (Top)
               </span>
-              <div className="text-xl font-black text-slate-900 font-mono">$327.000 – $456.000</div>
+              <div className="text-lg font-black text-slate-900 font-mono">$327.000 – $456.000</div>
               <p className="text-xs text-slate-700 leading-relaxed">
-                Suma escáner computarizado OBD2, prueba de manejo en ruta, chasis en rampa elevadora, compresión y estudio legal completo de antecedentes.
+                Suma escáner OBD2, prueba de manejo en ruta, chasis en rampa elevadora, compresión y estudio legal de antecedentes.
               </p>
             </div>
 
-            <div className="p-5 rounded-xl border border-slate-200/90 bg-slate-50 space-y-2">
+            <div className="p-4 rounded-xl border border-slate-200/90 bg-slate-50 space-y-2">
               <span className="inline-block px-2 py-0.5 rounded text-[11px] font-bold font-mono bg-slate-800 text-white uppercase tracking-wider">
                 Nivel 3 · Alta Gama
               </span>
-              <div className="text-xl font-black text-slate-900 font-mono">$520.000 – $684.000+</div>
+              <div className="text-lg font-black text-slate-900 font-mono">$520.000 – $684.000+</div>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Diseñado para marcas prémium (BMW, Mercedes, Audi) o camionetas grandes con múltiples módulos electrónicos y cajas automáticas complejas.
+                Para marcas prémium (BMW, Mercedes, Audi) o camionetas grandes con múltiples módulos electrónicos y cajas complejas.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl border border-slate-200/90 bg-slate-50 space-y-2">
+              <span className="inline-block px-2 py-0.5 rounded text-[11px] font-bold font-mono bg-amber-800 text-white uppercase tracking-wider">
+                Nivel 4 · Camiones y Carga
+              </span>
+              <div className="text-lg font-black text-slate-900 font-mono">$450.000 – $850.000</div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Camiones livianos (Turbo, NHR) y pesados de 2 o 3 ejes con fosa industrial, frenos de aire y compresión diésel.
               </p>
             </div>
           </div>
@@ -408,12 +481,70 @@ export default function CostoPeritajeColombiaPage() {
                   <td className="py-3 px-4 text-slate-600">Plan High Performance (deportivos de alto desempeño)</td>
                   <td className="py-3 px-4 text-right font-mono font-bold text-slate-900">$683.900</td>
                 </tr>
+
+                {/* GRUPO 4: CAMIONES Y CARGA */}
+                <tr className="bg-slate-900 text-amber-400 font-mono font-bold text-xs uppercase tracking-wider">
+                  <td colSpan={3} className="py-2.5 px-4 font-bold text-xs tracking-wider font-mono">
+                    🟠 Camiones y Vehículos de Carga · $450.000 a $850.000 COP
+                  </td>
+                </tr>
+                <tr className="hover:bg-slate-50/70 transition-colors">
+                  <td className="py-3 px-4 font-semibold text-slate-900">Centros de Peritaje Especializados</td>
+                  <td className="py-3 px-4 text-slate-600">Camión liviano / Turbo (NHR, NPR, FTR, Hino) con fosa y frenos de aire</td>
+                  <td className="py-3 px-4 text-right font-mono font-bold text-slate-900">$450.000 – $620.000</td>
+                </tr>
+                <tr className="hover:bg-slate-50/70 transition-colors">
+                  <td className="py-3 px-4 font-semibold text-slate-900">Líneas de Carga Pesada (Bogotá / Medellín / Cali)</td>
+                  <td className="py-3 px-4 text-slate-600">Camión pesado / Dobletroque / Tractocamión (inspección de chasis reforzado y 2-3 ejes)</td>
+                  <td className="py-3 px-4 text-right font-mono font-bold text-slate-900">$680.000 – $850.000</td>
+                </tr>
+
+                {/* GRUPO 5: CHOQUES Y SINIESTROS */}
+                <tr className="bg-slate-100/90 text-slate-800 font-mono font-bold text-xs uppercase tracking-wider border-y border-slate-200">
+                  <td colSpan={3} className="py-2.5 px-4 font-bold text-xs tracking-wider font-mono">
+                    🔴 Peritaje por Choque o Siniestro Previo · $200.000 a $380.000 COP
+                  </td>
+                </tr>
+                <tr className="hover:bg-slate-50/70 transition-colors">
+                  <td className="py-3 px-4 font-semibold text-slate-900">Peritaje Técnico Estructural</td>
+                  <td className="py-3 px-4 text-slate-600">
+                    Inspección profunda de puntas de chasis, compactos, parales deformados, corte de carrocería y cruce con historial de aseguradoras
+                  </td>
+                  <td className="py-3 px-4 text-right font-mono font-bold text-slate-900">$200.000 – $380.000</td>
+                </tr>
               </tbody>
             </table>
           </div>
 
+          {/* Tarjeta explicativa de Choque y Camiones */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 pt-2">
+            <div className="p-4 rounded-xl border border-slate-200/90 bg-slate-50 space-y-1.5 text-xs text-slate-700 leading-relaxed">
+              <span className="font-bold text-slate-900 block text-sm">
+                🚚 ¿Qué incluye el peritaje de un camión o camabaja?
+              </span>
+              <p>
+                A diferencia de un automóvil, en los camiones la revisión exige fosas de gran tonelaje, medición de desgaste en las hojas de ballesta, holgura en cardanes, fugas en el compresor neumático y prueba de inyección en motores diésel de alta exigencia.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl border border-rose-200 bg-rose-50/40 space-y-1.5 text-xs text-slate-700 leading-relaxed">
+              <span className="font-bold text-rose-950 block text-sm">
+                ⚠️ ¿Sospechas que el carro tuvo un choque fuerte?
+              </span>
+              <p>
+                Si el carro tiene soldaduras no originales o descuadres en las puertas, pide un peritaje estructural con micrómetro de pintura para descartar un salvamento por pérdida total. Consulta también nuestra guía sobre{' '}
+                <Link
+                  href="/carros-salvamento-perdida-total-fasecolda"
+                  className="font-bold text-rose-900 hover:text-rose-950 underline"
+                >
+                  carros de salvamento y pérdida de aseguradora Fasecolda
+                </Link>.
+              </p>
+            </div>
+          </div>
+
           <p className="text-xs text-slate-500 leading-relaxed">
-            * Precios de referencia vigentes en las principales ciudades de Colombia (Bogotá, Medellín, Cali, Barranquilla, Bucaramanga). Cada centro puede actualizar tarifas según la ciudad o promociones vigentes.
+            * Precios de referencia vigentes para 2026 en las principales ciudades de Colombia (Bogotá, Medellín, Cali, Barranquilla, Bucaramanga, Pereira). Cada taller puede variar tarifas según el cilindraje, tonelaje o promociones vigentes.
           </p>
         </section>
 
@@ -612,6 +743,26 @@ export default function CostoPeritajeColombiaPage() {
 
           <div className="space-y-4">
             {[
+              {
+                q: '¿Cuánto cuesta un peritaje de carro en Colombia en 2026?',
+                a: 'Un peritaje básico cuesta entre $169.000 y $296.000 COP (solo inspección visual). Un peritaje completo estándar cuesta entre $327.000 y $456.000 COP e incluye escáner OBD2, chasis en elevador, compresión del motor y prueba de ruta. En alta gama puede superar los $600.000 COP.',
+              },
+              {
+                q: '¿Cuánto cuesta el peritaje en Automás y Colserauto?',
+                a: 'En Automás, el peritaje liviano en sede cuesta aproximadamente $296.000 COP y el peritaje a domicilio ronda los $426.000 COP. En Colserauto, el Plan Basic cuesta cerca de $294.100 COP y el Plan Excellence completo con prueba de ruta y compresión alrededor de $455.900 COP.',
+              },
+              {
+                q: '¿Cuánto cuesta el peritaje de un camión o vehículo pesado?',
+                a: 'El peritaje de camiones (tipo Turbo, NHR, NPR o tractocamiones) oscila entre $450.000 y $850.000 COP. Requiere fosas industriales de inspección, revisión de chasis reforzado, suspensión de ballestas, frenos de aire neumáticos y compresión de motor diésel.',
+              },
+              {
+                q: '¿Cuánto cuesta un peritaje por choque o siniestro previo?',
+                a: 'Un diagnóstico técnico enfocado en choques cuesta entre $200.000 y $380.000 COP. Revisa con micrómetro de pintura el grosor de masilla, comprueba si las puntas de chasis fueron enderezadas a soplete y corrobora si el vehículo tiene antecedentes de salvamento en aseguradoras Fasecolda.',
+              },
+              {
+                q: '¿Quién debe pagar el peritaje de un carro?',
+                a: 'Normalmente lo asume el comprador para garantizar total imparcialidad e independencia en el resultado. Sin embargo, en negociaciones es común acordar compartir el 50% del valor o exigir que el vendedor reembolse el dinero si se descubre un siniestro estructural oculto.',
+              },
               {
                 q: '¿Cuánto dura un peritaje completo?',
                 a: 'En promedio tarda entre 1 hora y 2 horas, dependiendo de si incluye prueba de ruta y revisión minuciosa del chasis.',

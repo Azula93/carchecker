@@ -154,31 +154,45 @@ export default function PoliticaPrivacidadPage() {
           <section className="space-y-3 border-t border-slate-100 pt-6">
             <h2 className="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
               <span className="w-7 h-7 rounded-lg bg-slate-100 text-slate-800 text-xs font-mono font-bold flex items-center justify-center shrink-0">4</span>
-              <span>Cookies y servicios analíticos o de publicidad</span>
+              <span>Cookies y publicidad de terceros (Google AdSense y Redes Asociadas)</span>
             </h2>
             <p>
-              Para mantener la herramienta gratuita, EscaneApp puede mostrar anuncios suministrados por redes de publicidad de terceros (como Google AdSense) y herramientas de métricas anónimas de rendimiento.
+              Para mantener la plataforma gratuita y accesible para todos los usuarios en Colombia, EscaneApp muestra anuncios publicitarios gestionados por proveedores externos, principalmente <strong>Google AdSense</strong>.
             </p>
-            <p className="text-xs sm:text-sm text-slate-600">
-              Google y sus socios utilizan cookies técnicas para mostrar anuncios relevantes basados en visitas anteriores a sitios web. Puedes consultar cómo utiliza Google los datos en{' '}
-              <a
-                href="https://policies.google.com/technologies/partner-sites"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-slate-900 underline hover:text-emerald-700"
-              >
-                Políticas de Google para sitios asociados
-              </a>{' '}
-              o configurar tus preferencias en la{' '}
-              <a
-                href="https://adssettings.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-slate-900 underline hover:text-emerald-700"
-              >
-                Configuración de anuncios de Google
-              </a>.
-            </p>
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/90 text-xs sm:text-sm text-slate-700 space-y-2.5">
+              <p>
+                <strong>Uso de cookies y tecnología publicitaria:</strong> Google, como proveedor asociado externo, utiliza cookies (incluida la cookie de publicidad de Google o tecnologías asociadas) para publicar anuncios en nuestro sitio web. La utilización de estas cookies permite a Google y a sus socios comerciales mostrar anuncios a los usuarios en función de sus visitas a EscaneApp o a otros sitios de Internet.
+              </p>
+              <p>
+                <strong>Control y exclusión voluntaria:</strong> Los usuarios pueden inhabilitar la publicidad personalizada en cualquier momento a través de la{' '}
+                <a
+                  href="https://adssettings.google.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-slate-900 underline hover:text-emerald-700"
+                >
+                  Configuración de anuncios de Google
+                </a>
+                . De igual forma, pueden optar por inhabilitar el uso de cookies para publicidad basada en intereses por parte de proveedores externos visitando{' '}
+                <a
+                  href="https://www.aboutads.info/choices/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-slate-900 underline hover:text-emerald-700"
+                >
+                  AboutAds.info Choices
+                </a>
+                {' '}o consultar detalladamente la{' '}
+                <a
+                  href="https://policies.google.com/technologies/partner-sites"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-slate-900 underline hover:text-emerald-700"
+                >
+                  Política de Privacidad y Términos de Google para sitios asociados
+                </a>.
+              </p>
+            </div>
           </section>
 
           {/* Sección 5 */}
