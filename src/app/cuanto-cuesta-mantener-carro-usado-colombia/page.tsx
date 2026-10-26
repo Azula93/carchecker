@@ -7,18 +7,33 @@ import { Calculator, ArrowRight } from 'lucide-react';
 export const metadata: Metadata = {
   title: '¿Cuánto cuesta mantener un carro usado en Colombia?',
   description:
-    'Calcula cuánto cuesta realmente mantener un carro usado en Colombia. Incluye gasolina con precios CREG, SOAT oficial SFC, tecnomecánica, impuesto vehicular, mantenimiento y financiación.',
+    'Calcula cuánto cuesta mantener un carro usado en Colombia: gasolina, SOAT, tecnomecánica, impuesto vehicular, repuestos y crédito automotriz.',
   alternates: {
     canonical: '/cuanto-cuesta-mantener-carro-usado-colombia',
   },
   openGraph: {
     title: '¿Cuánto cuesta mantener un carro usado en Colombia?',
     description:
-      'Calcula cuánto cuesta realmente mantener un carro usado en Colombia. Incluye gasolina, SOAT, tecnomecánica, impuesto vehicular, mantenimiento y financiación.',
+      'Calcula cuánto cuesta mantener un carro usado en Colombia: gasolina, SOAT, tecnomecánica, impuestos y mantenimiento.',
     url: 'https://www.escaneapp.com/cuanto-cuesta-mantener-carro-usado-colombia',
     siteName: 'EscaneApp',
     locale: 'es_CO',
     type: 'article',
+    images: [
+      {
+        url: '/pexels-mikebird-20475010.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Calculadora de costos para mantener un carro usado en Colombia',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '¿Cuánto cuesta mantener un carro usado en Colombia?',
+    description:
+      'Calcula cuánto cuesta mantener un carro usado en Colombia: gasolina, SOAT, tecnomecánica, impuestos y mantenimiento.',
+    images: ['/pexels-mikebird-20475010.jpg'],
   },
 };
 
@@ -26,32 +41,27 @@ const FAQ_ITEMS: FaqItem[] = [
   {
     pregunta: '¿Cuánto cuesta mantener un carro usado al año en Colombia?',
     respuesta:
-      'El costo total anual de mantener un automóvil particular de gama media suele ubicarse entre $9.000.000 y $15.000.000 COP al año (aproximadamente $750.000 a $1.250.000 COP al mes), considerando un recorrido promedio de 12.000 km al año, combustible, SOAT, tecnomecánica, impuesto vehicular, mantenimiento preventivo y parqueadero.',
+      'En promedio, mantener un carro estándar en Colombia cuesta entre $750.000 y $1.250.000 COP al mes (entre $9.000.000 y $15.000.000 COP al año). Esto incluye gasolina (calculando unos 1.000 km al mes), papeles obligatorios (SOAT, impuesto y tecnomecánica), cambios de aceite periódicos y parqueadero.',
   },
   {
     pregunta: '¿Qué gastos debo tener en cuenta al comprar un carro usado?',
     respuesta:
-      'Debes diferenciar entre costos obligatorios de tenencia (SOAT, impuesto vehicular y tecnomecánica), costos directos de uso (gasolina, parqueadero, peajes y lavado), mantenimiento preventivo programado (cambio de aceite y filtros), y un fondo de reserva para imprevistos mecánicos (llantas, batería, suspensión y frenos). Si compras mediante crédito, debes añadir la cuota de financiación mensual.',
+      'Debes tener en cuenta 4 grupos de gastos: 1) Papeles que exige la ley para rodar (SOAT, impuesto vehicular y tecnomecánica), 2) Gastos del día a día (gasolina, parqueadero, peajes y lavadas), 3) Mantenimiento básico (cambio de aceite y filtros cada 5.000 o 10.000 km), y 4) Un ahorro para imprevistos (batería, llantas o frenos). Si vas a comprar con préstamo, debes sumar la cuota mensual del banco.',
   },
   {
     pregunta: '¿El SOAT está incluido en el costo anual?',
     respuesta:
-      'Sí. El SOAT es un seguro obligatorio de pago único anual expedido bajo tarifas fijadas por la Superintendencia Financiera de Colombia (SFC). En la herramienta lo calculamos como parte del costo anual y mostramos su provisión mensual únicamente como ayuda para presupuestar tus finanzas personales.',
+      'Sí. El SOAT es un seguro obligatorio que se paga completo una sola vez al año. En nuestra calculadora te mostramos el valor dividido entre 12 meses únicamente para que sepas cuánta plata guardar mes a mes y no te tome por sorpresa cuando se venza.',
   },
   {
-    pregunta: '¿El impuesto vehicular se paga mensualmente?',
+    pregunta: '¿El impuesto del carro se paga mensual?',
     respuesta:
-      'No. El impuesto sobre vehículos automotores es una obligación tributaria que se cancela una sola vez al año ante la Secretaría de Hacienda de tu departamento o distrito. La cifra mensual que muestra la calculadora es un equivalente de referencia para que reserves periódicamente el dinero de ese pago.',
+      'No. El impuesto sobre el vehículo se cancela una sola vez al año ante la gobernación o alcaldía donde esté matriculada la placa. Mostramos el valor mensual como una ayuda para que puedas ir guardando el dinero poco a poco durante el año.',
   },
-  // {
-  //   pregunta: '¿Cuánto cuesta la revisión tecnomecánica?',
-  //   respuesta:
-  //     'El costo suele ubicarse en un rango de $280.000 a $350.000 COP al año en Centros de Diagnóstico Automotor (CDA) autorizados por el Ministerio de Transporte. En vehículos particulares nuevos empieza a exigirse al cumplir el quinto o sexto año desde su fecha de matrícula inicial.',
-  // },
   {
-    pregunta: '¿Cuánto debería reservar para reparaciones imprevistas en un carro usado?',
+    pregunta: '¿Cuánto debería ahorrar para arreglos y repuestos de un carro usado?',
     respuesta:
-      'Para un carro usado de más de 4 años de antigüedad se recomienda reservar entre $100.000 y $200.000 COP al mes ($1.200.000 a $2.400.000 COP al año). Este fondo amortigua gastos eventuales por desgaste natural como pastillas de freno, embrague, amortiguadores o cambio de batería.',
+      'Para un carro usado con más de 4 años de uso se recomienda guardar entre $100.000 y $150.000 COP al mes en una alcancía o cuenta. Así, cuando toque cambiar llantas, batería o pastillas de frenos, tendrás la plata lista sin desacomodar tu bolsillo ni endeudarte.',
   },
 ];
 
@@ -65,6 +75,16 @@ const articleStructuredData = {
     'Calcula cuánto cuesta realmente mantener un carro usado en Colombia con tarifas oficiales de SOAT, impuestos, gasolina CREG y mantenimiento.',
   url: 'https://www.escaneapp.com/cuanto-cuesta-mantener-carro-usado-colombia',
   inLanguage: 'es-CO',
+  datePublished: '2025-01-25T08:00:00+00:00',
+  dateModified: '2026-10-15T12:00:00+00:00',
+  image: 'https://www.escaneapp.com/pexels-mikebird-20475010.jpg',
+  author: [
+    {
+      '@type': 'Organization',
+      name: 'Equipo Editorial EscaneApp',
+      url: 'https://www.escaneapp.com',
+    },
+  ],
   isPartOf: {
     '@id': 'https://www.escaneapp.com/#webapp',
   },
@@ -72,7 +92,30 @@ const articleStructuredData = {
     '@type': 'Organization',
     name: 'EscaneApp',
     url: 'https://www.escaneapp.com',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://www.escaneapp.com/01_logo_horizontal_principal.png',
+    },
   },
+};
+
+const breadcrumbStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Inicio',
+      item: 'https://www.escaneapp.com',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Cuánto cuesta mantener un carro usado',
+      item: 'https://www.escaneapp.com/cuanto-cuesta-mantener-carro-usado-colombia',
+    },
+  ],
 };
 
 const faqStructuredData = {
@@ -103,6 +146,12 @@ export default function CuantoCuestaMantenerCarroUsadoPage() {
           __html: JSON.stringify(faqStructuredData),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbStructuredData),
+        }}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         {/* ==================================================== */}
@@ -111,7 +160,7 @@ export default function CuantoCuestaMantenerCarroUsadoPage() {
         <nav aria-label="Migas de pan" className="mb-6 print:hidden">
           <ol className="flex flex-wrap items-center gap-2 text-xs text-[#66727D]">
             <li>
-              <Link href="/" className="hover:text-[#123B5D] transition-colors font-medium">
+              <Link href="/" className="hover:text-slate-900 transition-colors font-medium">
                 Inicio
               </Link>
             </li>
@@ -130,43 +179,34 @@ export default function CuantoCuestaMantenerCarroUsadoPage() {
         {/* HERO                                                 */}
         {/* ==================================================== */}
         <header className="mb-10 print:hidden">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#123B5D]/10 text-[#123B5D] font-mono font-bold text-xs mb-3">
-            <Calculator className="w-3.5 h-3.5 text-[#123B5D]" />
-            <span>GUÍA ESCANEAPP · COSTOS & MANTENIMIENTO</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-800 font-mono font-semibold text-xs mb-3">
+            <Calculator className="w-3.5 h-3.5 text-emerald-600" />
+            <span>GUÍA PRÁCTICA · COSTO DE MANTENER TU CARRO EN COLOMBIA</span>
           </div>
 
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#17212B] leading-tight mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 leading-tight mb-4">
             ¿Cuánto cuesta mantener un carro usado en Colombia?
           </h1>
 
-          <p className="text-base sm:text-lg text-[#66727D] leading-relaxed max-w-3xl">
-            Comprar un carro usado no significa únicamente pagar el precio de venta. Durante su tenencia y uso aparecen gastos obligatorios y operativos que debes presupuestar para no llevarte sorpresas.
+          <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl">
+            Comprar un carro usado va más allá del precio que te pide el vendedor. Descubre cuánto gastarás al mes en gasolina, papeles obligatorios y repuestos para saber si se acomoda a tu presupuesto antes de comprarlo.
           </p>
         </header>
-
-        {/* ==================================================== */}
-        {/* INTRODUCCIÓN BREVE                                  */}
-        {/* ==================================================== */}
-        {/* <section className="mb-10 text-sm sm:text-base text-[#475569] leading-relaxed space-y-3 bg-white border border-[#CBD5E1] p-5 sm:p-6 rounded-2xl shadow-xs print:hidden">
-          <p>
-            El costo real de un vehículo depende de cuatro factores clave: las <strong className="text-[#17212B]">obligaciones legales</strong> (SOAT, impuesto vehicular y tecnomecánica), los <strong className="text-[#17212B]">gastos directos de uso</strong> (gasolina oficial CREG, parqueadero, peajes y lavado), el <strong className="text-[#17212B]">mantenimiento preventivo e imprevistos</strong> y la <strong className="text-[#17212B]">financiación</strong> si adquieres el vehículo mediante crédito vehicular.
-          </p>
-        </section> */}
 
         {/* ==================================================== */}
         {/* ¿CUÁNTO ME VA A COSTAR REALMENTE? (Herramienta)     */}
         {/* ==================================================== */}
         <section id="calculadora" className="scroll-mt-6 mb-16">
-          <div className="border-b border-[#E2E8F0] pb-4 mb-8 print:hidden">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8BCF3F]/20 text-[#123B5D] text-xs font-mono font-bold mb-2">
-              <span className="w-2 h-2 rounded-full bg-[#2EAD68] animate-pulse"></span>
-              <span>ESTIMACIÓN INTERACTIVA DE COSTO TOTAL</span>
+          <div className="border-b border-slate-200 pb-4 mb-8 print:hidden">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-mono font-semibold mb-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+              <span>CALCULADORA DE GASTOS MES A MES</span>
             </div>
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#17212B]">
-              Estima el costo real de tu próximo carro
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900">
+              Calcula los gastos de tu próximo carro
             </h2>
-            <p className="text-xs sm:text-sm text-[#66727D] mt-1.5 leading-relaxed max-w-2xl">
-              Estima los gastos reales que asumirás durante el año con tarifas oficiales vigentes y parámetros 100% personalizables.
+            <p className="text-xs sm:text-sm text-slate-500 mt-1.5 leading-relaxed max-w-2xl">
+              Calcula con tarifas oficiales vigentes y ajusta los valores según tus recorridos y tu ciudad.
             </p>
           </div>
 
@@ -179,91 +219,91 @@ export default function CuantoCuestaMantenerCarroUsadoPage() {
         {/* ==================================================== */}
         <section className="mb-16 print:hidden">
           <div className="mb-6">
-            <span className="text-xs font-mono font-bold text-[#123B5D] uppercase tracking-wider block mb-1">
-              RECOMENDACIONES PRÁCTICAS
+            <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider block mb-1">
+              CONSEJOS ÚTILES
             </span>
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#17212B]">
-              Consejos para reducir el costo de mantener un carro usado
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900">
+              Consejos para no gastar de más al tener un carro usado
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
             {/* Consejo 1 */}
-            <div className="bg-white rounded-2xl border border-[#CBD5E1] p-5 sm:p-6 shadow-xs flex flex-col justify-between hover:border-[#123B5D]/40 transition-all">
+            <div className="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs flex flex-col justify-between hover:border-slate-300 transition-all">
               <div className="space-y-2.5">
                 <div className="flex items-center gap-2.5">
-                  <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#123B5D] text-white font-mono text-xs font-bold shrink-0">
+                  <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#0F172A] text-white font-mono text-xs font-bold shrink-0">
                     1
                   </span>
-                  <h3 className="text-sm sm:text-base font-bold text-[#17212B]">
-                    Revisa el estado del vehículo antes de comprar
+                  <h3 className="text-sm sm:text-base font-bold text-slate-900">
+                    Revisa el estado mecánico antes de comprar
                   </h3>
                 </div>
-                <p className="text-xs sm:text-sm text-[#66727D] leading-relaxed pl-9">
-                  Un carro que requiera cambio urgente de llantas, embrague o suspensión puede costarte millones adicionales en sus primeros meses. Consulta nuestra guía sobre{' '}
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed pl-9">
+                  Un carro que tenga llantas gastadas, frenos acabados o fugas de aceite puede costarte millones de pesos en sus primeros meses. Consulta nuestra guía sobre{' '}
                   <Link
                     href="/costo-peritaje-colombia"
-                    className="font-bold text-[#123B5D] hover:underline underline-offset-4"
+                    className="font-bold text-slate-900 hover:underline underline-offset-4"
                   >
-                    cuánto cuesta un peritaje vehicular →
+                    cuánto vale un peritaje en Colombia →
                   </Link>
                 </p>
               </div>
             </div>
 
             {/* Consejo 2 */}
-            <div className="bg-white rounded-2xl border border-[#CBD5E1] p-5 sm:p-6 shadow-xs flex flex-col justify-between hover:border-[#123B5D]/40 transition-all">
+            <div className="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs flex flex-col justify-between hover:border-slate-300 transition-all">
               <div className="space-y-2.5">
                 <div className="flex items-center gap-2.5">
-                  <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#123B5D] text-white font-mono text-xs font-bold shrink-0">
+                  <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#0F172A] text-white font-mono text-xs font-bold shrink-0">
                     2
                   </span>
-                  <h3 className="text-sm sm:text-base font-bold text-[#17212B]">
-                    Revisa los antecedentes antes de pagar
+                  <h3 className="text-sm sm:text-base font-bold text-slate-900">
+                    Revisa multas y papeles antes de soltar un peso
                   </h3>
                 </div>
-                <p className="text-xs sm:text-sm text-[#66727D] leading-relaxed pl-9">
-                  Asegúrate de que el vehículo esté al día en impuestos y no arrastre multas o embargos. Aprende cómo{' '}
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed pl-9">
+                  Asegúrate de que el carro esté a paz y salvo en impuestos y no arrastre comparendos o embargos del dueño anterior. Aprende cómo{' '}
                   <Link
                     href="/antecedentes-vehiculo-colombia"
-                    className="font-bold text-[#123B5D] hover:underline underline-offset-4"
+                    className="font-bold text-slate-900 hover:underline underline-offset-4"
                   >
-                    consultar antecedentes de un vehículo en Colombia →
+                    consultar antecedentes de un carro en Colombia →
                   </Link>
                 </p>
               </div>
             </div>
 
             {/* Consejo 3 */}
-            <div className="bg-white rounded-2xl border border-[#CBD5E1] p-5 sm:p-6 shadow-xs flex flex-col justify-between hover:border-[#123B5D]/40 transition-all">
+            <div className="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs flex flex-col justify-between hover:border-slate-300 transition-all">
               <div className="space-y-2.5">
                 <div className="flex items-center gap-2.5">
-                  <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#123B5D] text-white font-mono text-xs font-bold shrink-0">
+                  <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#0F172A] text-white font-mono text-xs font-bold shrink-0">
                     3
                   </span>
-                  <h3 className="text-sm sm:text-base font-bold text-[#17212B]">
-                    Conduce de forma eficiente
+                  <h3 className="text-sm sm:text-base font-bold text-slate-900">
+                    Maneja suave y cuida el aire de las llantas
                   </h3>
                 </div>
-                <p className="text-xs sm:text-sm text-[#66727D] leading-relaxed pl-9">
-                  Evitar aceleraciones bruscas, mantener la presión adecuada en las llantas y reducir peso innecesario puede disminuir el consumo real de gasolina entre un 10% y un 20% mensual.
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed pl-9">
+                  Evitar acelerones bruscos, mantener las llantas con la presión correcta y no cargar peso innecesario en el baúl te puede ahorrar hasta un 20% de gasolina cada mes.
                 </p>
               </div>
             </div>
 
             {/* Consejo 4 */}
-            <div className="bg-white rounded-2xl border border-[#CBD5E1] p-5 sm:p-6 shadow-xs flex flex-col justify-between hover:border-[#123B5D]/40 transition-all">
+            <div className="bg-white rounded-2xl border border-slate-200/90 p-5 sm:p-6 shadow-xs flex flex-col justify-between hover:border-slate-300 transition-all">
               <div className="space-y-2.5">
                 <div className="flex items-center gap-2.5">
-                  <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#123B5D] text-white font-mono text-xs font-bold shrink-0">
+                  <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#0F172A] text-white font-mono text-xs font-bold shrink-0">
                     4
                   </span>
-                  <h3 className="text-sm sm:text-base font-bold text-[#17212B]">
-                    No descuides los cambios de aceite
+                  <h3 className="text-sm sm:text-base font-bold text-slate-900">
+                    Cambia el aceite a tiempo
                   </h3>
                 </div>
-                <p className="text-xs sm:text-sm text-[#66727D] leading-relaxed pl-9">
-                  El mantenimiento preventivo programado es hasta 5 veces más económico que reparar daños mayores en motor o transmisión provocados por lubricación deficiente.
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed pl-9">
+                  Un cambio de aceite a tiempo cuesta poco; reparar un motor desbielado o fundido por falta de lubricación cuesta millones de pesos.
                 </p>
               </div>
             </div>
@@ -275,11 +315,11 @@ export default function CuantoCuestaMantenerCarroUsadoPage() {
         {/* ==================================================== */}
         <section className="mb-16 print:hidden">
           <div className="mb-6">
-            <span className="text-xs font-mono font-bold text-[#123B5D] uppercase tracking-wider block mb-1">
-              RESOLUCIÓN DE DUDAS
+            <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider block mb-1">
+              PREGUNTAS FRECUENTES
             </span>
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#17212B]">
-              Preguntas frecuentes sobre el costo de mantener un carro en Colombia
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900">
+              Dudas comunes sobre el costo de mantener un carro en Colombia
             </h2>
           </div>
 
@@ -289,49 +329,49 @@ export default function CuantoCuestaMantenerCarroUsadoPage() {
         {/* ==================================================== */}
         {/* TAMBIÉN TE PUEDE INTERESAR                           */}
         {/* ==================================================== */}
-        <section className="mb-16 border-t border-[#CBD5E1] pt-10 print:hidden">
-          <span className="text-[11px] font-mono uppercase tracking-wider text-[#66727D] font-bold block mb-1">
-            RECURSOS RELACIONADOS
+        <section className="mb-16 border-t border-slate-200 pt-10 print:hidden">
+          <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 font-bold block mb-1">
+            GUÍAS RELACIONADAS
           </span>
 
-          <h2 className="text-xl sm:text-2xl font-extrabold text-[#17212B] mb-6">
-            También te puede interesar
+          <h2 className="text-xl sm:text-2xl font-black text-slate-900 mb-6">
+            Otras guías recomendadas para compradores
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             <Link
               href="/costo-peritaje-colombia"
-              className="bg-white border border-[#CBD5E1] rounded-2xl p-6 hover:border-[#123B5D] hover:shadow-xs transition-all group"
+              className="bg-white border border-slate-200/90 rounded-2xl p-6 hover:border-slate-400 hover:shadow-xs transition-all group"
             >
-              <h3 className="font-bold text-sm text-[#17212B] mb-2 group-hover:text-[#123B5D] transition-colors">
+              <h3 className="font-bold text-sm text-slate-900 mb-2 group-hover:text-emerald-700 transition-colors">
                 Cuánto cuesta un peritaje
               </h3>
-              <p className="text-xs text-[#66727D] leading-relaxed">
-                Tarifas de peritaje en Colombia, qué incluye cada paquete y preguntas clave.
+              <p className="text-xs text-slate-500 leading-relaxed">
+                Precios de peritaje en Colombia, qué revisan y qué preguntas hacerle al técnico.
               </p>
             </Link>
 
             <Link
               href="/kilometraje-carro-usado"
-              className="bg-white border border-[#CBD5E1] rounded-2xl p-6 hover:border-[#123B5D] hover:shadow-xs transition-all group"
+              className="bg-white border border-slate-200/90 rounded-2xl p-6 hover:border-slate-400 hover:shadow-xs transition-all group"
             >
-              <h3 className="font-bold text-sm text-[#17212B] mb-2 group-hover:text-[#123B5D] transition-colors">
+              <h3 className="font-bold text-sm text-slate-900 mb-2 group-hover:text-emerald-700 transition-colors">
                 Revisión del kilometraje
               </h3>
-              <p className="text-xs text-[#66727D] leading-relaxed">
-                Aprende a interpretar el kilometraje real anual y compararlo con el desgaste físico.
+              <p className="text-xs text-slate-500 leading-relaxed">
+                Aprende a saber si le bajaron el kilometraje al carro comparándolo con el desgaste real.
               </p>
             </Link>
 
             <Link
               href="/antecedentes-vehiculo-colombia"
-              className="bg-white border border-[#CBD5E1] rounded-2xl p-6 hover:border-[#123B5D] hover:shadow-xs transition-all group"
+              className="bg-white border border-slate-200/90 rounded-2xl p-6 hover:border-slate-400 hover:shadow-xs transition-all group"
             >
-              <h3 className="font-bold text-sm text-[#17212B] mb-2 group-hover:text-[#123B5D] transition-colors">
+              <h3 className="font-bold text-sm text-slate-900 mb-2 group-hover:text-emerald-700 transition-colors">
                 Antecedentes del vehículo
               </h3>
-              <p className="text-xs text-[#66727D] leading-relaxed">
-                Historial de siniestros, embargos, comparendos pendientes y limitaciones a la propiedad.
+              <p className="text-xs text-slate-500 leading-relaxed">
+                Historial de choques, embargos, multas pendientes y problemas de papeles.
               </p>
             </Link>
           </div>
@@ -340,22 +380,22 @@ export default function CuantoCuestaMantenerCarroUsadoPage() {
         {/* ==================================================== */}
         {/* CTA FINAL: INICIAR EVALUACIÓN                        */}
         {/* ==================================================== */}
-        <section className="rounded-2xl bg-[#123B5D] px-6 py-10 sm:px-12 sm:py-12 text-center mb-10 shadow-md print:hidden">
+        <section className="rounded-3xl bg-[#0F172A] px-6 py-10 sm:px-12 sm:py-12 text-center mb-10 shadow-md print:hidden border border-slate-800">
           <div className="max-w-xl mx-auto space-y-4">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white leading-snug">
-              ¿Estás pensando comprar un carro usado?
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-white leading-snug">
+              ¿Vas a ver o comprar un carro usado?
             </h2>
 
-            <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
-              Evalúalo antes de comprarlo con EscaneApp. Detecta alertas mecánicas, kilometrajes sospechosos y antecedentes legales en minutos.
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              No compres a ciegas. Usa nuestra herramienta paso a paso para detectar arreglos pendientes, multas viejas y calcular el descuento justo que debes pedirle al vendedor.
             </p>
 
             <div className="pt-2">
               <Link
                 href="/evaluacion"
-                className="inline-flex items-center justify-center gap-2 px-7 h-12 rounded-xl bg-[#8BCF3F] hover:bg-[#7ab837] text-[#123B5D] text-sm font-extrabold transition-all shadow-sm active:scale-98"
+                className="inline-flex items-center justify-center gap-2 px-7 h-12 rounded-xl bg-white hover:bg-slate-100 text-slate-900 text-sm font-bold transition-all shadow-sm active:scale-95"
               >
-                <span>Iniciar evaluación</span>
+                <span>Hacer revisión de compra</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -365,8 +405,8 @@ export default function CuantoCuestaMantenerCarroUsadoPage() {
         {/* ==================================================== */}
         {/* AVISO DE ALCANCE LEGAL                              */}
         {/* ==================================================== */}
-        <p className="text-[11px] text-[#66727D] leading-relaxed text-center sm:text-left print:hidden">
-          <strong>Aviso de orientación:</strong> Los cálculos y referencias presentados en este portal corresponden a estimaciones promedio basadas en datos oficiales vigentes en Colombia. No constituyen una cotización vinculante ni reemplazan una inspección mecánica o peritaje profesional presencial.
+        <p className="text-[11px] text-slate-500 leading-relaxed text-center sm:text-left print:hidden">
+          <strong>Aviso informativo:</strong> Los cálculos y referencias presentados son estimaciones promedio basadas en datos oficiales vigentes en Colombia. Te sirven de guía para planear tu presupuesto de compra, pero no sustituyen una revisión mecánica o peritaje presencial.
         </p>
       </div>
     </div>

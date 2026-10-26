@@ -6,15 +6,15 @@ import { ENLACES_PORTALES } from '../../lib/constants';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="w-full bg-[#0D2235] text-slate-300 text-xs border-t border-[#183652] mt-auto">
+    <footer className="w-full bg-[#0F172A] text-slate-300 text-xs border-t border-slate-800 mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         {/* Main Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 mb-12">
           {/* Identity & Mission */}
-          <div className="lg:col-span-4 space-y-4">
+          <div className="lg:col-span-3 space-y-4">
             <Link
               href="/"
-              className="inline-block rounded-xl p-1 -m-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8BCF3F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0D2235] transition-shadow"
+              className="inline-block rounded-xl p-1 -m-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0F172A] transition-shadow"
               aria-label="Ir al inicio de EscaneApp"
             >
               <EscaneAppLogo theme="dark" size="md" showTagline={true} />
@@ -25,8 +25,8 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Col 1: PLATAFORMA */}
-          <div className="lg:col-span-3">
-            <h4 className="font-bold text-[11px] uppercase tracking-wider text-white mb-4">
+          <div className="lg:col-span-2">
+            <h4 className="font-mono font-semibold text-[11px] uppercase tracking-wider text-slate-200 mb-4">
               PLATAFORMA
             </h4>
             <ul className="space-y-2.5 text-xs">
@@ -41,9 +41,25 @@ export const Footer: React.FC = () => {
               <li>
                 <Link
                   href="/evaluacion"
-                  className="text-slate-400 hover:text-[#8BCF3F] transition-colors font-medium"
+                  className="text-slate-400 hover:text-emerald-400 transition-colors font-medium"
                 >
-                  Iniciar escaneo del vehículo
+                  Iniciar escaneo
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/cuanto-cuesta-mantener-carro-usado-colombia"
+                  className="text-slate-400 hover:text-white transition-colors"
+                >
+                  Calculadora de costos
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/liquidador-impuesto-vehicular-colombia"
+                  className="text-slate-400 hover:text-white transition-colors"
+                >
+                  Liquidador de impuesto vehicular
                 </Link>
               </li>
               <li>
@@ -51,7 +67,7 @@ export const Footer: React.FC = () => {
                   href="/#metodologia"
                   className="text-slate-400 hover:text-white transition-colors"
                 >
-                  Fuentes Oficiales
+                  Metodología
                 </Link>
               </li>
               <li>
@@ -65,10 +81,75 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Col 2: BASES OFICIALES */}
+          {/* Col 2: GUÍAS Y RECURSOS */}
           <div className="lg:col-span-3">
-            <h4 className="font-bold text-[11px] uppercase tracking-wider text-white mb-4">
-              BASES OFICIALES
+            <h4 className="font-mono font-semibold text-[11px] uppercase tracking-wider text-slate-200 mb-4">
+              GUÍAS Y RECURSOS
+            </h4>
+            <ul className="space-y-2.5 text-xs">
+              <li>
+                <Link
+                  href="/como-revisar-carro-usado"
+                  className="text-slate-400 hover:text-white transition-colors"
+                >
+                  Cómo revisar un carro usado
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/costo-peritaje-colombia"
+                  className="text-slate-400 hover:text-white transition-colors"
+                >
+                  Precios de peritaje vehicular
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/antecedentes-vehiculo-colombia"
+                  className="text-slate-400 hover:text-white transition-colors"
+                >
+                  Antecedentes RUNT y SIMIT
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/kilometraje-carro-usado"
+                  className="text-slate-400 hover:text-white transition-colors"
+                >
+                  Comprobar kilometraje real
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/traspaso-carro-usado-colombia"
+                  className="text-slate-400 hover:text-white transition-colors"
+                >
+                  Traspaso de vehículo y costos
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/carros-salvamento-perdida-total-fasecolda"
+                  className="text-slate-400 hover:text-white transition-colors"
+                >
+                  Carros salvamento y Fasecolda
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/cuanto-cuesta-mantener-carro-usado-colombia"
+                  className="text-slate-400 hover:text-white transition-colors"
+                >
+                  Gastos reales de mantenimiento
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 3: BASES OFICIALES */}
+          <div className="lg:col-span-2">
+            <h4 className="font-mono font-semibold text-[11px] uppercase tracking-wider text-slate-200 mb-4">
+              FUENTES
             </h4>
             <ul className="space-y-2.5 text-xs">
               <li>
@@ -107,16 +188,16 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Col 3: TÉRMINOS Y LEGAL */}
+          {/* Col 4: TÉRMINOS Y LEGAL */}
           <div className="lg:col-span-2">
-            <h4 className="font-bold text-[11px] uppercase tracking-wider text-white mb-4">
-              TÉRMINOS Y CONTACTO
+            <h4 className="font-mono font-semibold text-[11px] uppercase tracking-wider text-slate-200 mb-4">
+              LEGAL Y CONTACTO
             </h4>
             <ul className="space-y-2.5 text-xs">
               <li>
                 <Link
                   href="/contacto"
-                  className="text-slate-400 hover:text-[#8BCF3F] transition-colors font-medium"
+                  className="text-slate-400 hover:text-emerald-400 transition-colors font-medium"
                 >
                   Contacto
                 </Link>
@@ -126,7 +207,7 @@ export const Footer: React.FC = () => {
                   href="/politica-privacidad"
                   className="text-slate-400 hover:text-white transition-colors"
                 >
-                  Política de privacidad
+                  Privacidad
                 </Link>
               </li>
               <li>
@@ -134,10 +215,9 @@ export const Footer: React.FC = () => {
                   href="/terminos-condiciones"
                   className="text-slate-400 hover:text-white transition-colors"
                 >
-                  Términos y condiciones
+                  Términos
                 </Link>
               </li>
-
               <li>
                 <Link
                   href="/acerca-de"
@@ -146,15 +226,15 @@ export const Footer: React.FC = () => {
                   Acerca de EscaneApp
                 </Link>
               </li>
-              
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 gap-3">
+        <div className="pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 gap-3">
           <p>© {new Date().getFullYear()} EscaneApp Colombia. Todos los derechos reservados.</p>
           <div className="flex items-center gap-2">
+            <span className="text-slate-500">Hecho para compradores inteligentes en Colombia</span>
           </div>
         </div>
       </div>

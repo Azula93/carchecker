@@ -13,7 +13,7 @@ const alertVariants = cva(
     variants: {
       variant: {
         default:
-          'bg-[#F7F9FA] border-[#E2E8F0] text-[#17212B] [&>svg]:text-[#123B5D]',
+          'bg-slate-50 border-slate-200 text-slate-800 [&>svg]:text-slate-900',
         info:
           'bg-[#EFF6FF] border-[#BFDBFE] text-[#1E3A8A] [&>svg]:text-[#3578B8]',
         success:

@@ -15,12 +15,8 @@ import {
   SlidersHorizontal,
   Check,
   RotateCcw,
-  CheckCircle2,
   FileText,
   Share2,
-  HelpCircle,
-  Car,
-  Sparkles,
   Calculator,
 } from 'lucide-react';
 import { DatosGasolina, RespuestaGasolinaAPI } from '@/types/external-data';
@@ -568,81 +564,81 @@ export const CalculadoraCostoReal: React.FC = () => {
 
   const renderResumenCard = (isMobile: boolean = false) => (
     <div
-      className={`rounded-3xl p-6 sm:p-7 text-white shadow-xl border border-[#1A3854] space-y-5 bg-[#0B1E2D] ${
+      className={`rounded-3xl p-6 sm:p-7 text-white shadow-xl border border-slate-800 space-y-5 bg-[#0F172A] ${
         isMobile ? 'block lg:hidden mb-8 print:hidden' : 'hidden lg:block print:hidden'
       }`}
     >
-      <div className="flex items-center justify-between border-b border-[#1E3A52] pb-3.5">
-        <span className="text-[11px] font-mono uppercase tracking-wider text-[#94A3B8] font-bold">
-          PROYECCIÓN ANUAL DE TENENCIA
+      <div className="flex items-center justify-between border-b border-slate-800 pb-3.5">
+        <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-bold">
+          GASTO ESTIMADO DE TU CARRO
         </span>
-        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#8BCF3F]/15 text-[#8BCF3F] text-[10px] font-mono font-bold border border-[#8BCF3F]/30">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#8BCF3F] animate-pulse"></span>
-          2026 Live
+        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-950/80 text-emerald-400 text-[10px] font-mono font-bold border border-emerald-800/40">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          Tarifas 2026
         </span>
       </div>
 
       <div className="space-y-1">
-        <span className="text-xs text-[#94A3B8] font-medium block">Presupuesto mensual estimado:</span>
+        <span className="text-xs text-slate-400 font-medium block">Presupuesto mensual aproximado:</span>
         <div className="flex items-baseline gap-2">
-          <span className="text-4xl sm:text-5xl font-black font-mono tracking-tight text-[#8BCF3F]">
+          <span className="text-4xl sm:text-5xl font-black font-mono tracking-tight text-white">
             {costoTotalMensual > 0 ? formatoCOP(costoTotalMensual) : '$0'}
           </span>
-          <span className="text-base sm:text-lg font-mono font-bold text-[#8BCF3F]">
+          <span className="text-base sm:text-lg font-mono font-bold text-slate-400">
             / mes
           </span>
         </div>
-        <span className="text-xs text-[#94A3B8] font-mono block pt-1">
-          Costo total anual consolidado: {costoTotalAnual > 0 ? formatoCOP(costoTotalAnual) : '$0'} / año
+        <span className="text-xs text-slate-400 font-mono block pt-1">
+          Gasto total estimado al año: <strong className="text-white">{costoTotalAnual > 0 ? formatoCOP(costoTotalAnual) : '$0'}</strong> / año
         </span>
       </div>
 
-      <div className="border-t border-[#1E3A52] pt-4 space-y-2.5">
-        <span className="text-[11px] font-mono uppercase tracking-wider text-[#94A3B8] font-bold block">
-          COMPOSICIÓN DEL PRESUPUESTO
+      <div className="border-t border-slate-800 pt-4 space-y-2.5">
+        <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-bold block">
+          ¿EN QUÉ SE VA LA PLATA?
         </span>
         <div className="space-y-2 text-xs">
           <div className="flex items-center justify-between">
-            <span className="text-[#CBD5E1]">1. Costos Obligatorios</span>
+            <span className="text-slate-300">1. Papeles obligatorios (SOAT, impuesto, tecno)</span>
             <span className="font-mono font-bold text-white">
               {formatoCOP(totalObligatoriosAnual)} ({pctObligatorios}%)
             </span>
           </div>
-          <div className="w-full bg-[#16293D] h-1.5 rounded-full overflow-hidden">
+          <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
             <div
-              className="bg-[#8BCF3F] h-full rounded-full transition-all duration-500"
+              className="bg-emerald-500 h-full rounded-full transition-all duration-500"
               style={{ width: `${pctObligatorios}%` }}
             />
           </div>
 
           <div className="flex items-center justify-between pt-1">
-            <span className="text-[#CBD5E1]">2. Combustible</span>
+            <span className="text-slate-300">2. Gasolina del mes</span>
             <span className="font-mono font-bold text-white">
               {formatoCOP(totalCombustibleAnual)} ({pctCombustible}%)
             </span>
           </div>
-          <div className="w-full bg-[#16293D] h-1.5 rounded-full overflow-hidden">
+          <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
             <div
-              className="bg-[#3578B8] h-full rounded-full transition-all duration-500"
+              className="bg-blue-400 h-full rounded-full transition-all duration-500"
               style={{ width: `${pctCombustible}%` }}
             />
           </div>
 
           <div className="flex items-center justify-between pt-1">
-            <span className="text-[#CBD5E1]">3. Mantenimiento Preventivo</span>
+            <span className="text-slate-300">3. Mantenimiento preventivo (aceite y filtros)</span>
             <span className="font-mono font-bold text-white">
               {formatoCOP(totalMantenimientoAnual)} ({pctMantenimiento}%)
             </span>
           </div>
-          <div className="w-full bg-[#16293D] h-1.5 rounded-full overflow-hidden">
+          <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
             <div
-              className="bg-[#E5A72B] h-full rounded-full transition-all duration-500"
+              className="bg-amber-400 h-full rounded-full transition-all duration-500"
               style={{ width: `${pctMantenimiento}%` }}
             />
           </div>
 
           <div className="flex items-center justify-between pt-1">
-            <span className="text-[#CBD5E1]">4. Fondo imprevistos sugerido</span>
+            <span className="text-slate-300">4. Imprevistos, parqueadero y crédito</span>
             <span className="font-mono font-bold text-white">
               {formatoCOP(totalImprevistosOtrosAnual)}
             </span>
@@ -650,43 +646,33 @@ export const CalculadoraCostoReal: React.FC = () => {
         </div>
       </div>
 
-      <div className="border-t border-[#1E3A52] pt-4 space-y-2.5">
+      <div className="border-t border-slate-800 pt-4 space-y-2.5">
         <button
           type="button"
           onClick={handleImprimir}
-          className="w-full h-12 rounded-xl bg-[#8BCF3F] hover:bg-[#7CBF32] text-[#123B5D] text-xs font-black shadow-sm flex items-center justify-center gap-2 cursor-pointer active:scale-98 transition-all"
+          className="w-full h-12 rounded-xl bg-white hover:bg-slate-100 text-slate-900 text-xs font-bold shadow-sm flex items-center justify-center gap-2 cursor-pointer active:scale-98 transition-all"
         >
-          <FileText className="w-4 h-4 text-[#123B5D]" />
-          <span>Generar reporte en PDF</span>
+          <FileText className="w-4 h-4 text-slate-900" />
+          <span>Descargar o imprimir reporte PDF</span>
         </button>
 
         <button
           type="button"
           onClick={handleCompartir}
-          className="w-full h-11 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-white text-xs font-bold flex items-center justify-center gap-2 cursor-pointer active:scale-98 transition-all"
+          className="w-full h-11 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-white text-xs font-bold flex items-center justify-center gap-2 cursor-pointer active:scale-98 transition-all"
         >
-          {copiado ? <Check className="w-4 h-4 text-[#8BCF3F]" /> : <Share2 className="w-4 h-4 text-[#94A3B8]" />}
+          {copiado ? <Check className="w-4 h-4 text-emerald-400" /> : <Share2 className="w-4 h-4 text-slate-400" />}
           <span>{copiado ? '¡Cálculo copiado!' : 'Compartir este cálculo'}</span>
         </button>
 
-        <p className="text-[10px] text-[#66727D] leading-relaxed pt-1 text-center sm:text-left">
-          Tarifas referenciales basadas en regulaciones vigentes en Colombia (MinTransporte y Superfinanciera). No incluye depreciación de mercado ni comparendos de tránsito.
+        <p className="text-[10px] text-slate-400 leading-relaxed pt-1 text-center sm:text-left">
+          Cálculos con precios y leyes oficiales en Colombia. Te ayuda a saber si el carro se ajusta a tu presupuesto antes de comprarlo.
         </p>
       </div>
     </div>
   );
 
-  // const renderTipCard = () => (
-  //   <div className="bg-white rounded-2xl p-5 border border-[#E2E8F0] shadow-xs flex items-start gap-3.5">
-  //     <div className="w-8 h-8 rounded-xl bg-[#EFF6FF] text-[#123B5D] flex items-center justify-center shrink-0">
-  //       <HelpCircle className="w-4 h-4 text-[#123B5D]" />
-  //     </div>
-  //     <div className="space-y-1">
-  //       <h5 className="font-bold text-xs text-[#17212B]">¿Cómo evitar pagar de más?</h5>
-  //       <p className="text-xs text-[#66727D] leading-relaxed">
-  //         Revisar si el vehículo tiene deudas de impuestos atrasados o comparendos del dueño anterior antes de firmar traspaso.
-  //       </p>
-  //     </div>
+
   //   </div>
   // );
 
@@ -696,26 +682,26 @@ export const CalculadoraCostoReal: React.FC = () => {
       {renderResumenCard(true)}
 
       {/* ==================================================== */}
-      {/* BARRA DE PROGRESO DEL FLUJO GUIADO (ESTILO STITCH)   */}
+      {/* BARRA DE PROGRESO DEL FLUJO GUIADO                  */}
       {/* ==================================================== */}
-          <div className="bg-white border border-[#E2E8F0] rounded-2xl p-5 sm:p-6 shadow-xs space-y-4 print:hidden">
+          <div className="bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-6 shadow-xs space-y-4 print:hidden">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div className="flex items-center gap-3">
-                <div className="flex items-center justify-center px-2.5 py-1 rounded-lg bg-[#123B5D] text-white font-mono text-xs font-bold shrink-0">
+                <div className="flex items-center justify-center px-2.5 py-1 rounded-lg bg-[#0F172A] text-white font-mono text-xs font-bold shrink-0">
                   {pasosCompletados}/4
                 </div>
                 <div>
-                  <span className="text-xs sm:text-sm font-bold text-[#17212B] block">
+                  <span className="text-xs sm:text-sm font-bold text-slate-900 block">
                     {pasosCompletados === 0
-                      ? 'Flujo inicial: 0 de 4 pasos completados'
+                      ? 'Calcula los 4 pasos para ver el costo total de tu carro'
                       : pasosCompletados === 4
-                      ? '¡Flujo completo! Todos los pasos calculados'
-                      : `Progreso: ${pasosCompletados} de 4 pasos completados`}
+                      ? '¡Listo! Ya tienes el presupuesto completo de tu carro'
+                      : `Llevas ${pasosCompletados} de 4 pasos calculados`}
                   </span>
-                  <p className="text-[11px] sm:text-xs text-[#66727D]">
+                  <p className="text-[11px] sm:text-xs text-slate-500">
                     {pasosCompletados === 0
-                      ? 'Calcula cada paso para obtener la estimación personalizada de tu vehículo.'
-                      : 'Puedes ajustar o recalcular cualquier valor en cualquier momento.'}
+                      ? 'Completa cada sección para descubrir cuánto te costará tener el carro cada mes.'
+                      : 'Puedes cambiar cualquier número cuando quieras para ver cómo cambia tu cuota mensual.'}
                   </p>
                 </div>
               </div>
@@ -724,28 +710,28 @@ export const CalculadoraCostoReal: React.FC = () => {
                 <button
                   type="button"
                   onClick={reiniciarTodo}
-                  className="text-xs text-[#D64545] hover:underline font-mono cursor-pointer flex items-center gap-1 self-start sm:self-auto shrink-0 font-bold"
+                  className="text-xs text-rose-600 hover:underline font-mono cursor-pointer flex items-center gap-1 self-start sm:self-auto shrink-0 font-semibold"
                   title="Borrar valores y volver a comenzar"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
-                  <span>Reiniciar a $0</span>
+                  <span>Empezar de cero</span>
                 </button>
               )}
             </div>
 
             {/* Stepper de 4 Pasos con barras indicadoras */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-[#F1F5F9]">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-slate-100">
               <div className="space-y-1.5">
                 <div className="flex items-center justify-between text-[11px] font-mono">
-                  <span className={`font-semibold ${paso1Completado ? 'text-[#123B5D]' : 'text-[#66727D]'}`}>
-                    1. Obligatorios
+                  <span className={`font-semibold ${paso1Completado ? 'text-slate-900' : 'text-slate-400'}`}>
+                    1. Papeles obligatorios
                   </span>
-                  {paso1Completado && <Check className="w-3 h-3 text-[#2EAD68]" />}
+                  {paso1Completado && <Check className="w-3 h-3 text-emerald-600" />}
                 </div>
-                <div className="h-1.5 w-full bg-[#F1F5F9] rounded-full overflow-hidden">
+                <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
                   <div
                     className={`h-full rounded-full transition-all duration-300 ${
-                      paso1Completado ? 'bg-[#8BCF3F]' : 'bg-transparent'
+                      paso1Completado ? 'bg-emerald-600' : 'bg-transparent'
                     }`}
                   />
                 </div>
@@ -753,15 +739,15 @@ export const CalculadoraCostoReal: React.FC = () => {
 
               <div className="space-y-1.5">
                 <div className="flex items-center justify-between text-[11px] font-mono">
-                  <span className={`font-semibold ${paso2Completado ? 'text-[#123B5D]' : 'text-[#66727D]'}`}>
-                    2. Combustible
+                  <span className={`font-semibold ${paso2Completado ? 'text-slate-900' : 'text-slate-400'}`}>
+                    2. Gasolina y uso
                   </span>
-                  {paso2Completado && <Check className="w-3 h-3 text-[#2EAD68]" />}
+                  {paso2Completado && <Check className="w-3 h-3 text-emerald-600" />}
                 </div>
-                <div className="h-1.5 w-full bg-[#F1F5F9] rounded-full overflow-hidden">
+                <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
                   <div
                     className={`h-full rounded-full transition-all duration-300 ${
-                      paso2Completado ? 'bg-[#8BCF3F]' : 'bg-transparent'
+                      paso2Completado ? 'bg-emerald-600' : 'bg-transparent'
                     }`}
                   />
                 </div>
@@ -769,15 +755,15 @@ export const CalculadoraCostoReal: React.FC = () => {
 
               <div className="space-y-1.5">
                 <div className="flex items-center justify-between text-[11px] font-mono">
-                  <span className={`font-semibold ${paso3Completado ? 'text-[#123B5D]' : 'text-[#66727D]'}`}>
+                  <span className={`font-semibold ${paso3Completado ? 'text-slate-900' : 'text-slate-400'}`}>
                     3. Mantenimiento
                   </span>
-                  {paso3Completado && <Check className="w-3 h-3 text-[#2EAD68]" />}
+                  {paso3Completado && <Check className="w-3 h-3 text-emerald-600" />}
                 </div>
-                <div className="h-1.5 w-full bg-[#F1F5F9] rounded-full overflow-hidden">
+                <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
                   <div
                     className={`h-full rounded-full transition-all duration-300 ${
-                      paso3Completado ? 'bg-[#8BCF3F]' : 'bg-transparent'
+                      paso3Completado ? 'bg-emerald-600' : 'bg-transparent'
                     }`}
                   />
                 </div>
@@ -785,15 +771,15 @@ export const CalculadoraCostoReal: React.FC = () => {
 
               <div className="space-y-1.5">
                 <div className="flex items-center justify-between text-[11px] font-mono">
-                  <span className={`font-semibold ${paso4Completado ? 'text-[#123B5D]' : 'text-[#66727D]'}`}>
-                    4. Resumen TCO
+                  <span className={`font-semibold ${paso4Completado ? 'text-slate-900' : 'text-slate-400'}`}>
+                    4. Resumen total
                   </span>
-                  {paso4Completado && <Check className="w-3 h-3 text-[#2EAD68]" />}
+                  {paso4Completado && <Check className="w-3 h-3 text-emerald-600" />}
                 </div>
-                <div className="h-1.5 w-full bg-[#F1F5F9] rounded-full overflow-hidden">
+                <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
                   <div
                     className={`h-full rounded-full transition-all duration-300 ${
-                      paso4Completado ? 'bg-[#8BCF3F]' : 'bg-transparent'
+                      paso4Completado ? 'bg-emerald-600' : 'bg-transparent'
                     }`}
                   />
                 </div>
@@ -811,70 +797,70 @@ export const CalculadoraCostoReal: React.FC = () => {
           {/* PASO 1: COSTOS OBLIGATORIOS                          */}
           {/* ==================================================== */}
           <section className="space-y-4">
-            <div className="border-b border-[#E2E8F0] pb-3">
+            <div className="border-b border-slate-200 pb-3">
               <div className="flex items-center gap-2.5 mb-1">
-                <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#123B5D] text-white text-xs font-bold font-mono">
+                <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#0F172A] text-white text-xs font-bold font-mono">
                   1
                 </span>
-                <h3 className="text-xl sm:text-2xl font-black text-[#17212B]">
-                  Costos obligatorios
+                <h3 className="text-xl sm:text-2xl font-black text-slate-900">
+                  1. Papeles obligatorios para rodar
                 </h3>
               </div>
-              <p className="text-xs sm:text-sm text-[#66727D]">
-                Calcula los gastos que normalmente debes asumir para tener el vehículo habilitado.
+              <p className="text-xs sm:text-sm text-slate-500">
+                Los 3 pagos obligatorios que exige la ley en Colombia para que el carro pueda circular sin que te lo inmovilicen.
               </p>
             </div>
 
             <div className="grid grid-cols-1 gap-4">
 
               {/* 1.1 TARJETA SOAT */}
-              <div className="rounded-2xl border border-[#E2E8F0] bg-white p-5 sm:p-6 transition-all hover:border-[#CBD5E1] shadow-xs">
+              <div className="rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 transition-all hover:border-slate-300 shadow-xs">
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
                   <div className="space-y-1.5 max-w-md">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <div className="w-7 h-7 rounded-lg bg-[#F0FDF4] border border-[#BBF7D0] flex items-center justify-center text-[#2EAD68]">
+                      <div className="w-7 h-7 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700">
                         <ShieldCheck className="w-4 h-4" />
                       </div>
-                      <h4 className="text-base sm:text-lg font-black text-[#17212B]">SOAT 2026</h4>
+                      <h4 className="text-base sm:text-lg font-black text-slate-900">SOAT 2026</h4>
                       {!soatCalculado ? (
                         <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200 font-semibold">
                           Sin calcular
                         </span>
                       ) : (
-                        <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#F0FDF4] text-[#2EAD68] border border-[#BBF7D0] font-bold">
+                        <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 font-bold">
                           Tarifa oficial 2026
                         </span>
                       )}
                     </div>
-                    <p className="text-xs text-[#66727D] leading-relaxed">
-                      Seguro Obligatorio de Accidentes de Tránsito. Pago único anual obligatorio para circular en Colombia.
+                    <p className="text-xs text-slate-500 leading-relaxed">
+                      Seguro obligatorio para accidentes. Se paga una sola vez al año. Cubre la atención médica de todas las personas involucradas si ocurriera un choque.
                     </p>
                   </div>
 
                   {/* Resultado */}
                   <div className="text-left sm:text-right shrink-0">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#66727D] block font-semibold">
-                      {soatCalculado ? 'Costo anual calculado' : 'Valor inicial'}
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 block font-semibold">
+                      {soatCalculado ? 'Costo anual del SOAT' : 'Valor inicial'}
                     </span>
-                    <span className={`text-2xl sm:text-3xl font-black font-mono ${soatCalculado ? 'text-[#17212B]' : 'text-slate-400'}`}>
+                    <span className={`text-2xl sm:text-3xl font-black font-mono ${soatCalculado ? 'text-slate-900' : 'text-slate-400'}`}>
                       {soatCalculado ? formatoCOP(soatNum) : '$0'}
                     </span>
-                    {soatCalculado && <span className="text-xs font-mono text-[#66727D] block">/ año</span>}
+                    {soatCalculado && <span className="text-xs font-mono text-slate-500 block">/ año</span>}
                     {soatCalculado && (
-                      <span className="text-[11px] text-[#2EAD68] font-bold block mt-0.5">
-                        Para presupuestar cada mes: {formatoCOP(soatMensual)} / mes
+                      <span className="text-[11px] text-emerald-700 font-bold block mt-0.5">
+                        Para ahorrar mes a mes: {formatoCOP(soatMensual)} / mes
                       </span>
                     )}
                   </div>
                 </div>
 
                 {/* Acciones principales */}
-                <div className="mt-5 pt-3.5 border-t border-[#F1F5F9] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+                <div className="mt-5 pt-3.5 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
                   {!soatCalculado ? (
                     <button
                       type="button"
                       onClick={() => setMostrarCalculadoraSoat(!mostrarCalculadoraSoat)}
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold bg-[#123B5D] text-white hover:bg-[#0E2F4B] active:scale-95 transition-all shadow-xs cursor-pointer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold bg-[#0F172A] text-white hover:bg-slate-800 active:scale-95 transition-all shadow-xs cursor-pointer"
                     >
                       <span>Calcular SOAT</span>
                       <span className="font-mono">→</span>
@@ -884,9 +870,9 @@ export const CalculadoraCostoReal: React.FC = () => {
                       <button
                         type="button"
                         onClick={() => setMostrarCalculadoraSoat(!mostrarCalculadoraSoat)}
-                        className="inline-flex items-center justify-center gap-1.5 px-4 py-2 min-h-[40px] rounded-xl text-xs font-bold bg-[#F7F9FA] border border-[#CBD5E1] text-[#123B5D] hover:bg-slate-100 transition-colors cursor-pointer w-full sm:w-auto"
+                        className="inline-flex items-center justify-center gap-1.5 px-4 py-2 min-h-[40px] rounded-xl text-xs font-bold bg-slate-50 border border-slate-300 text-slate-800 hover:bg-slate-100 transition-colors cursor-pointer w-full sm:w-auto"
                       >
-                        <SlidersHorizontal className="w-3.5 h-3.5 text-[#66727D]" />
+                        <SlidersHorizontal className="w-3.5 h-3.5 text-slate-500" />
                         <span>{mostrarCalculadoraSoat ? 'Cerrar calculadora' : 'Modificar cálculo'}</span>
                       </button>
                       <button
@@ -896,7 +882,7 @@ export const CalculadoraCostoReal: React.FC = () => {
                           setSoatCalculado(false);
                           setSoatAnual(0);
                         }}
-                        className="text-xs text-[#D64545] hover:underline cursor-pointer py-1 px-2 font-semibold"
+                        className="text-xs text-rose-600 hover:underline cursor-pointer py-1 px-2 font-semibold"
                       >
                         Reiniciar a $0
                       </button>
@@ -906,7 +892,7 @@ export const CalculadoraCostoReal: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => toggleFuente('soat')}
-                    className="text-xs font-mono text-[#123B5D] hover:underline cursor-pointer flex items-center gap-1 py-1 font-semibold"
+                    className="text-xs font-mono text-slate-700 hover:text-slate-900 hover:underline cursor-pointer flex items-center gap-1 py-1 font-semibold"
                   >
                     <span>¿De dónde salen estos datos?</span>
                     <ChevronDown className={`w-3.5 h-3.5 transition-transform ${fuenteAbierta['soat'] ? 'rotate-180' : ''}`} />
@@ -915,7 +901,7 @@ export const CalculadoraCostoReal: React.FC = () => {
 
             {/* Calculadora Oficial Expandida SOAT */}
             {mostrarCalculadoraSoat && (
-              <div className="mt-4 pt-4 border-t border-[#E2E8F0]">
+              <div className="mt-4 pt-4 border-t border-slate-200">
                 <CalculadoraSOAT
                   yaCalculado={soatCalculado}
                   onCerrar={() => setMostrarCalculadoraSoat(false)}
@@ -929,65 +915,65 @@ export const CalculadoraCostoReal: React.FC = () => {
 
             {/* Bloque Metodología y Fuente */}
             {fuenteAbierta['soat'] && (
-              <div className="mt-3 p-4 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-xs text-[#475569] space-y-2">
-                <div className="flex flex-wrap items-center justify-between gap-2 font-medium text-[#0F1B2B]">
+              <div className="mt-3 p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 space-y-2">
+                <div className="flex flex-wrap items-center justify-between gap-2 font-medium text-slate-900">
                   <span>Superintendencia Financiera de Colombia (SFC)</span>
                   <a
                     href="https://www.superfinanciera.gov.co/publicaciones/10114908/soat/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-[#1D4ED8] hover:underline"
+                    className="inline-flex items-center gap-1 text-blue-700 hover:underline"
                   >
-                    <span>Consultar tarifa oficial SFC</span>
+                    <span>Consultar tarifas oficiales SFC</span>
                     <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>
-                <p className="text-[11px] text-[#64748B] leading-relaxed">
-                  <strong>Normativa:</strong> Circular Externa 022 de 2025. Las tarifas son máximas legales obligatorias fijadas anualmente por el Gobierno Nacional según clase de vehículo, cilindraje y antigüedad, incluyendo el aporte al RUNT y la contribución del 52% a la ADRES.
+                <p className="text-[11px] text-slate-500 leading-relaxed">
+                  Las tarifas del SOAT las fija por ley el Gobierno Nacional cada año según el tipo de carro, cilindraje y modelo. Incluye la atención médica de urgencias en clínicas y hospitales.
                 </p>
-                <p className="text-[11px] text-[#166534]">
-                  * El valor mensual mostrado es una referencia obtenida al dividir el costo anual entre 12 para fines presupuestales. El SOAT es un cobro único anual.
+                <p className="text-[11px] text-emerald-800">
+                  * El valor mensual mostrado es para que puedas ahorrar mes a mes; el SOAT se paga completo una sola vez al año.
                 </p>
               </div>
             )}
           </div>
 
           {/* 1.2 TARJETA IMPUESTO VEHICULAR */}
-          <div className="rounded-2xl border border-[#E2E8F0] bg-white p-5 sm:p-6 transition-all hover:border-[#CBD5E1] shadow-xs">
+          <div className="rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 transition-all hover:border-slate-300 shadow-xs">
             <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
               <div className="space-y-1.5 max-w-md">
                 <div className="flex items-center gap-2 flex-wrap">
-                  <div className="w-7 h-7 rounded-lg bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center text-[#123B5D]">
+                  <div className="w-7 h-7 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-700">
                     <Building2 className="w-4 h-4" />
                   </div>
-                  <h4 className="text-base sm:text-lg font-black text-[#17212B]">Impuesto vehicular 2026</h4>
+                  <h4 className="text-base sm:text-lg font-black text-slate-900">Impuesto vehicular 2026</h4>
                   {!impuestoCalculado ? (
                     <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200 font-semibold">
                       Sin calcular
                     </span>
                   ) : (
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#F0FDF4] text-[#2EAD68] border border-[#BBF7D0] font-bold">
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 font-bold">
                       Impuesto anual estimado
                     </span>
                   )}
                 </div>
-                <p className="text-xs text-[#66727D] leading-relaxed">
-                  Obligación tributaria anual sobre la propiedad del vehículo ante la Secretaría de Hacienda Departamental o Distrital.
+                <p className="text-xs text-slate-500 leading-relaxed">
+                  Impuesto obligatorio sobre el carro. Se paga una sola vez al año a la gobernación o alcaldía donde esté matriculada la placa.
                 </p>
               </div>
 
               {/* Resultado */}
               <div className="text-left sm:text-right shrink-0">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-[#66727D] block font-semibold">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 block font-semibold">
                   {impuestoCalculado ? 'Impuesto anual estimado' : 'Valor inicial'}
                 </span>
-                <span className={`text-2xl sm:text-3xl font-black font-mono ${impuestoCalculado ? 'text-[#17212B]' : 'text-slate-400'}`}>
+                <span className={`text-2xl sm:text-3xl font-black font-mono ${impuestoCalculado ? 'text-slate-900' : 'text-slate-400'}`}>
                   {impuestoCalculado ? formatoCOP(impuestoNum) : '$0'}
                 </span>
-                {impuestoCalculado && <span className="text-xs font-mono text-[#66727D] block">/ año</span>}
+                {impuestoCalculado && <span className="text-xs font-mono text-slate-500 block">/ año</span>}
                 {impuestoCalculado && (
-                  <span className="text-[11px] text-[#2EAD68] font-bold block mt-0.5">
-                    Si quieres presupuestarlo mes a mes: {formatoCOP(impuestoMensual)} / mes
+                  <span className="text-[11px] text-emerald-700 font-bold block mt-0.5">
+                    Para ahorrar mes a mes: {formatoCOP(impuestoMensual)} / mes
                   </span>
                 )}
               </div>
@@ -995,35 +981,35 @@ export const CalculadoraCostoReal: React.FC = () => {
 
             {/* Si ya fue calculado, mostrar métricas oficiales simplificadas */}
             {impuestoCalculado && datosImpuesto?.baseGravable && (
-              <div className="mt-4 p-4 rounded-xl bg-[#F7F9FA] border border-[#E2E8F0] grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div className="mt-4 p-4 rounded-xl bg-slate-50 border border-slate-200 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                 <div>
-                  <span className="text-[#66727D] block">Valor oficial usado para calcular el impuesto:</span>
-                  <span className="font-mono font-bold text-[#17212B] text-sm">
+                  <span className="text-slate-500 block">Avalúo oficial del gobierno:</span>
+                  <span className="font-mono font-bold text-slate-900 text-sm">
                     {formatoCOP(datosImpuesto.baseGravable)}
                   </span>
-                  <span className="text-[10px] text-[#66727D] block">
-                    (Base gravable oficial, no es el precio comercial)
+                  <span className="text-[10px] text-slate-400 block">
+                    (Valor que fija el MinTransporte, no es el precio comercial)
                   </span>
                 </div>
                 <div>
-                  <span className="text-[#66727D] block">Tarifa aplicada:</span>
-                  <span className="font-mono font-bold text-[#2EAD68] text-sm">
+                  <span className="text-slate-500 block">Porcentaje de impuesto:</span>
+                  <span className="font-mono font-bold text-emerald-700 text-sm">
                     {datosImpuesto.tarifaTexto || '1,5%'}
                   </span>
-                  <span className="text-[10px] text-[#66727D] block">
-                    (Definida por el rango fiscal oficial)
+                  <span className="text-[10px] text-slate-400 block">
+                    (Tarifa oficial según el valor del vehículo)
                   </span>
                 </div>
               </div>
             )}
 
             {/* Acciones principales */}
-            <div className="mt-5 pt-3.5 border-t border-[#F1F5F9] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+            <div className="mt-5 pt-3.5 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
               {!impuestoCalculado ? (
                 <button
                   type="button"
                   onClick={() => setMostrarCalculadoraImpuesto(!mostrarCalculadoraImpuesto)}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold bg-[#123B5D] text-white hover:bg-[#0E2F4B] active:scale-95 transition-all shadow-xs cursor-pointer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold bg-[#0F172A] text-white hover:bg-slate-800 active:scale-95 transition-all shadow-xs cursor-pointer"
                 >
                   <span>Calcular impuesto</span>
                   <span className="font-mono">→</span>
@@ -1033,9 +1019,9 @@ export const CalculadoraCostoReal: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setMostrarCalculadoraImpuesto(!mostrarCalculadoraImpuesto)}
-                    className="inline-flex items-center justify-center gap-1.5 px-4 py-2 min-h-[40px] rounded-xl text-xs font-bold bg-[#F7F9FA] border border-[#CBD5E1] text-[#123B5D] hover:bg-slate-100 transition-colors cursor-pointer w-full sm:w-auto"
+                    className="inline-flex items-center justify-center gap-1.5 px-4 py-2 min-h-[40px] rounded-xl text-xs font-bold bg-slate-50 border border-slate-300 text-slate-800 hover:bg-slate-100 transition-colors cursor-pointer w-full sm:w-auto"
                   >
-                    <SlidersHorizontal className="w-3.5 h-3.5 text-[#66727D]" />
+                    <SlidersHorizontal className="w-3.5 h-3.5 text-slate-500" />
                     <span>{mostrarCalculadoraImpuesto ? 'Cerrar calculadora' : 'Modificar cálculo'}</span>
                   </button>
                   <button
@@ -1046,7 +1032,7 @@ export const CalculadoraCostoReal: React.FC = () => {
                       setImpuestoAnual(0);
                       setDatosImpuesto(null);
                     }}
-                    className="text-xs text-[#D64545] hover:underline cursor-pointer py-1 px-2 font-semibold"
+                    className="text-xs text-rose-600 hover:underline cursor-pointer py-1 px-2 font-semibold"
                   >
                     Reiniciar a $0
                   </button>
@@ -1056,7 +1042,7 @@ export const CalculadoraCostoReal: React.FC = () => {
               <button
                 type="button"
                 onClick={() => toggleFuente('impuesto')}
-                className="text-xs font-mono text-[#123B5D] hover:underline cursor-pointer flex items-center gap-1 py-1 font-semibold"
+                className="text-xs font-mono text-slate-700 hover:text-slate-900 hover:underline cursor-pointer flex items-center gap-1 py-1 font-semibold"
               >
                 <span>¿De dónde salen estos datos?</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform ${fuenteAbierta['impuesto'] ? 'rotate-180' : ''}`} />
@@ -1065,7 +1051,7 @@ export const CalculadoraCostoReal: React.FC = () => {
 
             {/* Calculadora Expandida Impuesto */}
             {mostrarCalculadoraImpuesto && (
-              <div className="mt-4 pt-4 border-t border-[#E2E8F0]">
+              <div className="mt-4 pt-4 border-t border-slate-200">
                 <CalculadoraImpuestoVehicular
                   yaCalculado={impuestoCalculado}
                   onCerrar={() => setMostrarCalculadoraImpuesto(false)}
@@ -1087,71 +1073,71 @@ export const CalculadoraCostoReal: React.FC = () => {
 
             {/* Bloque Metodología y Fuentes */}
             {fuenteAbierta['impuesto'] && (
-              <div className="mt-3 p-4 rounded-xl bg-[#F7F9FA] border border-[#E2E8F0] text-xs text-[#475569] space-y-2">
-                <div className="flex flex-wrap items-center justify-between gap-2 font-bold text-[#17212B]">
+              <div className="mt-3 p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 space-y-2">
+                <div className="flex flex-wrap items-center justify-between gap-2 font-bold text-slate-900">
                   <span>Ministerio de Transporte & Ministerio de Hacienda</span>
                 </div>
-                <p className="text-[11px] text-[#66727D] leading-relaxed">
-                  <strong>Base del vehículo:</strong> Ministerio de Transporte · Resolución 20253040048935.<br />
-                  <strong>Tarifas:</strong> Ministerio de Hacienda y Crédito Público · Decreto 1457 de 2025.
+                <p className="text-[11px] text-slate-500 leading-relaxed">
+                  <strong>Avalúo oficial:</strong> Ministerio de Transporte · Resolución vigente.<br />
+                  <strong>Porcentajes:</strong> Ministerio de Hacienda y Crédito Público · Decreto reglamentario.
                 </p>
-                <p className="text-[11px] text-[#2EAD68]">
-                  * Este valor mensual es una referencia para presupuestarlo entre 12 meses; el impuesto se liquida como obligación anual.
+                <p className="text-[11px] text-emerald-800">
+                  * Este valor mensual es una guía para ayudarte a guardar dinero cada mes; el impuesto se cancela en un solo pago al año.
                 </p>
               </div>
             )}
           </div>
 
               {/* 1.3 TARJETA TECNOMECÁNICA */}
-              <div className="rounded-2xl border border-[#E2E8F0] bg-white p-5 sm:p-6 transition-all hover:border-[#CBD5E1] shadow-xs">
+              <div className="rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 transition-all hover:border-slate-300 shadow-xs">
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
                   <div className="space-y-1.5 max-w-md">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <div className="w-7 h-7 rounded-lg bg-[#F7F9FA] border border-[#E2E8F0] flex items-center justify-center text-[#123B5D]">
+                      <div className="w-7 h-7 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-800">
                         <Wrench className="w-4 h-4" />
                       </div>
-                      <h4 className="text-base sm:text-lg font-black text-[#17212B]">Revisión Técnico-Mecánica 2026</h4>
+                      <h4 className="text-base sm:text-lg font-black text-slate-900">Revisión Técnico-Mecánica (CDA)</h4>
                       {!tecnoCalculado ? (
                         <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200 font-semibold">
                           Sin calcular
                         </span>
                       ) : (
-                        <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#F0FDF4] text-[#2EAD68] border border-[#BBF7D0] font-bold">
-                          Referencia oficial CDA
+                        <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 font-bold">
+                          Referencia CDA 2026
                         </span>
                       )}
                     </div>
-                    <p className="text-xs text-[#66727D] leading-relaxed">
-                      Diagnóstico obligatorio de emisiones contaminantes y seguridad activa en Centro de Diagnóstico Automotor (CDA).
+                    <p className="text-xs text-slate-500 leading-relaxed">
+                      Revisión técnica anual obligatoria en un Centro de Diagnóstico Automotor (CDA) para carros particulares con más de 5 años. Verifican frenos, llantas, luces y gases contaminantes.
                     </p>
                   </div>
 
                   {/* Resultado */}
                   <div className="text-left sm:text-right shrink-0">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#66727D] block font-semibold">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 block font-semibold">
                       {tecnoCalculado ? 'Costo anual' : 'Valor inicial'}
                     </span>
-                    <span className={`text-2xl sm:text-3xl font-black font-mono ${tecnoCalculado ? 'text-[#17212B]' : 'text-slate-400'}`}>
+                    <span className={`text-2xl sm:text-3xl font-black font-mono ${tecnoCalculado ? 'text-slate-900' : 'text-slate-400'}`}>
                       {tecnoCalculado ? formatoCOP(tecnoNum) : '$0'}
                     </span>
-                    {tecnoCalculado && <span className="text-xs font-mono text-[#66727D] block">/ año</span>}
+                    {tecnoCalculado && <span className="text-xs font-mono text-slate-500 block">/ año</span>}
                     {tecnoCalculado && (
-                      <span className="text-[11px] text-[#2EAD68] font-bold block mt-0.5">
-                        Para presupuestar cada mes: {formatoCOP(tecnoMensual)} / mes
+                      <span className="text-[11px] text-emerald-700 font-bold block mt-0.5">
+                        Para ahorrar mes a mes: {formatoCOP(tecnoMensual)} / mes
                       </span>
                     )}
                   </div>
                 </div>
 
                 {/* Acciones principales */}
-                <div className="mt-5 pt-3.5 border-t border-[#F1F5F9] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+                <div className="mt-5 pt-3.5 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
                   {!tecnoCalculado ? (
                     <button
                       type="button"
                       onClick={() => togglePanel('tecnoManual')}
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold bg-[#123B5D] text-white hover:bg-[#0E2F4B] active:scale-95 transition-all shadow-xs cursor-pointer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold bg-[#0F172A] text-white hover:bg-slate-800 active:scale-95 transition-all shadow-xs cursor-pointer"
                     >
-                      <span>Calcular RTM</span>
+                      <span>Calcular tecnomecánica</span>
                       <span className="font-mono">→</span>
                     </button>
                   ) : (
@@ -1159,9 +1145,9 @@ export const CalculadoraCostoReal: React.FC = () => {
                       <button
                         type="button"
                         onClick={() => togglePanel('tecnoManual')}
-                        className="inline-flex items-center justify-center gap-1.5 px-4 py-2 min-h-[40px] rounded-xl text-xs font-bold bg-[#F7F9FA] border border-[#CBD5E1] text-[#123B5D] hover:bg-slate-100 transition-colors cursor-pointer w-full sm:w-auto"
+                        className="inline-flex items-center justify-center gap-1.5 px-4 py-2 min-h-[40px] rounded-xl text-xs font-bold bg-slate-50 border border-slate-300 text-slate-800 hover:bg-slate-100 transition-colors cursor-pointer w-full sm:w-auto"
                       >
-                        <SlidersHorizontal className="w-3.5 h-3.5 text-[#66727D]" />
+                        <SlidersHorizontal className="w-3.5 h-3.5 text-slate-500" />
                         <span>{panelAbierto['tecnoManual'] ? 'Cerrar ajuste' : 'Modificar cálculo'}</span>
                       </button>
                       <button
@@ -1171,7 +1157,7 @@ export const CalculadoraCostoReal: React.FC = () => {
                           setTecnoCalculado(false);
                           setTecnoAnual(0);
                         }}
-                        className="text-xs text-[#D64545] hover:underline cursor-pointer py-1 px-2 font-semibold"
+                        className="text-xs text-rose-600 hover:underline cursor-pointer py-1 px-2 font-semibold"
                       >
                         Reiniciar a $0
                       </button>
@@ -1181,7 +1167,7 @@ export const CalculadoraCostoReal: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => toggleFuente('tecno')}
-                    className="text-xs font-mono text-[#123B5D] hover:underline cursor-pointer flex items-center gap-1 py-1 font-semibold"
+                    className="text-xs font-mono text-slate-700 hover:text-slate-900 hover:underline cursor-pointer flex items-center gap-1 py-1 font-semibold"
                   >
                     <span>¿De dónde salen estos datos?</span>
                     <ChevronDown className={`w-3.5 h-3.5 transition-transform ${fuenteAbierta['tecno'] ? 'rotate-180' : ''}`} />
@@ -1190,15 +1176,15 @@ export const CalculadoraCostoReal: React.FC = () => {
 
                 {/* Ajuste manual de Tecnomecánica */}
                 {panelAbierto['tecnoManual'] && (
-                  <div className="mt-4 p-4 sm:p-5 rounded-2xl bg-[#F7F9FA] border border-[#E2E8F0] space-y-3">
+                  <div className="mt-4 p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
                     <div className="flex items-center justify-between gap-2">
-                      <span className="text-xs font-bold text-[#17212B]">
-                        Define el costo de la revisión tecnomecánica para tu vehículo:
+                      <span className="text-xs font-bold text-slate-900">
+                        Elige si tu carro debe pagar tecnomecánica este año:
                       </span>
                       <button
                         type="button"
                         onClick={() => togglePanel('tecnoManual')}
-                        className="text-xs text-[#66727D] hover:text-[#17212B] px-2.5 py-1 rounded-lg bg-slate-200/60 hover:bg-slate-200 cursor-pointer font-bold shrink-0"
+                        className="text-xs text-slate-500 hover:text-slate-900 px-2.5 py-1 rounded-lg bg-slate-200/60 hover:bg-slate-200 cursor-pointer font-bold shrink-0"
                       >
                         ✕ Cerrar
                       </button>
@@ -1212,11 +1198,11 @@ export const CalculadoraCostoReal: React.FC = () => {
                         }}
                         className={`px-4 py-2.5 rounded-xl text-xs font-bold cursor-pointer transition-all ${
                           tecnoCalculado && tecnoAnual === 320000
-                            ? 'bg-[#F0FDF4] border-2 border-[#2EAD68] text-[#2EAD68] shadow-xs'
-                            : 'bg-white border border-[#CBD5E1] text-[#66727D] hover:bg-slate-50'
+                            ? 'bg-emerald-50 border-2 border-emerald-600 text-emerald-800 shadow-xs'
+                            : 'bg-white border border-slate-300 text-slate-700 hover:bg-slate-100'
                         }`}
                       >
-                        {tecnoCalculado && tecnoAnual === 320000 && '✓ '}Usar tarifa promedio ($320.000 COP)
+                        {tecnoCalculado && tecnoAnual === 320000 && '✓ '}Tarifa promedio CDA ($320.000 COP)
                       </button>
                       <button
                         type="button"
@@ -1226,18 +1212,18 @@ export const CalculadoraCostoReal: React.FC = () => {
                         }}
                         className={`px-4 py-2.5 rounded-xl text-xs font-bold cursor-pointer transition-all ${
                           tecnoCalculado && tecnoAnual === 0
-                            ? 'bg-[#F0FDF4] border-2 border-[#2EAD68] text-[#2EAD68] shadow-xs'
-                            : 'bg-white border border-[#CBD5E1] text-[#66727D] hover:bg-slate-50'
+                            ? 'bg-emerald-50 border-2 border-emerald-600 text-emerald-800 shadow-xs'
+                            : 'bg-white border border-slate-300 text-slate-700 hover:bg-slate-100'
                         }`}
                       >
-                        {tecnoCalculado && tecnoAnual === 0 && '✓ '}No aplica este año ($0 COP)
+                        {tecnoCalculado && tecnoAnual === 0 && '✓ '}Aún no le toca este año ($0 COP)
                       </button>
                     </div>
 
                     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 pt-2">
-                      <label className="text-xs text-[#66727D]">O escribe el valor exacto cotizado:</label>
+                      <label className="text-xs text-slate-600">O escribe el valor exacto cotizado:</label>
                       <div className="relative w-full sm:w-48">
-                        <span className="absolute left-3 top-2.5 text-xs font-mono text-[#66727D]">$</span>
+                        <span className="absolute left-3 top-2.5 text-xs font-mono text-slate-400">$</span>
                         <input
                           type="text"
                           value={tecnoAnual === '' ? '' : (typeof tecnoAnual === 'number' ? tecnoAnual.toLocaleString('es-CO') : '')}
@@ -1247,7 +1233,7 @@ export const CalculadoraCostoReal: React.FC = () => {
                             setTecnoCalculado(true);
                           }}
                           placeholder="320.000"
-                          className="w-full h-11 pl-7 pr-3 rounded-xl bg-white border border-[#CBD5E1] text-xs font-mono font-bold text-[#17212B]"
+                          className="w-full h-11 pl-7 pr-3 rounded-xl bg-white border border-slate-300 text-xs font-mono font-bold text-slate-900"
                         />
                       </div>
                     </div>
@@ -1256,12 +1242,12 @@ export const CalculadoraCostoReal: React.FC = () => {
 
                 {/* Metodología y Fuentes */}
                 {fuenteAbierta['tecno'] && (
-                  <div className="mt-3 p-4 rounded-xl bg-[#F7F9FA] border border-[#CBD5E1] text-xs text-[#475569] space-y-1.5">
-                    <div className="font-bold text-[#17212B]">
+                  <div className="mt-3 p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 space-y-1.5">
+                    <div className="font-bold text-slate-900">
                       Ministerio de Transporte & Centros de Diagnóstico Automotor (CDA)
                     </div>
-                    <p className="text-[11px] text-[#66727D] leading-relaxed">
-                      Las tarifas de la revisión tecnomecánica se rigen por rangos oficiales en UVT fijados por el Ministerio de Transporte. Aplica anualmente a partir del quinto o sexto año de matrícula inicial en vehículos particulares.
+                    <p className="text-[11px] text-slate-500 leading-relaxed">
+                      Las tarifas de la revisión tecnomecánica las regula el Ministerio de Transporte. Aplica cada año a partir del quinto año desde la matrícula inicial del carro.
                     </p>
                   </div>
                 )}
@@ -1273,71 +1259,71 @@ export const CalculadoraCostoReal: React.FC = () => {
       {/* PASO 2: COSTOS DE USO / COMBUSTIBLE                  */}
       {/* ==================================================== */}
       <section className="space-y-4">
-        <div className="border-b border-[#E2E8F0] pb-3">
+        <div className="border-b border-slate-200 pb-3">
           <div className="flex items-center gap-2 mb-1">
-            <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono">
+            <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#0F172A] text-white text-xs font-bold font-mono">
               2
             </span>
-            <h3 className="text-xl sm:text-2xl font-extrabold text-[#17212B]">
-              Costos de uso / Combustible
+            <h3 className="text-xl sm:text-2xl font-black text-slate-900">
+              2. Gasolina y gastos del día a día
             </h3>
           </div>
-          <p className="text-xs sm:text-sm text-[#66727D]">
-            Estima cuánto gastarás según el uso que haces del vehículo y tus recorridos habituales.
+          <p className="text-xs sm:text-sm text-slate-500">
+            Calcula cuánto gastarás al mes según los kilómetros que andes, parqueadero y peajes.
           </p>
         </div>
 
         <div className="grid grid-cols-1 gap-4">
 
           {/* 2.1 TARJETA GASOLINA */}
-          <div className="rounded-2xl border border-[#CBD5E1] bg-white p-5 sm:p-6 transition-all hover:border-[#123B5D]/40 shadow-xs">
+          <div className="rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 transition-all hover:border-slate-300 shadow-xs">
             <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
               <div className="space-y-1.5 max-w-md">
                 <div className="flex items-center gap-2 flex-wrap">
-                  <div className="w-8 h-8 rounded-lg bg-[#123B5D]/10 flex items-center justify-center text-[#123B5D]">
-                    <Fuel className="w-4 h-4 text-[#123B5D]" />
+                  <div className="w-7 h-7 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-700">
+                    <Fuel className="w-4 h-4 text-blue-700" />
                   </div>
-                  <h4 className="text-base sm:text-lg font-bold text-[#17212B]">Combustible / Gasolina</h4>
+                  <h4 className="text-base sm:text-lg font-black text-slate-900">Gasto en gasolina</h4>
                   {!gasolinaCalculado ? (
-                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#F1F5F9] text-[#64748B] border border-[#E2E8F0] font-semibold">
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200 font-semibold">
                       Sin calcular
                     </span>
                   ) : (
-                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#EBF7EE] text-[#2EAD68] border border-[#2EAD68]/30 font-semibold flex items-center gap-1">
-                      <Check className="w-3 h-3 text-[#2EAD68]" />
-                      Estimación oficial CREG
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 font-bold flex items-center gap-1">
+                      <Check className="w-3 h-3 text-emerald-700" />
+                      Precio oficial CREG
                     </span>
                   )}
                 </div>
-                <p className="text-xs text-[#66727D]">
-                  Calcula el consumo mensual de combustible según tu recorrido mensual y el rendimiento de tu motor.
+                <p className="text-xs text-slate-500 leading-relaxed">
+                  Calcula el valor de la tanqueada mensual según los kilómetros que recorres y qué tan económico es el motor.
                 </p>
               </div>
 
               {/* Resultado */}
-              <div className="text-left sm:text-right shrink-0 bg-[#F7F9FA] sm:bg-transparent p-3 sm:p-0 rounded-xl">
-                <span className="text-[11px] font-mono text-[#66727D] block">
-                  {gasolinaCalculado ? 'Gasto mensual estimado' : 'Valor inicial'}
+              <div className="text-left sm:text-right shrink-0 bg-slate-50 sm:bg-transparent p-3 sm:p-0 rounded-xl">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 block font-semibold">
+                  {gasolinaCalculado ? 'Gasto de gasolina al mes' : 'Valor inicial'}
                 </span>
-                <span className={`text-2xl sm:text-3xl font-extrabold font-mono ${gasolinaCalculado ? 'text-[#123B5D]' : 'text-slate-400'}`}>
+                <span className={`text-2xl sm:text-3xl font-black font-mono ${gasolinaCalculado ? 'text-slate-900' : 'text-slate-400'}`}>
                   {gasolinaCalculado ? formatoCOP(gastoGasolinaEfectivo) : '$0'}
                 </span>
-                {gasolinaCalculado && <span className="text-xs font-mono text-[#66727D] block">/ mes</span>}
+                {gasolinaCalculado && <span className="text-xs font-mono text-slate-500 block">/ mes</span>}
                 {gasolinaCalculado && (
-                  <span className="text-[11px] text-[#66727D] font-mono block mt-0.5">
-                    Equivalente anual: {formatoCOP(gastoGasolinaAnualEfectivo)} / año
+                  <span className="text-[11px] text-slate-500 font-mono block mt-0.5">
+                    Gasto al año: {formatoCOP(gastoGasolinaAnualEfectivo)} / año
                   </span>
                 )}
               </div>
             </div>
 
             {/* Acciones principales */}
-            <div className="mt-5 pt-3.5 border-t border-[#F1F5F9] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+            <div className="mt-5 pt-3.5 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
               {!gasolinaCalculado ? (
                 <button
                   type="button"
                   onClick={() => togglePanel('gasolinaConfig')}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-5 py-2.5 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold bg-[#123B5D] text-white hover:bg-[#0d2a42] active:scale-98 transition-all shadow-xs cursor-pointer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-5 py-2.5 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold bg-[#0F172A] text-white hover:bg-slate-800 active:scale-95 transition-all shadow-xs cursor-pointer"
                 >
                   <span>Calcular gasolina →</span>
                 </button>
@@ -1346,9 +1332,9 @@ export const CalculadoraCostoReal: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => togglePanel('gasolinaConfig')}
-                    className="inline-flex items-center justify-center gap-1.5 px-4 py-2 min-h-[40px] rounded-xl text-xs font-bold bg-[#F7F9FA] border border-[#CBD5E1] text-[#17212B] hover:bg-slate-100 transition-colors cursor-pointer w-full sm:w-auto"
+                    className="inline-flex items-center justify-center gap-1.5 px-4 py-2 min-h-[40px] rounded-xl text-xs font-bold bg-slate-50 border border-slate-300 text-slate-800 hover:bg-slate-100 transition-colors cursor-pointer w-full sm:w-auto"
                   >
-                    <SlidersHorizontal className="w-3.5 h-3.5 text-[#66727D]" />
+                    <SlidersHorizontal className="w-3.5 h-3.5 text-slate-500" />
                     <span>{panelAbierto['gasolinaConfig'] ? 'Cerrar ajuste' : 'Modificar cálculo'}</span>
                   </button>
                   <button
@@ -1357,7 +1343,7 @@ export const CalculadoraCostoReal: React.FC = () => {
                       setPanelAbierto((prev) => ({ ...prev, gasolinaConfig: false }));
                       setGasolinaCalculado(false);
                     }}
-                    className="text-xs text-[#D64545] hover:underline cursor-pointer py-1 px-2 font-medium"
+                    className="text-xs text-rose-600 hover:underline cursor-pointer py-1 px-2 font-semibold"
                   >
                     Reiniciar a $0
                   </button>
@@ -1367,7 +1353,7 @@ export const CalculadoraCostoReal: React.FC = () => {
               <button
                 type="button"
                 onClick={() => toggleFuente('gasolina')}
-                className="text-xs font-mono text-[#123B5D] hover:underline cursor-pointer flex items-center gap-1 py-1 font-semibold"
+                className="text-xs font-mono text-slate-700 hover:text-slate-900 hover:underline cursor-pointer flex items-center gap-1 py-1 font-semibold"
               >
                 <span>¿De dónde salen estos datos?</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform ${fuenteAbierta['gasolina'] ? 'rotate-180' : ''}`} />
@@ -1376,15 +1362,15 @@ export const CalculadoraCostoReal: React.FC = () => {
 
             {/* Panel de configuración de Gasolina */}
             {panelAbierto['gasolinaConfig'] && (
-              <div className="mt-4 p-4 sm:p-5 rounded-2xl bg-[#F7F9FA] border border-[#CBD5E1] space-y-4">
+              <div className="mt-4 p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-4">
                 <div className="flex items-center justify-between gap-2">
-                  <span className="text-xs font-extrabold uppercase tracking-wider text-[#17212B]">
-                    Configura tus hábitos de manejo y ubicación:
+                  <span className="text-xs font-bold text-slate-900">
+                    Escribe tus recorridos y tu ciudad:
                   </span>
                   <button
                     type="button"
                     onClick={() => togglePanel('gasolinaConfig')}
-                    className="text-xs text-[#66727D] hover:text-[#17212B] px-2.5 py-1 rounded-lg bg-slate-200/70 hover:bg-slate-200 cursor-pointer font-medium shrink-0"
+                    className="text-xs text-slate-500 hover:text-slate-900 px-2.5 py-1 rounded-lg bg-slate-200/70 hover:bg-slate-200 cursor-pointer font-bold shrink-0"
                   >
                     ✕ Cerrar
                   </button>
@@ -1393,8 +1379,8 @@ export const CalculadoraCostoReal: React.FC = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
                   {/* Ciudad CREG */}
                   <div>
-                    <label className="block text-xs font-bold text-[#17212B] mb-1.5">
-                      Ciudad (Tarifa CREG)
+                    <label className="block text-xs font-bold text-slate-900 mb-1.5">
+                      Ciudad donde andas
                     </label>
                     <select
                       value={ciudadSeleccionada}
@@ -1407,21 +1393,21 @@ export const CalculadoraCostoReal: React.FC = () => {
                           setCiudadSeleccionada(v);
                         }
                       }}
-                      className="w-full h-11 px-3 rounded-xl bg-white border border-[#CBD5E1] text-xs text-[#17212B] font-medium cursor-pointer focus:outline-none focus:border-[#123B5D]"
+                      className="w-full h-11 px-3 rounded-xl bg-white border border-slate-300 text-xs text-slate-900 font-medium cursor-pointer focus:outline-none focus:border-slate-900"
                     >
                       {CIUDADES_CREG.map((c) => (
                         <option key={c} value={c}>
-                          {c} (CREG oficial)
+                          {c} (Tarifa oficial CREG)
                         </option>
                       ))}
-                      <option value="OTRA">Otra ciudad no listada</option>
+                      <option value="OTRA">Otra ciudad o municipio</option>
                     </select>
                   </div>
 
                   {/* Kilómetros por mes */}
                   <div>
-                    <label className="block text-xs font-bold text-[#17212B] mb-1.5">
-                      Kilómetros al mes
+                    <label className="block text-xs font-bold text-slate-900 mb-1.5">
+                      Kilómetros que andas al mes
                     </label>
                     <div className="relative">
                       <input
@@ -1432,18 +1418,19 @@ export const CalculadoraCostoReal: React.FC = () => {
                           setKmMes(raw === '' ? '' : parseInt(raw, 10));
                         }}
                         placeholder="1.000"
-                        className="w-full h-11 px-3 pr-16 rounded-xl bg-white border border-[#CBD5E1] text-xs font-mono font-bold text-[#17212B] focus:outline-none focus:border-[#123B5D]"
+                        className="w-full h-11 px-3 pr-16 rounded-xl bg-white border border-slate-300 text-xs font-mono font-bold text-slate-900 focus:outline-none focus:border-slate-900"
                       />
-                      <span className="absolute right-3 top-3 text-[10px] font-mono text-[#66727D] font-bold">
-                        KM/MES
+                      <span className="absolute right-3 top-3 text-[10px] font-mono text-slate-400 font-bold">
+                        KM / MES
                       </span>
                     </div>
+                    <span className="text-[10px] text-slate-400 mt-1 block">Ej. 1.000 km = casa al trabajo</span>
                   </div>
 
                   {/* Rendimiento */}
                   <div>
-                    <label className="block text-xs font-bold text-[#17212B] mb-1.5">
-                      Rendimiento del carro
+                    <label className="block text-xs font-bold text-slate-900 mb-1.5">
+                      ¿Cuántos km rinde por galón?
                     </label>
                     <div className="relative">
                       <input
@@ -1454,12 +1441,13 @@ export const CalculadoraCostoReal: React.FC = () => {
                           setKmPorGalon(raw === '' ? '' : parseInt(raw, 10));
                         }}
                         placeholder="40"
-                        className="w-full h-11 px-3 pr-16 rounded-xl bg-white border border-[#CBD5E1] text-xs font-mono font-bold text-[#17212B] focus:outline-none focus:border-[#123B5D]"
+                        className="w-full h-11 px-3 pr-16 rounded-xl bg-white border border-slate-300 text-xs font-mono font-bold text-slate-900 focus:outline-none focus:border-slate-900"
                       />
-                      <span className="absolute right-3 top-3 text-[10px] font-mono text-[#66727D] font-bold">
-                        KM/GAL
+                      <span className="absolute right-3 top-3 text-[10px] font-mono text-slate-400 font-bold">
+                        KM / GAL
                       </span>
                     </div>
+                    <span className="text-[10px] text-slate-400 mt-1 block">Ej. 40 km/gal = carro estándar</span>
                   </div>
                 </div>
 
@@ -1467,20 +1455,20 @@ export const CalculadoraCostoReal: React.FC = () => {
                 {esCiudadManual && (
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                     <div>
-                      <label className="block text-xs font-bold text-[#17212B] mb-1.5">
-                        Nombre de tu municipio
+                      <label className="block text-xs font-bold text-slate-900 mb-1.5">
+                        Nombre de tu ciudad o municipio
                       </label>
                       <input
                         type="text"
                         value={otraCiudad}
                         onChange={(e) => setOtraCiudad(e.target.value)}
                         placeholder="Ej. Tunja, Girardot, Sogamoso..."
-                        className="w-full h-11 px-3 rounded-xl bg-white border border-[#CBD5E1] text-xs text-[#17212B] focus:outline-none focus:border-[#123B5D]"
+                        className="w-full h-11 px-3 rounded-xl bg-white border border-slate-300 text-xs text-slate-900 focus:outline-none focus:border-slate-900"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-bold text-[#17212B] mb-1.5">
-                        Precio por galón en tu estación
+                      <label className="block text-xs font-bold text-slate-900 mb-1.5">
+                        Precio por galón en tu bomba de gasolina
                       </label>
                       <input
                         type="text"
@@ -1490,7 +1478,7 @@ export const CalculadoraCostoReal: React.FC = () => {
                           setPrecioManual(raw === '' ? '' : parseInt(raw, 10));
                         }}
                         placeholder="16.200"
-                        className="w-full h-11 px-3 rounded-xl bg-white border border-[#CBD5E1] text-xs font-mono font-bold text-[#17212B] focus:outline-none focus:border-[#123B5D]"
+                        className="w-full h-11 px-3 rounded-xl bg-white border border-slate-300 text-xs font-mono font-bold text-slate-900 focus:outline-none focus:border-slate-900"
                       />
                     </div>
                   </div>
@@ -1503,19 +1491,19 @@ export const CalculadoraCostoReal: React.FC = () => {
                 )}
 
                 {/* Banner de confirmación con precio CREG aplicado */}
-                <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-xl bg-[#8BCF3F]/10 border border-[#8BCF3F]/35">
-                  <div className="flex items-center gap-2 text-xs text-[#17212B]">
+                <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-xl bg-emerald-50 border border-emerald-200">
+                  <div className="flex items-center gap-2 text-xs text-slate-800">
                     {cargandoGasolina ? (
-                      <RefreshCw className="w-4 h-4 animate-spin text-[#123B5D]" />
+                      <RefreshCw className="w-4 h-4 animate-spin text-emerald-700" />
                     ) : (
-                      <Fuel className="w-4 h-4 text-[#123B5D]" />
+                      <Fuel className="w-4 h-4 text-emerald-700" />
                     )}
                     <span>
                       Precio aplicado:{' '}
-                      <strong className="text-[#123B5D] font-mono font-bold">
+                      <strong className="text-slate-900 font-mono font-bold">
                         {formatoCOP(precioGalonEfectivo)} / galón
                       </strong>
-                      <span className="text-[#66727D] ml-1">
+                      <span className="text-slate-500 ml-1">
                         ({esCiudadManual ? (otraCiudad || 'Personalizado') : `${ciudadSeleccionada} CREG`})
                       </span>
                     </span>
@@ -1527,9 +1515,9 @@ export const CalculadoraCostoReal: React.FC = () => {
                       setGasolinaCalculado(true);
                       setPanelAbierto((p) => ({ ...p, gasolinaConfig: false }));
                     }}
-                    className="px-5 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#0d2a42] text-white text-xs font-bold shadow-xs cursor-pointer transition-colors"
+                    className="px-5 py-2.5 rounded-xl bg-[#0F172A] hover:bg-slate-800 text-white text-xs font-bold shadow-xs cursor-pointer transition-colors"
                   >
-                    Confirmar cálculo de combustible ✓
+                    Confirmar gasto de gasolina ✓
                   </button>
                 </div>
               </div>
@@ -1537,12 +1525,12 @@ export const CalculadoraCostoReal: React.FC = () => {
 
             {/* Metodología Gasolina */}
             {fuenteAbierta['gasolina'] && (
-              <div className="mt-3 p-4 rounded-xl bg-[#F7F9FA] border border-[#CBD5E1] text-xs text-[#475569] space-y-1.5">
-                <div className="font-bold text-[#17212B]">
+              <div className="mt-3 p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 space-y-1.5">
+                <div className="font-bold text-slate-900">
                   Comisión de Regulación de Energía y Gas (CREG)
                 </div>
-                <p className="text-[11px] text-[#66727D] leading-relaxed">
-                  Precios de referencia oficiales actualizados mensualmente para las 13 ciudades principales del país.
+                <p className="text-[11px] text-slate-500 leading-relaxed">
+                  Precios de referencia oficiales actualizados cada mes por el Gobierno Nacional para las ciudades principales de Colombia.
                 </p>
               </div>
             )}
@@ -1552,26 +1540,26 @@ export const CalculadoraCostoReal: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
 
             {/* Parqueadero */}
-            <div className="rounded-2xl border border-[#CBD5E1] bg-white p-4 sm:p-5 space-y-3 hover:border-[#123B5D]/40 transition-colors shadow-xs">
+            <div className="rounded-2xl border border-slate-200/90 bg-white p-4 sm:p-5 space-y-3 hover:border-slate-300 transition-colors shadow-xs">
               <div className="flex items-center justify-between gap-2">
-                <h4 className="text-sm font-bold text-[#17212B]">Parqueadero</h4>
+                <h4 className="text-sm font-bold text-slate-900">Parqueadero</h4>
                 {!parqueaderoCalculado ? (
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#F1F5F9] text-[#64748B] font-semibold">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-100 text-slate-500 font-semibold">
                     Sin calcular
                   </span>
                 ) : (
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#EBF7EE] text-[#2EAD68] font-semibold">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 font-bold">
                     Personalizado
                   </span>
                 )}
               </div>
-              <p className="text-[11px] text-[#66727D]">
-                ¿Cuánto gastas al mes en estacionamiento?
+              <p className="text-[11px] text-slate-500">
+                ¿Pagas parqueadero en la casa o el trabajo al mes?
               </p>
 
               <div className="space-y-2">
                 <div className="relative">
-                  <span className="absolute left-3 top-3 text-xs font-mono text-[#66727D] font-bold">$</span>
+                  <span className="absolute left-3 top-3 text-xs font-mono text-slate-400 font-bold">$</span>
                   <input
                     type="text"
                     value={parqueaderoMensual === '' ? '' : (typeof parqueaderoMensual === 'number' ? parqueaderoMensual.toLocaleString('es-CO') : '')}
@@ -1581,12 +1569,12 @@ export const CalculadoraCostoReal: React.FC = () => {
                       setParqueaderoCalculado(true);
                     }}
                     placeholder="0"
-                    className="w-full h-11 pl-7 pr-3 rounded-xl bg-white border border-[#CBD5E1] text-xs font-mono font-bold text-[#17212B] focus:outline-none focus:border-[#123B5D]"
+                    className="w-full h-11 pl-7 pr-3 rounded-xl bg-white border border-slate-300 text-xs font-mono font-bold text-slate-900 focus:outline-none focus:border-slate-900"
                   />
                 </div>
 
                 <div className="flex items-center justify-between text-[11px] pt-1">
-                  <span className="text-[#66727D] font-mono font-medium">Mensual: {formatoCOP(parqueaderoNum)}</span>
+                  <span className="text-slate-500 font-mono font-medium">Mensual: {formatoCOP(parqueaderoNum)}</span>
                   {parqueaderoCalculado && (
                     <button
                       type="button"
@@ -1594,7 +1582,7 @@ export const CalculadoraCostoReal: React.FC = () => {
                         setParqueaderoCalculado(false);
                         setParqueaderoMensual(0);
                       }}
-                      className="text-[#D64545] hover:underline text-[10px] cursor-pointer font-medium"
+                      className="text-rose-600 hover:underline text-[10px] cursor-pointer font-medium"
                     >
                       Quitar
                     </button>
@@ -1604,26 +1592,26 @@ export const CalculadoraCostoReal: React.FC = () => {
             </div>
 
             {/* Peajes */}
-            <div className="rounded-2xl border border-[#CBD5E1] bg-white p-4 sm:p-5 space-y-3 hover:border-[#123B5D]/40 transition-colors shadow-xs">
+            <div className="rounded-2xl border border-slate-200/90 bg-white p-4 sm:p-5 space-y-3 hover:border-slate-300 transition-colors shadow-xs">
               <div className="flex items-center justify-between gap-2">
-                <h4 className="text-sm font-bold text-[#17212B]">Peajes</h4>
+                <h4 className="text-sm font-bold text-slate-900">Peajes</h4>
                 {!peajesCalculado ? (
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#F1F5F9] text-[#64748B] font-semibold">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-100 text-slate-500 font-semibold">
                     Sin calcular
                   </span>
                 ) : (
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#EBF7EE] text-[#2EAD68] font-semibold">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 font-bold">
                     Personalizado
                   </span>
                 )}
               </div>
-              <p className="text-[11px] text-[#66727D]">
-                Gasto estimado en salidas intermunicipales
+              <p className="text-[11px] text-slate-500">
+                ¿Viajas por carretera o pagas peajes en el mes?
               </p>
 
               <div className="space-y-2">
                 <div className="relative">
-                  <span className="absolute left-3 top-3 text-xs font-mono text-[#66727D] font-bold">$</span>
+                  <span className="absolute left-3 top-3 text-xs font-mono text-slate-400 font-bold">$</span>
                   <input
                     type="text"
                     value={peajesMensual === '' ? '' : (typeof peajesMensual === 'number' ? peajesMensual.toLocaleString('es-CO') : '')}
@@ -1633,12 +1621,12 @@ export const CalculadoraCostoReal: React.FC = () => {
                       setPeajesCalculado(true);
                     }}
                     placeholder="0"
-                    className="w-full h-11 pl-7 pr-3 rounded-xl bg-white border border-[#CBD5E1] text-xs font-mono font-bold text-[#17212B] focus:outline-none focus:border-[#123B5D]"
+                    className="w-full h-11 pl-7 pr-3 rounded-xl bg-white border border-slate-300 text-xs font-mono font-bold text-slate-900 focus:outline-none focus:border-slate-900"
                   />
                 </div>
 
                 <div className="flex items-center justify-between text-[11px] pt-1">
-                  <span className="text-[#66727D] font-mono font-medium">Mensual: {formatoCOP(peajesNum)}</span>
+                  <span className="text-slate-500 font-mono font-medium">Mensual: {formatoCOP(peajesNum)}</span>
                   {peajesCalculado && (
                     <button
                       type="button"
@@ -1646,7 +1634,7 @@ export const CalculadoraCostoReal: React.FC = () => {
                         setPeajesCalculado(false);
                         setPeajesMensual(0);
                       }}
-                      className="text-[#D64545] hover:underline text-[10px] cursor-pointer font-medium"
+                      className="text-rose-600 hover:underline text-[10px] cursor-pointer font-medium"
                     >
                       Quitar
                     </button>
@@ -1656,26 +1644,26 @@ export const CalculadoraCostoReal: React.FC = () => {
             </div>
 
             {/* Lavado y cuidado */}
-            <div className="rounded-2xl border border-[#CBD5E1] bg-white p-4 sm:p-5 space-y-3 hover:border-[#123B5D]/40 transition-colors shadow-xs">
+            <div className="rounded-2xl border border-slate-200/90 bg-white p-4 sm:p-5 space-y-3 hover:border-slate-300 transition-colors shadow-xs">
               <div className="flex items-center justify-between gap-2">
-                <h4 className="text-sm font-bold text-[#17212B]">Lavado y cuidado</h4>
+                <h4 className="text-sm font-bold text-slate-900">Lavada del carro</h4>
                 {!lavadoCalculado ? (
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#F1F5F9] text-[#64748B] font-semibold">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-100 text-slate-500 font-semibold">
                     Sin calcular
                   </span>
                 ) : (
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#EBF7EE] text-[#2EAD68] font-semibold">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 font-bold">
                     Personalizado
                   </span>
                 )}
               </div>
-              <p className="text-[11px] text-[#66727D]">
-                Limpieza y estética mensual
+              <p className="text-[11px] text-slate-500">
+                ¿Cuánto gastas al mes en lavadas y aseo?
               </p>
 
               <div className="space-y-2">
                 <div className="relative">
-                  <span className="absolute left-3 top-3 text-xs font-mono text-[#66727D] font-bold">$</span>
+                  <span className="absolute left-3 top-3 text-xs font-mono text-slate-400 font-bold">$</span>
                   <input
                     type="text"
                     value={lavadoMensual === '' ? '' : (typeof lavadoMensual === 'number' ? lavadoMensual.toLocaleString('es-CO') : '')}
@@ -1685,12 +1673,12 @@ export const CalculadoraCostoReal: React.FC = () => {
                       setLavadoCalculado(true);
                     }}
                     placeholder="0"
-                    className="w-full h-11 pl-7 pr-3 rounded-xl bg-white border border-[#CBD5E1] text-xs font-mono font-bold text-[#17212B] focus:outline-none focus:border-[#123B5D]"
+                    className="w-full h-11 pl-7 pr-3 rounded-xl bg-white border border-slate-300 text-xs font-mono font-bold text-slate-900 focus:outline-none focus:border-slate-900"
                   />
                 </div>
 
                 <div className="flex items-center justify-between text-[11px] pt-1">
-                  <span className="text-[#66727D] font-mono font-medium">Mensual: {formatoCOP(lavadoNum)}</span>
+                  <span className="text-slate-500 font-mono font-medium">Mensual: {formatoCOP(lavadoNum)}</span>
                   {lavadoCalculado && (
                     <button
                       type="button"
@@ -1698,7 +1686,7 @@ export const CalculadoraCostoReal: React.FC = () => {
                         setLavadoCalculado(false);
                         setLavadoMensual(0);
                       }}
-                      className="text-[#D64545] hover:underline text-[10px] cursor-pointer font-medium"
+                      className="text-rose-600 hover:underline text-[10px] cursor-pointer font-medium"
                     >
                       Quitar
                     </button>
@@ -1716,43 +1704,43 @@ export const CalculadoraCostoReal: React.FC = () => {
       {/* PASO 3: MANTENIMIENTO Y REPARACIONES                */}
       {/* ==================================================== */}
       <section className="space-y-4">
-        <div className="border-b border-[#E2E8F0] pb-3">
+        <div className="border-b border-slate-200 pb-3">
           <div className="flex items-center gap-2 mb-1">
-            <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono">
+            <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#0F172A] text-white text-xs font-bold font-mono">
               3
             </span>
-            <h3 className="text-xl sm:text-2xl font-extrabold text-[#17212B]">
-              Mantenimiento y reparaciones
+            <h3 className="text-xl sm:text-2xl font-black text-slate-900">
+              3. Mantenimiento y fondo para emergencias
             </h3>
           </div>
-          <p className="text-xs sm:text-sm text-[#66727D]">
-            Reserva dinero para conservar el vehículo y afrontar gastos inesperados de mecánica.
+          <p className="text-xs sm:text-sm text-slate-500">
+            Ahorra una cuota mensual para cambios de aceite y para cuando toque cambiar llantas, batería o frenos.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
           {/* 3.1 Mantenimiento preventivo */}
-          <div className="rounded-2xl border border-[#CBD5E1] bg-white p-5 sm:p-6 space-y-3 transition-all hover:border-[#123B5D]/40 shadow-xs">
+          <div className="rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 space-y-3 transition-all hover:border-slate-300 shadow-xs">
             <div className="flex items-center justify-between gap-2">
-              <h4 className="text-base font-bold text-[#17212B]">Mantenimiento Preventivo</h4>
+              <h4 className="text-base font-bold text-slate-900">Mantenimiento preventivo</h4>
               {!mantenimientoCalculado ? (
-                <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#F1F5F9] text-[#64748B] font-semibold">
+                <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-500 font-semibold">
                   Sin calcular
                 </span>
               ) : (
-                <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#EBF7EE] text-[#2EAD68] font-semibold">
-                  Presupuesto personalizado
+                <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 font-bold">
+                  Ahorro mensual
                 </span>
               )}
             </div>
-            <p className="text-xs text-[#66727D]">
-              Cambio de aceite periódico, filtros de aire/combustible, alineación y balanceo.
+            <p className="text-xs text-slate-500 leading-relaxed">
+              Cambio de aceite y filtros de motor, alineación y balanceo. Hacerlo a tiempo evita daños gravísimos en el motor.
             </p>
 
             <div className="space-y-2 pt-1">
               <div className="relative">
-                <span className="absolute left-3 top-3 text-xs font-mono text-[#66727D] font-bold">$</span>
+                <span className="absolute left-3 top-3 text-xs font-mono text-slate-400 font-bold">$</span>
                 <input
                   type="text"
                   value={mantenimientoMensual === '' ? '' : (typeof mantenimientoMensual === 'number' ? mantenimientoMensual.toLocaleString('es-CO') : '')}
@@ -1762,7 +1750,7 @@ export const CalculadoraCostoReal: React.FC = () => {
                     setMantenimientoCalculado(true);
                   }}
                   placeholder="0"
-                  className="w-full h-11 pl-7 pr-3 rounded-xl bg-white border border-[#CBD5E1] text-xs font-mono font-bold text-[#17212B] focus:outline-none focus:border-[#123B5D]"
+                  className="w-full h-11 pl-7 pr-3 rounded-xl bg-white border border-slate-300 text-xs font-mono font-bold text-slate-900 focus:outline-none focus:border-slate-900"
                 />
               </div>
 
@@ -1773,9 +1761,9 @@ export const CalculadoraCostoReal: React.FC = () => {
                     setMantenimientoMensual(150000);
                     setMantenimientoCalculado(true);
                   }}
-                  className="text-[11px] text-[#123B5D] hover:underline font-bold cursor-pointer"
+                  className="text-[11px] text-emerald-700 hover:underline font-bold cursor-pointer"
                 >
-                  Sugerido: $150.000 / mes
+                  Ahorro recomendado: $150.000 / mes
                 </button>
                 {mantenimientoCalculado && (
                   <button
@@ -1784,7 +1772,7 @@ export const CalculadoraCostoReal: React.FC = () => {
                       setMantenimientoCalculado(false);
                       setMantenimientoMensual(0);
                     }}
-                    className="text-[11px] text-[#D64545] hover:underline cursor-pointer font-medium"
+                    className="text-[11px] text-rose-600 hover:underline cursor-pointer font-medium"
                   >
                     Reiniciar a $0
                   </button>
@@ -1794,26 +1782,26 @@ export const CalculadoraCostoReal: React.FC = () => {
           </div>
 
           {/* 3.2 Fondo para reparaciones imprevistas */}
-          <div className="rounded-2xl border border-[#CBD5E1] bg-white p-5 sm:p-6 space-y-3 transition-all hover:border-[#123B5D]/40 shadow-xs">
+          <div className="rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 space-y-3 transition-all hover:border-slate-300 shadow-xs">
             <div className="flex items-center justify-between gap-2">
-              <h4 className="text-base font-bold text-[#17212B]">Fondo para Reparaciones</h4>
+              <h4 className="text-base font-bold text-slate-900">Ahorro para imprevistos mecánicos</h4>
               {!fondoCalculado ? (
-                <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#F1F5F9] text-[#64748B] font-semibold">
+                <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-500 font-semibold">
                   Sin calcular
                 </span>
               ) : (
-                <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#EBF7EE] text-[#2EAD68] font-semibold">
-                  Presupuesto personalizado
+                <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 font-bold">
+                  Fondo de reserva
                 </span>
               )}
             </div>
-            <p className="text-xs text-[#66727D]">
-              Reserva para imprevistos mecánicos: cambio de batería, llantas, pastillas de freno o embrague.
+            <p className="text-xs text-slate-500 leading-relaxed">
+              Plata guardada para cuando toque cambiar llantas, batería nueva, pastillas de frenos o arreglos sorpresa.
             </p>
 
             <div className="space-y-2 pt-1">
               <div className="relative">
-                <span className="absolute left-3 top-3 text-xs font-mono text-[#66727D] font-bold">$</span>
+                <span className="absolute left-3 top-3 text-xs font-mono text-slate-400 font-bold">$</span>
                 <input
                   type="text"
                   value={fondoReparacionesMensual === '' ? '' : (typeof fondoReparacionesMensual === 'number' ? fondoReparacionesMensual.toLocaleString('es-CO') : '')}
@@ -1823,7 +1811,7 @@ export const CalculadoraCostoReal: React.FC = () => {
                     setFondoCalculado(true);
                   }}
                   placeholder="0"
-                  className="w-full h-11 pl-7 pr-3 rounded-xl bg-white border border-[#CBD5E1] text-xs font-mono font-bold text-[#17212B] focus:outline-none focus:border-[#123B5D]"
+                  className="w-full h-11 pl-7 pr-3 rounded-xl bg-white border border-slate-300 text-xs font-mono font-bold text-slate-900 focus:outline-none focus:border-slate-900"
                 />
               </div>
 
@@ -1834,9 +1822,9 @@ export const CalculadoraCostoReal: React.FC = () => {
                     setFondoReparacionesMensual(120000);
                     setFondoCalculado(true);
                   }}
-                  className="text-[11px] text-[#123B5D] hover:underline font-bold cursor-pointer"
+                  className="text-[11px] text-emerald-700 hover:underline font-bold cursor-pointer"
                 >
-                  Sugerido: $120.000 / mes
+                  Ahorro recomendado: $120.000 / mes
                 </button>
                 {fondoCalculado && (
                   <button
@@ -1845,7 +1833,7 @@ export const CalculadoraCostoReal: React.FC = () => {
                       setFondoCalculado(false);
                       setFondoReparacionesMensual(0);
                     }}
-                    className="text-[11px] text-[#D64545] hover:underline cursor-pointer font-medium"
+                    className="text-[11px] text-rose-600 hover:underline cursor-pointer font-medium"
                   >
                     Reiniciar a $0
                   </button>
@@ -1857,18 +1845,18 @@ export const CalculadoraCostoReal: React.FC = () => {
         </div>
 
         {/* Subtotal Mantenimiento & Imprevistos */}
-        <div className="p-4 rounded-xl bg-[#F7F9FA] border border-[#CBD5E1] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex items-center gap-2">
-            <Wrench className="w-4 h-4 text-[#123B5D]" />
-            <span className="text-xs font-bold text-[#17212B]">
-              Subtotal Mantenimiento & Imprevistos:
+            <Wrench className="w-4 h-4 text-slate-900" />
+            <span className="text-xs font-bold text-slate-900">
+              Total mantenimiento y emergencias:
             </span>
-            <span className="text-sm font-mono font-bold text-[#123B5D]">
+            <span className="text-sm font-mono font-bold text-slate-900">
               {formatoCOP(mantenimientoNum + fondoReparacionesNum)} / mes
             </span>
           </div>
-          <span className="text-[11px] font-mono text-[#66727D]">
-            Equivalente anual: {formatoCOP((mantenimientoNum + fondoReparacionesNum) * 12)} / año
+          <span className="text-[11px] font-mono text-slate-500">
+            Ahorro al año: {formatoCOP((mantenimientoNum + fondoReparacionesNum) * 12)} / año
           </span>
         </div>
       </section>
@@ -1877,63 +1865,63 @@ export const CalculadoraCostoReal: React.FC = () => {
       {/* PASO 4: FINANCIACIÓN                                 */}
       {/* ==================================================== */}
       <section className="space-y-4">
-        <div className="border-b border-[#E2E8F0] pb-3">
+        <div className="border-b border-slate-200 pb-3">
           <div className="flex items-center gap-2 mb-1">
-            <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono">
+            <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#0F172A] text-white text-xs font-bold font-mono">
               4
             </span>
-            <h3 className="text-xl sm:text-2xl font-extrabold text-[#17212B]">
-              Financiación
+            <h3 className="text-xl sm:text-2xl font-black text-slate-900">
+              4. ¿Lo vas a pagar de contado o con crédito?
             </h3>
           </div>
-          <p className="text-xs sm:text-sm text-[#66727D]">
-            Si vas a financiar la compra, calcula cuánto pagarías por el crédito o registra compra de contado.
+          <p className="text-xs sm:text-sm text-slate-500">
+            Si vas a pedir un préstamo al banco, calcula la cuota mensual. Si lo compras de contado en efectivo, déjalo en $0.
           </p>
         </div>
 
-        <div className="rounded-2xl border border-[#CBD5E1] bg-white p-5 sm:p-6 transition-all hover:border-[#123B5D]/40 shadow-xs">
+        <div className="rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 transition-all hover:border-slate-300 shadow-xs">
           <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
             <div className="space-y-1.5 max-w-md">
               <div className="flex items-center gap-2 flex-wrap">
-                <div className="w-8 h-8 rounded-lg bg-[#123B5D]/10 flex items-center justify-center text-[#123B5D]">
-                  <CreditCard className="w-4 h-4 text-[#123B5D]" />
+                <div className="w-7 h-7 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700">
+                  <CreditCard className="w-4 h-4 text-emerald-700" />
                 </div>
-                <h4 className="text-base sm:text-lg font-bold text-[#17212B]">Crédito Vehicular</h4>
+                <h4 className="text-base sm:text-lg font-black text-slate-900">Crédito para el carro</h4>
                 {!creditoCalculado ? (
-                  <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#F1F5F9] text-[#64748B] border border-[#E2E8F0] font-semibold">
+                  <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-500 border border-slate-200 font-semibold">
                     Sin calcular
                   </span>
                 ) : (
-                  <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#EBF7EE] text-[#2EAD68] border border-[#2EAD68]/30 font-semibold flex items-center gap-1">
-                    <Check className="w-3 h-3 text-[#2EAD68]" />
-                    Simulación SFC
+                  <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 font-bold flex items-center gap-1">
+                    <Check className="w-3 h-3 text-emerald-700" />
+                    Simulación con bancos
                   </span>
                 )}
               </div>
-              <p className="text-xs text-[#66727D]">
-                Simulación financiera con tasas certificadas por la Superintendencia Financiera de Colombia.
+              <p className="text-xs text-slate-500 leading-relaxed">
+                Calcula la cuota mensual fija usando las tasas promedio certificadas por la Superfinanciera.
               </p>
             </div>
 
             {/* Resultado */}
-            <div className="text-left sm:text-right shrink-0 bg-[#F7F9FA] sm:bg-transparent p-3 sm:p-0 rounded-xl">
-              <span className="text-[11px] font-mono text-[#66727D] block">
-                {creditoCalculado ? 'Cuota mensual estimada' : 'Valor inicial'}
+            <div className="text-left sm:text-right shrink-0 bg-slate-50 sm:bg-transparent p-3 sm:p-0 rounded-xl">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 block font-semibold">
+                {creditoCalculado ? 'Cuota mensual del crédito' : 'Valor inicial'}
               </span>
-              <span className={`text-2xl sm:text-3xl font-extrabold font-mono ${creditoCalculado && incluirCredito ? 'text-[#123B5D]' : 'text-slate-400'}`}>
+              <span className={`text-2xl sm:text-3xl font-black font-mono ${creditoCalculado && incluirCredito ? 'text-slate-900' : 'text-slate-400'}`}>
                 {creditoCalculado && incluirCredito ? formatoCOP(cuotaCreditoMensual) : '$0'}
               </span>
               {creditoCalculado && incluirCredito && (
-                <span className="text-xs font-mono text-[#66727D] block">/ mes</span>
+                <span className="text-xs font-mono text-slate-500 block">/ mes</span>
               )}
             </div>
           </div>
 
           {/* Si ya fue calculado, selector explícito de modalidad (A crédito vs Contado) */}
           {creditoCalculado && (
-            <div className="mt-4 p-4 rounded-xl bg-[#F7F9FA] border border-[#CBD5E1] space-y-3">
-              <span className="text-xs font-bold text-[#17212B] block">
-                Modalidad de adquisición del vehículo:
+            <div className="mt-4 p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
+              <span className="text-xs font-bold text-slate-900 block">
+                ¿Cómo vas a pagar el carro?
               </span>
               <div className="flex flex-wrap gap-2">
                 <button
@@ -1941,14 +1929,14 @@ export const CalculadoraCostoReal: React.FC = () => {
                   onClick={() => setIncluirCredito(true)}
                   className={`px-4 py-2 rounded-xl text-xs font-bold cursor-pointer transition-colors ${
                     incluirCredito && cuotaCreditoMensual > 0
-                      ? 'bg-[#EBF7EE] border-2 border-[#2EAD68] text-[#2EAD68] shadow-xs'
-                      : 'bg-white border border-[#CBD5E1] text-[#475569] hover:bg-slate-50'
+                      ? 'bg-emerald-50 border-2 border-emerald-600 text-emerald-800 shadow-xs'
+                      : 'bg-white border border-slate-300 text-slate-700 hover:bg-slate-100'
                   }`}
                 >
                   {incluirCredito && cuotaCreditoMensual > 0 && '✓ '}
                   {cuotaCreditoMensual > 0
-                    ? `Compra a crédito (${formatoCOP(cuotaCreditoMensual)}/mes)`
-                    : 'Compra financiada a crédito'}
+                    ? `Compra con crédito (${formatoCOP(cuotaCreditoMensual)}/mes)`
+                    : 'Compra con crédito bancario'}
                 </button>
 
                 <button
@@ -1956,35 +1944,35 @@ export const CalculadoraCostoReal: React.FC = () => {
                   onClick={() => setIncluirCredito(false)}
                   className={`px-4 py-2 rounded-xl text-xs font-bold cursor-pointer transition-colors ${
                     !incluirCredito || cuotaCreditoMensual === 0
-                      ? 'bg-[#EBF7EE] border-2 border-[#2EAD68] text-[#2EAD68] shadow-xs'
-                      : 'bg-white border border-[#CBD5E1] text-[#475569] hover:bg-slate-50'
+                      ? 'bg-emerald-50 border-2 border-emerald-600 text-emerald-800 shadow-xs'
+                      : 'bg-white border border-slate-300 text-slate-700 hover:bg-slate-100'
                   }`}
                 >
                   {(!incluirCredito || cuotaCreditoMensual === 0) && '✓ '}
-                  Compra de contado ($0/mes - Sin deuda)
+                  Compra de contado en efectivo ($0 al mes - Sin deuda)
                 </button>
               </div>
 
               {datosCredito && incluirCredito && cuotaCreditoMensual > 0 ? (
-                <p className="text-[11px] text-[#66727D]">
-                  Tasa aplicada: <strong>{datosCredito.tasaEA?.toFixed(2)}% E.A.</strong> · Modalidad: {datosCredito.modalidad} · Plazo: <strong>{datosCredito.plazoMeses} meses</strong>
+                <p className="text-[11px] text-slate-500">
+                  Tasa aplicada: <strong>{datosCredito.tasaEA?.toFixed(2)}% E.A.</strong> · Plazo: <strong>{datosCredito.plazoMeses} meses</strong>
                 </p>
               ) : (
-                <p className="text-[11px] text-[#66727D]">
-                  Al seleccionar compra de contado, no se adiciona ninguna cuota financiera a tu presupuesto mensual de mantenimiento.
+                <p className="text-[11px] text-slate-500">
+                  Al elegir compra de contado, no se suma ninguna deuda a tu presupuesto mensual.
                 </p>
               )}
             </div>
           )}
 
           {/* Acciones */}
-          <div className="mt-5 pt-3.5 border-t border-[#F1F5F9] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+          <div className="mt-5 pt-3.5 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
             {!creditoCalculado ? (
               <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
                 <button
                   type="button"
                   onClick={() => setMostrarCalculadoraCredito(!mostrarCalculadoraCredito)}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold bg-[#123B5D] text-white hover:bg-[#0d2a42] active:scale-98 transition-all shadow-xs cursor-pointer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold bg-[#0F172A] text-white hover:bg-slate-800 active:scale-95 transition-all shadow-xs cursor-pointer"
                 >
                   <span>Simular crédito</span>
                   <span className="font-mono">→</span>
@@ -1998,7 +1986,7 @@ export const CalculadoraCostoReal: React.FC = () => {
                     setDatosCredito(null);
                     setMostrarCalculadoraCredito(false);
                   }}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2 min-h-[40px] rounded-xl text-xs font-bold bg-[#F7F9FA] border border-[#CBD5E1] text-[#17212B] hover:bg-slate-100 transition-colors cursor-pointer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2 min-h-[40px] rounded-xl text-xs font-bold bg-slate-50 border border-slate-300 text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
                 >
                   <span>Compra de contado ($0)</span>
                 </button>
@@ -2008,9 +1996,9 @@ export const CalculadoraCostoReal: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setMostrarCalculadoraCredito(!mostrarCalculadoraCredito)}
-                  className="inline-flex items-center justify-center gap-1.5 px-4 py-2 min-h-[40px] rounded-xl text-xs font-bold bg-[#F7F9FA] border border-[#CBD5E1] text-[#17212B] hover:bg-slate-100 transition-colors cursor-pointer w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-1.5 px-4 py-2 min-h-[40px] rounded-xl text-xs font-bold bg-slate-50 border border-slate-300 text-slate-800 hover:bg-slate-100 transition-colors cursor-pointer w-full sm:w-auto"
                 >
-                  <SlidersHorizontal className="w-3.5 h-3.5 text-[#66727D]" />
+                  <SlidersHorizontal className="w-3.5 h-3.5 text-slate-500" />
                   <span>{mostrarCalculadoraCredito ? 'Cerrar simulador' : 'Modificar simulación'}</span>
                 </button>
                 <button
@@ -2022,7 +2010,7 @@ export const CalculadoraCostoReal: React.FC = () => {
                     setIncluirCredito(false);
                     setDatosCredito(null);
                   }}
-                  className="text-xs text-[#D64545] hover:underline cursor-pointer py-1 px-2 font-medium"
+                  className="text-xs text-rose-600 hover:underline cursor-pointer py-1 px-2 font-medium"
                 >
                   Reiniciar a $0
                 </button>
@@ -2032,7 +2020,7 @@ export const CalculadoraCostoReal: React.FC = () => {
 
           {/* Simulador Expandido */}
           {mostrarCalculadoraCredito && (
-            <div className="mt-4 pt-4 border-t border-[#CBD5E1]">
+            <div className="mt-4 pt-4 border-t border-slate-200">
               <CalculadoraCredito
                 onCerrar={() => setMostrarCalculadoraCredito(false)}
                 onCuotaMensualChange={(cuota, resultado) => {
@@ -2056,86 +2044,86 @@ export const CalculadoraCostoReal: React.FC = () => {
       </section>
 
       {/* ==================================================== */}
-      {/* CALLOUT DE PERITAJE / EVALUACIÓN PRE-COMPRA (STITCH) */}
+      {/* CALLOUT DE EVALUACIÓN PRE-COMPRA                      */}
       {/* ==================================================== */}
-      <div className="rounded-2xl bg-gradient-to-r from-[#123B5D] to-[#1E527D] p-6 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-5">
+      <div className="rounded-3xl bg-[#0F172A] p-6 sm:p-7 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-5 border border-slate-800">
         <div className="space-y-1.5 text-center sm:text-left">
           <div className="flex items-center justify-center sm:justify-start gap-2">
-            <ShieldCheck className="w-5 h-5 text-[#8BCF3F]" />
-            <h4 className="text-base sm:text-lg font-bold text-white">
-              Prevea sorpresas mecánicas antes de cerrar el negocio
+            <ShieldCheck className="w-5 h-5 text-emerald-400" />
+            <h4 className="text-base sm:text-lg font-black text-white">
+              Revisa el carro antes de dar plata o firmar papeles
             </h4>
           </div>
-          <p className="text-xs text-slate-200 max-w-xl leading-relaxed">
-            Una mala compra puede duplicar su presupuesto de mantenimiento mensual en reparaciones imprevistas. Evalúe el historial técnico y riesgo antes de negociar.
+          <p className="text-xs text-slate-300 max-w-xl leading-relaxed">
+            Un carro con fallas ocultas o multas viejas puede costarte millones de pesos en el taller. Hazle una revisión paso a paso con nuestra herramienta gratuita para compradores.
           </p>
         </div>
         <Link
           href="/evaluacion"
-          className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#8BCF3F] hover:bg-[#7ab837] text-[#123B5D] font-extrabold text-xs sm:text-sm shrink-0 transition-all shadow-sm active:scale-98"
+          className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-slate-100 text-slate-900 font-bold text-xs sm:text-sm shrink-0 transition-all shadow-sm active:scale-95"
         >
-          <span>Escanear Vehículo</span>
-          <span>↗</span>
+          <span>Revisar carro ahora</span>
+          <span>→</span>
         </Link>
       </div>
       </div>
 
       {/* ======================================================== */}
-      {/* MEMBRETE EJECUTIVO PARA PDF / IMPRESIÓN (ESCANEAPP)     */}
+      {/* MEMBRETE EJECUTIVO PARA PDF / IMPRESIÓN                  */}
       {/* ======================================================== */}
-      <div className="hidden print:block border-b-2 border-[#123B5D] pb-4 mb-4">
+      <div className="hidden print:block border-b-2 border-slate-900 pb-4 mb-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#123B5D] flex items-center justify-center text-white shrink-0">
-              <Calculator className="w-5 h-5 text-[#8BCF3F]" />
+            <div className="w-10 h-10 rounded-xl bg-slate-900 flex items-center justify-center text-white shrink-0">
+              <Calculator className="w-5 h-5 text-emerald-400" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-black text-xl tracking-tight text-[#123B5D]">ESCANEAPP</span>
-                <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-[#8BCF3F]/20 text-[#123B5D] border border-[#8BCF3F]/40">
-                  REPORTE TCO 2026
+                <span className="font-black text-xl tracking-tight text-slate-900">ESCANEAPP</span>
+                <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-800 border border-slate-200">
+                  REPORTE DE COSTO 2026
                 </span>
               </div>
-              <p className="text-[11px] text-[#66727D] font-medium">
-                Proyección de Costo Real de Tenencia · Tarifas oficiales en Colombia
+              <p className="text-[11px] text-slate-500 font-medium">
+                Presupuesto real para mantener tu carro · Precios oficiales en Colombia
               </p>
             </div>
           </div>
-          <div className="text-right text-[11px] font-mono text-[#66727D]">
-            <span className="font-bold text-[#17212B] block">Ciudad: {ciudadSeleccionada}</span>
+          <div className="text-right text-[11px] font-mono text-slate-500">
+            <span className="font-bold text-slate-900 block">Ciudad: {ciudadSeleccionada}</span>
             <span>Uso: {kmMes} km/mes · Fecha: {new Date().toLocaleDateString('es-CO')}</span>
           </div>
         </div>
 
         {/* Tarjetas de Resumen Ejecutivo en Impresión */}
         <div className="grid grid-cols-4 gap-3 mt-4">
-          <div className="bg-[#123B5D] text-white p-3 rounded-xl">
-            <span className="text-[10px] font-mono text-slate-300 block">PRESUPUESTO MENSUAL</span>
-            <span className="text-lg font-black font-mono text-[#8BCF3F]">
+          <div className="bg-slate-900 text-white p-3 rounded-xl">
+            <span className="text-[10px] font-mono text-slate-400 block">PRESUPUESTO MENSUAL</span>
+            <span className="text-lg font-black font-mono text-emerald-400">
               {costoTotalMensual > 0 ? formatoCOP(costoTotalMensual) : '$0'}
             </span>
-            <span className="text-[10px] font-mono text-slate-300 block">/ mes</span>
+            <span className="text-[10px] font-mono text-slate-400 block">/ mes</span>
           </div>
-          <div className="bg-[#F7F9FA] border border-[#CBD5E1] p-3 rounded-xl">
-            <span className="text-[10px] font-mono text-[#66727D] block">COSTO TOTAL ANUAL</span>
-            <span className="text-base font-black font-mono text-[#17212B]">
+          <div className="bg-slate-50 border border-slate-200 p-3 rounded-xl">
+            <span className="text-[10px] font-mono text-slate-500 block">COSTO TOTAL AL AÑO</span>
+            <span className="text-base font-black font-mono text-slate-900">
               {costoTotalAnual > 0 ? formatoCOP(costoTotalAnual) : '$0'}
             </span>
-            <span className="text-[10px] font-mono text-[#66727D] block">/ año</span>
+            <span className="text-[10px] font-mono text-slate-500 block">/ año</span>
           </div>
-          <div className="bg-[#F7F9FA] border border-[#CBD5E1] p-3 rounded-xl">
-            <span className="text-[10px] font-mono text-[#66727D] block">OBLIGATORIOS (SOAT/IMP/TEC)</span>
-            <span className="text-sm font-black font-mono text-[#17212B]">
+          <div className="bg-slate-50 border border-slate-200 p-3 rounded-xl">
+            <span className="text-[10px] font-mono text-slate-500 block">PAPELES (SOAT/IMP/TEC)</span>
+            <span className="text-sm font-black font-mono text-slate-900">
               {formatoCOP(totalObligatoriosAnual)}
             </span>
-            <span className="text-[10px] font-mono text-[#66727D] block">({pctObligatorios}% del total)</span>
+            <span className="text-[10px] font-mono text-slate-500 block">({pctObligatorios}% del total)</span>
           </div>
-          <div className="bg-[#F7F9FA] border border-[#CBD5E1] p-3 rounded-xl">
-            <span className="text-[10px] font-mono text-[#66727D] block">COMBUSTIBLE ANUAL</span>
-            <span className="text-sm font-black font-mono text-[#17212B]">
+          <div className="bg-slate-50 border border-slate-200 p-3 rounded-xl">
+            <span className="text-[10px] font-mono text-slate-500 block">GASOLINA ANUAL</span>
+            <span className="text-sm font-black font-mono text-slate-900">
               {formatoCOP(totalCombustibleAnual)}
             </span>
-            <span className="text-[10px] font-mono text-[#66727D] block">({pctCombustible}% del total)</span>
+            <span className="text-[10px] font-mono text-slate-500 block">({pctCombustible}% del total)</span>
           </div>
         </div>
       </div>
@@ -2143,76 +2131,76 @@ export const CalculadoraCostoReal: React.FC = () => {
       {/* ==================================================== */}
       {/* DESGLOSE DETALLADO DE COSTOS (TABLA COMPLETA)        */}
       {/* ==================================================== */}
-      <section className="rounded-2xl border border-[#CBD5E1] bg-white p-5 sm:p-7 shadow-xs space-y-5">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#E2E8F0] pb-4">
+      <section className="rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-7 shadow-xs space-y-5">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-4">
           <div>
-            <h4 className="text-base sm:text-lg font-extrabold text-[#17212B]">
-              Desglose detallado de costos
+            <h4 className="text-base sm:text-lg font-black text-slate-900">
+              Resumen completo de tus gastos
             </h4>
-            <p className="text-xs text-[#66727D]">
-              Valores calculados en tiempo real según tus selecciones en cada paso
+            <p className="text-xs text-slate-500">
+              Valores calculados automáticamente según lo que elegiste en cada paso
             </p>
           </div>
           <div className="text-right">
-            <span className="text-xs font-mono text-[#66727D] block">Total mensual estimado</span>
-            <span className="text-xl font-extrabold font-mono text-[#123B5D]">
-              {formatoCOP(costoTotalMensual)} <span className="text-xs text-[#66727D]">/ mes</span>
+            <span className="text-xs font-mono text-slate-500 block">Total mensual estimado</span>
+            <span className="text-xl font-extrabold font-mono text-slate-900">
+              {formatoCOP(costoTotalMensual)} <span className="text-xs text-slate-500">/ mes</span>
             </span>
           </div>
         </div>
 
         {/* Vista Desktop (Tabla limpia) */}
-        <div className="hidden sm:block print:block overflow-x-auto rounded-xl border border-[#CBD5E1]">
+        <div className="hidden sm:block print:block overflow-x-auto rounded-xl border border-slate-200">
           <table className="w-full text-left text-xs border-collapse">
             <thead>
-              <tr className="bg-[#F7F9FA] border-b border-[#CBD5E1] font-mono text-[11px] text-[#66727D] uppercase">
-                <th className="py-3 px-4 font-bold text-[#17212B]">Concepto</th>
-                <th className="py-3 px-4 font-bold text-[#17212B]">Categoría</th>
-                <th className="py-3 px-4 font-bold text-[#17212B]">Origen del Dato</th>
-                <th className="py-3 px-4 font-bold text-[#17212B] text-right">Mensual</th>
-                <th className="py-3 px-4 font-bold text-[#17212B] text-right">Anual</th>
+              <tr className="bg-slate-50 border-b border-slate-200 font-mono text-[11px] text-slate-500 uppercase">
+                <th className="py-3 px-4 font-bold text-slate-900">Gasto</th>
+                <th className="py-3 px-4 font-bold text-slate-900">Tipo</th>
+                <th className="py-3 px-4 font-bold text-slate-900">Origen del Dato</th>
+                <th className="py-3 px-4 font-bold text-slate-900 text-right">Al Mes</th>
+                <th className="py-3 px-4 font-bold text-slate-900 text-right">Al Año</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#E2E8F0] bg-white">
+            <tbody className="divide-y divide-slate-100 bg-white">
               {desgloseItems.map((item, idx) => (
-                <tr key={idx} className="hover:bg-[#F7F9FA] transition-colors">
+                <tr key={idx} className="hover:bg-slate-50/80 transition-colors">
                   <td className="py-3 px-4">
-                    <span className="font-bold text-[#17212B] block">{item.concepto}</span>
-                    <span className="text-[11px] text-[#66727D]">{item.detalle}</span>
+                    <span className="font-bold text-slate-900 block">{item.concepto}</span>
+                    <span className="text-[11px] text-slate-500">{item.detalle}</span>
                   </td>
                   <td className="py-3 px-4">
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-[#F1F5F9] text-[#475569] border border-[#CBD5E1]">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-slate-100 text-slate-700 border border-slate-200">
                       {item.categoria}
                     </span>
                   </td>
                   <td className="py-3 px-4">
                     {item.calculado ? (
-                      <span className="text-[11px] text-[#2EAD68] font-bold">
+                      <span className="text-[11px] text-emerald-700 font-bold">
                         {item.tipoDato}
                       </span>
                     ) : (
-                      <span className="text-[11px] text-[#94A3B8] font-mono">
+                      <span className="text-[11px] text-slate-400 font-mono">
                         Sin calcular
                       </span>
                     )}
                   </td>
-                  <td className="py-3 px-4 text-right font-mono font-bold text-[#17212B]">
+                  <td className="py-3 px-4 text-right font-mono font-bold text-slate-900">
                     {item.calculado ? formatoCOP(item.mensual) : '$0'}
                   </td>
-                  <td className="py-3 px-4 text-right font-mono text-[#66727D]">
+                  <td className="py-3 px-4 text-right font-mono text-slate-500">
                     {item.calculado ? formatoCOP(item.anual) : '$0'}
                   </td>
                 </tr>
               ))}
               {/* Fila de Totales */}
-              <tr className="bg-[#F7F9FA] font-bold border-t-2 border-[#123B5D]">
-                <td className="py-3.5 px-4 text-[#17212B] text-sm" colSpan={3}>
-                  TOTAL ESTIMADO CONSOLIDADO
+              <tr className="bg-slate-50 font-bold border-t-2 border-slate-900">
+                <td className="py-3.5 px-4 text-slate-900 text-sm" colSpan={3}>
+                  TOTAL ESTIMADO DEL CARRO
                 </td>
-                <td className="py-3.5 px-4 text-right font-mono text-sm text-[#123B5D] font-extrabold">
+                <td className="py-3.5 px-4 text-right font-mono text-sm text-slate-900 font-extrabold">
                   {formatoCOP(costoTotalMensual)}
                 </td>
-                <td className="py-3.5 px-4 text-right font-mono text-sm text-[#17212B] font-bold">
+                <td className="py-3.5 px-4 text-right font-mono text-sm text-slate-900 font-bold">
                   {formatoCOP(costoTotalAnual)}
                 </td>
               </tr>
@@ -2225,25 +2213,25 @@ export const CalculadoraCostoReal: React.FC = () => {
           {desgloseItems.map((item, idx) => (
             <div
               key={idx}
-              className="rounded-xl border border-[#CBD5E1] bg-[#F7F9FA] p-3.5 space-y-1.5"
+              className="rounded-xl border border-slate-200 bg-slate-50/70 p-3.5 space-y-1.5"
             >
               <div className="flex items-center justify-between">
-                <span className="font-bold text-[#17212B] text-xs">{item.concepto}</span>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white text-[#475569] border border-[#CBD5E1]">
+                <span className="font-bold text-slate-900 text-xs">{item.concepto}</span>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white text-slate-700 border border-slate-200">
                   {item.categoria}
                 </span>
               </div>
-              <p className="text-[11px] text-[#66727D]">{item.detalle}</p>
-              <div className="flex items-center justify-between pt-1 border-t border-[#E2E8F0] text-xs">
+              <p className="text-[11px] text-slate-500">{item.detalle}</p>
+              <div className="flex items-center justify-between pt-1 border-t border-slate-200 text-xs">
                 <div>
-                  <span className="text-[10px] text-[#66727D] block">Mensual</span>
-                  <span className="font-mono font-bold text-[#17212B]">
+                  <span className="text-[10px] text-slate-500 block">Al mes</span>
+                  <span className="font-mono font-bold text-slate-900">
                     {item.calculado ? formatoCOP(item.mensual) : '$0'}
                   </span>
                 </div>
                 <div className="text-right">
-                  <span className="text-[10px] text-[#66727D] block">Anual</span>
-                  <span className="font-mono text-[#66727D]">
+                  <span className="text-[10px] text-slate-500 block">Al año</span>
+                  <span className="font-mono text-slate-500">
                     {item.calculado ? formatoCOP(item.anual) : '$0'}
                   </span>
                 </div>
@@ -2252,20 +2240,20 @@ export const CalculadoraCostoReal: React.FC = () => {
           ))}
 
           {/* Total Móvil */}
-          <div className="rounded-xl bg-[#123B5D] text-white p-4 space-y-2 mt-3">
-            <span className="text-xs font-mono uppercase tracking-wider text-[#8BCF3F] font-bold block">
+          <div className="rounded-2xl bg-[#0F172A] text-white p-4 space-y-2 mt-3">
+            <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold block">
               TOTAL ESTIMADO
             </span>
             <div className="flex items-center justify-between">
               <div>
-                <span className="text-[10px] text-slate-300 block">Presupuesto mensual</span>
-                <span className="text-lg font-mono font-extrabold text-[#8BCF3F]">
+                <span className="text-[10px] text-slate-400 block">Presupuesto mensual</span>
+                <span className="text-lg font-mono font-extrabold text-white">
                   {formatoCOP(costoTotalMensual)}
                 </span>
               </div>
               <div className="text-right">
-                <span className="text-[10px] text-slate-300 block">Total anual</span>
-                <span className="text-lg font-mono font-bold text-white">
+                <span className="text-[10px] text-slate-400 block">Total al año</span>
+                <span className="text-lg font-mono font-bold text-slate-200">
                   {formatoCOP(costoTotalAnual)}
                 </span>
               </div>
@@ -2274,10 +2262,10 @@ export const CalculadoraCostoReal: React.FC = () => {
         </div>
 
         {/* Aviso de orientación */}
-        <div className="p-4 rounded-xl bg-[#F7F9FA] border border-[#CBD5E1] flex items-start gap-3 text-xs text-[#66727D] leading-relaxed">
-          <ShieldAlert className="w-4 h-4 text-[#123B5D] shrink-0 mt-0.5" />
+        <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-3 text-xs text-slate-500 leading-relaxed">
+          <ShieldAlert className="w-4 h-4 text-slate-700 shrink-0 mt-0.5" />
           <p>
-            <strong className="text-[#17212B]">Aviso de orientación:</strong> Los cálculos presentados corresponden a estimaciones y referencias promedio según precios oficiales vigentes en Colombia. No constituyen una cotización formal ni sustituyen una inspección técnica o peritaje profesional.
+            <strong className="text-slate-900">Aviso importante:</strong> Los cálculos mostrados son estimaciones promedio con base en precios oficiales en Colombia. Te sirven de guía para planear tu presupuesto antes de comprar, pero no reemplazan una revisión técnica con un perito automotriz.
           </p>
         </div>
       </section>

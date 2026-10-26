@@ -1,1449 +1,724 @@
 import Link from 'next/link';
-
+import Image from 'next/image';
 import type { Metadata } from 'next';
-
 import {
-
   Wrench,
-
   ShieldCheck,
-
   CheckCircle2,
-
   ArrowRight,
-
-  AlertTriangle,
-
-  ExternalLink,
-
   HelpCircle,
-
-  FileText,
-
   DollarSign,
-
   Car,
-
-  Activity,
-
-  Layers,
-
+  Search,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-
-  title: '¿Cuánto cuesta un peritaje vehicular en Colombia y qué incluye?',
-
+  title: '¿Cuánto cuesta un peritaje vehicular en Colombia? Precios y Guía',
   description:
-
-    'Guía de precios de peritaje vehicular en Colombia: compara tarifas publicadas, servicios en sede y a domicilio, pruebas incluidas y recomendaciones antes de contratar.',
-
+    'Precios reales de peritaje vehicular en Colombia: cuánto cobran Colserauto, Automás y Elperito. Diferencias entre básico y completo y qué incluye cada paquete.',
   alternates: {
-
     canonical: '/costo-peritaje-colombia',
-
   },
-
   openGraph: {
-
-    title: '¿Cuánto cuesta un peritaje vehicular en Colombia y qué incluye?',
-
+    title: '¿Cuánto cuesta un peritaje vehicular en Colombia? Precios y Guía',
     description:
-
-      'Compara precios publicados de peritaje vehicular en Colombia, pruebas incluidas y opciones en sede o a domicilio antes de comprar un carro usado.',
-
+      'Compara precios de peritaje vehicular en Colombia, paquetes en sede y a domicilio, y qué pruebas mecánicas y legales pedir antes de comprar.',
     url: 'https://www.escaneapp.com/costo-peritaje-colombia',
-
     siteName: 'EscaneApp',
-
     locale: 'es_CO',
-
     type: 'article',
-
+    images: [
+      {
+        url: '/artppal-pexels-freestockpro-12969398.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Peritaje vehicular en Colombia y revisión técnica',
+      },
+    ],
   },
-
+  twitter: {
+    card: 'summary_large_image',
+    title: '¿Cuánto cuesta un peritaje vehicular en Colombia? Precios y Guía',
+    description:
+      'Compara precios de peritaje vehicular en Colombia, qué incluye cada paquete y consejos clave antes de contratar.',
+    images: ['/artppal-pexels-freestockpro-12969398.jpg'],
+  },
 };
 
 const articleStructuredData = {
-
   '@context': 'https://schema.org',
-
   '@type': 'Article',
-
   '@id': 'https://www.escaneapp.com/costo-peritaje-colombia#article',
-
   headline: '¿Cuánto cuesta un peritaje vehicular en Colombia y qué incluye?',
-
   description:
-
-    'Guía de precios publicados y alcance del peritaje vehicular en Colombia: paquetes, pruebas técnicas, servicios en sede o a domicilio y recomendaciones antes de comprar.',
-
+    'Guía completa sobre tarifas de peritaje en Colombia, comparación entre paquetes básicos y completos, pruebas incluidas y consejos para compradores de carros usados.',
   url: 'https://www.escaneapp.com/costo-peritaje-colombia',
-
+  image: 'https://www.escaneapp.com/artppal-pexels-freestockpro-12969398.jpg',
   inLanguage: 'es-CO',
-
+  datePublished: '2025-01-10T08:00:00+00:00',
+  dateModified: '2026-10-25T12:00:00+00:00',
+  author: [
+    {
+      '@type': 'Organization',
+      name: 'Equipo Editorial EscaneApp',
+      url: 'https://www.escaneapp.com',
+    },
+  ],
   isPartOf: {
-
     '@id': 'https://www.escaneapp.com/#webapp',
-
   },
-
   publisher: {
-
     '@type': 'Organization',
-
     name: 'EscaneApp',
-
     url: 'https://www.escaneapp.com',
-
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://www.escaneapp.com/01_logo_horizontal_principal.png',
+    },
   },
+};
 
+const faqStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Cuánto cuesta un peritaje para carro en Colombia?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'En promedio, un peritaje básico cuesta entre $169.000 y $296.000 COP (solo inspección visual). Un peritaje completo y recomendado cuesta entre $327.000 y $456.000 COP e incluye escáner electrónico, chasis en elevador y prueba de ruta. Para autos de alta gama puede superar los $600.000 COP.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Quién debe pagar el peritaje: el comprador o el vendedor?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Por costumbre en Colombia lo paga el comprador, ya que el informe es para su propia seguridad e independencia. Sin embargo, en muchos casos las partes acuerdan pagar mitad y mitad si el vehículo aprueba la revisión.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Qué diferencia hay entre un peritaje en sede y uno a domicilio?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'En una sede física el carro se sube a una rampa o fosa elevadora, lo que permite ver el chasis por debajo, fugas ocultas y suspensión con iluminación completa. A domicilio es más cómodo, pero el técnico solo puede revisar lo accesible al nivel del piso con linterna y gato.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿El peritaje garantiza que el carro no va a fallar?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No garantiza el futuro, pero es la mejor herramienta para conocer el estado real actual del carro: si fue chocado de gravedad, si tiene masilla oculta, si el motor tiene buena compresión o si tiene embargos pendientes.',
+      },
+    },
+  ],
+};
+
+const breadcrumbStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Inicio',
+      item: 'https://www.escaneapp.com',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Costo de peritaje en Colombia',
+      item: 'https://www.escaneapp.com/costo-peritaje-colombia',
+    },
+  ],
 };
 
 export default function CostoPeritajeColombiaPage() {
-
   return (
-
-    <div className="w-full bg-[#F7F9FA] min-h-screen text-[#17212B]">
-
+    <div className="w-full bg-[#F8FAFC] min-h-screen text-slate-800">
       <script
-
         type="application/ld+json"
-
         dangerouslySetInnerHTML={{
-
           __html: JSON.stringify(articleStructuredData),
-
         }}
-
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqStructuredData),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbStructuredData),
+        }}
       />
 
       <article className="max-w-4xl mx-auto px-4 sm:px-6 py-8 md:py-14">
-
         {/* Migas de pan */}
-
         <nav aria-label="Migas de pan" className="mb-6">
-
-          <ol className="flex flex-wrap items-center gap-2 text-xs text-[#66727D]">
-
+          <ol className="flex flex-wrap items-center gap-2 text-xs text-slate-500">
             <li>
-
-              <Link href="/" className="hover:text-[#123B5D] transition-colors font-medium">
-
+              <Link href="/" className="hover:text-slate-900 transition-colors font-medium">
                 Inicio
-
               </Link>
-
             </li>
-
             <li aria-hidden="true" className="text-slate-300">
-
               /
-
             </li>
-
             <li>
-
-              <span className="text-[#17212B] font-bold">
-
-                Costo de peritaje vehicular
-
+              <span className="text-slate-900 font-bold">
+                Costo de peritaje vehicular en Colombia
               </span>
-
             </li>
-
           </ol>
-
         </nav>
 
         {/* Encabezado */}
-
-        <header className="mb-8">
-
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#123B5D]/10 text-[#123B5D] font-mono font-bold text-xs mb-3">
-
-            <Wrench className="w-3.5 h-3.5 text-[#123B5D]" />
-
-            <span>GUÍA DE COSTOS · PERITAJE VEHICULAR EN COLOMBIA</span>
-
+        <header className="mb-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/5 text-slate-900 border border-slate-200/90 font-mono font-semibold text-xs mb-3">
+            <DollarSign className="w-3.5 h-3.5 text-emerald-600" />
+            <span>GUÍA DE TARIFAS Y SERVICIOS · COLOMBIA</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#17212B] leading-tight mb-4">
-
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 leading-[1.15] mb-4">
             ¿Cuánto cuesta un peritaje vehicular en Colombia y qué incluye?
-
           </h1>
 
-          <p className="text-base sm:text-lg text-[#66727D] leading-relaxed max-w-3xl mb-4">
-
-            Si estás pensando en comprar un carro usado en Colombia, el peritaje vehicular puede ayudarte a identificar daños, reparaciones anteriores y posibles problemas mecánicos antes de cerrar el negocio. Sin embargo, el precio y el alcance de la revisión dependen del proveedor y del paquete contratado.
-
+          <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl mb-6">
+            Llevar un carro a peritaje es la inversión más inteligente que puedes hacer antes de comprarlo: te permite saber si fue chocado, si el motor está desgastado o si tiene problemas de papeles, evitando perder millones de pesos.
           </p>
 
-          <p className="text-sm sm:text-base text-[#475569] leading-relaxed max-w-3xl">
-
-            Como referencia, los precios publicados por proveedores consultados en octubre de 2026 muestran paquetes para vehículos livianos desde $169.000 COP y servicios más completos o especializados que superan los $600.000 COP. El valor depende de las pruebas incluidas, la ciudad, el proveedor y si la atención es en sede o a domicilio. La diferencia depende de si el servicio incluye únicamente una inspección visual o agrega escáner electrónico, prueba de compresión, prueba de ruta, consulta de antecedentes y otras comprobaciones.
-
-          </p>
-
-          <p className="text-xs sm:text-sm text-[#66727D] mt-2">
-
-            En esta guía encontrarás cuánto puede costar un peritaje, qué suele incluir y qué debes preguntar antes de contratarlo.
-
-          </p>
-
+          <div className="relative w-full h-64 sm:h-80 md:h-96 rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm">
+            <Image
+              src="/artppal-pexels-freestockpro-12969398.jpg"
+              alt="Peritaje vehicular en Colombia y revisión técnica"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 896px"
+              className="object-cover"
+            />
+          </div>
         </header>
 
-        {/* 1. ¿Cuánto cuesta un peritaje vehicular en Colombia? */}
+        {/* Introducción */}
+        <section className="mb-8 bg-white border border-slate-200/90 p-6 sm:p-7 rounded-2xl shadow-xs text-sm sm:text-base text-slate-700 leading-relaxed space-y-4">
+          <p>
+            En Colombia, el peritaje es como la revisión médica integral de un vehículo. Un técnico capacitado revisa la carrocería con aparatos de medición, sube el carro a una rampa para revisar el chasis por debajo, le conecta un escáner electrónico al computador de a bordo y revisa que los números de motor y chasis coincidan con los documentos oficiales.
+          </p>
+          <p>
+            Sin embargo, los precios varían notablemente según la empresa y el paquete que elijas: van desde <strong>$169.000 COP</strong> para revisiones básicas hasta más de <strong>$680.000 COP</strong> para paquetes completos en vehículos de alta gama.
+          </p>
+        </section>
 
-        <section className="mb-10 bg-white border border-[#CBD5E1] p-6 sm:p-8 rounded-2xl shadow-xs space-y-6">
-
-          <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
-
-            <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
-
+        {/* 1. Precios de peritaje en Colombia */}
+        <section className="mb-10 bg-white border border-slate-200/90 p-6 sm:p-8 rounded-2xl shadow-xs space-y-6">
+          <div className="flex items-center gap-3 border-b border-slate-100 pb-3">
+            <span className="w-7 h-7 rounded-lg bg-[#0F172A] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
               1
-
             </span>
-
-            <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
-
-              ¿Cuánto cuesta un peritaje vehicular en Colombia?
-
+            <h2 className="text-xl sm:text-2xl font-black text-slate-900">
+              Tarifas promedio de peritaje en Colombia
             </h2>
-
           </div>
 
-          <p className="text-sm text-[#475569] leading-relaxed">
-
-            No existe una tarifa única para todos los peritajes comerciales. Cada proveedor define sus precios según el tipo de vehículo, el alcance de la inspección, los equipos utilizados y los servicios adicionales.
-
-          </p>
-
-          <p className="text-sm text-[#475569] leading-relaxed">
-            Como referencia, los precios publicados por los principales proveedores en Colombia consultados en octubre de 2026 van desde <strong>$169.000 hasta más de $680.000 COP</strong> para vehículos livianos. Para entenderlos fácilmente, los servicios se dividen principalmente en <strong>tres niveles o gamas</strong> según la profundidad de las pruebas:
+          <p className="text-sm text-slate-700 leading-relaxed">
+            Para facilitarte la comparación, los paquetes de peritaje en el mercado colombiano se dividen principalmente en <strong>tres niveles</strong> según qué tan profunda sea la inspección:
           </p>
 
           {/* Tarjetas resumen por nivel */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 pt-1">
-            <div className="p-4 rounded-xl border border-emerald-200 bg-emerald-50/50 space-y-1.5">
-              <span className="inline-block px-2 py-0.5 rounded text-[11px] font-bold font-mono bg-emerald-700 text-white uppercase">
+            <div className="p-5 rounded-xl border border-slate-200/90 bg-slate-50 space-y-2">
+              <span className="inline-block px-2 py-0.5 rounded text-[11px] font-bold font-mono bg-slate-800 text-white uppercase tracking-wider">
                 Nivel 1 · Básico
               </span>
-              <div className="text-base font-bold text-[#17212B]">$169.000 – $296.000</div>
-              <p className="text-xs text-[#475569] leading-relaxed">
-                Inspección visual general, revisión de carrocería superficial y consulta documental básica en RUNT.
+              <div className="text-xl font-black text-slate-900 font-mono">$169.000 – $296.000</div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Revisión visual general de pintura y carrocería, luces y consulta básica de papeles en el RUNT. No incluye elevador ni escáner profundo.
               </p>
             </div>
 
-            <div className="p-4 rounded-xl border border-[#123B5D]/30 bg-blue-50/50 space-y-1.5 shadow-xs">
-              <span className="inline-block px-2 py-0.5 rounded text-[11px] font-bold font-mono bg-[#123B5D] text-white uppercase">
+            <div className="p-5 rounded-xl border-2 border-emerald-600/40 bg-emerald-50/40 space-y-2 relative shadow-xs">
+              <span className="inline-block px-2 py-0.5 rounded text-[11px] font-bold font-mono bg-emerald-700 text-white uppercase tracking-wider">
                 Nivel 2 · Completo (Recomendado)
               </span>
-              <div className="text-base font-bold text-[#17212B]">$327.000 – $456.000</div>
-              <p className="text-xs text-[#475569] leading-relaxed">
-                Suma escáner electrónico OBD, prueba de ruta en movimiento, chasis en elevador y estudio legal amplio.
+              <div className="text-xl font-black text-slate-900 font-mono">$327.000 – $456.000</div>
+              <p className="text-xs text-slate-700 leading-relaxed">
+                Suma escáner computarizado OBD2, prueba de manejo en ruta, chasis en rampa elevadora, compresión y estudio legal completo de antecedentes.
               </p>
             </div>
 
-            <div className="p-4 rounded-xl border border-purple-200 bg-purple-50/40 space-y-1.5">
-              <span className="inline-block px-2 py-0.5 rounded text-[11px] font-bold font-mono bg-purple-700 text-white uppercase">
-                Nivel 3 · Premium / Alta Gama
+            <div className="p-5 rounded-xl border border-slate-200/90 bg-slate-50 space-y-2">
+              <span className="inline-block px-2 py-0.5 rounded text-[11px] font-bold font-mono bg-slate-800 text-white uppercase tracking-wider">
+                Nivel 3 · Alta Gama
               </span>
-              <div className="text-base font-bold text-[#17212B]">$520.000 – $684.000+</div>
-              <p className="text-xs text-[#475569] leading-relaxed">
-                Para autos de alta gama o deportivos: diagnóstico electrónico avanzado, compresión de cilindros y pruebas ampliadas.
+              <div className="text-xl font-black text-slate-900 font-mono">$520.000 – $684.000+</div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Diseñado para marcas prémium (BMW, Mercedes, Audi) o camionetas grandes con múltiples módulos electrónicos y cajas automáticas complejas.
               </p>
             </div>
           </div>
 
-          {/* Tabla comparativa estructurada por niveles */}
-          <div className="overflow-x-auto rounded-xl border border-[#CBD5E1]">
+          {/* Tabla comparativa estructurada */}
+          <div className="overflow-x-auto rounded-xl border border-slate-200/90">
             <table className="w-full text-left text-xs sm:text-sm border-collapse">
               <thead>
-                <tr className="bg-[#123B5D] text-white font-mono text-xs uppercase">
+                <tr className="bg-[#0F172A] text-white font-mono text-xs uppercase">
                   <th className="py-3 px-4 font-bold">Proveedor / Ubicación</th>
-                  <th className="py-3 px-4 font-bold">Paquete publicado y alcance</th>
-                  <th className="py-3 px-4 font-bold text-right">Tarifa (COP)</th>
+                  <th className="py-3 px-4 font-bold">Paquete y alcance</th>
+                  <th className="py-3 px-4 font-bold text-right">Tarifa aproximada (COP)</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#E2E8F0]">
+              <tbody className="divide-y divide-slate-100">
                 {/* GRUPO 1: BÁSICOS */}
-                <tr className="bg-emerald-100/70">
-                  <td colSpan={3} className="py-2.5 px-4 font-bold text-xs uppercase tracking-wider text-emerald-900 font-mono">
+                <tr className="bg-slate-100/90 text-slate-800 font-mono font-bold text-xs uppercase tracking-wider border-y border-slate-200">
+                  <td colSpan={3} className="py-2.5 px-4 font-bold text-xs tracking-wider font-mono">
                     🟢 Paquetes Básicos / Esenciales · $169.000 a $296.000 COP
                   </td>
                 </tr>
-                <tr className="hover:bg-[#F7F9FA] transition-colors">
-                  <td className="py-3 px-4 font-semibold text-[#17212B]">CDA Chía Tres Esquinas</td>
-                  <td className="py-3 px-4 text-[#475569]">Combo esencial (inspección visual básica)</td>
-                  <td className="py-3 px-4 text-right font-mono font-bold text-[#123B5D]">$169.000</td>
+                <tr className="hover:bg-slate-50/70 transition-colors">
+                  <td className="py-3 px-4 font-semibold text-slate-900">CDA Chía Tres Esquinas</td>
+                  <td className="py-3 px-4 text-slate-600">Combo esencial (inspección visual básica)</td>
+                  <td className="py-3 px-4 text-right font-mono font-bold text-slate-900">$169.000</td>
                 </tr>
-                <tr className="bg-[#F7F9FA]/60 hover:bg-[#F7F9FA] transition-colors">
-                  <td className="py-3 px-4 font-semibold text-[#17212B]">Peritaje de Vehículos</td>
-                  <td className="py-3 px-4 text-[#475569]">Peritaje básico (cobertura nacional)</td>
-                  <td className="py-3 px-4 text-right font-mono font-bold text-[#123B5D]">$170.000</td>
+                <tr className="hover:bg-slate-50/70 transition-colors">
+                  <td className="py-3 px-4 font-semibold text-slate-900">Peritaje de Vehículos</td>
+                  <td className="py-3 px-4 text-slate-600">Peritaje básico (cobertura nacional)</td>
+                  <td className="py-3 px-4 text-right font-mono font-bold text-slate-900">$170.000</td>
                 </tr>
-                <tr className="hover:bg-[#F7F9FA] transition-colors">
-                  <td className="py-3 px-4 font-semibold text-[#17212B]">
-                    <a href="https://elperito.com/peritaje-cali/" target="_blank" rel="noopener noreferrer" className="text-[#123B5D] hover:underline">
+                <tr className="hover:bg-slate-50/70 transition-colors">
+                  <td className="py-3 px-4 font-semibold text-slate-900">
+                    <a href="https://elperito.com/peritaje-cali/" target="_blank" rel="noopener noreferrer" className="text-slate-900 hover:text-emerald-700 underline">
                       Elperito.com
                     </a> (Cali / Bogotá)
                   </td>
-                  <td className="py-3 px-4 text-[#475569]">Peritaje básico (revisión de estructura y lámina)</td>
-                  <td className="py-3 px-4 text-right font-mono font-bold text-[#123B5D]">$194.000</td>
+                  <td className="py-3 px-4 text-slate-600">Peritaje básico (revisión de estructura y lámina)</td>
+                  <td className="py-3 px-4 text-right font-mono font-bold text-slate-900">$194.000</td>
                 </tr>
-                <tr className="bg-[#F7F9FA]/60 hover:bg-[#F7F9FA] transition-colors">
-                  <td className="py-3 px-4 font-semibold text-[#17212B]">
-                    <a href="https://www.autolab.com.co/peritaje-para-carros/" target="_blank" rel="noopener noreferrer" className="text-[#123B5D] hover:underline">
+                <tr className="hover:bg-slate-50/70 transition-colors">
+                  <td className="py-3 px-4 font-semibold text-slate-900">
+                    <a href="https://www.autolab.com.co/peritaje-para-carros/" target="_blank" rel="noopener noreferrer" className="text-slate-900 hover:text-emerald-700 underline">
                       Autolab
                     </a>
                   </td>
-                  <td className="py-3 px-4 text-[#475569]">Peritaje Compra Segura (revisión de puntos mecánicos clave)</td>
-                  <td className="py-3 px-4 text-right font-mono font-bold text-[#123B5D]">$246.000</td>
+                  <td className="py-3 px-4 text-slate-600">Compra Segura (revisión de puntos mecánicos clave)</td>
+                  <td className="py-3 px-4 text-right font-mono font-bold text-slate-900">$246.000</td>
                 </tr>
-                <tr className="hover:bg-[#F7F9FA] transition-colors">
-                  <td className="py-3 px-4 font-semibold text-[#17212B]">
-                    <a href="https://www.colserauto.com/servicios-avaluo-y-peritaje" target="_blank" rel="noopener noreferrer" className="text-[#123B5D] hover:underline">
+                <tr className="hover:bg-slate-50/70 transition-colors">
+                  <td className="py-3 px-4 font-semibold text-slate-900">
+                    <a href="https://www.colserauto.com/servicios-avaluo-y-peritaje" target="_blank" rel="noopener noreferrer" className="text-slate-900 hover:text-emerald-700 underline">
                       Colserauto
                     </a>
                   </td>
-                  <td className="py-3 px-4 text-[#475569]">Plan Basic (avalúo y peritaje + estudio técnico + consulta RUNT)</td>
-                  <td className="py-3 px-4 text-right font-mono font-bold text-[#123B5D]">$294.100</td>
+                  <td className="py-3 px-4 text-slate-600">Plan Basic (avalúo técnico + consulta RUNT)</td>
+                  <td className="py-3 px-4 text-right font-mono font-bold text-slate-900">$294.100</td>
                 </tr>
-                <tr className="bg-[#F7F9FA]/60 hover:bg-[#F7F9FA] transition-colors">
-                  <td className="py-3 px-4 font-semibold text-[#17212B]">
-                    <a href="https://automas.com.co/peritaje-cali/" target="_blank" rel="noopener noreferrer" className="text-[#123B5D] hover:underline">
+                <tr className="hover:bg-slate-50/70 transition-colors">
+                  <td className="py-3 px-4 font-semibold text-slate-900">
+                    <a href="https://automas.com.co/peritaje-cali/" target="_blank" rel="noopener noreferrer" className="text-slate-900 hover:text-emerald-700 underline">
                       Automás
                     </a>
                   </td>
-                  <td className="py-3 px-4 text-[#475569]">Peritaje vehículo liviano (revisión base en sede)</td>
-                  <td className="py-3 px-4 text-right font-mono font-bold text-[#123B5D]">$296.000</td>
+                  <td className="py-3 px-4 text-slate-600">Peritaje liviano (revisión base en sede)</td>
+                  <td className="py-3 px-4 text-right font-mono font-bold text-slate-900">$296.000</td>
                 </tr>
 
                 {/* GRUPO 2: COMPLETOS */}
-                <tr className="bg-blue-100/70">
-                  <td colSpan={3} className="py-2.5 px-4 font-bold text-xs uppercase tracking-wider text-[#123B5D] font-mono">
+                <tr className="bg-slate-900 text-white font-mono font-bold text-xs uppercase tracking-wider">
+                  <td colSpan={3} className="py-2.5 px-4 font-bold text-xs tracking-wider font-mono">
                     🔵 Paquetes Completos / Estándar (Recomendados) · $327.000 a $456.000 COP
                   </td>
                 </tr>
-                <tr className="hover:bg-[#F7F9FA] transition-colors">
-                  <td className="py-3 px-4 font-semibold text-[#17212B]">
-                    <a href="https://elperito.com/peritaje-cali/" target="_blank" rel="noopener noreferrer" className="text-[#123B5D] hover:underline">
+                <tr className="hover:bg-slate-50/70 transition-colors">
+                  <td className="py-3 px-4 font-semibold text-slate-900">
+                    <a href="https://elperito.com/peritaje-cali/" target="_blank" rel="noopener noreferrer" className="text-slate-900 hover:text-emerald-700 underline">
                       Elperito.com
                     </a> (Cali / Bogotá)
                   </td>
-                  <td className="py-3 px-4 text-[#475569]">Peritaje completo (agrega escáner, prueba de ruta y revisión jurídica)</td>
-                  <td className="py-3 px-4 text-right font-mono font-bold text-[#123B5D]">$327.000</td>
+                  <td className="py-3 px-4 text-slate-600">Peritaje completo (agrega escáner, prueba de ruta y estudio jurídico)</td>
+                  <td className="py-3 px-4 text-right font-mono font-bold text-slate-900">$327.000</td>
                 </tr>
-                <tr className="bg-[#F7F9FA]/60 hover:bg-[#F7F9FA] transition-colors">
-                  <td className="py-3 px-4 font-semibold text-[#17212B]">
-                    <a href="https://www.autolab.com.co/peritaje-para-carros/" target="_blank" rel="noopener noreferrer" className="text-[#123B5D] hover:underline">
+                <tr className="hover:bg-slate-50/70 transition-colors">
+                  <td className="py-3 px-4 font-semibold text-slate-900">
+                    <a href="https://www.autolab.com.co/peritaje-para-carros/" target="_blank" rel="noopener noreferrer" className="text-slate-900 hover:text-emerald-700 underline">
                       Autolab
                     </a>
                   </td>
-                  <td className="py-3 px-4 text-[#475569]">Peritaje Compra Segura Plus (diagnóstico integral y escaneo)</td>
-                  <td className="py-3 px-4 text-right font-mono font-bold text-[#123B5D]">$344.000</td>
+                  <td className="py-3 px-4 text-slate-600">Compra Segura Plus (diagnóstico integral y escaneo)</td>
+                  <td className="py-3 px-4 text-right font-mono font-bold text-slate-900">$344.000</td>
                 </tr>
-                <tr className="hover:bg-[#F7F9FA] transition-colors">
-                  <td className="py-3 px-4 font-semibold text-[#17212B]">CDA Chía Tres Esquinas</td>
-                  <td className="py-3 px-4 text-[#475569]">Combo Expert (inspección detallada de sistemas y estructura)</td>
-                  <td className="py-3 px-4 text-right font-mono font-bold text-[#123B5D]">$360.000</td>
+                <tr className="hover:bg-slate-50/70 transition-colors">
+                  <td className="py-3 px-4 font-semibold text-slate-900">CDA Chía Tres Esquinas</td>
+                  <td className="py-3 px-4 text-slate-600">Combo Expert (inspección detallada de sistemas y estructura)</td>
+                  <td className="py-3 px-4 text-right font-mono font-bold text-slate-900">$360.000</td>
                 </tr>
-                <tr className="bg-[#F7F9FA]/60 hover:bg-[#F7F9FA] transition-colors">
-                  <td className="py-3 px-4 font-semibold text-[#17212B]">
-                    <a href="https://automas.com.co/peritaje-cali/" target="_blank" rel="noopener noreferrer" className="text-[#123B5D] hover:underline">
+                <tr className="hover:bg-slate-50/70 transition-colors">
+                  <td className="py-3 px-4 font-semibold text-slate-900">
+                    <a href="https://automas.com.co/peritaje-cali/" target="_blank" rel="noopener noreferrer" className="text-slate-900 hover:text-emerald-700 underline">
                       Automás
                     </a>
                   </td>
-                  <td className="py-3 px-4 text-[#475569]">Peritaje a domicilio (inspección técnica en la ubicación del cliente)</td>
-                  <td className="py-3 px-4 text-right font-mono font-bold text-[#123B5D]">$426.000</td>
+                  <td className="py-3 px-4 text-slate-600">Peritaje a domicilio (inspección técnica en ubicación del cliente)</td>
+                  <td className="py-3 px-4 text-right font-mono font-bold text-slate-900">$426.000</td>
                 </tr>
-                <tr className="hover:bg-[#F7F9FA] transition-colors">
-                  <td className="py-3 px-4 font-semibold text-[#17212B]">
-                    <a href="https://www.colserauto.com/servicios-avaluo-y-peritaje" target="_blank" rel="noopener noreferrer" className="text-[#123B5D] hover:underline">
+                <tr className="hover:bg-slate-50/70 transition-colors">
+                  <td className="py-3 px-4 font-semibold text-slate-900">
+                    <a href="https://www.colserauto.com/servicios-avaluo-y-peritaje" target="_blank" rel="noopener noreferrer" className="text-slate-900 hover:text-emerald-700 underline">
                       Colserauto
                     </a>
                   </td>
-                  <td className="py-3 px-4 text-[#475569]">Plan Excellence (incluye prueba de ruta, compresión relativa y diagnóstico estructural)</td>
-                  <td className="py-3 px-4 text-right font-mono font-bold text-[#123B5D]">$455.900</td>
+                  <td className="py-3 px-4 text-slate-600">Plan Excellence (prueba de ruta, compresión relativa y estructura)</td>
+                  <td className="py-3 px-4 text-right font-mono font-bold text-slate-900">$455.900</td>
                 </tr>
 
-                {/* GRUPO 3: PREMIUM Y ALTA GAMA */}
-                <tr className="bg-purple-100/70">
-                  <td colSpan={3} className="py-2.5 px-4 font-bold text-xs uppercase tracking-wider text-purple-900 font-mono">
-                    🟣 Paquetes Premium y Alta Gama · $523.000 a $684.000 COP
+                {/* GRUPO 3: PREMIUM */}
+                <tr className="bg-slate-100/90 text-slate-800 font-mono font-bold text-xs uppercase tracking-wider border-y border-slate-200">
+                  <td colSpan={3} className="py-2.5 px-4 font-bold text-xs tracking-wider font-mono">
+                    🟣 Paquetes Prémium y Alta Gama · $523.000 a $684.000 COP
                   </td>
                 </tr>
-                <tr className="hover:bg-[#F7F9FA] transition-colors">
-                  <td className="py-3 px-4 font-semibold text-[#17212B]">
-                    <a href="https://elperito.com/peritaje-cali/" target="_blank" rel="noopener noreferrer" className="text-[#123B5D] hover:underline">
+                <tr className="hover:bg-slate-50/70 transition-colors">
+                  <td className="py-3 px-4 font-semibold text-slate-900">
+                    <a href="https://elperito.com/peritaje-cali/" target="_blank" rel="noopener noreferrer" className="text-slate-900 hover:text-emerald-700 underline">
                       Elperito.com
                     </a>
                   </td>
-                  <td className="py-3 px-4 text-[#475569]">Peritaje de alta gama (vehículos premium o marcas europeas)</td>
-                  <td className="py-3 px-4 text-right font-mono font-bold text-[#123B5D]">$523.000</td>
+                  <td className="py-3 px-4 text-slate-600">Peritaje alta gama (marcas europeas o deportivas)</td>
+                  <td className="py-3 px-4 text-right font-mono font-bold text-slate-900">$523.000</td>
                 </tr>
-                <tr className="bg-[#F7F9FA]/60 hover:bg-[#F7F9FA] transition-colors">
-                  <td className="py-3 px-4 font-semibold text-[#17212B]">
-                    <a href="https://www.colserauto.com/servicios-avaluo-y-peritaje" target="_blank" rel="noopener noreferrer" className="text-[#123B5D] hover:underline">
+                <tr className="hover:bg-slate-50/70 transition-colors">
+                  <td className="py-3 px-4 font-semibold text-slate-900">
+                    <a href="https://www.colserauto.com/servicios-avaluo-y-peritaje" target="_blank" rel="noopener noreferrer" className="text-slate-900 hover:text-emerald-700 underline">
                       Colserauto
                     </a>
                   </td>
-                  <td className="py-3 px-4 text-[#475569]">Plan Premium (evaluación técnica exhaustiva de todos los módulos)</td>
-                  <td className="py-3 px-4 text-right font-mono font-bold text-[#123B5D]">$581.300</td>
+                  <td className="py-3 px-4 text-slate-600">Plan Premium (evaluación técnica exhaustiva de todos los módulos)</td>
+                  <td className="py-3 px-4 text-right font-mono font-bold text-slate-900">$581.300</td>
                 </tr>
-                <tr className="hover:bg-[#F7F9FA] transition-colors">
-                  <td className="py-3 px-4 font-semibold text-[#17212B]">
-                    <a href="https://www.colserauto.com/servicios-avaluo-y-peritaje" target="_blank" rel="noopener noreferrer" className="text-[#123B5D] hover:underline">
+                <tr className="hover:bg-slate-50/70 transition-colors">
+                  <td className="py-3 px-4 font-semibold text-slate-900">
+                    <a href="https://www.colserauto.com/servicios-avaluo-y-peritaje" target="_blank" rel="noopener noreferrer" className="text-slate-900 hover:text-emerald-700 underline">
                       Colserauto
                     </a>
                   </td>
-                  <td className="py-3 px-4 text-[#475569]">Plan Premium Plus (diagnóstico técnico ampliado y pruebas adicionales)</td>
-                  <td className="py-3 px-4 text-right font-mono font-bold text-[#123B5D]">$649.700</td>
-                </tr>
-                <tr className="bg-[#F7F9FA]/60 hover:bg-[#F7F9FA] transition-colors">
-                  <td className="py-3 px-4 font-semibold text-[#17212B]">
-                    <a href="https://www.colserauto.com/servicios-avaluo-y-peritaje" target="_blank" rel="noopener noreferrer" className="text-[#123B5D] hover:underline">
-                      Colserauto
-                    </a>
-                  </td>
-                  <td className="py-3 px-4 text-[#475569]">Plan High Performance (vehículos deportivos y de alto desempeño)</td>
-                  <td className="py-3 px-4 text-right font-mono font-bold text-[#123B5D]">$683.900</td>
+                  <td className="py-3 px-4 text-slate-600">Plan High Performance (deportivos de alto desempeño)</td>
+                  <td className="py-3 px-4 text-right font-mono font-bold text-slate-900">$683.900</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <p className="text-xs text-[#66727D] leading-relaxed">
-            Fuentes de referencia vigentes:{' '}
-            <a href="https://www.colserauto.com/servicios-avaluo-y-peritaje" target="_blank" rel="noopener noreferrer" className="text-[#123B5D] hover:underline font-semibold">Colserauto</a>,{' '}
-            <a href="https://elperito.com/peritaje-cali/" target="_blank" rel="noopener noreferrer" className="text-[#123B5D] hover:underline font-semibold">Elperito.com</a>,{' '}
-            <a href="https://www.autolab.com.co/peritaje-para-carros/" target="_blank" rel="noopener noreferrer" className="text-[#123B5D] hover:underline font-semibold">Autolab</a>,{' '}
-            <a href="https://automas.com.co/peritaje-cali/" target="_blank" rel="noopener noreferrer" className="text-[#123B5D] hover:underline font-semibold">Automás</a>,{' '}
-            <a href="https://cdachia.com/peritajes.php" target="_blank" rel="noopener noreferrer" className="text-[#123B5D] hover:underline font-semibold">CDA Chía</a> y{' '}
-            <a href="https://peritajedevehiculos.com/" target="_blank" rel="noopener noreferrer" className="text-[#123B5D] hover:underline font-semibold">Peritaje de Vehículos</a>.
+          <p className="text-xs text-slate-500 leading-relaxed">
+            * Precios de referencia vigentes en las principales ciudades de Colombia (Bogotá, Medellín, Cali, Barranquilla, Bucaramanga). Cada centro puede actualizar tarifas según la ciudad o promociones vigentes.
           </p>
-
-          <div className="rounded-xl border border-amber-200 bg-amber-50/80 p-4 text-xs text-amber-950 leading-relaxed font-medium">
-
-            <strong>Importante:</strong> son precios publicados para paquetes distintos y no constituyen una comparación de servicios idénticos. Corresponden a referencias comerciales para vehículos particulares o livianos, salvo que se indique otra categoría. Confirma precio vigente, impuestos, cobertura por ciudad, disponibilidad de sedes y qué pruebas están incluidas.
-
-          </div>
-
-          {/* ¿Por qué cambia tanto el precio? */}
-
-          <div className="pt-3 border-t border-[#E2E8F0] space-y-3">
-
-            <h3 className="text-base sm:text-lg font-bold text-[#17212B]">
-
-              ¿Por qué cambia tanto el precio?
-
-            </h3>
-
-            <p className="text-xs sm:text-sm text-[#475569]">
-
-              El costo de un peritaje puede variar por varios factores:
-
-            </p>
-
-            <ul className="space-y-2 text-xs sm:text-sm text-[#475569]">
-
-              {[
-
-                {
-
-                  label: 'Alcance de la revisión',
-
-                  desc: 'una inspección visual no equivale a una evaluación que incluye escáner, compresión del motor y prueba de ruta.',
-
-                },
-
-                {
-
-                  label: 'Tipo de vehículo',
-
-                  desc: 'una camioneta, un vehículo de alta gama o un modelo con sistemas especializados puede requerir más tiempo o equipos.',
-
-                },
-
-                {
-
-                  label: 'Ubicación',
-
-                  desc: 'la disponibilidad de proveedores y los costos operativos varían entre ciudades.',
-
-                },
-
-                {
-
-                  label: 'Servicio a domicilio',
-
-                  desc: 'puede tener condiciones y cargos adicionales según la ubicación.',
-
-                },
-
-                {
-
-                  label: 'Pruebas complementarias',
-
-                  desc: 'la consulta de antecedentes, las improntas, el diagnóstico electrónico y otras comprobaciones pueden cobrarse por separado.',
-
-                },
-
-                {
-
-                  label: 'Informe y soportes',
-
-                  desc: 'verifica si el precio incluye un informe escrito, fotografías y explicación de los hallazgos.',
-
-                },
-
-              ].map((item, idx) => (
-
-                <li key={idx} className="flex items-start gap-2">
-
-                  <CheckCircle2 className="w-4 h-4 text-[#123B5D] shrink-0 mt-0.5" />
-
-                  <span>
-
-                    <strong className="text-[#17212B]">{item.label}:</strong> {item.desc}
-
-                  </span>
-
-                </li>
-
-              ))}
-
-            </ul>
-
-            <div className="p-3.5 rounded-xl bg-[#F7F9FA] border border-[#CBD5E1] text-xs text-[#17212B] leading-relaxed font-semibold">
-
-              No elijas únicamente por el precio más bajo. Compara qué revisan, qué pruebas realizan y qué evidencia recibes al finalizar.
-
-            </div>
-
-          </div>
-
         </section>
 
-                {/* Diferencias entre sede y peritaje a domicilio */}
-        <section className="mb-10 bg-white border border-[#CBD5E1] p-6 sm:p-8 rounded-2xl shadow-xs space-y-5">
-          <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
-            <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">2</span>
-            <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">Peritaje en sede o a domicilio: ¿cuál conviene?</h2>
+        {/* 2. En sede vs A domicilio */}
+        <section className="mb-10 bg-white border border-slate-200/90 p-6 sm:p-8 rounded-2xl shadow-xs space-y-5">
+          <div className="flex items-center gap-3 border-b border-slate-100 pb-3">
+            <span className="w-7 h-7 rounded-lg bg-[#0F172A] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
+              2
+            </span>
+            <h2 className="text-xl sm:text-2xl font-black text-slate-900">
+              ¿Peritaje en taller o a domicilio?
+            </h2>
           </div>
-          <p className="text-sm text-[#475569] leading-relaxed">
-            La ubicación influye en las pruebas que pueden realizarse. Algunos servicios trabajan mediante sedes propias o redes de talleres aliados/autorizados por el proveedor; confirma qué taller realizará la inspección y qué protocolo aplica. Antes de cotizar peritaje, confirma si el lugar permite inspeccionar la parte inferior del vehículo, realizar una prueba de ruta y utilizar los equipos necesarios.
+
+          <p className="text-sm text-slate-700 leading-relaxed">
+            Muchos vendedores prefieren que el perito vaya al conjunto cerrado o parqueadero donde está guardado el carro. ¿Qué ventajas y desventajas tiene cada opción?
           </p>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-5 rounded-xl border border-[#E2E8F0] bg-[#F7F9FA] space-y-3">
+            <div className="p-5 rounded-xl border border-slate-200/90 bg-slate-50 space-y-2">
               <div className="flex items-center gap-2">
-                <Layers className="w-5 h-5 text-[#123B5D]" />
-                <h3 className="font-bold text-[#17212B]">En sede o taller</h3>
+                <Wrench className="w-4 h-4 text-slate-900" />
+                <h3 className="font-bold text-sm sm:text-base text-slate-900">
+                  En sede o taller autorizado (Recomendado)
+                </h3>
               </div>
-              <p className="text-sm text-[#475569]">Una sede equipada con fosa o elevador puede facilitar la inspección del chasis inferior, puntos estructurales, fugas, suspensión y otros componentes de difícil acceso. También puede disponer de equipos para pruebas específicas.</p>
-              <p className="text-xs text-[#66727D]">Confirma si el paquete incluye elevación del vehículo, prueba de ruta y mediciones adicionales. No todas las sedes ofrecen las mismas instalaciones ni pruebas.</p>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Tienen <strong>rampa elevadora</strong> para ver el chasis por debajo, equipo de alineación computarizada, fosa iluminada y bancos para probar suspensión y frenos. Es la opción más completa si quieres asegurarte de que el carro nunca tuvo un golpe estructural grave.
+              </p>
             </div>
-            <div className="p-5 rounded-xl border border-[#E2E8F0] bg-[#F7F9FA] space-y-3">
+
+            <div className="p-5 rounded-xl border border-slate-200/90 bg-slate-50 space-y-2">
               <div className="flex items-center gap-2">
-                <Car className="w-5 h-5 text-[#123B5D]" />
-                <h3 className="font-bold text-[#17212B]">Peritaje a domicilio</h3>
+                <Car className="w-4 h-4 text-slate-900" />
+                <h3 className="font-bold text-sm sm:text-base text-slate-900">
+                  A domicilio (Más cómodo pero con limitaciones)
+                </h3>
               </div>
-              <p className="text-sm text-[#475569]">Puede ahorrar desplazamientos y facilitar la coordinación con el vendedor, especialmente en ciudades como Bogotá, Cali y Medellín. El alcance depende del espacio disponible, la iluminación, el acceso seguro al vehículo y los equipos que lleve el inspector.</p>
-              <p className="text-xs text-[#66727D]">Pregunta cómo inspeccionan la parte inferior —por ejemplo, si disponen de rampas portátiles— y si la prueba de ruta está incluida. Si el lugar no permite realizar una comprobación segura, puede requerirse una visita a taller.</p>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                El perito se desplaza al parqueadero con medidor de pintura, escáner y linterna. Es ideal si el carro no tiene SOAT vigente o si el vendedor no quiere desplazarse por el tráfico, pero el técnico solo puede ver lo que queda a la altura del piso sin rampa.
+              </p>
             </div>
-          </div>
-          <p className="text-sm text-[#475569] leading-relaxed">
-            Un servicio a domicilio no es necesariamente menos riguroso, pero ciertas pruebas pueden requerir instalaciones especializadas. Elige según las comprobaciones que necesitas, no solo por la comodidad.
-          </p>
-          <div className="rounded-xl border border-[#CBD5E1] bg-[#F7F9FA] p-5 space-y-2">
-            <h3 className="font-bold text-base text-[#17212B]">Consejos clave antes de cotizar un peritaje</h3>
-            <p className="text-sm text-[#475569] leading-relaxed">
-              Compara el alcance técnico, confirma las pruebas por escrito y pregunta si el servicio se realiza en sede con elevador, en talleres aliados o a domicilio. Verifica también si las improntas y el estudio legal de antecedentes se cobran por separado antes de agendar con el centro de diagnóstico elegido.
-            </p>
           </div>
         </section>
 
-{/* 2. ¿Qué incluye un peritaje vehicular? */}
-
-        <section className="mb-10 bg-white border border-[#CBD5E1] p-6 sm:p-8 rounded-2xl shadow-xs space-y-6">
-
-          <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
-
-            <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
-
+        {/* 3. Qué incluye un peritaje completo */}
+        <section className="mb-10 bg-white border border-slate-200/90 p-6 sm:p-8 rounded-2xl shadow-xs space-y-5">
+          <div className="flex items-center gap-3 border-b border-slate-100 pb-3">
+            <span className="w-7 h-7 rounded-lg bg-[#0F172A] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
               3
-
             </span>
-
-            <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
-
-              ¿Qué incluye un peritaje vehicular?
-
+            <h2 className="text-xl sm:text-2xl font-black text-slate-900">
+              ¿Qué pruebas incluye un peritaje completo?
             </h2>
-
           </div>
 
-          <p className="text-sm text-[#475569] leading-relaxed">
-
-            El contenido depende del paquete contratado. Un peritaje orientado a la compra de un vehículo usado puede abarcar varios de los siguientes componentes:
-
-          </p>
-
-          <div className="space-y-5">
-
-            {/* Componente 1 */}
-
-            <div className="p-5 rounded-xl border border-[#E2E8F0] bg-[#F7F9FA] space-y-2.5">
-
-              <h3 className="text-base font-bold text-[#17212B]">
-
-                Revisión de carrocería, pintura y estructura
-
-              </h3>
-
-              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-
-                El inspector realiza una inspección exterior y de latonería para identificar señales de golpes, reparaciones, diferencias en el acabado y posibles daños en chasis y estructura.
-
-              </p>
-
-              <p className="text-xs text-[#66727D] font-bold">La revisión puede incluir:</p>
-
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-[#475569]">
-
-                {[
-
-                  'Estado general de la carrocería.',
-
-                  'Diferencias de color o acabado entre paneles.',
-
-                  'Medición del espesor de pintura con medidor o micrómetro (si el proveedor dispone del equipo).',
-
-                  'Inspección de puntos estructurales accesibles.',
-
-                  'Revisión de uniones, soldaduras y deformaciones visibles.',
-
-                ].map((item, idx) => (
-
-                  <li key={idx} className="flex items-start gap-1.5">
-
-                    <span className="text-[#123B5D] font-bold">•</span>
-
-                    <span>{item}</span>
-
-                  </li>
-
-                ))}
-
-              </ul>
-
-              <p className="text-xs text-[#66727D] pt-1 leading-relaxed">
-
-                Esta inspección puede ayudar a detectar indicios de reparaciones anteriores, pero no garantiza encontrar todos los daños ocultos. El resultado también depende de la accesibilidad de las piezas y del alcance contratado.
-
-              </p>
-
-            </div>
-
-            {/* Componente 2 */}
-
-            <div className="p-5 rounded-xl border border-[#E2E8F0] bg-[#F7F9FA] space-y-2.5">
-
-              <h3 className="text-base font-bold text-[#17212B]">
-
-                Inspección mecánica
-
-              </h3>
-
-              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-
-                La revisión mecánica busca señales visibles o perceptibles de deterioro y funcionamiento anormal.
-
-              </p>
-
-              <p className="text-xs text-[#66727D] font-bold">Según el servicio, puede incluir:</p>
-
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-[#475569]">
-
-                {[
-
-                  'Revisión de motor: fugas, niveles de fluidos y componentes accesibles.',
-
-                  'Revisión visual de componentes accesibles.',
-
-                  'Evaluación de suspensión y dirección.',
-
-                  'Inspección de frenos y llantas.',
-
-                  'Revisión de elementos del sistema eléctrico.',
-
-                  'Identificación de ruidos o comportamientos anormales.',
-
-                ].map((item, idx) => (
-
-                  <li key={idx} className="flex items-start gap-1.5">
-
-                    <span className="text-[#123B5D] font-bold">•</span>
-
-                    <span>{item}</span>
-
-                  </li>
-
-                ))}
-
-              </ul>
-
-              <p className="text-xs text-[#66727D] pt-1 leading-relaxed">
-
-                No todos los peritajes incluyen desmontajes, mediciones internas o pruebas profundas. Si necesitas una evaluación específica de una falla, pregunta si está incluida o si requiere un diagnóstico independiente.
-
-              </p>
-
-            </div>
-
-            {/* Componente 3 */}
-
-            <div className="p-5 rounded-xl border border-[#E2E8F0] bg-[#F7F9FA] space-y-2.5">
-
-              <h3 className="text-base font-bold text-[#17212B]">
-
-                Escáner electrónico
-
-              </h3>
-
-              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-
-                Algunos paquetes incorporan un escáner electrónico OBD que se conecta a los sistemas del vehículo para consultar los códigos y datos que estos ponen a disposición de la herramienta.
-
-              </p>
-
-              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-
-                Según el modelo y el equipo utilizado, puede ayudar a identificar códigos de falla y problemas electrónicos que no son evidentes durante una inspección visual.
-
-              </p>
-
-              <p className="text-xs text-[#66727D] leading-relaxed">
-
-                Sin embargo, un escaneo no garantiza detectar todas las fallas. La interpretación de los códigos requiere criterio técnico, y la ausencia de códigos no demuestra que el vehículo esté libre de problemas.
-
-              </p>
-
-            </div>
-
-            {/* Componente 4 */}
-
-            <div className="p-5 rounded-xl border border-[#E2E8F0] bg-[#F7F9FA] space-y-2.5">
-
-              <h3 className="text-base font-bold text-[#17212B]">
-
-                Prueba de compresión del motor
-
-              </h3>
-
-              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-
-                La prueba de compresión mide la presión generada en los cilindros durante el proceso de compresión, mediante el procedimiento y el equipo adecuados.
-
-              </p>
-
-              <p className="text-xs text-[#66727D] leading-relaxed">
-
-                Puede aportar información sobre el estado mecánico del motor, pero no está incluida en todos los paquetes. Pregunta si se realiza, cómo se documentan los resultados y si el fabricante establece valores de referencia para ese motor.
-
-              </p>
-
-            </div>
-
-            {/* Componente 5 */}
-
-            <div className="p-5 rounded-xl border border-[#E2E8F0] bg-[#F7F9FA] space-y-2.5">
-
-              <h3 className="text-base font-bold text-[#17212B]">
-
-                Prueba de ruta
-
-              </h3>
-
-              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-
-                Cuando está incluida y las condiciones permiten realizarla, la prueba de ruta ayuda a observar el comportamiento del vehículo en movimiento. Permite evaluar respuesta de motor y transmisión, comportamiento de dirección, ruidos, vibraciones y respuesta de frenado.
-
-              </p>
-
-              <p className="text-xs text-[#66727D] leading-relaxed">
-
-                La prueba debe realizarse en condiciones seguras y con la autorización correspondiente. No sustituye otras comprobaciones ni permite evaluar todos los componentes en cualquier circunstancia.
-
-              </p>
-
-            </div>
-
-            {/* Componente 6 */}
-
-            <div className="p-5 rounded-xl border border-[#E2E8F0] bg-[#F7F9FA] space-y-2.5">
-
-              <h3 className="text-base font-bold text-[#17212B]">
-
-                Revisión de antecedentes e identificación
-
-              </h3>
-
-              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-
-                Algunos proveedores ofrecen un estudio legal o consultas documentales complementarias, que pueden incluir el historial disponible en el RUNT, comparendos, verificación de improntas y consultas de determinados antecedentes. Según el servicio contratado y las fuentes consultadas, también puede ofrecerse información relacionada con siniestros reportados por Fasecolda, prendas, embargos y otras limitaciones. Confirma expresamente cuáles de estas verificaciones se incluyen: no todos los paquetes consultan las mismas fuentes ni tienen el mismo alcance.
-
-              </p>
-
-              <p className="text-xs text-[#66727D] leading-relaxed">
-
-                No supongas que estas consultas están incluidas en cualquier peritaje. Confirma qué bases de datos se consultan, qué información entrega cada servicio y si el costo está incorporado en el paquete. Además, una consulta de antecedentes no equivale a una certificación de que el vehículo nunca haya sufrido un accidente o no tenga ninguna situación jurídica pendiente.
-
-              </p>
-
-            </div>
-
+          <div className="space-y-3">
+            {[
+              {
+                titulo: '1. Medición de pintura y carrocería',
+                desc: 'Usan un aparato micrométrico que mide el grosor de la pintura en cada puerta, guardabarros y techo. Si una pieza tiene pintura muy gruesa, significa que tiene capas de masilla por choques anteriores.',
+              },
+              {
+                titulo: '2. Estructura y chasis en elevador',
+                desc: 'Revisan las puntas del chasis, compactos, tijeras y piso del baúl. Comprueban que no haya soldaduras rústicas o piezas enderezadas a golpes tras un choque fuerte.',
+              },
+              {
+                titulo: '3. Escáner electrónico al computador',
+                desc: 'Conectan un escáner OBD2 al puerto del vehículo. Detecta códigos de error guardados en la memoria, fallas intermitentes de inyección, sensores dañados y verifica que los módulos de Airbag y ABS no estén desconectados.',
+              },
+              {
+                titulo: '4. Prueba de compresión del motor',
+                desc: 'Mide la presión de aire que genera cada cilindro del motor. Si un cilindro tiene baja compresión, el motor tiene desgaste interno severo y requerirá una reparación costosa (reparación de motor).',
+              },
+              {
+                titulo: '5. Prueba de ruta y suspensión',
+                desc: 'El perito maneja el carro unos kilómetros para sentir la suavidad del embrague, si la caja patina o golpea al meter los cambios, y si los amortiguadores y frenos responden con seguridad.',
+              },
+              {
+                titulo: '6. Verificación de improntas y legal',
+                desc: 'Toman las improntas (calcos en cinta de los números de serie grabados en el motor y chasis) y revisan que no tengan limaduras, regrabaciones fraudulentas o inconsistencias con el RUNT.',
+              },
+            ].map((item, idx) => (
+              <div key={idx} className="p-4 rounded-xl border border-slate-200/90 bg-slate-50 space-y-1">
+                <span className="font-bold text-sm text-slate-900 block">
+                  {item.titulo}
+                </span>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
           </div>
-
         </section>
 
-        {/* 3. Diferencias entre un peritaje básico y uno completo */}
-
-        <section className="mb-10 bg-white border border-[#CBD5E1] p-6 sm:p-8 rounded-2xl shadow-xs space-y-5">
-
-          <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
-
-            <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
-
+        {/* 4. ¿Quién debe pagar el peritaje? */}
+        <section className="mb-10 bg-white border border-slate-200/90 p-6 sm:p-8 rounded-2xl shadow-xs space-y-4">
+          <div className="flex items-center gap-3 border-b border-slate-100 pb-3">
+            <span className="w-7 h-7 rounded-lg bg-[#0F172A] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
               4
-
             </span>
-
-            <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
-
-              Diferencias entre un peritaje básico y uno completo
-
+            <h2 className="text-xl sm:text-2xl font-black text-slate-900">
+              ¿Quién debe pagar el peritaje: comprador o vendedor?
             </h2>
-
           </div>
 
-          <p className="text-sm text-[#475569] leading-relaxed">
-
-            Los nombres de los paquetes no están estandarizados entre proveedores. Por eso, conviene comparar las pruebas incluidas y no solo el nombre comercial.
-
+          <p className="text-sm text-slate-700 leading-relaxed">
+            En Colombia no hay ninguna ley que obligue a uno o al otro; es un acuerdo voluntario entre las partes. Sin embargo, en la práctica se acostumbra lo siguiente:
           </p>
 
-          <p className="text-xs sm:text-sm text-[#66727D] leading-relaxed">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="p-4 rounded-xl border border-slate-200/90 bg-slate-50 space-y-1.5">
+              <strong className="text-sm font-bold text-slate-900 block">
+                El comprador lo paga (Lo más común y sano)
+              </strong>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Al pagar tú el peritaje, tú eres el cliente del centro de diagnóstico. Tú escoges el taller de tu confianza y te aseguras de que el informe sea 100% independiente, sin favoritismos hacia el vendedor.
+              </p>
+            </div>
 
-            Los términos «básico» y «completo» son nombres comerciales y no garantizan un conjunto uniforme de pruebas. Un paquete básico de un proveedor puede tener un alcance distinto al de otro. Compara las actividades incluidas, los equipos utilizados, las verificaciones documentales y el informe entregado antes de contratar.
-
-          </p>
-
-          {/* Tabla comparativa */}
-
-          <div className="overflow-x-auto rounded-xl border border-[#CBD5E1]">
-
-            <table className="w-full text-left text-xs sm:text-sm border-collapse">
-
-              <thead>
-
-                <tr className="bg-[#123B5D] text-white font-mono text-xs uppercase">
-
-                  <th className="py-3 px-4 font-bold">Elemento</th>
-
-                  <th className="py-3 px-4 font-bold">Paquete básico, según proveedor</th>
-
-                  <th className="py-3 px-4 font-bold">Paquete completo, según proveedor</th>
-
-                </tr>
-
-              </thead>
-
-              <tbody className="divide-y divide-[#E2E8F0]">
-
-                <tr className="hover:bg-[#F7F9FA] transition-colors">
-
-                  <td className="py-3 px-4 font-bold text-[#17212B]">Carrocería y pintura</td>
-
-                  <td className="py-3 px-4 text-[#475569]">Puede incluirse</td>
-
-                  <td className="py-3 px-4 text-[#2EAD68] font-semibold">Puede incluirse</td>
-
-                </tr>
-
-                <tr className="bg-[#F7F9FA]/60 hover:bg-[#F7F9FA] transition-colors">
-
-                  <td className="py-3 px-4 font-bold text-[#17212B]">Inspección visual de motor y fugas</td>
-
-                  <td className="py-3 px-4 text-[#475569]">Puede incluirse</td>
-
-                  <td className="py-3 px-4 text-[#2EAD68] font-semibold">Puede incluirse</td>
-
-                </tr>
-
-                <tr className="hover:bg-[#F7F9FA] transition-colors">
-
-                  <td className="py-3 px-4 font-bold text-[#17212B]">Suspensión, frenos y llantas</td>
-
-                  <td className="py-3 px-4 text-[#66727D]">Depende del paquete</td>
-
-                  <td className="py-3 px-4 text-[#2EAD68] font-semibold">Puede incluirse</td>
-
-                </tr>
-
-                <tr className="bg-[#F7F9FA]/60 hover:bg-[#F7F9FA] transition-colors">
-
-                  <td className="py-3 px-4 font-bold text-[#17212B]">Escáner electrónico</td>
-
-                  <td className="py-3 px-4 text-amber-700">Puede cobrarse aparte</td>
-
-                  <td className="py-3 px-4 text-[#2EAD68] font-semibold">Puede estar incluido</td>
-
-                </tr>
-
-                <tr className="hover:bg-[#F7F9FA] transition-colors">
-
-                  <td className="py-3 px-4 font-bold text-[#17212B]">Prueba de compresión</td>
-
-                  <td className="py-3 px-4 text-[#66727D]">No siempre incluida</td>
-
-                  <td className="py-3 px-4 text-[#123B5D] font-semibold">Puede estar incluida</td>
-
-                </tr>
-
-                <tr className="bg-[#F7F9FA]/60 hover:bg-[#F7F9FA] transition-colors">
-
-                  <td className="py-3 px-4 font-bold text-[#17212B]">Prueba de ruta</td>
-
-                  <td className="py-3 px-4 text-[#66727D]">No siempre incluida</td>
-
-                  <td className="py-3 px-4 text-[#123B5D] font-semibold">Puede estar incluida</td>
-
-                </tr>
-
-                <tr className="hover:bg-[#F7F9FA] transition-colors">
-
-                  <td className="py-3 px-4 font-bold text-[#17212B]">Consulta de antecedentes</td>
-
-                  <td className="py-3 px-4 text-amber-700">Puede cobrarse aparte</td>
-
-                  <td className="py-3 px-4 text-[#123B5D] font-semibold">Puede estar incluida</td>
-
-                </tr>
-
-                <tr className="bg-[#F7F9FA]/60 hover:bg-[#F7F9FA] transition-colors">
-
-                  <td className="py-3 px-4 font-bold text-[#17212B]">Informe de resultados</td>
-
-                  <td className="py-3 px-4 text-[#475569]">Confirma si está incluido</td>
-
-                  <td className="py-3 px-4 text-[#123B5D] font-semibold">Confirma el detalle y los soportes</td>
-
-                </tr>
-
-              </tbody>
-
-            </table>
-
+            <div className="p-4 rounded-xl border border-slate-200/90 bg-slate-50 space-y-1.5">
+              <strong className="text-sm font-bold text-slate-900 block">
+                Acuerdo de reembolso condicional
+              </strong>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Un acuerdo muy usado es: el comprador paga el peritaje, pero si el carro sale con el chasis torcido o el motor dañado (algo que el vendedor aseguró que no tenía), el vendedor le reembolsa el costo del peritaje al comprador.
+              </p>
+            </div>
           </div>
-
-          <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-
-            Por ejemplo, Elperito.com publica en Cali un paquete básico de $194.000 y uno completo de $327.000, con diferencias en las pruebas incluidas. CDA Chía Tres Esquinas publica paquetes de $169.000, $259.000 y $360.000, también con alcances diferentes.
-
-          </p>
-
-          <p className="text-xs text-[#66727D]">
-
-            Consulta las descripciones vigentes de cada proveedor antes de asumir que un paquete incluye una prueba específica.
-
-          </p>
-
         </section>
 
-        {/* 4. ¿Qué peritaje conviene elegir antes de comprar un carro usado? */}
-
-        <section className="mb-10 bg-white border border-[#CBD5E1] p-6 sm:p-8 rounded-2xl shadow-xs space-y-5">
-
-          <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
-
-            <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
-
+        {/* 5. Preguntas clave antes de contratar */}
+        <section className="mb-10 bg-white border border-slate-200/90 p-6 sm:p-8 rounded-2xl shadow-xs space-y-4">
+          <div className="flex items-center gap-3 border-b border-slate-100 pb-3">
+            <span className="w-7 h-7 rounded-lg bg-[#0F172A] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
               5
-
             </span>
-
-            <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
-
-              ¿Qué peritaje conviene elegir antes de comprar un carro usado?
-
+            <h2 className="text-xl sm:text-2xl font-black text-slate-900">
+              Qué debes preguntar al centro de peritaje antes de pagar
             </h2>
-
           </div>
-
-          <p className="text-sm text-[#475569] leading-relaxed">
-
-            La elección depende del vehículo, su historial y las dudas que tengas. No todos los casos necesitan el paquete más costoso, pero una inspección demasiado limitada puede dejar preguntas importantes sin resolver.
-
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-
-            <div className="p-4 rounded-xl border border-[#E2E8F0] bg-[#F7F9FA] space-y-1.5">
-
-              <strong className="text-xs sm:text-sm text-[#17212B] block">
-
-                Si el vehículo parece bien conservado:
-
-              </strong>
-
-              <p className="text-xs text-[#475569] leading-relaxed">
-
-                Compara los paquetes básicos y verifica que incluyan una inspección estructural y mecánica suficientemente detallada.
-
-              </p>
-
-            </div>
-
-            <div className="p-4 rounded-xl border border-[#E2E8F0] bg-[#F7F9FA] space-y-1.5">
-
-              <strong className="text-xs sm:text-sm text-[#17212B] block">
-
-                Si el carro tiene varios años o historial incompleto:
-
-              </strong>
-
-              <p className="text-xs text-[#475569] leading-relaxed">
-
-                Considera un paquete que incluya revisión estructural más profunda, escáner y pruebas mecánicas adicionales cuando sean pertinentes.
-
-              </p>
-
-            </div>
-
-            <div className="p-4 rounded-xl border border-[#E2E8F0] bg-[#F7F9FA] space-y-1.5">
-
-              <strong className="text-xs sm:text-sm text-[#17212B] block">
-
-                Si sospechas una falla de motor o caja:
-
-              </strong>
-
-              <p className="text-xs text-[#475569] leading-relaxed">
-
-                Pregunta si el peritaje cubre la prueba específica que necesitas. En algunos casos será necesario contratar un diagnóstico especializado.
-
-              </p>
-
-            </div>
-
-            <div className="p-4 rounded-xl border border-[#E2E8F0] bg-[#F7F9FA] space-y-1.5">
-
-              <strong className="text-xs sm:text-sm text-[#17212B] block">
-
-                Si hay dudas sobre accidentes o papeles:
-
-              </strong>
-
-              <p className="text-xs text-[#475569] leading-relaxed">
-
-                Confirma si el proveedor realiza verificaciones documentales, qué fuentes consulta y qué limitaciones tiene el resultado.
-
-              </p>
-
-            </div>
-
-          </div>
-
-          <p className="text-xs text-[#66727D] leading-relaxed">
-
-            Un peritaje completo tampoco garantiza que se detecten todas las fallas presentes o futuras. Su valor está en aportar evidencia adicional para tomar una decisión informada.
-
-          </p>
-
-        </section>
-
-        {/* 5. ¿Quién debe pagar el peritaje: el comprador o el vendedor? */}
-
-        <section className="mb-10 bg-white border border-[#CBD5E1] p-6 sm:p-8 rounded-2xl shadow-xs space-y-4">
-
-          <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
-
-            <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
-
-              6
-
-            </span>
-
-            <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
-
-              ¿Quién debe pagar el peritaje: el comprador o el vendedor?
-
-            </h2>
-
-          </div>
-
-          <p className="text-sm text-[#475569] leading-relaxed">
-
-            No hay que asumir que el costo siempre corresponde a una misma parte. En la práctica, comprador y vendedor pueden acordar quién lo paga o cómo se distribuye el costo.
-
-          </p>
-
-          <p className="text-sm text-[#475569] leading-relaxed">
-
-            Si eres el comprador, pagar una inspección independiente puede permitirte obtener una evaluación orientada a tus intereses. Antes de contratarla, acuerda con el vendedor el acceso al vehículo, el lugar, la fecha y las pruebas que se realizarán.
-
-          </p>
-
-          <p className="text-sm text-[#475569] leading-relaxed">
-
-            También conviene confirmar que el informe corresponde al vehículo que vas a comprar y que las condiciones de la inspección quedaron documentadas.
-
-          </p>
-
-          <div className="p-4 rounded-xl bg-slate-50 border border-[#CBD5E1] text-xs sm:text-sm text-[#475569] leading-relaxed">
-
-            Si el vendedor no permite realizar comprobaciones razonables, considera ese hecho dentro de la evaluación del riesgo, sin asumir automáticamente que demuestra una irregularidad.
-
-          </div>
-
-        </section>
-
-        {/* 6. Qué preguntar antes de contratar un peritaje */}
-
-        <section className="mb-10 bg-white border border-[#CBD5E1] p-6 sm:p-8 rounded-2xl shadow-xs space-y-5">
-
-          <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
-
-            <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
-
-              7
-
-            </span>
-
-            <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
-
-              Qué preguntar antes de contratar un peritaje
-
-            </h2>
-
-          </div>
-
-          <p className="text-sm text-[#475569] leading-relaxed">
-
-            Antes de pagar, solicita respuestas claras a estas preguntas:
-
-          </p>
 
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-
             {[
-
-              '¿Qué componentes se inspeccionan?',
-
-              '¿Incluye medición de pintura y revisión estructural?',
-
-              '¿Se utiliza escáner electrónico?',
-
-              '¿Incluye prueba de compresión o prueba de ruta?',
-
-              '¿Se consultan antecedentes? ¿Cuáles y en qué fuentes?',
-
-              '¿Recibiré un informe escrito con fotografías y hallazgos?',
-
-              '¿El precio publicado incluye impuestos y desplazamiento?',
-
-              '¿Cuánto tiempo toma la inspección?',
-
-              '¿Qué pruebas adicionales podrían recomendarse y cuánto cuestan?',
-
-              '¿Puedo recibir una explicación de los resultados antes de decidir?',
-
-            ].map((pregunta, idx) => (
-
-              <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-[#475569]">
-
-                <HelpCircle className="w-4 h-4 text-[#123B5D] shrink-0 mt-0.5" />
-
-                <span>{pregunta}</span>
-
+              '¿Tienen elevador para mirar el chasis por debajo?',
+              '¿Incluye medición de pintura con micrómetro?',
+              '¿Conectan escáner OBD2 para ver fallas electrónicas?',
+              '¿Incluye prueba de ruta en calle?',
+              '¿Entregan informe digital con fotos en el mismo día?',
+              '¿El perito me explica personalmente los resultados al terminar?',
+            ].map((preg, idx) => (
+              <li key={idx} className="flex items-start gap-2 p-3 bg-slate-50 rounded-xl border border-slate-200/90 text-xs sm:text-sm text-slate-700">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <span>{preg}</span>
               </li>
-
             ))}
-
           </ul>
-
-          <div className="p-4 rounded-xl bg-[#F7F9FA] border border-[#CBD5E1] text-xs text-[#17212B] leading-relaxed font-semibold">
-
-            Pide que las respuestas queden claras antes de agendar. Así podrás comparar ofertas por su alcance real y no solo por el valor anunciado.
-
-          </div>
-
         </section>
 
-        {/* 8. ¿El peritaje garantiza que el carro está en buen estado? */}
-        <section className="mb-10 bg-white border border-[#CBD5E1] p-6 sm:p-8 rounded-2xl shadow-xs space-y-4">
-          <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
-            <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
-              8
-            </span>
-            <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
-              ¿El peritaje garantiza que el carro está en buen estado?
+        {/* Cómo ayuda EscaneApp */}
+        <section className="my-10 bg-white border border-slate-200/90 p-6 sm:p-8 rounded-2xl shadow-xs space-y-5">
+          <div className="flex items-center gap-2.5">
+            <ShieldCheck className="w-6 h-6 text-emerald-600" />
+            <h2 className="text-2xl font-black text-slate-900">
+              Ahorra plata: no lleves cualquier carro a peritaje
             </h2>
           </div>
 
-          <p className="text-sm text-[#475569] leading-relaxed">
-            Realizar un peritaje es <strong>la mejor decisión y el filtro más confiable que tienes como comprador</strong> para proteger tu dinero. Se trata de una radiografía física, mecánica y legal que te permite identificar si el vehículo tiene daños estructurales ocultos, siniestros severos no declarados, fallas mecánicas de alto costo o problemas de papeles.
+          <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+            Si llevas a peritaje cada carro que ves publicado, te vas a gastar fácilmente $1.000.000 COP en 3 revisiones fallidas.
           </p>
 
-          <p className="text-sm text-[#475569] leading-relaxed">
-            Sin embargo, para que el diagnóstico te brinde una verdadera tranquilidad, debes tener presentes dos aspectos esenciales:
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
-            <div className="p-4 rounded-xl border border-[#CBD5E1] bg-[#F7F9FA] space-y-1.5">
-              <strong className="text-xs sm:text-sm text-[#17212B] block">
-                1. El alcance del plan contratado
-              </strong>
-              <p className="text-xs text-[#475569] leading-relaxed">
-                Un paquete básico solo evalúa aspectos visuales de lámina y pintura. Si buscas certeza sobre la compresión del motor, el estado de la transmisión, el chasis inferior y los módulos electrónicos, siempre será preferible elegir un plan completo que incluya escáner OBD y prueba de ruta.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl border border-[#CBD5E1] bg-[#F7F9FA] space-y-1.5">
-              <strong className="text-xs sm:text-sm text-[#17212B] block">
-                2. Elegir un centro de confianza e independiente
-              </strong>
-              <p className="text-xs text-[#475569] leading-relaxed">
-                Es fundamental que elijas tú el centro de diagnóstico (CDA acreditado o empresa reconocida) y que sea independiente de la parte vendedora. Un peritaje realizado sin conflictos de interés garantiza un dictamen imparcial, profesional y transparente.
-              </p>
-            </div>
-          </div>
-
-          <div className="p-4 rounded-xl bg-blue-50/70 border border-blue-200 text-xs sm:text-sm text-[#123B5D] leading-relaxed font-medium">
-            <strong>Consejo para la negociación:</strong> Si el informe reporta desgastes o fallas corregibles, solicita al perito una explicación clara. Esos hallazgos son tu mejor argumento para negociar un ajuste de precio con el vendedor o evaluar con precisión el costo de poner el carro a punto.
-          </div>
-        </section>
-
-        {/* 8. ¿Cómo puede ayudarte EscaneApp? */}
-
-        <section className="my-10 bg-white border border-[#CBD5E1] p-6 sm:p-8 rounded-2xl shadow-xs space-y-4">
-
-          <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
-
-            <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
-
-              9
-
-            </span>
-
-            <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
-
-              ¿Cómo puede ayudarte EscaneApp?
-
-            </h2>
-
-          </div>
-
-          <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
-
-            EscaneApp te ayuda a organizar una evaluación preliminar del vehículo mediante una revisión guiada de distintos puntos de inspección. Puedes utilizarla para registrar observaciones e identificar aspectos que conviene revisar con mayor detalle antes de comprar.
-
-          </p>
-
-          <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
-
-            La herramienta no reemplaza un peritaje profesional, un diagnóstico mecánico especializado ni las consultas documentales correspondientes. Si detectas indicios de daño estructural, fallas mecánicas o inconsistencias relevantes, solicita una evaluación profesional adecuada al problema.
-
+          <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+            Con <strong>EscaneApp</strong>, haces primero una preevaluación visual gratuita desde tu celular en 10 minutos. Si el carro tiene fugas graves de aceite, líneas de carrocería chuecas o multas en el SIMIT, lo descartas de inmediato sin gastar un solo peso en peritajes innecesarios.
           </p>
 
           <div className="pt-2">
-
             <Link
-
               href="/evaluacion"
-
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#123B5D] hover:bg-[#0d2a42] text-white text-sm font-bold transition-colors shadow-xs"
-
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#0F172A] hover:bg-slate-800 text-white text-sm font-bold transition-all shadow-xs"
             >
-
-              <span>Iniciar evaluación preliminar</span>
-
+              <span>Hacer preevaluación gratis en mi celular</span>
               <ArrowRight className="w-4 h-4" />
-
             </Link>
+          </div>
+        </section>
 
+        {/* Preguntas frecuentes */}
+        <section className="mb-10 bg-white border border-slate-200/90 p-6 sm:p-8 rounded-2xl shadow-xs space-y-6">
+          <div className="flex items-center gap-2">
+            <HelpCircle className="w-5 h-5 text-slate-900" />
+            <h2 className="text-2xl font-black text-slate-900">
+              Preguntas frecuentes
+            </h2>
           </div>
 
+          <div className="space-y-4">
+            {[
+              {
+                q: '¿Cuánto dura un peritaje completo?',
+                a: 'En promedio tarda entre 1 hora y 2 horas, dependiendo de si incluye prueba de ruta y revisión minuciosa del chasis.',
+              },
+              {
+                q: '¿Un peritaje garantiza que el carro está perfecto?',
+                a: 'No garantiza el futuro, pero sí te dice la verdad sobre su estado actual: si fue chocado, si tiene fugas o si le bajaron el kilometraje. Es tu mayor protección como comprador.',
+              },
+              {
+                q: '¿Puedo negociar el precio del carro con el resultado del peritaje?',
+                a: '¡Totalmente! Si el peritaje reporta que las pastillas de frenos están gastadas, que las llantas necesitan cambio o que hay un empaque húmedo, cotizas ese arreglo y le pides al vendedor descontar ese valor del precio final.',
+              },
+            ].map((item, idx) => (
+              <div key={idx} className="p-4 rounded-xl border border-slate-200/90 bg-slate-50">
+                <h3 className="font-bold text-sm sm:text-base text-slate-900 mb-2">
+                  {item.q}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  {item.a}
+                </p>
+              </div>
+            ))}
+          </div>
         </section>
 
-        {/* Conclusión */}
-
-        <section className="mb-12 bg-white border border-[#CBD5E1] p-6 sm:p-8 rounded-2xl shadow-xs space-y-4">
-
-          <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
-
-            Conclusión
-
-          </h2>
-
-          <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
-
-            El costo de un peritaje vehicular depende de las pruebas que necesitas y del alcance del servicio contratado. Antes de elegir, confirma qué componentes se inspeccionan, si incluye escáner y pruebas mecánicas, qué verificaciones documentales realiza y qué informe recibirás.
-
-          </p>
-
-          <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
-
-            Un precio más alto no garantiza por sí solo una evaluación mejor. Compara el alcance de los servicios y solicita las comprobaciones que correspondan al vehículo que estás pensando comprar. Así podrás valorar los hallazgos antes de decidir si continúas con la negociación.
-
-          </p>
-
-        </section>
-
-        {/* Enlaces relacionados */}
-
-        <section className="border-t border-[#CBD5E1] pt-10 mb-12">
-
-          <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#66727D] block mb-1">
-
+        {/* Recursos relacionados */}
+        <section className="border-t border-slate-200/90 pt-10 mb-12">
+          <span className="text-xs font-mono font-semibold uppercase tracking-wider text-slate-500 block mb-1">
             RECURSOS RELACIONADOS
-
           </span>
 
-          <h2 className="text-xl sm:text-2xl font-bold text-[#17212B] mb-6">
-
-            También te puede interesar
-
+          <h2 className="text-xl sm:text-2xl font-black text-slate-900 mb-6">
+            Otras guías recomendadas
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-
             <Link
-
               href="/como-revisar-carro-usado"
-
-              className="bg-white border border-[#CBD5E1] rounded-2xl p-5 hover:border-[#123B5D] hover:shadow-xs transition-all group"
-
+              className="bg-white border border-slate-200/90 rounded-2xl p-5 hover:border-slate-900 hover:shadow-xs transition-all group"
             >
-
-              <h3 className="font-bold text-sm text-[#17212B] mb-1.5 group-hover:text-[#123B5D] transition-colors">
-
+              <h3 className="font-bold text-sm text-slate-900 mb-1.5 group-hover:text-emerald-700 transition-colors">
                 Cómo revisar un carro usado
-
               </h3>
-
-              <p className="text-xs text-[#66727D] leading-relaxed">
-
-                Decálogo metodológico antes de solicitar un peritaje.
-
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Paso a paso para inspeccionar un carro usado tú mismo antes del peritaje.
               </p>
-
             </Link>
 
             <Link
-
               href="/kilometraje-carro-usado"
-
-              className="bg-white border border-[#CBD5E1] rounded-2xl p-5 hover:border-[#123B5D] hover:shadow-xs transition-all group"
-
+              className="bg-white border border-slate-200/90 rounded-2xl p-5 hover:border-slate-900 hover:shadow-xs transition-all group"
             >
-
-              <h3 className="font-bold text-sm text-[#17212B] mb-1.5 group-hover:text-[#123B5D] transition-colors">
-
+              <h3 className="font-bold text-sm text-slate-900 mb-1.5 group-hover:text-emerald-700 transition-colors">
                 Cómo revisar el kilometraje
-
               </h3>
-
-              <p className="text-xs text-[#66727D] leading-relaxed">
-
+              <p className="text-xs text-slate-600 leading-relaxed">
                 Aprende a interpretar el odómetro y detectar alteraciones.
-
               </p>
-
             </Link>
 
             <Link
-
               href="/antecedentes-vehiculo-colombia"
-
-              className="bg-white border border-[#CBD5E1] rounded-2xl p-5 hover:border-[#123B5D] hover:shadow-xs transition-all group"
-
+              className="bg-white border border-slate-200/90 rounded-2xl p-5 hover:border-slate-900 hover:shadow-xs transition-all group"
             >
-
-              <h3 className="font-bold text-sm text-[#17212B] mb-1.5 group-hover:text-[#123B5D] transition-colors">
-
+              <h3 className="font-bold text-sm text-slate-900 mb-1.5 group-hover:text-emerald-700 transition-colors">
                 Antecedentes de un vehículo
-
               </h3>
-
-              <p className="text-xs text-[#66727D] leading-relaxed">
-
-                RUNT, SIMIT y Fasecolda explicados paso a paso.
-
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Cómo consultar multas, embargos y propietarios en RUNT y SIMIT.
               </p>
-
             </Link>
-
           </div>
-
         </section>
 
         {/* CTA Banner */}
-
-        <section className="rounded-2xl bg-[#123B5D] px-6 py-10 sm:px-12 sm:py-12 text-center text-white shadow-md mb-8">
-
+        <section className="rounded-2xl bg-[#0F172A] px-6 py-10 sm:px-12 sm:py-12 text-center text-white shadow-md mb-8">
           <div className="max-w-xl mx-auto space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 text-emerald-400 font-mono text-xs font-semibold">
+              <Search className="w-3.5 h-3.5" />
+              <span>FILTRO PREVIO INTELIGENTE</span>
+            </div>
 
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-snug">
-
-              Evalúa tu próximo vehículo con EscaneApp
-
+            <h2 className="text-2xl sm:text-3xl font-black text-white leading-snug">
+              Evalúa tu próximo carro antes de pagar peritajes
             </h2>
 
-            <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
-
-              Organiza la revisión preliminar y detecta señales de alerta antes de contratar el peritaje profesional.
-
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Detecta fallas visibles, fugas y papeles pendientes en minutos con la guía interactiva de EscaneApp.
             </p>
 
             <div className="pt-2">
-
               <Link
-
                 href="/evaluacion"
-
-                className="inline-flex items-center justify-center gap-2 px-7 h-12 rounded-xl bg-[#8BCF3F] hover:bg-[#7ab837] text-[#123B5D] text-sm font-extrabold transition-all shadow-sm active:scale-98"
-
+                className="inline-flex items-center justify-center gap-2 px-8 h-12 rounded-xl bg-white text-slate-900 hover:bg-slate-100 text-sm font-bold transition-all shadow-sm active:scale-95"
               >
-
-                <span>Iniciar evaluación preliminar</span>
-
+                <span>Iniciar evaluación gratuita</span>
                 <ArrowRight className="w-4 h-4" />
-
               </Link>
-
             </div>
-
           </div>
-
         </section>
 
         {/* Aviso Legal */}
-
-        <p className="text-[11px] text-[#66727D] leading-relaxed text-center sm:text-left">
-
-          <strong>Aviso de orientación:</strong> Los precios y descripciones de servicios citados corresponden a tarifas públicas de referencia vigentes a octubre de 2026. EscaneApp no presta servicios de peritaje comercial ni certifica el estado legal o mecánico de ningún vehículo.
-
+        <p className="text-[11px] text-slate-500 leading-relaxed text-center sm:text-left">
+          <strong>Aviso de orientación:</strong> Los precios y descripciones de servicios corresponden a referencias del mercado colombiano y pueden variar según la empresa, la ciudad y el modelo del vehículo. EscaneApp es una plataforma informativa independiente.
         </p>
-
       </article>
-
     </div>
-
   );
-
 }
-

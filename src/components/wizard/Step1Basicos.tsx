@@ -3,10 +3,6 @@
 import React, { useState, useMemo } from 'react';
 import {
   Gauge,
-  CheckCircle2,
-  AlertTriangle,
-  AlertCircle,
-  OctagonAlert,
   FileSearch,
   ChevronDown,
   Car,
@@ -14,8 +10,6 @@ import {
   Calendar,
   Search,
   Binary,
-  BarChart3,
-  ShieldCheck,
 } from 'lucide-react';
 import { DatosBasicos } from '../../types/evaluation';
 import { calcularKilometraje } from '../../lib/calculations';
@@ -50,7 +44,6 @@ const CIUDADES_COMUNES = [
 ];
 
 export const Step1Basicos: React.FC<Step1BasicosProps> = ({ datos, onChange }) => {
-  // Lista de años desde el año siguiente hasta 1990
   const anios = useMemo(() => {
     const lista: number[] = [];
     for (let y = ANIO_ACTUAL + 1; y >= 1990; y--) {
@@ -59,10 +52,8 @@ export const Step1Basicos: React.FC<Step1BasicosProps> = ({ datos, onChange }) =
     return lista;
   }, []);
 
-  // Estado para desplegar las pautas de inspección al hacer clic
   const [mostrarPauta, setMostrarPauta] = useState(false);
 
-  // Cálculo en vivo del kilometraje
   const resultadoKm = useMemo(() => {
     if (datos.kilometraje > 0 && datos.anioModelo > 0) {
       return calcularKilometraje(datos);
@@ -90,50 +81,43 @@ export const Step1Basicos: React.FC<Step1BasicosProps> = ({ datos, onChange }) =
 
   return (
     <div className="space-y-8">
-      {/* Encabezado del Paso (Stitch Design Reference) */}
-      <div className="border-b border-[#E2E8F0] pb-6">
+      {/* Encabezado con lenguaje claro */}
+      <div className="border-b border-slate-200/90 pb-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
-          {/* Badge izquierdo */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EBF3FA] text-[#123B5D] text-xs font-bold w-fit">
-            <span className="w-2 h-2 rounded-full bg-[#8BCF3F] animate-pulse"></span>
-            <span>BÁSICOS</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-[11px] font-mono font-semibold uppercase tracking-wider w-fit">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>PASO 01 · DATOS DEL CARRO Y KILOMETRAJE</span>
           </div>
-
-          {/* Badge derecho */}
-          {/* <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-[#123B5D] text-xs font-semibold shadow-2xs w-fit">
-            <ShieldCheck className="w-4 h-4 text-[#2EAD68]" />
-            <div className="flex flex-col leading-tight">
-              <span className="font-bold text-[11px]">Fase Preliminar</span>
-              <span className="text-[10px] text-[#66727D]">100% Confidencial</span>
-            </div>
-          </div> */}
+          <span className="text-[11px] text-slate-500 font-medium">
+            Toma menos de 1 minuto
+          </span>
         </div>
 
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-[#17212B] tracking-tight">
-          Cuéntanos sobre el vehículo
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          ¿Qué carro vas a revisar?
         </h2>
-        <p className="text-xs sm:text-sm text-[#66727D] mt-1.5 leading-relaxed max-w-3xl">
-          Registra los datos elementales para calibrar la evaluación técnica y el ritmo de uso anual frente al estándar en Colombia (10.000 a 15.000 km/año).
+        <p className="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed max-w-3xl">
+          Escribe los datos principales del vehículo. Con estos datos calcularemos de inmediato si el carro ha sido muy trajinado o si su uso está dentro de lo normal en Colombia (10.000 a 15.000 km al año).
         </p>
       </div>
 
-      {/* Grid de Formulario */}
+      {/* Grid del Formulario */}
       <div className="flex flex-col gap-6">
-        {/* Fila 1: Placa, Ciudad y Tarjeta Amarilla de Placa */}
+        {/* Fila 1: Placa, Ciudad y Réplica de Placa */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-end">
           {/* Input Placa */}
           <div className="lg:col-span-4 flex flex-col gap-1.5">
             <div className="flex items-center justify-between">
               <label
                 htmlFor="placa-input"
-                className="block text-xs sm:text-sm font-bold text-[#17212B]"
+                className="block text-xs sm:text-sm font-semibold text-slate-900"
               >
-                Placa vehicular <span className="text-xs font-normal text-[#66727D]">(Opcional)</span>
+                Número de placa <span className="text-xs font-normal text-slate-500">(Opcional)</span>
               </label>
-              <span className="text-[11px] text-[#66727D]">Formato oficial</span>
+              <span className="text-[11px] text-slate-400">3 letras y 3 números</span>
             </div>
             <div className="relative">
-              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-[#66727D]">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">
                 <Car className="w-4 h-4" />
               </div>
               <input
@@ -142,25 +126,24 @@ export const Step1Basicos: React.FC<Step1BasicosProps> = ({ datos, onChange }) =
                 maxLength={7}
                 value={datos.placa || ''}
                 onChange={handlePlacaChange}
-                placeholder="ABC 123"
-                className="w-full h-12 pl-10 pr-4 rounded-xl bg-white border border-[#CBD5E1] text-[#17212B] font-mono text-base tracking-wider uppercase placeholder:text-slate-400 focus:outline-none focus:border-[#123B5D] focus:ring-2 focus:ring-[#123B5D]/10 shadow-2xs transition-all"
+                placeholder="Ej: ABC 123"
+                className="w-full h-11 pl-10 pr-4 rounded-xl bg-white border border-slate-300 text-slate-900 font-mono text-sm tracking-wider uppercase placeholder:text-slate-400 focus:outline-none focus:border-slate-800 focus:ring-2 focus:ring-slate-900/10 shadow-2xs transition-all"
               />
             </div>
           </div>
 
-          {/* Input Ciudad de matrícula */}
+          {/* Input Municipio */}
           <div className="lg:col-span-4 flex flex-col gap-1.5">
             <div className="flex items-center justify-between">
               <label
                 htmlFor="ciudad-input"
-                className="block text-xs sm:text-sm font-bold text-[#17212B]"
+                className="block text-xs sm:text-sm font-semibold text-slate-900"
               >
-                Municipio de matrícula <span className="text-xs font-normal text-[#66727D]">(Opcional)</span>
+                Ciudad de la placa <span className="text-xs font-normal text-slate-500">(Opcional)</span>
               </label>
-              
             </div>
             <div className="relative">
-              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-[#66727D]">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">
                 <MapPin className="w-4 h-4" />
               </div>
               <input
@@ -170,7 +153,7 @@ export const Step1Basicos: React.FC<Step1BasicosProps> = ({ datos, onChange }) =
                 value={datos.ciudadPlaca ?? 'BOGOTÁ D.C.'}
                 onChange={(e) => onChange({ ciudadPlaca: e.target.value.toUpperCase() })}
                 placeholder="BOGOTÁ D.C."
-                className="w-full h-12 pl-10 pr-4 rounded-xl bg-white border border-[#CBD5E1] text-xs sm:text-sm text-[#17212B] uppercase placeholder:text-slate-400 focus:outline-none focus:border-[#123B5D] focus:ring-2 focus:ring-[#123B5D]/10 shadow-2xs transition-all"
+                className="w-full h-11 pl-10 pr-4 rounded-xl bg-white border border-slate-300 text-xs sm:text-sm text-slate-900 uppercase placeholder:text-slate-400 focus:outline-none focus:border-slate-800 focus:ring-2 focus:ring-slate-900/10 shadow-2xs transition-all"
               />
               <datalist id="ciudades-placa">
                 {CIUDADES_COMUNES.map((ciudad) => (
@@ -180,41 +163,40 @@ export const Step1Basicos: React.FC<Step1BasicosProps> = ({ datos, onChange }) =
             </div>
           </div>
 
-          {/* Visual Colombiano de Placa (Stitch Reference) */}
+          {/* Réplica de Placa Oficial Colombiana */}
           <div className="lg:col-span-4 flex justify-start lg:justify-end">
-            <div className="w-full sm:w-52 h-18 bg-[#FFC700] rounded-xl border-2 border-[#E0A800] p-2.5 shadow-xs flex flex-col items-center justify-between select-none relative shrink-0">
-              {/* Tornillos de placa en las 4 esquinas */}
-              <span className="w-1.5 h-1.5 rounded-full bg-[#17212B]/40 absolute top-2 left-2"></span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#17212B]/40 absolute top-2 right-2"></span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#17212B]/40 absolute bottom-2 left-2"></span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#17212B]/40 absolute bottom-2 right-2"></span>
+            <div className="w-full sm:w-52 h-17 bg-[#FFC700] rounded-xl border border-[#D9A000] p-2 shadow-xs flex flex-col items-center justify-between select-none relative shrink-0">
+              <span className="w-1.5 h-1.5 rounded-full bg-slate-900/30 absolute top-1.5 left-2"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-slate-900/30 absolute top-1.5 right-2"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-slate-900/30 absolute bottom-1.5 left-2"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-slate-900/30 absolute bottom-1.5 right-2"></span>
 
-              <span className="text-[8px] leading-none tracking-widest uppercase font-black text-[#17212B]/85">
+              <span className="text-[8px] leading-none tracking-widest uppercase font-black text-slate-900/80">
                 COLOMBIA
               </span>
-              <span className="font-mono text-xl sm:text-2xl font-black tracking-widest uppercase text-[#17212B] leading-none my-0.5">
+              <span className="font-mono text-xl sm:text-2xl font-black tracking-widest uppercase text-slate-950 leading-none my-0.5">
                 {formattedPlaca}
               </span>
-              <span className="text-[8px] leading-none tracking-wider uppercase font-bold text-[#17212B]/80 truncate max-w-[140px] text-center">
+              <span className="text-[8px] leading-none tracking-wider uppercase font-bold text-slate-900/75 truncate max-w-[140px] text-center">
                 {ciudadPlaca}
               </span>
             </div>
           </div>
         </div>
 
-        {/* Fila 2: Línea, marca y versión */}
+        {/* Fila 2: Marca y modelo */}
         <div className="flex flex-col gap-1.5">
           <div className="flex items-center justify-between">
             <label
               htmlFor="lineaVehiculo"
-              className="block text-xs sm:text-sm font-bold text-[#17212B]"
+              className="block text-xs sm:text-sm font-semibold text-slate-900"
             >
-              Línea, marca y versión <span className="text-[#D64545]">*</span>
+              Marca, modelo y versión <span className="text-rose-600">*</span>
             </label>
-            
+            <span className="text-[11px] text-slate-500">Ejemplo: Renault Duster 2.0, Mazda 2, Kia Picanto</span>
           </div>
           <div className="relative">
-            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-[#66727D]">
+            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">
               <Search className="w-4 h-4" />
             </div>
             <input
@@ -222,45 +204,45 @@ export const Step1Basicos: React.FC<Step1BasicosProps> = ({ datos, onChange }) =
               id="lineaVehiculo"
               value={datos.lineaVehiculo}
               onChange={(e) => onChange({ lineaVehiculo: e.target.value.toUpperCase() })}
-              placeholder="MAZDA CX-30 GRAND TOURING 2.0"
-              className="w-full h-12 pl-10 pr-4 rounded-xl bg-white border border-[#CBD5E1] text-xs sm:text-sm text-[#17212B] uppercase placeholder:text-slate-400 focus:outline-none focus:border-[#123B5D] focus:ring-2 focus:ring-[#123B5D]/10 shadow-2xs transition-all font-semibold"
+              placeholder="Escribe aquí la marca y línea (ej. CHEVROLET TRACKER LTZ)"
+              className="w-full h-11 pl-10 pr-4 rounded-xl bg-white border border-slate-300 text-xs sm:text-sm text-slate-900 uppercase placeholder:text-slate-400 focus:outline-none focus:border-slate-800 focus:ring-2 focus:ring-slate-900/10 shadow-2xs transition-all font-semibold"
             />
           </div>
         </div>
 
-        {/* Fila 3: Año Modelo y Kilometraje */}
+        {/* Fila 3: Año y Kilometraje */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {/* Año Modelo */}
           <div className="flex flex-col gap-1.5">
             <div className="flex items-center justify-between">
               <label
                 htmlFor="anioModelo"
-                className="block text-xs sm:text-sm font-bold text-[#17212B]"
+                className="block text-xs sm:text-sm font-semibold text-slate-900"
               >
-                Año modelo <span className="text-[#D64545]">*</span>
+                Año del modelo <span className="text-rose-600">*</span>
               </label>
-              <span className="text-xs font-medium text-[#2EAD68]">
-                {antiguedad === 0 ? 'Vehículo del año' : `${antiguedad} año(s) de antigüedad`}
+              <span className="text-xs font-mono font-medium text-emerald-700">
+                {antiguedad === 0 ? 'Carro del año (Nuevo)' : `${antiguedad} año(s) de uso`}
               </span>
             </div>
 
             <div className="relative">
-              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-[#66727D]">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">
                 <Calendar className="w-4 h-4" />
               </div>
               <select
                 id="anioModelo"
                 value={datos.anioModelo}
                 onChange={(e) => onChange({ anioModelo: parseInt(e.target.value, 10) })}
-                className="w-full h-12 pl-10 pr-8 rounded-xl bg-white border border-[#CBD5E1] text-xs sm:text-sm text-[#17212B] focus:outline-none focus:border-[#123B5D] focus:ring-2 focus:ring-[#123B5D]/10 shadow-2xs transition-colors cursor-pointer font-medium appearance-none"
+                className="w-full h-11 pl-10 pr-8 rounded-xl bg-white border border-slate-300 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-slate-800 focus:ring-2 focus:ring-slate-900/10 shadow-2xs transition-colors cursor-pointer font-medium appearance-none"
               >
                 {anios.map((anio) => (
                   <option key={anio} value={anio}>
-                    Modelo {anio} {anio === ANIO_ACTUAL ? '(Año actual)' : ''}
+                    Modelo {anio} {anio === ANIO_ACTUAL ? '(Año en curso)' : ''}
                   </option>
                 ))}
               </select>
-              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3.5 text-[#66727D]">
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3.5 text-slate-400">
                 <ChevronDown className="w-4 h-4" />
               </div>
             </div>
@@ -271,15 +253,15 @@ export const Step1Basicos: React.FC<Step1BasicosProps> = ({ datos, onChange }) =
             <div className="flex items-center justify-between">
               <label
                 htmlFor="kilometraje"
-                className="block text-xs sm:text-sm font-bold text-[#17212B]"
+                className="block text-xs sm:text-sm font-semibold text-slate-900"
               >
-                Kilometraje actual<span className="text-[#D64545]">*</span>
+                Kilómetros que marca el tablero <span className="text-rose-600">*</span>
               </label>
-              
+              <span className="text-[11px] text-slate-500">Sin puntos ni comas</span>
             </div>
 
             <div className="relative">
-              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-[#66727D]">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">
                 <Binary className="w-4 h-4" />
               </div>
               <input
@@ -287,78 +269,35 @@ export const Step1Basicos: React.FC<Step1BasicosProps> = ({ datos, onChange }) =
                 id="kilometraje"
                 value={datos.kilometraje === 0 ? '' : datos.kilometraje.toLocaleString('es-CO')}
                 onChange={handleKmChange}
-                placeholder="0"
-                className="w-full h-12 pl-10 pr-16 rounded-xl bg-white border border-[#CBD5E1] text-base text-[#17212B] font-mono tracking-tight placeholder:text-slate-400 focus:outline-none focus:border-[#123B5D] focus:ring-2 focus:ring-[#123B5D]/10 shadow-2xs transition-all font-semibold"
+                placeholder="Ej. 65000"
+                className="w-full h-11 pl-10 pr-16 rounded-xl bg-white border border-slate-300 text-sm text-slate-900 font-mono tracking-tight placeholder:text-slate-400 focus:outline-none focus:border-slate-800 focus:ring-2 focus:ring-slate-900/10 shadow-2xs transition-all font-semibold"
               />
-              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3.5">
-                <span className="text-[#123B5D] text-xs font-mono font-bold bg-[#EBF3FA] px-2 py-1 rounded">
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                <span className="text-slate-700 text-xs font-mono font-bold bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
                   KM
                 </span>
               </div>
             </div>
           </div>
         </div>
-
-        {/* <p className="text-[11px] text-[#66727D] -mt-2">
-          Digita el número visible en el cuadro de instrumentos sin decimales. Se cruzará con la media nacional esperada.
-        </p> */}
-
-        {/* Callout de Diagnóstico de Uso en Colombia (Stitch Reference) */}
-        {/* {resultadoKm ? (
-          <div className="p-4 sm:p-5 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE] shadow-2xs flex items-start gap-3.5">
-            <div className="w-9 h-9 rounded-xl bg-[#3578B8] text-white flex items-center justify-center shrink-0 shadow-2xs">
-              <BarChart3 className="w-5 h-5" />
-            </div>
-            <div className="space-y-1">
-              <h4 className="text-xs sm:text-sm font-bold text-[#123B5D]">
-                Diagnóstico de Uso en Colombia
-              </h4>
-              <p className="text-xs text-[#17212B] leading-relaxed">
-                Para un vehículo modelo <strong>{datos.anioModelo}</strong> con <strong>{datos.kilometraje.toLocaleString('es-CO')} KM</strong>, el promedio estimado es de <strong>{resultadoKm.kmPorAnio.toLocaleString('es-CO')} km / año</strong>.{' '}
-                {resultadoKm.categoria === 'normal' && (
-                  <span className="text-[#2EAD68] font-bold">El odómetro califica dentro del rango estándar nacional (10.000 a 15.000 km/año).</span>
-                )}
-                {resultadoKm.categoria === 'bajo' && (
-                  <span className="text-[#2EAD68] font-bold">El odómetro califica como uso moderado y favorable.</span>
-                )}
-                {resultadoKm.categoria === 'muy_bajo' && (
-                  <span className="text-[#E5A72B] font-bold">El odómetro califica como sospechosamente bajo. Conviene contrastar el desgaste en volante y pedales.</span>
-                )}
-                {resultadoKm.categoria === 'alto' && (
-                  <span className="text-[#E5A72B] font-bold">El odómetro registra un uso elevado en carretera.</span>
-                )}
-                {resultadoKm.categoria === 'excesivo' && (
-                  <span className="text-[#D64545] font-bold">El odómetro indica desgaste severo superior a la media.</span>
-                )}
-              </p>
-            </div>
-          </div>
-        ) : (
-          <div className="p-4 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE] shadow-2xs flex items-center gap-3">
-            <BarChart3 className="w-5 h-5 text-[#3578B8] shrink-0" />
-            <span className="text-xs text-[#123B5D]">
-              <strong>Diagnóstico de Uso en Colombia:</strong> Ingresa el kilometraje para contrastarlo en tiempo real con el estándar colombiano.
-            </span>
-          </div>
-        )} */}
       </div>
 
-      {/* Detalle Desplegable del Análisis de Kilometraje */}
+      {/* Diagnóstico de uso según los kilómetros */}
       {resultadoKm && (
-        <div className="mt-6 p-5 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs flex flex-col gap-4">
-          <div className="flex items-center justify-between border-b border-[#E2E8F0] pb-3">
+        <div className="mt-6 p-5 sm:p-6 rounded-xl bg-[#F8FAFC] border border-slate-200 shadow-xs flex flex-col gap-4">
+          <div className="flex items-center justify-between border-b border-slate-200 pb-3">
             <div className="flex items-center gap-2">
-              <Gauge className="w-4 h-4 text-[#123B5D]" />
-              <span className="text-xs font-bold text-[#123B5D] uppercase tracking-wider font-mono">
-                Escala Técnica de Uso
+              <Gauge className="w-4 h-4 text-slate-800" />
+              <span className="text-xs font-bold text-slate-900 uppercase tracking-wider font-mono">
+                ¿Qué tan caminado está este carro?
               </span>
             </div>
-            <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#F1F5F9] text-[#66727D] font-medium border border-[#E2E8F0]">
-              {antiguedad === 0 ? 'Vehículo del año' : `${antiguedad} años de uso`}
+            <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-white text-slate-600 font-medium border border-slate-200">
+              Promedio: {resultadoKm.kmPorAnio.toLocaleString('es-CO')} km por año
             </span>
           </div>
 
-          {/* Visual Track with Marker Pin */}
+          {/* Barra Visual */}
           <div className="relative pt-7 pb-1">
             <div
               className="absolute top-0 -translate-x-1/2 flex flex-col items-center transition-all duration-300 pointer-events-none z-10"
@@ -366,101 +305,101 @@ export const Step1Basicos: React.FC<Step1BasicosProps> = ({ datos, onChange }) =
                 left: `${Math.min(96, Math.max(4, (resultadoKm.kmPorAnio / 25000) * 100))}%`,
               }}
             >
-              <div className="bg-[#123B5D] text-white text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full shadow-xs whitespace-nowrap">
-                Tu carro: {resultadoKm.kmPorAnio.toLocaleString('es-CO')} km/año
+              <div className="bg-slate-900 text-white text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full shadow-sm whitespace-nowrap">
+                Este carro: {resultadoKm.kmPorAnio.toLocaleString('es-CO')} km/año
               </div>
-              <div className="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[5px] border-t-[#123B5D]" />
+              <div className="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[5px] border-t-slate-900" />
             </div>
 
-            {/* 5 Proportional Track Segments */}
-            <div className="h-2.5 w-full bg-[#E2E8F0] rounded-full overflow-hidden flex border border-[#CBD5E1]">
-              <div className="h-full bg-[#FDE68A] w-[20%]" title="Muy bajo (< 5.000 km/año)" />
-              <div className="h-full bg-[#BAE6FD] w-[20%]" title="Moderado (5.000 - 10.000 km/año)" />
-              <div className="h-full bg-[#8BCF3F] w-[20%]" title="Estándar promedio (10.000 - 15.000 km/año)" />
-              <div className="h-full bg-[#E5A72B] w-[20%]" title="Alto (15.000 - 20.000 km/año)" />
-              <div className="h-full bg-[#D64545] w-[20%]" title="Severo (> 20.000 km/año)" />
+            {/* 5 Segmentos de la escala */}
+            <div className="h-2 w-full bg-slate-200 rounded-full overflow-hidden flex border border-slate-300">
+              <div className="h-full bg-amber-200 w-[20%]" title="Muy poco (< 5.000 km/año)" />
+              <div className="h-full bg-sky-200 w-[20%]" title="Poco uso (5.000 - 10.000 km/año)" />
+              <div className="h-full bg-emerald-500 w-[20%]" title="Normal en Colombia (10.000 - 15.000 km/año)" />
+              <div className="h-full bg-amber-400 w-[20%]" title="Bastante usado (15.000 - 20.000 km/año)" />
+              <div className="h-full bg-rose-500 w-[20%]" title="Demasiado recorrido (> 20.000 km/año)" />
             </div>
           </div>
 
-          {/* 5 Distinct Range Cards */}
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 pt-1">
+          {/* 5 Tarjetas de Rango */}
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 pt-1 font-mono">
             <div
-              className={`p-2 rounded-xl border text-center transition-all ${
+              className={`p-2 rounded-lg border text-center transition-all ${
                 resultadoKm.categoria === 'muy_bajo'
-                  ? 'bg-[#FFFBEB] border-[#FDE68A] shadow-xs ring-2 ring-[#E5A72B]'
-                  : 'bg-white border-[#E2E8F0] opacity-75'
+                  ? 'bg-amber-50 border-amber-300 shadow-xs ring-1 ring-amber-400'
+                  : 'bg-white border-slate-200 opacity-70'
               }`}
             >
-              <div className="text-[10px] font-mono font-bold text-[#17212B]">&lt; 5.000 km</div>
-              <div className="text-[11px] font-bold text-[#E5A72B] mt-0.5">Muy bajo</div>
-              <div className="text-[9px] text-[#66727D] leading-tight">Posible alteración</div>
+              <div className="text-[10px] font-bold text-slate-800">&lt; 5.000 km/año</div>
+              <div className="text-[11px] font-bold text-amber-700 mt-0.5">Sospechoso</div>
+              <div className="text-[9px] text-slate-500 leading-tight">Posible odómetro bajado</div>
             </div>
 
             <div
-              className={`p-2 rounded-xl border text-center transition-all ${
+              className={`p-2 rounded-lg border text-center transition-all ${
                 resultadoKm.categoria === 'bajo'
-                  ? 'bg-[#F0F9FF] border-[#BAE6FD] shadow-xs ring-2 ring-[#3578B8]'
-                  : 'bg-white border-[#E2E8F0] opacity-75'
+                  ? 'bg-sky-50 border-sky-300 shadow-xs ring-1 ring-sky-400'
+                  : 'bg-white border-slate-200 opacity-70'
               }`}
             >
-              <div className="text-[10px] font-mono font-bold text-[#17212B]">5k – 10.000 km</div>
-              <div className="text-[11px] font-bold text-[#3578B8] mt-0.5">Moderado</div>
-              <div className="text-[9px] text-[#66727D] leading-tight">Uso ocasional</div>
+              <div className="text-[10px] font-bold text-slate-800">5k – 10.000 km/año</div>
+              <div className="text-[11px] font-bold text-sky-700 mt-0.5">Poco uso</div>
+              <div className="text-[9px] text-slate-500 leading-tight">Carro de fines de semana</div>
             </div>
 
             <div
-              className={`p-2 rounded-xl border text-center transition-all ${
+              className={`p-2 rounded-lg border text-center transition-all ${
                 resultadoKm.categoria === 'normal'
-                  ? 'bg-[#F0FDF4] border-[#BBF7D0] shadow-xs ring-2 ring-[#2EAD68]'
-                  : 'bg-white border-[#E2E8F0] opacity-75'
+                  ? 'bg-emerald-50 border-emerald-300 shadow-xs ring-1 ring-emerald-500'
+                  : 'bg-white border-slate-200 opacity-70'
               }`}
             >
-              <div className="text-[10px] font-mono font-bold text-[#17212B]">10k – 15.000 km</div>
-              <div className="text-[11px] font-bold text-[#2EAD68] mt-0.5">Estándar</div>
-              <div className="text-[9px] text-[#66727D] leading-tight">Promedio país</div>
+              <div className="text-[10px] font-bold text-slate-800">10k – 15.000 km/año</div>
+              <div className="text-[11px] font-bold text-emerald-700 mt-0.5">Normal</div>
+              <div className="text-[9px] text-slate-500 leading-tight">Uso promedio en Colombia</div>
             </div>
 
             <div
-              className={`p-2 rounded-xl border text-center transition-all ${
+              className={`p-2 rounded-lg border text-center transition-all ${
                 resultadoKm.categoria === 'alto'
-                  ? 'bg-[#FFFBEB] border-[#FDE68A] shadow-xs ring-2 ring-[#E5A72B]'
-                  : 'bg-white border-[#E2E8F0] opacity-75'
+                  ? 'bg-amber-50 border-amber-300 shadow-xs ring-1 ring-amber-400'
+                  : 'bg-white border-slate-200 opacity-70'
               }`}
             >
-              <div className="text-[10px] font-mono font-bold text-[#17212B]">15k – 20.000 km</div>
-              <div className="text-[11px] font-bold text-[#E5A72B] mt-0.5">Alto</div>
-              <div className="text-[9px] text-[#66727D] leading-tight">Carretera / Viajero</div>
+              <div className="text-[10px] font-bold text-slate-800">15k – 20.000 km/año</div>
+              <div className="text-[11px] font-bold text-amber-700 mt-0.5">Bastante usado</div>
+              <div className="text-[9px] text-slate-500 leading-tight">Mucho viaje en carretera</div>
             </div>
 
             <div
-              className={`col-span-2 sm:col-span-1 p-2 rounded-xl border text-center transition-all ${
+              className={`col-span-2 sm:col-span-1 p-2 rounded-lg border text-center transition-all ${
                 resultadoKm.categoria === 'excesivo'
-                  ? 'bg-[#FEF2F2] border-[#FECACA] shadow-xs ring-2 ring-[#D64545]'
-                  : 'bg-white border-[#E2E8F0] opacity-75'
+                  ? 'bg-rose-50 border-rose-300 shadow-xs ring-1 ring-rose-500'
+                  : 'bg-white border-slate-200 opacity-70'
               }`}
             >
-              <div className="text-[10px] font-mono font-bold text-[#17212B]">&gt; 20.000 km</div>
-              <div className="text-[11px] font-bold text-[#D64545] mt-0.5">Severo</div>
-              <div className="text-[9px] text-[#66727D] leading-tight">Uso intensivo</div>
+              <div className="text-[10px] font-bold text-slate-800">&gt; 20.000 km/año</div>
+              <div className="text-[11px] font-bold text-rose-700 mt-0.5">Muy trajinado</div>
+              <div className="text-[9px] text-slate-500 leading-tight">Posible taxi o aplicación</div>
             </div>
           </div>
 
-          {/* Desplegable de Pautas de Interpretación */}
-          <div className="rounded-xl border border-[#E2E8F0] overflow-hidden bg-[#F8FAFC]">
+          {/* Desplegable de Consejos en Lenguaje Sencillo */}
+          <div className="rounded-xl border border-slate-200 overflow-hidden bg-white">
             <button
               type="button"
               onClick={() => setMostrarPauta((prev) => !prev)}
-              className="w-full p-3 flex items-center justify-between gap-2 hover:bg-[#F1F5F9] transition-colors cursor-pointer text-left select-none"
+              className="w-full p-3 flex items-center justify-between gap-2 hover:bg-slate-50 transition-colors cursor-pointer text-left select-none"
             >
               <div className="flex items-center gap-2 min-w-0">
-                <FileSearch className="w-4 h-4 text-[#123B5D] shrink-0" />
-                <span className="text-xs font-bold text-[#17212B]">
-                  ¿Qué significa este resultado? Interpretación del kilometraje
+                <FileSearch className="w-4 h-4 text-slate-700 shrink-0" />
+                <span className="text-xs font-semibold text-slate-900">
+                  Consejo: ¿Qué deberías revisar con este kilometraje?
                 </span>
               </div>
-              <div className="flex items-center gap-1.5 shrink-0 text-[#66727D]">
+              <div className="flex items-center gap-1.5 shrink-0 text-slate-500">
                 <span className="text-[11px] font-mono hidden sm:inline">
-                  {mostrarPauta ? 'Ocultar detalle' : 'Ver detalle'}
+                  {mostrarPauta ? 'Cerrar' : 'Leer consejo'}
                 </span>
                 <ChevronDown
                   className={`w-4 h-4 transition-transform duration-200 ${
@@ -471,41 +410,41 @@ export const Step1Basicos: React.FC<Step1BasicosProps> = ({ datos, onChange }) =
             </button>
 
             {mostrarPauta && (
-              <div className="px-3.5 pb-3.5 pt-1 text-xs text-[#66727D] leading-relaxed border-t border-[#E2E8F0] animate-fadeIn">
+              <div className="px-4 pb-4 pt-2 text-xs text-slate-600 leading-relaxed border-t border-slate-100 animate-fadeIn">
                 {resultadoKm.categoria === 'muy_bajo' ? (
                   <div>
-                    <strong className="text-[#E5A72B] block mb-1">
-                      Sospecha de alteración de odómetro (&lt; 5.000 km/año):
+                    <strong className="text-amber-800 block mb-1">
+                      Sospecha de kilometraje adulterado:
                     </strong>
-                    El odómetro registra un recorrido inusualmente bajo para los {antiguedad} años del vehículo. Revisa con lupa el desgaste físico en el volante, la palanca de cambios, las gomas de los pedales y la fecha de fabricación (DOT) de las llantas para verificar si coinciden con el kilometraje mostrado.
+                    El carro muestra muy poquitos kilómetros para tener {antiguedad} años. En Colombia es común que le bajen el kilometraje antes de venderlo. Revisa si el timón, la palanca de cambios o los pedales se ven desgastados o lisos: si se ven gastados pero el tablero marca pocos kilómetros, desconfía.
                   </div>
                 ) : resultadoKm.categoria === 'excesivo' ? (
                   <div>
-                    <strong className="text-[#D64545] block mb-1">
-                      Desgaste mecánico severo (&gt; 20.000 km/año):
+                    <strong className="text-rose-800 block mb-1">
+                      El carro ha rodado muchísimo:
                     </strong>
-                    El vehículo excede ampliamente el promedio particular en Colombia. Esto suele indicar trabajo continuo en plataformas digitales, servicio o viajes constantes de carretera. Es indispensable revisar compresión de motor, fugas y el tren delantero.
+                    El vehículo tiene mucho más kilometraje que un carro particular promedio. Es probable que haya trabajado en plataformas (Uber, Didi) o haya viajado constantemente. Revisa con mucho cuidado que no tenga ruidos raros en el motor, fugas de aceite o la suspensión floja.
                   </div>
                 ) : resultadoKm.categoria === 'alto' ? (
                   <div>
-                    <strong className="text-[#E5A72B] block mb-1">
-                      Uso elevado en carretera (15.000 a 20.000 km/año):
+                    <strong className="text-amber-800 block mb-1">
+                      Uso alto pero común en viajes:
                     </strong>
-                    El vehículo ha tenido un uso más activo que el promedio. Aunque no descarta la compra si cuenta con buen historial de mantenimiento, presta especial atención al desgaste en pastillas, discos de freno, amortiguadores y sincronización.
+                    El carro ha caminado bastante. Si el dueño anterior le hizo los cambios de aceite y mantenimientos a tiempo, puede ser una buena compra, pero revisa el estado de los frenos, llantas y amortiguadores porque requerirán cambio pronto.
                   </div>
                 ) : resultadoKm.categoria === 'bajo' ? (
                   <div>
-                    <strong className="text-[#3578B8] block mb-1">
-                      Uso moderado (5.000 a 10.000 km/año):
+                    <strong className="text-sky-800 block mb-1">
+                      Poco kilometraje (Punto a favor):
                     </strong>
-                    El vehículo presenta un ritmo de uso favorable, típico de trayectos urbanos cortos o uso recreativo de fin de semana. Comprueba que se le hayan realizado los cambios de aceite y fluidos por tiempo (mínimo una vez al año).
+                    El carro se ha usado poco, probablemente solo para pasear o trayectos cortos en ciudad. Pregunta si le cambiaban el aceite al menos una vez al año, ya que el aceite se vence por tiempo aunque no se ruede mucho.
                   </div>
                 ) : (
                   <div>
-                    <strong className="text-[#2EAD68] block mb-1">
-                      Ritmo estándar esperado (10.000 a 15.000 km/año):
+                    <strong className="text-emerald-800 block mb-1">
+                      Kilometraje normal y esperado:
                     </strong>
-                    El kilometraje es perfectamente coherente con la antigüedad del vehículo según el promedio automotriz en Colombia. Continúa verificando el estado de conservación general, neumáticos y tapicería.
+                    El kilometraje coincide perfectamente con los años del carro. Está dentro del promedio normal en Colombia. Pasa al siguiente paso para revisar que no tenga multas ni choques graves.
                   </div>
                 )}
               </div>
@@ -515,7 +454,7 @@ export const Step1Basicos: React.FC<Step1BasicosProps> = ({ datos, onChange }) =
           {resultadoKm.esDescarte && (
             <Alert
               tipo="descarte"
-              titulo="Criterio de descarte por kilometraje excesivo"
+              titulo="Cuidado: Kilometraje excesivamente alto"
               mensaje={resultadoKm.mensaje}
               modulo="Kilometraje"
             />

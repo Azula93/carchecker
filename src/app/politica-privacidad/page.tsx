@@ -1,333 +1,229 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { ShieldCheck, Lock, Smartphone } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "Política de Privacidad",
+  title: 'Política de Privacidad y Tratamiento de Datos | EscaneApp Colombia',
   description:
-    "Política de privacidad de EscaneApp y tratamiento de la información utilizada durante la revisión preliminar de vehículos usados.",
+    'Conoce cómo protegemos tu privacidad en EscaneApp. Tus evaluaciones se quedan en tu dispositivo; no vendemos datos ni almacenamos contraseñas.',
   alternates: {
-    canonical: "/politica-privacidad",
+    canonical: '/politica-privacidad',
   },
+  openGraph: {
+    title: 'Política de Privacidad | EscaneApp',
+    description:
+      'Política de privacidad y protección de datos personales de EscaneApp bajo la Ley 1581 de 2012 de Colombia.',
+    url: 'https://www.escaneapp.com/politica-privacidad',
+    siteName: 'EscaneApp',
+    locale: 'es_CO',
+    type: 'website',
+    images: [
+      {
+        url: '/01_logo_horizontal_principal.png',
+        width: 1200,
+        height: 630,
+        alt: 'Política de Privacidad EscaneApp',
+      },
+    ],
+  },
+};
+
+const breadcrumbStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Inicio',
+      item: 'https://www.escaneapp.com',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Política de Privacidad',
+      item: 'https://www.escaneapp.com/politica-privacidad',
+    },
+  ],
 };
 
 export default function PoliticaPrivacidadPage() {
   return (
-    <div className="w-full bg-[#F8FAFC] py-12 md:py-16">
-      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white border border-[#E2E8F0] rounded-2xl p-6 sm:p-8 md:p-12">
-          <span className="text-xs font-mono uppercase tracking-wider text-[#64748B]">
-            Información legal
-          </span>
+    <div className="w-full bg-[#FAFAFA] min-h-screen text-slate-800 antialiased py-10 md:py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbStructuredData),
+        }}
+      />
+      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        {/* ==================================================== */}
+        {/* ENCABEZADO EDITORIAL                                 */}
+        {/* ==================================================== */}
+        <header className="space-y-4 border-b border-slate-200/90 pb-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-[11px] font-mono font-semibold uppercase tracking-wider w-fit">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>TRANSPARENCIA TOTAL · HABEAS DATA COLOMBIA (LEY 1581 DE 2012)</span>
+          </div>
 
-          <h1 className="text-3xl md:text-4xl font-bold text-[#0F1B2B] mt-2 mb-4">
-            Política de Privacidad
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-[1.15]">
+            Política de Privacidad y Tratamiento de Datos
           </h1>
 
-          <p className="text-sm text-[#64748B] mb-10">
-            Última actualización: 04 de octubre de 2026
+          <p className="text-xs sm:text-sm text-slate-500 font-mono">
+            Última actualización vigente: 2026 · Proyecto independiente desarrollado en Colombia por AzulaDev.
           </p>
+        </header>
 
-          <div className="space-y-8 text-sm md:text-base text-[#475569] leading-relaxed">
-            <section>
-              <h2 className="text-xl font-bold text-[#0F1B2B] mb-3">
-                1. Información general
-              </h2>
-
-              <p>
-                EscaneApp es una herramienta web diseñada para facilitar una
-                revisión preliminar de vehículos usados en Colombia antes de
-                realizar un peritaje profesional.
-              </p>
-
-              <p className="mt-3">
-                Esta política explica cómo se maneja la información utilizada
-                durante el uso de la plataforma.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-xl font-bold text-[#0F1B2B] mb-3">
-                2. Información almacenada en el dispositivo
-              </h2>
-
-              <p>
-                Actualmente, EscaneApp no utiliza una base de datos propia para
-                almacenar las evaluaciones realizadas por los usuarios.
-              </p>
-
-              <p className="mt-3">
-                La información introducida durante una evaluación puede
-                almacenarse localmente en el navegador del usuario mediante
-                <strong> localStorage</strong>.
-              </p>
-
-              <p className="mt-3">
-                Esta información permanece en el dispositivo y navegador donde
-                se realizó la evaluación y puede eliminarse mediante las
-                opciones de almacenamiento del propio navegador.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-xl font-bold text-[#0F1B2B] mb-3">
-                3. Información que puede introducir el usuario
-              </h2>
-
-              <p>
-                Durante una evaluación, el usuario puede introducir información
-                relacionada con el vehículo, como placa, kilometraje,
-                características del vehículo, resultados de inspección,
-                antecedentes consultados y posibles costos de reparación.
-              </p>
-
-              <p className="mt-3">
-                EscaneApp no solicita actualmente la creación de una cuenta de
-                usuario ni requiere proporcionar nombre, correo electrónico o
-                contraseña para utilizar la herramienta.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-xl font-bold text-[#0F1B2B] mb-3">
-                4. Servicios y sitios web de terceros
-              </h2>
-
-              <p>
-                EscaneApp proporciona enlaces hacia sitios externos que pueden
-                utilizarse para consultar información relacionada con vehículos,
-                incluyendo RUNT, SIMIT y Fasecolda.
-              </p>
-
-              <p className="mt-3">
-                Estos sitios son independientes de EscaneApp y tienen sus
-                propias políticas de privacidad, condiciones de uso y mecanismos
-                de tratamiento de información.
-              </p>
-
-              <p className="mt-3">
-                EscaneApp no controla las prácticas de privacidad ni el
-                tratamiento de datos realizado por dichos sitios externos.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-xl font-bold text-[#0F1B2B] mb-3">
-                5. Cookies y tecnologías similares
-              </h2>
-
-              <p>
-                La aplicación puede utilizar tecnologías necesarias para su
-                funcionamiento y almacenamiento local en el navegador.
-              </p>
-
-              <p className="mt-3">
-                EscaneApp utiliza actualmente servicios de publicidad de
-                terceros para mostrar anuncios en determinadas páginas del
-                sitio. Estos servicios pueden utilizar cookies, identificadores
-                u otras tecnologías para mostrar, personalizar, medir o limitar
-                la publicidad y para generar estadísticas relacionadas con su
-                funcionamiento.
-              </p>
-
-              <p className="mt-3">
-                Los proveedores publicitarios pueden tratar determinada
-                información de acuerdo con sus propias políticas de privacidad y
-                condiciones de servicio. El usuario puede consultar las
-                políticas de privacidad de los proveedores correspondientes para
-                conocer cómo gestionan dicha información.
-              </p>
-
-              <p className="mt-3">
-                EscaneApp utiliza Google AdSense para mostrar anuncios en
-                algunas páginas. Google y sus socios publicitarios utilizan
-                cookies y tecnologías similares para mostrar anuncios basados en
-                las visitas anteriores del usuario a este y a otros sitios web,
-                y para medir su rendimiento. Puedes inhabilitar la publicidad
-                personalizada en la{" "}
-                <a
-                  href="https://adssettings.google.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-bold text-[#123B5D] hover:underline"
-                >
-                  Configuración de anuncios de Google
-                </a>{" "}
-                y consultar más información en{" "}
-                <a
-                  href="https://policies.google.com/technologies/partner-sites"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-bold text-[#123B5D] hover:underline"
-                >
-                  cómo utiliza Google los datos de los sitios que usan sus
-                  servicios
-                </a>
-                . Algunos anuncios pueden ser mostrados por otros proveedores
-                externos, que tienen sus propias políticas de privacidad.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-xl font-bold text-[#0F1B2B] mb-3">
-                6. Seguridad de la información
-              </h2>
-
-              <p>
-                Al no existir actualmente una base de datos propia para las
-                evaluaciones, la información almacenada mediante localStorage
-                permanece bajo el control del navegador y dispositivo del
-                usuario.
-              </p>
-
-              <p className="mt-3">
-                El usuario debe mantener protegidos sus dispositivos y evitar
-                introducir información que no desee conservar en el navegador.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-xl font-bold text-[#0F1B2B] mb-3">
-                7. Eliminación de información local
-              </h2>
-
-              <p>
-                El usuario puede eliminar la información almacenada localmente
-                por EscaneApp utilizando las opciones de limpieza de datos del
-                navegador o eliminando los datos correspondientes al sitio.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-xl font-bold text-[#0F1B2B] mb-3">
-                8. Cambios en esta política
-              </h2>
-
-              <p>
-                Esta política puede actualizarse cuando cambien las
-                funcionalidades de EscaneApp, los servicios utilizados o las
-                formas en que se procesa la información.
-              </p>
-
-              <p className="mt-3">
-                La fecha de actualización indicada al inicio de esta página
-                permitirá identificar la versión vigente.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-xl font-bold text-[#0F1B2B] mb-3">
-                9. Contacto
-              </h2>
-
-              <p>
-                Para consultas relacionadas con esta política de privacidad o
-                con el funcionamiento de EscaneApp, puede utilizarse el medio de
-                contacto habilitado oficialmente en la plataforma o escribir
-                directamente a{" "}
-                <a
-                  href="mailto:azuladev93@gmail.com"
-                  className="font-bold text-[#123B5D] hover:underline"
-                >
-                  azuladev93@gmail.com
-                </a>
-                .
-              </p>
-            </section>
-
-            <section className="border-t border-[#E2E8F0] pt-6">
-              <p className="text-xs md:text-sm text-[#64748B]">
-                EscaneApp es una herramienta de revisión preliminar y no
-                reemplaza una inspección técnica o peritaje profesional del
-                vehículo.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-[#0F1B2B] mb-4">
-                Tratamiento de datos personales
-              </h2>
-
-              <p className="text-slate-600 leading-7 mb-4">
-                EscaneApp respeta la privacidad de los usuarios y procura tratar
-                la información de manera transparente y responsable.
-              </p>
-
-              <p className="text-slate-600 leading-7 mb-4">
-                Actualmente, EscaneApp no cuenta con una base de datos propia ni
-                requiere que el usuario cree una cuenta para utilizar la
-                herramienta. La información que el usuario introduce durante una
-                evaluación puede almacenarse localmente en el navegador mediante
-                tecnologías de almacenamiento local, como{" "}
-                <code>localStorage</code>.
-              </p>
-
-              <p className="text-slate-600 leading-7 mb-4">
-                La información introducida puede incluir datos relacionados con
-                el vehículo que el usuario está evaluando, tales como placa,
-                kilometraje, características del vehículo, resultados de la
-                inspección visual, antecedentes consultados y posibles costos de
-                reparación. Esta información se utiliza para permitir el
-                funcionamiento de la herramienta y conservar la información de
-                la evaluación en el dispositivo del usuario.
-              </p>
-
-              <p className="text-slate-600 leading-7 mb-4">
-                EscaneApp no utiliza actualmente esta información para crear
-                perfiles personales, vender datos personales ni mantener una
-                base de datos centralizada de las evaluaciones realizadas.
-              </p>
-
-              <p className="text-slate-600 leading-7 mb-4">
-                El usuario puede eliminar la información almacenada localmente
-                mediante las opciones disponibles en la propia herramienta o
-                eliminando los datos de almacenamiento del sitio desde la
-                configuración de su navegador.
-              </p>
-
-              <p className="text-slate-600 leading-7 mb-4">
-                Cuando el usuario accede a servicios externos enlazados desde
-                EscaneApp, como RUNT, SIMIT u otras plataformas de terceros, el
-                tratamiento de la información realizado por dichas entidades se
-                encuentra sujeto a sus propias políticas de privacidad y
-                condiciones de uso.
-              </p>
-            </section>
-
-            <section id="derechos-del-titular">
-              <h2 className="text-2xl font-bold text-[#0F1B2B] mb-4">
-                Derechos del titular
-              </h2>
-
-              <p className="text-slate-600 leading-7 mb-4">
-                De acuerdo con la normativa aplicable sobre protección de datos
-                personales, los titulares de la información pueden ejercer los
-                derechos que les correspondan respecto del tratamiento de sus
-                datos personales.
-              </p>
-
-              <p className="text-slate-600 leading-7 mb-4">
-                Entre estos derechos se encuentran solicitar información sobre
-                el tratamiento de sus datos, conocer, actualizar o rectificar la
-                información cuando corresponda, solicitar la supresión de los
-                datos cuando sea procedente y presentar consultas o solicitudes
-                relacionadas con el tratamiento de información personal.
-              </p>
-
-              <p className="text-slate-600 leading-7 mb-4">
-                En el caso de la información almacenada exclusivamente de manera
-                local mediante <code>localStorage</code>, el usuario puede
-                eliminarla directamente desde la herramienta, cuando esta opción
-                esté disponible, o mediante las configuraciones de
-                almacenamiento de su navegador.
-              </p>
-
-              <p className="text-slate-600 leading-7">
-                Las solicitudes relacionadas con información personal que
-                eventualmente sea tratada directamente por EscaneApp podrán
-                realizarse a través del medio de contacto indicado en esta
-                política.
-              </p>
-            </section>
+        {/* ==================================================== */}
+        {/* RESUMEN EN PALABRAS SENCILLAS                       */}
+        {/* ==================================================== */}
+        <div className="bg-emerald-50/50 border border-emerald-200 rounded-2xl p-6 sm:p-7 space-y-3">
+          <div className="flex items-center gap-2.5 text-emerald-950 font-bold text-sm">
+            <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0" />
+            <h2 className="text-base font-bold text-emerald-950">Resumen en palabras sencillas (para leer en 30 segundos)</h2>
           </div>
+          <ul className="text-xs sm:text-sm text-emerald-900 space-y-2 list-disc list-inside leading-relaxed">
+            <li><strong>Tus revisiones son tuyas:</strong> Los datos del carro, fotos, notas y puntajes se guardan exclusivamente en la memoria de tu celular o computador (<code className="bg-white/80 px-1 py-0.5 rounded font-mono text-emerald-950">localStorage</code>). No los subimos a ninguna base de datos centralizada.</li>
+            <li><strong>No pedimos registro:</strong> No necesitas crear cuenta, ni dejar tu cédula, ni poner contraseñas para usar el evaluador.</li>
+            <li><strong>No vendemos datos:</strong> Nunca compartiremos tus datos con concesionarios, aseguradoras o vendedores para que te llamen a ofrecerte nada.</li>
+            <li><strong>Bases oficiales seguras:</strong> Cuando consultas RUNT, SIMIT o Fasecolda, lo haces directamente en sus páginas oficiales; nosotros no guardamos tus consultas.</li>
+          </ul>
+        </div>
+
+        {/* ==================================================== */}
+        {/* SECCIONES LEGALES COMPLETAS                         */}
+        {/* ==================================================== */}
+        <div className="bg-white rounded-2xl p-6 sm:p-8 md:p-10 border border-slate-200/90 shadow-2xs space-y-8 text-sm sm:text-base text-slate-600 leading-relaxed">
+          
+          {/* Sección 1 */}
+          <section className="space-y-3">
+            <h2 className="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+              <span className="w-7 h-7 rounded-lg bg-slate-100 text-slate-800 text-xs font-mono font-bold flex items-center justify-center shrink-0">1</span>
+              <span>Identificación del responsable del tratamiento</span>
+            </h2>
+            <p>
+              EscaneApp es una plataforma digital de consulta e inspección vehicular preliminar desarrollada y operada de forma independiente en la República de Colombia por <strong>AzulaDev</strong>. Para cualquier inquietud sobre protección de datos o ejercicio de derechos de Habeas Data, puedes contactarnos al correo institucional:{' '}
+              <a href="mailto:azuladev93@gmail.com" className="font-mono font-semibold text-slate-900 underline hover:text-emerald-700">
+                azuladev93@gmail.com
+              </a>.
+            </p>
+          </section>
+
+          {/* Sección 2 */}
+          <section className="space-y-3 border-t border-slate-100 pt-6">
+            <h2 className="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+              <span className="w-7 h-7 rounded-lg bg-slate-100 text-slate-800 text-xs font-mono font-bold flex items-center justify-center shrink-0">2</span>
+              <span>Información que introduces y almacenamiento en tu dispositivo</span>
+            </h2>
+            <p>
+              Cuando realizas una evaluación en EscaneApp, puedes ingresar información sobre el vehículo (placa, modelo, kilometraje, ciudad, estado de latas, motor o multas consultadas en portales públicos).
+            </p>
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 space-y-2">
+              <div className="flex items-center gap-2 font-bold text-slate-900">
+                <Smartphone className="w-4 h-4 text-slate-700" />
+                <span>Almacenamiento 100% Local (Local Storage)</span>
+              </div>
+              <p>
+                Dicha información se almacena <strong>únicamente en el almacenamiento local de tu propio navegador web</strong>. EscaneApp no transmite ni aloja estas fichas de evaluación en servidores propios. En el momento en que borres los datos de navegación de tu teléfono o computador, la información se eliminará por completo.
+              </p>
+            </div>
+          </section>
+
+          {/* Sección 3 */}
+          <section className="space-y-3 border-t border-slate-100 pt-6">
+            <h2 className="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+              <span className="w-7 h-7 rounded-lg bg-slate-100 text-slate-800 text-xs font-mono font-bold flex items-center justify-center shrink-0">3</span>
+              <span>Enlaces y consultas a portales oficiales de terceros</span>
+            </h2>
+            <p>
+              EscaneApp facilita enlaces directos hacia plataformas oficiales del Estado y gremios automotores en Colombia:
+            </p>
+            <ul className="list-disc list-inside space-y-1.5 text-xs sm:text-sm pl-2">
+              <li><strong>RUNT</strong> (Registro Único Nacional de Tránsito)</li>
+              <li><strong>SIMIT</strong> (Federación Colombiana de Municipios - Comparendos)</li>
+              <li><strong>Fasecolda</strong> (Historial de siniestros de aseguradoras)</li>
+              <li><strong>Secretarías de Hacienda</strong> (Impuesto Vehicular departamental)</li>
+            </ul>
+            <p className="text-xs text-slate-500">
+              Ten en cuenta que estos sitios web son completamente independientes de EscaneApp y se rigen bajo sus propios términos y políticas de tratamiento de datos. EscaneApp nunca te solicitará ni almacenará contraseñas privadas de esos portales.
+            </p>
+          </section>
+
+          {/* Sección 4 */}
+          <section className="space-y-3 border-t border-slate-100 pt-6">
+            <h2 className="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+              <span className="w-7 h-7 rounded-lg bg-slate-100 text-slate-800 text-xs font-mono font-bold flex items-center justify-center shrink-0">4</span>
+              <span>Cookies y servicios analíticos o de publicidad</span>
+            </h2>
+            <p>
+              Para mantener la herramienta gratuita, EscaneApp puede mostrar anuncios suministrados por redes de publicidad de terceros (como Google AdSense) y herramientas de métricas anónimas de rendimiento.
+            </p>
+            <p className="text-xs sm:text-sm text-slate-600">
+              Google y sus socios utilizan cookies técnicas para mostrar anuncios relevantes basados en visitas anteriores a sitios web. Puedes consultar cómo utiliza Google los datos en{' '}
+              <a
+                href="https://policies.google.com/technologies/partner-sites"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-slate-900 underline hover:text-emerald-700"
+              >
+                Políticas de Google para sitios asociados
+              </a>{' '}
+              o configurar tus preferencias en la{' '}
+              <a
+                href="https://adssettings.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-slate-900 underline hover:text-emerald-700"
+              >
+                Configuración de anuncios de Google
+              </a>.
+            </p>
+          </section>
+
+          {/* Sección 5 */}
+          <section className="space-y-3 border-t border-slate-100 pt-6">
+            <h2 className="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+              <span className="w-7 h-7 rounded-lg bg-slate-100 text-slate-800 text-xs font-mono font-bold flex items-center justify-center shrink-0">5</span>
+              <span>Tus derechos como titular (Habeas Data)</span>
+            </h2>
+            <p>
+              Conforme a la Ley Estatutaria 1581 de 2012 y el Decreto 1377 de 2013 de la República de Colombia, te asisten los derechos a conocer, actualizar, rectificar y solicitar la supresión de cualquier información personal que eventualmente suministres a través de nuestros canales de contacto.
+            </p>
+            <p className="text-xs sm:text-sm text-slate-600">
+              Para tramitar cualquier petición sobre tus datos, puedes dirigir una comunicación a nuestro correo{' '}
+              <a href="mailto:azuladev93@gmail.com" className="font-mono font-bold text-slate-900 underline">
+                azuladev93@gmail.com
+              </a>, la cual será resuelta en los plazos establecidos por la legislación colombiana.
+            </p>
+          </section>
+
+          {/* Sección 6 */}
+          <section className="space-y-3 border-t border-slate-100 pt-6">
+            <h2 className="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+              <span className="w-7 h-7 rounded-lg bg-slate-100 text-slate-800 text-xs font-mono font-bold flex items-center justify-center shrink-0">6</span>
+              <span>Modificaciones a esta política</span>
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600">
+              Podemos actualizar periódicamente esta política para reflejar mejoras operativas o exigencias legales. La versión vigente siempre estará publicada en esta dirección con la fecha de última revisión visible.
+            </p>
+          </section>
+        </div>
+
+        {/* ==================================================== */}
+        {/* BANNER DE NAVEGACIÓN COMPLEMENTARIA                 */}
+        {/* ==================================================== */}
+        <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-2xs flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+          <div className="flex items-center gap-3 text-slate-600">
+            <Lock className="w-4 h-4 text-emerald-600 shrink-0" />
+            <span>¿Deseas conocer las condiciones de uso de la herramienta?</span>
+          </div>
+          <Link
+            href="/terminos-condiciones"
+            className="font-bold text-slate-900 hover:text-emerald-700 underline shrink-0 font-mono"
+          >
+            Ver Términos y Condiciones →
+          </Link>
         </div>
       </article>
     </div>

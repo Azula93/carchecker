@@ -14,34 +14,67 @@ import {
 import { ContactForm } from '@/components/contact/ContactForm';
 
 export const metadata: Metadata = {
-  title: 'Contacto',
+  title: 'Contacto y Soporte | EscaneApp Colombia',
   description:
-    'Ponte en contacto con EscaneApp para resolver dudas, reportar errores o compartir sugerencias sobre nuestra herramienta para evaluar vehículos usados.',
+    'Ponte en contacto con el equipo de EscaneApp para resolver dudas, reportar errores o compartir sugerencias sobre nuestra herramienta para evaluar carros usados en Colombia.',
   alternates: {
     canonical: '/contacto',
   },
   openGraph: {
-    title: 'Contacto | EscaneApp',
+    title: 'Contacto y Soporte | EscaneApp',
     description:
-      'Ponte en contacto con EscaneApp para resolver dudas, reportar errores o compartir sugerencias sobre nuestra herramienta para evaluar vehículos usados.',
+      'Ponte en contacto con el equipo de EscaneApp Colombia para dudas o sugerencias.',
     url: 'https://www.escaneapp.com/contacto',
     siteName: 'EscaneApp',
     locale: 'es_CO',
     type: 'website',
+    images: [
+      {
+        url: '/01_logo_horizontal_principal.png',
+        width: 1200,
+        height: 630,
+        alt: 'Contacto y soporte EscaneApp Colombia',
+      },
+    ],
   },
+};
+
+const breadcrumbStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Inicio',
+      item: 'https://www.escaneapp.com',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Contacto y Soporte',
+      item: 'https://www.escaneapp.com/contacto',
+    },
+  ],
 };
 
 export default function ContactoPage() {
   return (
-    <div className="w-full bg-[#F7F9FA] min-h-screen text-[#17212B]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+    <div className="w-full bg-[#FAFAFA] min-h-screen text-slate-800 antialiased py-8 md:py-14">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbStructuredData),
+        }}
+      />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         {/* ==================================================== */}
         {/* BREADCRUMBS                                          */}
         {/* ==================================================== */}
-        <nav aria-label="Migas de pan" className="mb-6">
-          <ol className="flex flex-wrap items-center gap-2 text-xs text-[#66727D]">
+        <nav aria-label="Migas de pan">
+          <ol className="flex flex-wrap items-center gap-2 text-xs text-slate-500 font-mono">
             <li>
-              <Link href="/" className="hover:text-[#123B5D] transition-colors font-medium">
+              <Link href="/" className="hover:text-slate-900 transition-colors">
                 Inicio
               </Link>
             </li>
@@ -49,145 +82,145 @@ export default function ContactoPage() {
               /
             </li>
             <li>
-              <span className="text-[#17212B] font-bold">Contacto</span>
+              <span className="text-slate-900 font-bold">Contacto y Soporte</span>
             </li>
           </ol>
         </nav>
 
         {/* ==================================================== */}
-        {/* HERO SECTION                                         */}
+        {/* HERO SECTION EDITORIAL                               */}
         {/* ==================================================== */}
-        <header className="mb-10 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#123B5D]/10 text-[#123B5D] font-mono font-bold text-xs mb-3">
-            <Mail className="w-3.5 h-3.5 text-[#123B5D]" />
-            <span>CANALES DE ATENCIÓN Y CONTACTO</span>
+        <header className="border-b border-slate-200/90 pb-8 space-y-3 max-w-3xl">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-[11px] font-mono font-semibold uppercase tracking-wider w-fit">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>CANALES DE ATENCIÓN Y CONTACTO DIRECTO</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#17212B] leading-tight mb-4">
-            Contacto
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 leading-[1.15]">
+            Estamos aquí para escucharte y ayudarte
           </h1>
 
-          <p className="text-base sm:text-lg text-[#66727D] leading-relaxed">
-            ¿Tienes una pregunta, encontraste un problema o quieres compartir una sugerencia sobre EscaneApp? Estamos aquí para escucharte.
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            ¿Tienes alguna duda sobre una revisión, encontraste un dato que no te cuadra o tienes una idea para mejorar la plataforma? Escríbenos y te responderemos personalmente.
           </p>
         </header>
 
         {/* ==================================================== */}
         {/* GRID PRINCIPAL: INFORMACIÓN + FORMULARIO             */}
         {/* ==================================================== */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Columna Izquierda: ¿Cómo podemos ayudarte? + Datos de contacto */}
-          <div className="lg:col-span-5 space-y-6">
+          <div className="lg:col-span-5 space-y-5">
             {/* Tarjeta de Opciones de Ayuda */}
-            <section className="bg-white border border-[#CBD5E1] rounded-2xl p-6 sm:p-7 shadow-xs space-y-5">
-              <div className="border-b border-[#E2E8F0] pb-3">
-                <span className="text-xs font-mono font-bold text-[#123B5D] uppercase tracking-wider block mb-1">
+            <section className="bg-white border border-slate-200/90 rounded-2xl p-6 shadow-2xs space-y-4">
+              <div className="border-b border-slate-100 pb-3">
+                <span className="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider block mb-1">
                   ORIENTACIÓN
                 </span>
-                <h2 className="text-lg font-extrabold text-[#17212B]">
+                <h2 className="text-base font-bold text-slate-900">
                   ¿Cómo podemos ayudarte?
                 </h2>
-                <p className="text-xs text-[#66727D] mt-1 leading-relaxed">
-                  Elige el motivo que mejor describa tu necesidad para atenderte con mayor agilidad:
+                <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                  Elige el motivo de tu consulta para atenderte con mayor rapidez:
                 </p>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-2.5">
                 {/* Opción 1: Preguntas sobre EscaneApp */}
-                <div className="p-3.5 rounded-xl bg-[#F7F9FA] border border-[#E2E8F0] flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#123B5D]/10 flex items-center justify-center text-[#123B5D] shrink-0 mt-0.5">
-                    <HelpCircle className="w-4 h-4" />
+                <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-slate-900 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+                    <HelpCircle className="w-4 h-4 text-emerald-400" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-xs text-[#17212B]">
-                      Preguntas sobre EscaneApp
+                    <h3 className="font-bold text-xs text-slate-900">
+                      Preguntas sobre la revisión
                     </h3>
-                    <p className="text-[11px] text-[#66727D] leading-relaxed mt-0.5">
-                      Dudas sobre el funcionamiento del evaluador de vehículos, la calculadora de costos o interpretación de resultados.
+                    <p className="text-[11px] text-slate-600 leading-relaxed mt-0.5">
+                      Dudas sobre los 80 puntos del checklist, cómo interpretar el puntaje o cómo negociar el precio con el vendedor.
                     </p>
                   </div>
                 </div>
 
                 {/* Opción 2: Reportar un error */}
-                <div className="p-3.5 rounded-xl bg-[#F7F9FA] border border-[#E2E8F0] flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#FEF2F2] border border-[#FECACA] flex items-center justify-center text-[#D64545] shrink-0 mt-0.5">
+                <div className="p-3.5 rounded-xl bg-rose-50/40 border border-rose-200/80 flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-rose-100 flex items-center justify-center text-rose-700 shrink-0 mt-0.5">
                     <Bug className="w-4 h-4" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-xs text-[#17212B]">
-                      Reportar un error
+                    <h3 className="font-bold text-xs text-rose-900">
+                      Reportar un error técnico
                     </h3>
-                    <p className="text-[11px] text-[#66727D] leading-relaxed mt-0.5">
-                      Comportamientos anómalos en los formularios, fallas técnicas en selectores o errores al calcular datos.
+                    <p className="text-[11px] text-slate-600 leading-relaxed mt-0.5">
+                      Si alguna calculadora falló, un enlace no abrió o viste un botón con problemas en tu celular.
                     </p>
                   </div>
                 </div>
 
                 {/* Opción 3: Sugerencias o comentarios */}
-                <div className="p-3.5 rounded-xl bg-[#F7F9FA] border border-[#E2E8F0] flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#F0FDF4] border border-[#BBF7D0] flex items-center justify-center text-[#2EAD68] shrink-0 mt-0.5">
+                <div className="p-3.5 rounded-xl bg-emerald-50/30 border border-emerald-200/80 flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-800 shrink-0 mt-0.5">
                     <MessageSquareQuote className="w-4 h-4" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-xs text-[#17212B]">
-                      Sugerencias o comentarios
+                    <h3 className="font-bold text-xs text-emerald-950">
+                      Sugerencias y nuevas ideas
                     </h3>
-                    <p className="text-[11px] text-[#66727D] leading-relaxed mt-0.5">
-                      Propuestas de nuevas características, modelos de autos a incorporar o mejoras a la experiencia de usuario.
+                    <p className="text-[11px] text-slate-600 leading-relaxed mt-0.5">
+                      Modelos de carro que quieras que analicemos o mejoras que te gustaría ver en la aplicación.
                     </p>
                   </div>
                 </div>
 
                 {/* Opción 4: Consultas generales */}
-                <div className="p-3.5 rounded-xl bg-[#F7F9FA] border border-[#E2E8F0] flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center text-[#123B5D] shrink-0 mt-0.5">
+                <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-slate-200 flex items-center justify-center text-slate-700 shrink-0 mt-0.5">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-xs text-[#17212B]">
+                    <h3 className="font-bold text-xs text-slate-900">
                       Consultas generales
                     </h3>
-                    <p className="text-[11px] text-[#66727D] leading-relaxed mt-0.5">
-                      Alianzas institucionales, menciones de prensa y cualquier otra inquietud relacionada con EscaneApp.
+                    <p className="text-[11px] text-slate-600 leading-relaxed mt-0.5">
+                      Menciones en medios, alianzas educativas o dudas sobre el proyecto independiente.
                     </p>
                   </div>
                 </div>
               </div>
             </section>
 
-            {/* Tarjeta de Correo Directo */}
-            <div className="bg-[#123B5D] text-white rounded-2xl p-6 shadow-sm space-y-3">
-              <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#8BCF3F]">
+            {/* Tarjeta de Correo Directo Editorial */}
+            <div className="bg-slate-900 text-white rounded-2xl p-6 shadow-xs space-y-3 border border-slate-800">
+              <div className="flex items-center gap-2 text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-wider">
                 <Clock className="w-3.5 h-3.5" />
                 <span>CANAL DIRECTO</span>
               </div>
               <h3 className="text-base font-bold text-white">
-                Correo Electrónico Oficial
+                Bandeja de Correo Electrónico
               </h3>
-              <p className="text-xs text-slate-200 leading-relaxed">
-                Puedes escribirnos de manera directa a nuestra bandeja de entrada:
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Si prefieres escribirnos directamente desde tu cuenta personal:
               </p>
-              <div className="p-3 rounded-xl bg-white/10 border border-white/15 flex items-center justify-between">
+              <div className="p-3 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-between">
                 <a
                   href="mailto:azuladev93@gmail.com"
-                  className="font-mono text-xs sm:text-sm font-bold text-[#8BCF3F] hover:underline"
+                  className="font-mono text-xs sm:text-sm font-bold text-emerald-400 hover:underline"
                 >
                   azuladev93@gmail.com
                 </a>
               </div>
-              <p className="text-[11px] text-slate-300">
-                Respondemos habitualmente en menos de 24 horas hábiles.
+              <p className="text-[11px] text-slate-400">
+                Respondemos en menos de 24 horas hábiles.
               </p>
             </div>
 
             {/* Nota de Privacidad */}
-            <div className="p-4 rounded-xl bg-white border border-[#CBD5E1] text-xs text-[#66727D] flex items-start gap-3">
-              <ShieldCheck className="w-4 h-4 text-[#123B5D] shrink-0 mt-0.5" />
+            <div className="p-4 rounded-xl bg-white border border-slate-200/90 text-xs text-slate-600 flex items-start gap-3 shadow-2xs">
+              <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
               <p className="leading-relaxed">
-                Tus datos no serán cedidos a terceros ni utilizados con fines de spam publicitario. Consulta nuestra{' '}
+                Tus datos nunca serán vendidos ni utilizados para publicidad molesta o spam. Consulta nuestra{' '}
                 <Link
                   href="/politica-privacidad"
-                  className="font-bold text-[#123B5D] hover:underline"
+                  className="font-bold text-slate-900 hover:text-emerald-700 underline"
                 >
                   Política de Privacidad
                 </Link>
@@ -205,34 +238,34 @@ export default function ContactoPage() {
         {/* ==================================================== */}
         {/* BANNER INFORMATIVO INFERIOR                          */}
         {/* ==================================================== */}
-        <section className="bg-white border border-[#CBD5E1] rounded-2xl p-6 sm:p-8 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-6">
+        <section className="bg-slate-900 text-white border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-1.5 text-center sm:text-left">
             <div className="flex items-center gap-2 justify-center sm:justify-start">
-              <Sparkles className="w-4 h-4 text-[#8BCF3F]" />
-              <span className="font-mono text-xs font-bold text-[#123B5D] uppercase">
-                HERRAMIENTAS GRATUITAS
+              <Sparkles className="w-4 h-4 text-emerald-400" />
+              <span className="font-mono text-[10px] font-bold text-emerald-400 uppercase tracking-wider">
+                HERRAMIENTAS 100% GRATUITAS
               </span>
             </div>
-            <h3 className="text-base sm:text-lg font-bold text-[#17212B]">
-              ¿Aún no has probado las herramientas de EscaneApp?
+            <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
+              ¿Aún no has revisado el carro que tienes en mente?
             </h3>
-            <p className="text-xs text-[#66727D] max-w-xl">
-              Evalúa un vehículo usado con nuestro checklist de 80 puntos o proyecta el costo real de tenencia anual y mensual.
+            <p className="text-xs text-slate-300 max-w-xl leading-relaxed">
+              Evalúa un vehículo usado con nuestra guía paso a paso de 80 puntos o calcula cuánto te costará mantenerlo al año en Colombia.
             </p>
           </div>
 
           <div className="flex items-center gap-3 shrink-0 flex-wrap justify-center">
             <Link
               href="/evaluacion"
-              className="inline-flex items-center gap-2 px-5 h-11 rounded-xl bg-[#8BCF3F] hover:bg-[#7CBF32] text-[#123B5D] text-xs font-extrabold transition-all shadow-xs active:scale-98"
+              className="inline-flex items-center gap-2 px-5 h-11 rounded-xl bg-white hover:bg-slate-100 text-slate-900 text-xs font-bold transition-all shadow-xs active:scale-98"
             >
               <span>Evaluar carro</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3.5 h-3.5 text-emerald-600" />
             </Link>
 
             <Link
               href="/cuanto-cuesta-mantener-carro-usado-colombia"
-              className="inline-flex items-center gap-2 px-5 h-11 rounded-xl bg-[#F7F9FA] hover:bg-[#E2E8F0] border border-[#CBD5E1] text-[#17212B] text-xs font-bold transition-all shadow-2xs"
+              className="inline-flex items-center gap-2 px-5 h-11 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 text-xs font-semibold transition-all active:scale-98"
             >
               <span>Calcular costos</span>
             </Link>

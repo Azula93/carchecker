@@ -9,9 +9,8 @@ import {
   Route,
   Wrench,
   FileText,
-  AlertCircle,
-  Eye,
   ClipboardCheck,
+  AlertTriangle,
 } from 'lucide-react';
 import {
   ChecklistItemEval,
@@ -33,12 +32,12 @@ interface Step3ChecklistProps {
 }
 
 const CATEGORIAS_ORDEN: { id: CategoriaChecklist; titulo: string; Icon: React.FC<{ className?: string }> }[] = [
-  { id: 'exterior', titulo: 'Exterior', Icon: Car },
-  { id: 'motor', titulo: 'Motor & Mecánica', Icon: Cog },
-  { id: 'interior', titulo: 'Interior & Cabina', Icon: Armchair },
-  { id: 'ruta', titulo: 'Prueba de Ruta', Icon: Route },
-  { id: 'inferior', titulo: 'Inspección Inferior', Icon: Wrench },
-  { id: 'complementarias', titulo: 'Complementarias', Icon: FileText },
+  { id: 'exterior', titulo: 'Pintura y latas', Icon: Car },
+  { id: 'motor', titulo: 'Motor y fugas', Icon: Cog },
+  { id: 'interior', titulo: 'Interior y cabina', Icon: Armchair },
+  { id: 'ruta', titulo: 'Manejo y frenos', Icon: Route },
+  { id: 'inferior', titulo: 'Por debajo', Icon: Wrench },
+  { id: 'complementarias', titulo: 'Llantas y otros', Icon: FileText },
 ];
 
 export const Step3Checklist: React.FC<Step3ChecklistProps> = ({
@@ -109,19 +108,19 @@ export const Step3Checklist: React.FC<Step3ChecklistProps> = ({
 
   return (
     <div className="space-y-8">
-      {/* Encabezado del Paso (Stitch Reference) */}
-      <div className="border-b border-[#E2E8F0] pb-6 flex flex-col gap-4">
+      {/* Encabezado en lenguaje sencillo */}
+      <div className="border-b border-slate-200/90 pb-6 flex flex-col gap-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EBF3FA] text-[#123B5D] text-xs font-bold w-fit mb-2">
-              <span className="w-2 h-2 rounded-full bg-[#8BCF3F] animate-pulse"></span>
-              <span>INSPECCIÓN FÍSICA</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-[11px] font-mono font-semibold uppercase tracking-wider w-fit mb-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>PASO 03 · REVISIÓN FÍSICA PASO A PASO (80 PUNTOS)</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#17212B] tracking-tight">
-              Checklist de inspección física
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              Revisemos el estado real del carro
             </h2>
-            <p className="text-xs sm:text-sm text-[#66727D] mt-1">
-              Inspecciona visualmente cada componente y selecciona su estado técnico.
+            <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl">
+              Párate frente al vehículo y revisa cada parte. No tienes que ser mecánico: en cada punto te decimos exactamente qué mirar y qué tocar.
             </p>
           </div>
 
@@ -129,85 +128,85 @@ export const Step3Checklist: React.FC<Step3ChecklistProps> = ({
             <button
               type="button"
               onClick={onMarcarTodosBien}
-              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-white border border-[#CBD5E1] text-[#123B5D] hover:bg-slate-50 text-xs font-bold shadow-2xs active:scale-95 transition-all self-start sm:self-center shrink-0 cursor-pointer"
-              title="Marcar todos los componentes como Bueno de una sola vez"
+              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 text-xs font-semibold shadow-2xs active:scale-[0.98] transition-all self-start sm:self-center shrink-0 cursor-pointer"
+              title="Marcar todos los puntos en buen estado rápidamente"
             >
-              <CheckCheck className="w-4 h-4 text-[#2EAD68]" />
-              <span>Marcar todo como Bueno</span>
+              <CheckCheck className="w-4 h-4 text-emerald-600" />
+              <span>Marcar todo en Buen Estado</span>
             </button>
           )}
         </div>
 
-        {/* Tarjeta de Puntuación Física General */}
-        <div className="p-5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] shadow-2xs flex flex-col gap-3.5">
+        {/* Panel de Control de la Revisión */}
+        <div className="p-5 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs flex flex-col gap-3.5">
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-[#123B5D] text-white flex flex-col items-center justify-center shrink-0 shadow-2xs">
+              <div className="w-12 h-12 rounded-xl bg-slate-900 text-white flex flex-col items-center justify-center shrink-0 shadow-2xs">
                 <span className="font-mono text-base font-bold text-white">
                   {statsChecklist.porcentaje}%
                 </span>
-                <span className="text-[9px] uppercase tracking-tighter opacity-75 font-mono">
-                  Índice
+                <span className="text-[9px] uppercase tracking-wider opacity-75 font-mono">
+                  Calidad
                 </span>
               </div>
               <div className="flex flex-col">
-                <span className="text-xs sm:text-sm font-bold text-[#17212B]">
-                  Puntuación Física Actual
+                <span className="text-xs sm:text-sm font-semibold text-slate-900">
+                  Calificación del estado físico
                 </span>
-                <span className="text-xs text-[#66727D]">
-                  {statsChecklist.evaluados} de {totalItems} componentes evaluados
+                <span className="text-xs text-slate-500 font-mono">
+                  Has revisado {statsChecklist.evaluados} de {totalItems} puntos
                 </span>
               </div>
             </div>
 
-            <div className="flex flex-col items-end">
-              <span className="text-xs font-mono font-bold text-[#123B5D]">
+            <div className="flex flex-col items-end font-mono">
+              <span className="text-xs font-bold text-slate-900">
                 {Math.round((totalEvaluados / totalItems) * 100)}%
               </span>
-              <span className="text-[10px] text-[#66727D]">Progreso</span>
+              <span className="text-[10px] text-slate-400">Revisado</span>
             </div>
           </div>
 
           {/* Barra de progreso */}
-          <div className="w-full bg-[#E2E8F0] h-2 rounded-full overflow-hidden">
+          <div className="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
             <div
-              className="bg-[#123B5D] h-full rounded-full transition-all duration-300"
+              className="bg-slate-900 h-full rounded-full transition-all duration-300"
               style={{ width: `${(totalEvaluados / totalItems) * 100}%` }}
             />
           </div>
 
           {/* Subheader info pill */}
-          <div className="flex items-center justify-between border-t border-[#E2E8F0] pt-2 text-xs">
-            <div className="flex items-center gap-1.5 text-[#17212B] font-medium truncate">
-              <Car className="w-3.5 h-3.5 text-[#66727D]" />
-              <span className="truncate">{datosBasicos?.lineaVehiculo || 'Vehículo'}</span>
+          <div className="flex items-center justify-between border-t border-slate-200/80 pt-2 text-xs">
+            <div className="flex items-center gap-1.5 text-slate-800 font-medium truncate">
+              <Car className="w-3.5 h-3.5 text-slate-500" />
+              <span className="truncate">{datosBasicos?.lineaVehiculo || 'Vehículo en revisión'}</span>
             </div>
             {totalHallazgos > 0 ? (
-              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#FEF2F2] border border-[#FECACA] text-[#D64545] font-bold text-[11px]">
-                <AlertCircle className="w-3 h-3" />
-                <span>{totalHallazgos} hallazgo(s) observados</span>
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 font-mono text-[11px] font-semibold">
+                <AlertTriangle className="w-3 h-3 text-amber-600" />
+                <span>{totalHallazgos} detalle(s) para revisar</span>
               </span>
             ) : (
-              <span className="text-[11px] text-[#2EAD68] font-bold">
-                Sin fallas registradas
+              <span className="text-[11px] text-emerald-700 font-mono font-medium">
+                Sin fallas marcadas por ahora
               </span>
             )}
           </div>
         </div>
       </div>
 
-      {/* Categorías de Evaluación */}
+      {/* Selector de Partes del Carro */}
       <div className="flex flex-col gap-3">
         <div className="flex items-center justify-between">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#123B5D]">
-            Categorías de Inspección
+          <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-800">
+            Partes del carro a revisar ({CATEGORIAS_ORDEN.length})
           </span>
-          <span className="text-[11px] text-[#66727D] font-mono">
-            {CATEGORIAS_ORDEN.length} Áreas
+          <span className="text-[11px] text-slate-500 font-mono">
+            {totalEvaluados}/{totalItems} completados
           </span>
         </div>
 
-        {/* Responsive Grid para visualizar TODAS las categorías */}
+        {/* Grid de Pestañas de Categoría */}
         <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-2">
           {CATEGORIAS_ORDEN.map((cat) => {
             const conteo = conteoPorCategoria[cat.id];
@@ -219,10 +218,10 @@ export const Step3Checklist: React.FC<Step3ChecklistProps> = ({
                 key={cat.id}
                 type="button"
                 onClick={() => setCategoriaActiva(cat.id)}
-                className={`min-h-12 px-3 py-2 rounded-xl flex items-center justify-between gap-1.5 transition-all cursor-pointer text-xs font-bold border ${
+                className={`min-h-11 px-3 py-2 rounded-xl flex items-center justify-between gap-1.5 transition-all cursor-pointer text-xs font-medium border ${
                   isActiva
-                    ? 'bg-[#123B5D] text-white border-[#123B5D] shadow-xs'
-                    : 'bg-white text-[#66727D] border-[#CBD5E1] hover:bg-slate-50'
+                    ? 'bg-slate-900 text-white border-slate-900 shadow-xs font-bold'
+                    : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50 hover:text-slate-900'
                 }`}
               >
                 <div className="flex items-center gap-1.5 min-w-0">
@@ -231,16 +230,16 @@ export const Step3Checklist: React.FC<Step3ChecklistProps> = ({
                 </div>
                 <div className="flex items-center gap-1 shrink-0">
                   <span
-                    className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full ${
+                    className={`text-[10px] font-mono px-1.5 py-0.5 rounded ${
                       isActiva
-                        ? 'bg-white/20 text-white'
-                        : 'bg-[#F1F5F9] text-[#66727D]'
+                        ? 'bg-white/15 text-white'
+                        : 'bg-slate-100 text-slate-500'
                     }`}
                   >
                     {conteo.evaluados}/{conteo.total}
                   </span>
                   {conteo.mal > 0 && (
-                    <span className="w-2 h-2 rounded-full bg-[#D64545] shrink-0" title="Contiene hallazgos críticos" />
+                    <span className="w-2 h-2 rounded-full bg-rose-500 shrink-0" title="Tiene detalles malos" />
                   )}
                 </div>
               </button>
@@ -248,36 +247,36 @@ export const Step3Checklist: React.FC<Step3ChecklistProps> = ({
           })}
         </div>
 
-        {/* Barra descriptiva de la sección activa con filtro dropdown */}
-        <div className="p-3.5 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+        {/* Barra de Filtro y Contexto de la Categoría */}
+        <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
           <div className="flex items-center gap-2">
-            <ClipboardCheck className="w-4 h-4 text-[#123B5D] shrink-0" />
-            <span className="font-semibold text-[#17212B]">
-              {CATEGORIAS_INFO[categoriaActiva]?.descripcion || 'Evalúa cada ítem con honestidad'}
+            <ClipboardCheck className="w-4 h-4 text-slate-700 shrink-0" />
+            <span className="text-slate-700 font-medium">
+              {CATEGORIAS_INFO[categoriaActiva]?.descripcion || 'Revisa cada punto con calma'}
             </span>
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
-            <span className="text-[11px] text-[#66727D]">Filtrar:</span>
+            <span className="text-[11px] text-slate-500 font-mono">Mostrar:</span>
             <select
               value={filtroEstado}
               onChange={(e) => setFiltroEstado(e.target.value)}
-              className="px-2.5 py-1 rounded-lg bg-white border border-[#CBD5E1] text-[11px] font-semibold text-[#17212B] cursor-pointer focus:outline-none"
+              className="px-2.5 py-1 rounded-lg bg-white border border-slate-300 text-[11px] font-medium text-slate-800 cursor-pointer focus:outline-none focus:border-slate-800"
             >
-              <option value="todos">Todos ({itemsCategoriaActiva.length})</option>
-              <option value="pendientes">Sin calificar</option>
-              <option value="hallazgos">Solo hallazgos (Regular / Malo)</option>
-              <option value="bien">Solo Bueno</option>
+              <option value="todos">Todos los puntos ({itemsCategoriaActiva.length})</option>
+              <option value="pendientes">Pendientes por calificar</option>
+              <option value="hallazgos">Solo los que tienen detalles (Regular / Mal)</option>
+              <option value="bien">Solo los que están Bien</option>
             </select>
           </div>
         </div>
       </div>
 
-      {/* Lista de Ítems de la Categoría */}
+      {/* Lista de Puntos a Revisar */}
       <div className="flex flex-col gap-3.5">
         {itemsFiltrados.length === 0 ? (
-          <div className="p-8 text-center bg-[#F8FAFC] rounded-2xl border border-dashed border-[#CBD5E1] text-xs text-[#66727D]">
-            No hay componentes que coincidan con el filtro seleccionado en esta categoría.
+          <div className="p-8 text-center bg-slate-50 rounded-xl border border-dashed border-slate-300 text-xs text-slate-500">
+            No hay puntos que coincidan con el filtro en esta sección.
           </div>
         ) : (
           itemsFiltrados.map((item) => (

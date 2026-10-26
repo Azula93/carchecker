@@ -4,7 +4,6 @@ import React, { useState, useEffect, useMemo } from 'react';
 import {
   ShieldCheck,
   RefreshCw,
-  ExternalLink,
   AlertCircle,
   ChevronDown,
 } from 'lucide-react';
@@ -28,13 +27,13 @@ interface CalculadoraSOATProps {
 }
 
 const OPCIONES_CATEGORIAS = [
-  { valor: 'VEHICULOS FAMILIARES', etiqueta: 'Automóvil familiar (Sedán / Hatchback)' },
-  { valor: 'CAMPEROS Y CAMIONETAS', etiqueta: 'Campero o Camioneta (SUV / 4x4 / Platón)' },
-  { valor: 'MOTOS', etiqueta: 'Motocicleta' },
-  { valor: 'VEHICULOS 6 o más pasajeros', etiqueta: 'Vehículo de 6 o más pasajeros' },
-  { valor: 'CARGA O MIXTO', etiqueta: 'Carga o Mixto (Camión / Furgón)' },
-  { valor: 'AUTOS NEGOCIO', etiqueta: 'Auto de Negocio (Taxi / Servicio Público)' },
-  { valor: 'CICLOMOTOR', etiqueta: 'Ciclomotor' },
+  { valor: 'VEHICULOS FAMILIARES', etiqueta: 'Carro familiar (Sedán, Hatchback o Coupe)' },
+  { valor: 'CAMPEROS Y CAMIONETAS', etiqueta: 'Camioneta o Campero (SUV, 4x4 o Platón)' },
+  { valor: 'MOTOS', etiqueta: 'Moto' },
+  { valor: 'VEHICULOS 6 o más pasajeros', etiqueta: 'Camioneta o van de 6 o más pasajeros' },
+  { valor: 'CARGA O MIXTO', etiqueta: 'Vehículo de carga (Furgón o Camión)' },
+  { valor: 'AUTOS NEGOCIO', etiqueta: 'Taxi o servicio público' },
+  { valor: 'CICLOMOTOR', etiqueta: 'Ciclomotor o Motocarro eléctrico' },
 ];
 
 export const CalculadoraSOAT: React.FC<CalculadoraSOATProps> = ({
@@ -62,7 +61,7 @@ export const CalculadoraSOAT: React.FC<CalculadoraSOATProps> = ({
   const [errorMensaje, setErrorMensaje] = useState<string | null>(null);
 
   // Modo de ajuste manual opcional
-  const [modoManual, setModoManual] = useState<boolean>(false);
+  const modoManual = false;
   const [precioManual, setPrecioManual] = useState<number | ''>(0);
   const [mostrarFuentes, setMostrarFuentes] = useState<boolean>(false);
 
@@ -119,7 +118,7 @@ export const CalculadoraSOAT: React.FC<CalculadoraSOATProps> = ({
           }
         } else {
           setDatosSoat(null);
-          setErrorMensaje(json.message || 'No fue posible determinar la tarifa SOAT.');
+          setErrorMensaje(json.message || 'No fue posible determinar la tarifa del SOAT.');
         }
       })
       .catch((err) => {
@@ -139,7 +138,6 @@ export const CalculadoraSOAT: React.FC<CalculadoraSOATProps> = ({
     };
   }, [categoria, cilindraje, anioModelo, capacidadToneladas, requiereCilindraje, requiereEdad, esCarga, modoManual]);
 
-  // Notificar al componente padre cuando cambie el precio aplicable (solo si ha interactuado o ya estaba calculado)
   useEffect(() => {
     if (onTarifaChangeRef.current && haInteractuado) {
       const precioManualNum = precioManual === '' ? 0 : precioManual;
@@ -157,20 +155,20 @@ export const CalculadoraSOAT: React.FC<CalculadoraSOATProps> = ({
 
   return (
     <div
-      className={`w-full bg-white border border-[#E2E8F0] rounded-2xl p-5 sm:p-7 md:p-8 shadow-xs text-[#0F1B2B] ${className}`}
+      className={`w-full bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-7 md:p-8 shadow-xs text-slate-900 ${className}`}
     >
-      {/* Encabezado del Módulo SOAT con Botón de Cierre Superior Accesible */}
-      <div className="flex items-start justify-between gap-3 pb-5 border-b border-[#E2E8F0]">
+      {/* Encabezado Editorial */}
+      <div className="flex items-start justify-between gap-3 pb-5 border-b border-slate-200/80">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F0FDF4] border border-[#BBF7D0] text-[#166534] text-xs font-mono font-semibold mb-2">
-            <ShieldCheck className="w-3.5 h-3.5" />
-            <span>TARIFA OFICIAL VIGENTE SFC</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-mono font-semibold mb-2">
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+            <span>PRECIOS OFICIALES DE COLOMBIA (2026)</span>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-[#0F1B2B]">
-            SOAT 2026
+          <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+            ¿Cuánto cuesta el SOAT de este carro?
           </h3>
-          <p className="text-xs sm:text-sm text-[#475569] mt-0.5">
-            Selecciona las características de tu vehículo para obtener la tarifa oficial fijada por la Superintendencia Financiera.
+          <p className="text-xs sm:text-sm text-slate-600 mt-0.5">
+            El SOAT es el seguro obligatorio que debes pagar cada año. Su precio exacto cambia según el tipo de carro, qué tan grande es el motor y el año del modelo.
           </p>
         </div>
 
@@ -178,7 +176,7 @@ export const CalculadoraSOAT: React.FC<CalculadoraSOATProps> = ({
           <button
             type="button"
             onClick={onCerrar}
-            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-[#475569] hover:bg-slate-200 hover:text-[#0F1B2B] transition-colors cursor-pointer shrink-0"
+            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 hover:text-slate-900 transition-colors cursor-pointer shrink-0"
             title="Cerrar calculadora"
           >
             <span>✕ Cerrar</span>
@@ -186,12 +184,12 @@ export const CalculadoraSOAT: React.FC<CalculadoraSOATProps> = ({
         )}
       </div>
 
-      {/* 1. CAMPOS DE ENTRADA INMEDIATAMENTE AL INICIO (HERRAMIENTA PRIMERO) */}
+      {/* Formulario de Entrada */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 pt-6 pb-6">
-        {/* 1.1 Tipo / Categoría */}
+        {/* 1. Tipo / Categoría */}
         <div>
-          <label className="block text-xs font-semibold text-[#0F1B2B] mb-1.5">
-            Categoría del vehículo
+          <label className="block text-xs font-semibold text-slate-900 mb-1.5">
+            ¿Qué tipo de carro es?
           </label>
           <select
             value={categoria}
@@ -200,7 +198,7 @@ export const CalculadoraSOAT: React.FC<CalculadoraSOATProps> = ({
               setHaInteractuado(true);
               setCargando(true);
             }}
-            className="w-full h-11 px-3.5 rounded-lg bg-white border border-[#CBD5E1] text-xs sm:text-sm text-[#0F1B2B] focus:outline-none focus:border-[#0F1B2B] cursor-pointer"
+            className="w-full h-11 px-3.5 rounded-xl bg-white border border-slate-300 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-slate-800 focus:ring-2 focus:ring-slate-900/10 cursor-pointer shadow-2xs"
           >
             {OPCIONES_CATEGORIAS.map((opt) => (
               <option key={opt.valor} value={opt.valor}>
@@ -208,15 +206,12 @@ export const CalculadoraSOAT: React.FC<CalculadoraSOATProps> = ({
               </option>
             ))}
           </select>
-          {/* <span className="text-[11px] text-[#64748B] mt-1 block">
-            Clasificación oficial según tarjeta de propiedad
-          </span> */}
         </div>
 
-        {/* 1.2 Cilindraje en c.c. (si aplica) */}
+        {/* 2. Cilindraje en c.c. */}
         {requiereCilindraje ? (
           <div>
-            <label className="block text-xs font-semibold text-[#0F1B2B] mb-1.5">
+            <label className="block text-xs font-semibold text-slate-900 mb-1.5">
               Cilindraje del motor
             </label>
             <div className="relative">
@@ -232,10 +227,10 @@ export const CalculadoraSOAT: React.FC<CalculadoraSOATProps> = ({
                   setHaInteractuado(true);
                   setCargando(true);
                 }}
-                placeholder="Ej. 1400"
-                className="w-full h-11 px-3.5 pr-12 rounded-lg bg-white border border-[#CBD5E1] text-xs sm:text-sm font-mono text-[#0F1B2B] focus:outline-none focus:border-[#0F1B2B]"
+                placeholder="Ej. 1600"
+                className="w-full h-11 px-3.5 pr-12 rounded-xl bg-white border border-slate-300 text-xs sm:text-sm font-mono text-slate-900 focus:outline-none focus:border-slate-800 focus:ring-2 focus:ring-slate-900/10 shadow-2xs"
               />
-              <span className="absolute right-3.5 top-3 text-xs font-mono font-bold text-[#64748B]">
+              <span className="absolute right-3.5 top-3 text-xs font-mono font-bold text-slate-400">
                 c.c.
               </span>
             </div>
@@ -251,8 +246,8 @@ export const CalculadoraSOAT: React.FC<CalculadoraSOATProps> = ({
                   }}
                   className={`text-[10px] font-mono px-2 py-0.5 rounded border transition-colors cursor-pointer ${
                     cilindraje === preset
-                      ? 'bg-[#0F1B2B] text-white border-[#0F1B2B]'
-                      : 'bg-white border-[#CBD5E1] text-[#475569] hover:bg-slate-50'
+                      ? 'bg-slate-900 text-white border-slate-900'
+                      : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
                   }`}
                 >
                   {preset}cc
@@ -262,8 +257,8 @@ export const CalculadoraSOAT: React.FC<CalculadoraSOATProps> = ({
           </div>
         ) : esCarga ? (
           <div>
-            <label className="block text-xs font-semibold text-[#0F1B2B] mb-1.5">
-              Capacidad de carga
+            <label className="block text-xs font-semibold text-slate-900 mb-1.5">
+              Capacidad de carga (Toneladas)
             </label>
             <div className="relative">
               <input
@@ -277,29 +272,29 @@ export const CalculadoraSOAT: React.FC<CalculadoraSOATProps> = ({
                   setHaInteractuado(true);
                   setCargando(true);
                 }}
-                className="w-full h-11 px-3.5 pr-16 rounded-lg bg-white border border-[#CBD5E1] text-xs sm:text-sm font-mono text-[#0F1B2B] focus:outline-none focus:border-[#0F1B2B]"
+                className="w-full h-11 px-3.5 pr-16 rounded-xl bg-white border border-slate-300 text-xs sm:text-sm font-mono text-slate-900 focus:outline-none focus:border-slate-800 shadow-2xs"
               />
-              <span className="absolute right-3.5 top-3 text-xs font-mono font-bold text-[#64748B]">
+              <span className="absolute right-3.5 top-3 text-xs font-mono font-bold text-slate-400">
                 Ton
               </span>
             </div>
           </div>
         ) : (
           <div>
-            <label className="block text-xs font-semibold text-[#0F1B2B] mb-1.5">
+            <label className="block text-xs font-semibold text-slate-900 mb-1.5">
               Condición especial
             </label>
-            <div className="h-11 px-3.5 rounded-lg bg-slate-50 border border-[#E2E8F0] flex items-center text-xs text-[#64748B]">
+            <div className="h-11 px-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center text-xs text-slate-500 font-medium">
               Tarifa única según categoría
             </div>
           </div>
         )}
 
-        {/* 1.3 Año del modelo */}
+        {/* 3. Año del modelo */}
         {requiereEdad ? (
           <div>
-            <label className="block text-xs font-semibold text-[#0F1B2B] mb-1.5">
-              Año del modelo
+            <label className="block text-xs font-semibold text-slate-900 mb-1.5">
+              Año del modelo del carro
             </label>
             <input
               type="number"
@@ -313,12 +308,12 @@ export const CalculadoraSOAT: React.FC<CalculadoraSOATProps> = ({
                 setCargando(true);
               }}
               placeholder="Ej. 2020"
-              className="w-full h-11 px-3.5 rounded-lg bg-white border border-[#CBD5E1] text-xs sm:text-sm font-mono text-[#0F1B2B] focus:outline-none focus:border-[#0F1B2B]"
+              className="w-full h-11 px-3.5 rounded-xl bg-white border border-slate-300 text-xs sm:text-sm font-mono text-slate-900 focus:outline-none focus:border-slate-800 shadow-2xs"
             />
-            <span className="text-[11px] text-[#64748B] mt-1 block">
+            <span className="text-[11px] text-slate-500 mt-1 block">
               {anioModelo > 0 ? (
                 <>
-                  Antigüedad: <strong>{Math.max(0, 2026 - anioModelo)} años</strong> ({Math.max(0, 2026 - anioModelo) < 10 ? 'Menos de 10 años' : '10 o más años'})
+                  Tiene <strong>{Math.max(0, 2026 - anioModelo)} años</strong> ({Math.max(0, 2026 - anioModelo) < 10 ? 'Menos de 10 años paga menos' : '10 años o más paga tarifa mayor'})
                 </>
               ) : (
                 'Año según matrícula'
@@ -327,11 +322,11 @@ export const CalculadoraSOAT: React.FC<CalculadoraSOATProps> = ({
           </div>
         ) : (
           <div>
-            <label className="block text-xs font-semibold text-[#0F1B2B] mb-1.5">
+            <label className="block text-xs font-semibold text-slate-900 mb-1.5">
               Antigüedad
             </label>
-            <div className="h-11 px-3.5 rounded-lg bg-slate-50 border border-[#E2E8F0] flex items-center text-xs text-[#64748B]">
-              No aplica según la tabla SFC
+            <div className="h-11 px-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center text-xs text-slate-500 font-medium">
+              El año no cambia esta tarifa
             </div>
           </div>
         )}
@@ -339,173 +334,100 @@ export const CalculadoraSOAT: React.FC<CalculadoraSOATProps> = ({
 
       {/* ESTADO DE CARGA */}
       {cargando && (
-        <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] flex items-center gap-3 text-xs text-[#64748B] mb-5">
-          <RefreshCw className="w-4 h-4 animate-spin text-[#0F1B2B]" />
-          <span>Consultando tabla de tarifas comerciales oficial de la SFC...</span>
+        <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-center gap-3 text-xs text-slate-600 mb-5">
+          <RefreshCw className="w-4 h-4 animate-spin text-slate-900" />
+          <span>Buscando la tarifa oficial en la tabla de la Superintendencia Financiera...</span>
         </div>
       )}
 
       {/* MENSAJE DE ERROR SI OCURRE */}
       {errorMensaje && !cargando && (
-        <div className="p-4 rounded-xl bg-[#FFFBEB] border border-[#FDE68A] flex items-start gap-2.5 text-xs text-[#92400E] mb-5">
-          <AlertCircle className="w-4 h-4 text-[#D97706] shrink-0 mt-0.5" />
+        <div className="p-4 rounded-xl bg-amber-50 border border-amber-200 flex items-start gap-2.5 text-xs text-amber-900 mb-5">
+          <AlertCircle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
           <div className="space-y-1">
-            <strong>Atención:</strong> {errorMensaje}
+            <strong>Nota:</strong> {errorMensaje}
           </div>
         </div>
       )}
 
-      {/* 2. TARJETAS DE RESULTADOS PRINCIPALES: UBICADAS DESPUÉS DE LOS CAMPOS */}
+      {/* TARJETAS DE RESULTADOS PRINCIPALES */}
       {!cargando && datosSoat && (
         <div className="space-y-4 mb-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {/* Costo Anual Estimado */}
-            <div className="p-4 sm:p-5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-1">
-              <span className="text-xs text-[#475569] block font-medium">
-                Costo anual estimado
-              </span>
-              <span className="text-2xl sm:text-3xl font-bold font-mono text-[#0F1B2B] block">
-                ${precioFinalAnual.toLocaleString('es-CO')} COP
-              </span>
-              <span className="text-[11px] text-[#64748B] block pt-0.5">
-                Pago anual obligatorio para circular en Colombia.
-              </span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Tarjeta 1: Total Anual del SOAT */}
+            <div className="p-5 sm:p-6 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500 block mb-1">
+                  Total a pagar por el SOAT (Vigencia 1 año)
+                </span>
+                <div className="flex items-baseline gap-2 mt-1">
+                  <span className="text-3xl sm:text-4xl font-extrabold font-mono text-slate-900 tracking-tight">
+                    ${precioFinalAnual.toLocaleString('es-CO')}
+                  </span>
+                  <span className="text-xs font-mono text-slate-500 font-bold">COP/año</span>
+                </div>
+              </div>
+              <p className="text-xs text-slate-600 mt-2">
+                Este es el valor único oficial fijado por el Gobierno. Ninguna aseguradora autorizada puede cobrarte más ni menos.
+              </p>
             </div>
 
-            {/* Para presupuestar cada mes */}
-            <div className="p-4 sm:p-5 rounded-xl bg-[#F0FDF4] border border-[#BBF7D0] space-y-1">
-              <span className="text-xs text-[#166534] block font-semibold">
-                Para presupuestar cada mes
-              </span>
-              <span className="text-2xl sm:text-3xl font-bold font-mono text-[#166534] block">
-                ${provisionMensual.toLocaleString('es-CO')} COP / mes
-              </span>
-              <span className="text-[11px] text-[#166534] block pt-0.5">
-                Referencia obtenida al dividir el costo anual entre 12. El SOAT se paga como cobro único anual.
-              </span>
+            {/* Tarjeta 2: Ahorro mensual sugerido */}
+            <div className="p-5 sm:p-6 rounded-xl bg-emerald-50/60 border border-emerald-200 shadow-2xs flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-800 block mb-1">
+                  Ahorro mensual recomendado
+                </span>
+                <div className="flex items-baseline gap-2 mt-1">
+                  <span className="text-3xl sm:text-4xl font-extrabold font-mono text-emerald-900 tracking-tight">
+                    ${provisionMensual.toLocaleString('es-CO')}
+                  </span>
+                  <span className="text-xs font-mono text-emerald-700 font-bold">COP/mes</span>
+                </div>
+              </div>
+              <p className="text-xs text-emerald-800 mt-2">
+                Consejo: Guarda este valor cada mes en tu cuenta bancaria. Así, cuando llegue la fecha de vencimiento, tendrás la plata lista sin apretarte el bolsillo.
+              </p>
             </div>
           </div>
 
-          {!haInteractuado && (
-            <div className="flex justify-end pt-1">
-              <button
-                type="button"
-                onClick={() => {
-                  setHaInteractuado(true);
-                  if (onTarifaChange && datosSoat) {
-                    onTarifaChange(precioFinalAnual, datosSoat);
-                  }
-                }}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-[#0F1B2B] text-white hover:bg-[#1A2B42] transition-colors cursor-pointer"
-              >
-                <span>Aplicar tarifa a mi presupuesto →</span>
-              </button>
-            </div>
-          )}
+          {/* Desplegable Informativo: ¿A dónde va este dinero? */}
+          <div className="rounded-xl border border-slate-200 overflow-hidden bg-white">
+            <button
+              type="button"
+              onClick={() => setMostrarFuentes(!mostrarFuentes)}
+              className="w-full p-3.5 flex items-center justify-between text-xs text-slate-700 hover:bg-slate-50 transition-colors cursor-pointer"
+            >
+              <span className="font-semibold text-slate-900">
+                ¿Qué cubre el SOAT y a dónde va el dinero?
+              </span>
+              <ChevronDown className={`w-4 h-4 text-slate-500 transition-transform ${mostrarFuentes ? 'rotate-180' : ''}`} />
+            </button>
 
-          {/* 3. DETALLE DE CATEGORÍA Y AJUSTE MANUAL SECUNDARIO */}
-          <div className="p-4 rounded-xl bg-slate-50 border border-[#E2E8F0] space-y-3">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-              <div className="space-y-1">
-                <div className="flex items-center gap-2 flex-wrap">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#166534]"></span>
-                  <span className="font-bold text-xs text-[#0F1B2B]">
-                    {datosSoat.categoria}
-                  </span>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white border border-[#CBD5E1] text-[#475569] font-semibold">
-                    {datosSoat.subcategoria}
-                  </span>
-                </div>
-                <p className="text-xs text-[#475569] leading-relaxed">
-                  {datosSoat.descripcion}
+            {mostrarFuentes && (
+              <div className="p-4 pt-1 border-t border-slate-100 text-xs text-slate-600 space-y-2 leading-relaxed font-sans">
+                <p>
+                  El SOAT cubre la atención médica de emergencia, transporte en ambulancia y gastos hospitalarios de cualquier persona (conductor, pasajeros o peatones) que resulte herida en un accidente de tránsito.
                 </p>
-              </div>
-
-              <div className="text-left sm:text-right shrink-0">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setModoManual(!modoManual);
-                    setHaInteractuado(true);
-                  }}
-                  className="text-xs font-mono text-[#0F1B2B] hover:underline cursor-pointer font-medium"
-                >
-                  {modoManual ? '✓ Usar tarifa oficial' : '✎ Ajustar manualmente'}
-                </button>
-              </div>
-            </div>
-
-            {modoManual && (
-              <div className="pt-3 border-t border-[#E2E8F0] flex flex-col sm:flex-row sm:items-center gap-3">
-                <div className="relative w-full sm:w-48">
-                  <span className="absolute left-3 top-2.5 text-xs font-mono text-[#64748B]">$</span>
-                  <input
-                    type="text"
-                    value={precioManual === '' ? '' : precioManual.toLocaleString('es-CO')}
-                    onChange={(e) => {
-                      const raw = e.target.value.replace(/\D/g, '');
-                      setPrecioManual(raw === '' ? '' : parseInt(raw, 10));
-                      setHaInteractuado(true);
-                    }}
-                    className="w-full h-10 pl-7 pr-3 rounded-lg bg-white border border-[#CBD5E1] text-xs font-mono font-bold text-[#0F1B2B]"
-                  />
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-2 text-[11px] font-mono">
+                  <div className="p-2 rounded bg-slate-50 border border-slate-200">
+                    <span className="text-slate-500 block">Atención médica:</span>
+                    <strong className="text-slate-900">${(datosSoat.precioAnual * 0.52).toLocaleString('es-CO', { maximumFractionDigits: 0 })}</strong>
+                  </div>
+                  <div className="p-2 rounded bg-slate-50 border border-slate-200">
+                    <span className="text-slate-500 block">Fondo de salud pública (ADRES):</span>
+                    <strong className="text-slate-900">${(datosSoat.precioAnual * 0.45).toLocaleString('es-CO', { maximumFractionDigits: 0 })}</strong>
+                  </div>
+                  <div className="p-2 rounded bg-slate-50 border border-slate-200">
+                    <span className="text-slate-500 block">Tasa del sistema RUNT:</span>
+                    <strong className="text-slate-900">${(datosSoat.precioAnual * 0.03).toLocaleString('es-CO', { maximumFractionDigits: 0 })}</strong>
+                  </div>
                 </div>
-                <span className="text-[10px] font-mono px-2 py-1 rounded bg-[#FFFBEB] border border-[#FDE68A] text-[#92400E]">
-                  Valor modificado por el usuario
-                </span>
               </div>
             )}
-
-            <div className="pt-2 border-t border-[#E2E8F0] flex flex-col sm:flex-row sm:items-center justify-between text-xs text-[#64748B] gap-2">
-              <span className="text-[11px]">
-                <strong>Vigencia:</strong> {datosSoat.fechaVigenciaInicio} al {datosSoat.fechaVigenciaFin} ({datosSoat.resolucionCircular})
-              </span>
-              <span className="text-[11px] text-[#166534] font-medium">
-                Incluye aporte RUNT ($2.400) + 52% ADRES
-              </span>
-            </div>
           </div>
         </div>
       )}
-
-      {/* 4. FUENTES OFICIALES AL FINAL CON PATRÓN COLAPSABLE */}
-      <div className="pt-2 border-t border-[#E2E8F0] space-y-2">
-        <button
-          type="button"
-          onClick={() => setMostrarFuentes(!mostrarFuentes)}
-          className="text-xs font-mono text-[#166534] hover:underline cursor-pointer flex items-center gap-1.5 font-medium py-1"
-        >
-          <span>¿De dónde salen estos datos?</span>
-          <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${mostrarFuentes ? 'rotate-180' : ''}`} />
-        </button>
-
-        {mostrarFuentes && (
-          <div className="p-3.5 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-xs text-[#475569] space-y-2">
-            <div>
-              <span className="font-semibold text-[#0F1B2B] block">Fuente oficial:</span>
-              <p className="text-[11px] text-[#64748B]">
-                Superintendencia Financiera de Colombia (SFC) · Circular Externa 022 de 2025.
-              </p>
-              <p className="text-[11px] text-[#64748B] mt-0.5">
-                Las tarifas comerciales del SOAT son máximas legales obligatorias fijadas por el Gobierno Nacional.
-              </p>
-            </div>
-            <div className="pt-1 border-t border-slate-200">
-              <a
-                href="https://www.superfinanciera.gov.co/publicaciones/10114908/soat/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-xs text-[#1D4ED8] hover:underline font-medium"
-              >
-                <span>Ver tabla oficial en la Superintendencia Financiera</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </div>
-        )}
-      </div>
     </div>
   );
 };
-
-export default CalculadoraSOAT;

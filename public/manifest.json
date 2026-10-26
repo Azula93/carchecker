@@ -1,11 +1,11 @@
 {
-  "name": "Car Checker Colombia — Revisión Preliminar de Vehículos",
-  "short_name": "Car Checker",
-  "description": "Herramienta de revisión preliminar técnica y legal de vehículos usados en Colombia",
+  "name": "EscaneApp Colombia — Evaluación de Vehículos Usados",
+  "short_name": "EscaneApp",
+  "description": "Herramienta de revisión técnica, legal y estimación de costos de vehículos usados en Colombia antes del peritaje.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#FFFFFF",
-  "theme_color": "#0F1B2B",
+  "background_color": "#FAFAFA",
+  "theme_color": "#0F172A",
   "orientation": "portrait",
   "icons": [
     {

@@ -21,7 +21,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#123B5D",
+  themeColor: "#0F172A",
   width: "device-width",
   initialScale: 1,
 };
@@ -30,13 +30,16 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.escaneapp.com"),
 
   title: {
-    default:
-      "EscaneApp | Evalúa un carro usado antes de comprarlo",
+    default: "EscaneApp | Evalúa un carro usado antes de comprarlo",
     template: "%s | EscaneApp",
   },
 
   description:
     "Evalúa un carro usado en Colombia antes de comprarlo. Consulta antecedentes, revisa 80 puntos de inspección y estima sus costos antes de pagar un peritaje.",
+
+  alternates: {
+    canonical: "/",
+  },
 
   manifest: "/manifest.json",
 
@@ -69,6 +72,15 @@ export const metadata: Metadata = {
     siteName: "EscaneApp",
     locale: "es_CO",
     type: "website",
+    url: "https://www.escaneapp.com",
+    images: [
+      {
+        url: "/01_logo_horizontal_principal.png",
+        width: 1200,
+        height: 630,
+        alt: "EscaneApp Colombia — Evaluación inteligente de vehículos usados",
+      },
+    ],
   },
 
   twitter: {
@@ -76,11 +88,10 @@ export const metadata: Metadata = {
     title: "EscaneApp | Evalúa un carro usado antes de comprarlo",
     description:
       "Evalúa un carro usado en Colombia antes de comprarlo. Consulta antecedentes, revisa 80 puntos y estima sus costos.",
+    images: ["/01_logo_horizontal_principal.png"],
   },
 
   verification: {
-    
-
     other: {
       "google-adsense-account": "ca-pub-4990996804813930",
     },
@@ -108,7 +119,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#F7F9FA] text-[#17212B] font-sans selection:bg-[#8BCF3F]/30 selection:text-[#123B5D]">
+      <body className="min-h-full flex flex-col bg-[#FAFAFA] text-slate-800 font-sans selection:bg-emerald-500/20 selection:text-slate-900">
         <PwaRegister />
         <StructuredData />
         <Header />

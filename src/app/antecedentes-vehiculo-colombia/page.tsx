@@ -6,29 +6,40 @@ import {
   ShieldCheck,
   CheckCircle2,
   ArrowRight,
-  AlertTriangle,
   ExternalLink,
-  ClipboardCheck,
-  Info,
   Search,
-  FileText,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Antecedentes de un vehículo en Colombia: qué consultar antes de comprar',
+  title: 'Antecedentes de un Vehículo en Colombia: RUNT, SIMIT y Fasecolda (Guía Fácil)',
   description:
-    'Guía completa para consultar antecedentes de un vehículo usado en Colombia: RUNT, SIMIT, Fasecolda, revisión documental, contraste de información y checklist.',
+    'Aprende a consultar antecedentes de un carro usado en Colombia en 5 minutos: multas en SIMIT, embargos y prendas en RUNT, y choques en Fasecolda.',
   alternates: {
     canonical: '/antecedentes-vehiculo-colombia',
   },
   openGraph: {
-    title: 'Antecedentes de un vehículo en Colombia: qué consultar antes de comprar',
+    title: 'Antecedentes de un Vehículo en Colombia: RUNT, SIMIT y Fasecolda (Guía Fácil)',
     description:
-      'Aprende qué consultar en RUNT, SIMIT y Fasecolda antes de comprar un carro usado en Colombia y cómo contrastar los antecedentes con el vehículo físico.',
+      'Guía paso a paso y sin enredos para consultar multas, embargos, siniestros y propietarios antes de comprar un carro usado en Colombia.',
     url: 'https://www.escaneapp.com/antecedentes-vehiculo-colombia',
     siteName: 'EscaneApp',
     locale: 'es_CO',
     type: 'article',
+    images: [
+      {
+        url: '/artppal-pexels-cottonbro-7541354 (2).jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Consulta de antecedentes de vehículos usados en Colombia',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Antecedentes de un Vehículo en Colombia: RUNT, SIMIT y Fasecolda',
+    description:
+      'Aprende qué consultar en RUNT, SIMIT y Fasecolda antes de comprar un carro usado en Colombia.',
+    images: ['/artppal-pexels-cottonbro-7541354 (2).jpg'],
   },
 };
 
@@ -38,9 +49,19 @@ const articleStructuredData = {
   '@id': 'https://www.escaneapp.com/antecedentes-vehiculo-colombia#article',
   headline: 'Antecedentes de un vehículo en Colombia: qué consultar antes de comprar',
   description:
-    'Guía completa para consultar antecedentes de un vehículo usado en Colombia: RUNT, SIMIT, Fasecolda, contraste de información y registro de hallazgos.',
+    'Guía paso a paso para consultar el RUNT, SIMIT y Fasecolda antes de comprar un carro usado en Colombia, y cómo contrastar los antecedentes con el vehículo físico.',
   url: 'https://www.escaneapp.com/antecedentes-vehiculo-colombia',
+  image: 'https://www.escaneapp.com/artppal-pexels-cottonbro-7541354 (2).jpg',
   inLanguage: 'es-CO',
+  datePublished: '2025-01-10T08:00:00+00:00',
+  dateModified: '2026-10-25T12:00:00+00:00',
+  author: [
+    {
+      '@type': 'Organization',
+      name: 'Equipo Editorial EscaneApp',
+      url: 'https://www.escaneapp.com',
+    },
+  ],
   isPartOf: {
     '@id': 'https://www.escaneapp.com/#webapp',
   },
@@ -48,25 +69,77 @@ const articleStructuredData = {
     '@type': 'Organization',
     name: 'EscaneApp',
     url: 'https://www.escaneapp.com',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://www.escaneapp.com/01_logo_horizontal_principal.png',
+    },
   },
 };
 
+const breadcrumbStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Inicio',
+      item: 'https://www.escaneapp.com',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Antecedentes de vehículo en Colombia',
+      item: 'https://www.escaneapp.com/antecedentes-vehiculo-colombia',
+    },
+  ],
+};
+
+const PASOS_RUTA = [
+  {
+    step: '1',
+    title: 'Pide la tarjeta de propiedad y la cédula',
+    desc: 'Necesitas la placa exacta y el número de documento del dueño registrado.',
+  },
+  {
+    step: '2',
+    title: 'Consulta RUNT, SIMIT y Fasecolda',
+    desc: 'Revisa embargos, multas pendientes y reportes de choques asegurados.',
+  },
+  {
+    step: '3',
+    title: 'Comprueba los números en el carro físico',
+    desc: 'Verifica que la placa metálica y el número de chasis coincidan con los papeles.',
+  },
+  {
+    step: '4',
+    title: 'Paz y salvo antes de firmar traspaso',
+    desc: 'Asegúrate de que no haya prendas bancarias ni multas que frenen el trámite.',
+  },
+];
+
 export default function AntecedentesVehiculoColombiaPage() {
   return (
-    <div className="w-full bg-[#F7F9FA] min-h-screen text-[#17212B]">
+    <div className="w-full bg-[#F8FAFC] min-h-screen text-slate-800">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(articleStructuredData),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbStructuredData),
+        }}
+      />
 
       <article className="max-w-4xl mx-auto px-4 sm:px-6 py-8 md:py-14">
         {/* Migas de pan */}
         <nav aria-label="Migas de pan" className="mb-6">
-          <ol className="flex flex-wrap items-center gap-2 text-xs text-[#66727D]">
+          <ol className="flex flex-wrap items-center gap-2 text-xs text-slate-500">
             <li>
-              <Link href="/" className="hover:text-[#123B5D] transition-colors font-medium">
+              <Link href="/" className="hover:text-slate-900 transition-colors font-medium">
                 Inicio
               </Link>
             </li>
@@ -74,145 +147,128 @@ export default function AntecedentesVehiculoColombiaPage() {
               /
             </li>
             <li>
-              <span className="text-[#17212B] font-bold">
-                Antecedentes de un vehículo
+              <span className="text-slate-900 font-bold">
+                Antecedentes de vehículo en Colombia
               </span>
             </li>
           </ol>
         </nav>
 
         {/* Encabezado */}
-        <header className="mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#123B5D]/10 text-[#123B5D] font-mono font-bold text-xs mb-3">
-            <ShieldCheck className="w-3.5 h-3.5 text-[#123B5D]" />
-            <span>GUÍA ESCANEAPP · ANTECEDENTES Y REVISIÓN DOCUMENTAL</span>
+        <header className="mb-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/5 text-slate-900 border border-slate-200/90 font-mono font-semibold text-xs mb-3">
+            <FileCheck className="w-3.5 h-3.5 text-emerald-600" />
+            <span>GUÍA LEGAL Y DOCUMENTAL · COLOMBIA</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#17212B] leading-tight mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 leading-[1.15] mb-4">
             Antecedentes de un vehículo en Colombia: qué consultar antes de comprar
           </h1>
 
-          <p className="text-base sm:text-lg text-[#66727D] leading-relaxed max-w-3xl mb-4">
-            Antes de comprar un vehículo usado en Colombia, conviene revisar tanto su estado físico como la información disponible en fuentes oficiales y especializadas. Estas consultas pueden ayudarte a identificar diferencias en los datos del vehículo, revisar información sobre infracciones y buscar determinados antecedentes de siniestros.
+          <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl mb-6">
+            Antes de entregar cualquier anticipo o firmar una promesa de compraventa, debes confirmar que el carro esté libre de embargos judiciales, prendas de bancos, fotomultas o siniestros graves. Te explicamos cómo consultarlo en internet en 5 minutos.
           </p>
 
-          <div className="p-4 rounded-xl bg-white border border-[#CBD5E1] text-xs sm:text-sm text-[#475569] leading-relaxed shadow-xs">
-            Sin embargo, ninguna consulta aislada garantiza conocer todo el historial del automóvil. Lo recomendable es verificar varias fuentes, comparar sus resultados con los documentos y el vehículo físico, y pedir aclaraciones cuando encuentres inconsistencias.
+          <div className="relative w-full h-64 sm:h-80 md:h-96 rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm">
+            <Image
+              src="/artppal-pexels-cottonbro-7541354 (2).jpg"
+              alt="Consulta de antecedentes de vehículos usados en Colombia"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 896px"
+              className="object-cover"
+            />
           </div>
         </header>
 
-        {/* La ruta de revisión en cuatro pasos */}
-        <section className="mb-10">
-          <div className="mb-4">
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#123B5D] block mb-1">
-              METODOLOGÍA SECUENCIAL
+        {/* 1. Ruta de 4 pasos */}
+        <section className="mb-10 bg-white border border-slate-200/90 p-6 sm:p-8 rounded-2xl shadow-xs space-y-6">
+          <div className="flex items-center gap-3 border-b border-slate-100 pb-3">
+            <span className="w-7 h-7 rounded-lg bg-[#0F172A] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
+              1
             </span>
-            <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
-              La ruta de revisión en cuatro pasos
+            <h2 className="text-xl sm:text-2xl font-black text-slate-900">
+              La ruta de revisión en cuatro pasos sencillos
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
-            {[
-              {
-                num: '01',
-                title: 'Identifica.',
-                desc: 'Reúne los datos del vehículo y la documentación disponible.',
-              },
-              {
-                num: '02',
-                title: 'Consulta.',
-                desc: 'Accede a las fuentes pertinentes para cada tipo de información.',
-              },
-              {
-                num: '03',
-                title: 'Contrasta.',
-                desc: 'Compara los resultados con los documentos, los datos del vendedor y el vehículo físico.',
-              },
-              {
-                num: '04',
-                title: 'Registra.',
-                desc: 'Anota los resultados, las dudas pendientes y las comprobaciones que necesitas realizar.',
-              },
-            ].map((paso) => (
+          <p className="text-sm text-slate-700 leading-relaxed">
+            No necesitas contratar a un tramitador costoso para el primer filtro. Puedes seguir este orden práctico:
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            {PASOS_RUTA.map((paso) => (
               <div
-                key={paso.num}
-                className="bg-white border border-[#CBD5E1] rounded-2xl p-5 shadow-xs flex flex-col justify-between hover:border-[#123B5D]/40 transition-colors"
+                key={paso.step}
+                className="p-4 rounded-xl border border-slate-200/90 bg-slate-50 space-y-1.5"
               >
-                <div>
-                  <span className="font-mono text-xs font-extrabold text-[#123B5D] px-2 py-0.5 rounded-md bg-[#123B5D]/10 inline-block mb-3">
-                    PASO {paso.num}
+                <div className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-[#0F172A] text-white text-xs font-mono font-bold flex items-center justify-center shrink-0">
+                    {paso.step}
                   </span>
-                  <h3 className="text-base font-bold text-[#17212B] mb-1.5">
+                  <h3 className="text-sm font-bold text-slate-900">
                     {paso.title}
                   </h3>
-                  <p className="text-xs text-[#66727D] leading-relaxed">
-                    {paso.desc}
-                  </p>
                 </div>
+                <p className="text-xs text-slate-600 leading-relaxed pl-7">
+                  {paso.desc}
+                </p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* 1. Reúne los datos del vehículo */}
-        <section className="mb-10 bg-white border border-[#CBD5E1] p-6 sm:p-8 rounded-2xl shadow-xs space-y-5">
-          <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
-            <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
-              1
+        {/* 2. Qué datos pedirle al vendedor */}
+        <section className="mb-10 bg-white border border-slate-200/90 p-6 sm:p-8 rounded-2xl shadow-xs space-y-5">
+          <div className="flex items-center gap-3 border-b border-slate-100 pb-3">
+            <span className="w-7 h-7 rounded-lg bg-[#0F172A] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
+              2
             </span>
-            <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
-              Reúne los datos del vehículo
+            <h2 className="text-xl sm:text-2xl font-black text-slate-900">
+              Los datos que debes pedirle al vendedor
             </h2>
           </div>
 
-          <p className="text-sm text-[#475569] leading-relaxed">
-            Antes de iniciar las consultas, identifica correctamente el automóvil que estás evaluando. Ten a mano, según corresponda:
+          <p className="text-sm text-slate-700 leading-relaxed">
+            Antes de hacer las consultas en línea, pídele al vendedor una foto nítida de:
           </p>
 
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
             {[
-              'Placa.',
-              'Marca, línea y modelo.',
-              'Número de identificación vehicular (VIN), cuando esté disponible.',
-              'Número de motor y chasis, si necesitas contrastarlos.',
-              'Kilometraje que muestra el tablero.',
-              'Licencia de tránsito y otros documentos suministrados por el vendedor.',
-              'Información sobre propietarios anteriores, mantenimiento o reparaciones que el vendedor pueda respaldar documentalmente.',
+              'Placa completa del vehículo (letras y números).',
+              'Cédula de ciudadanía o NIT del propietario que figura en la tarjeta.',
+              'Tarjeta de propiedad (Licencia de Tránsito) por ambos lados.',
+              'Número de chasis / VIN y número de motor.',
             ].map((item, idx) => (
-              <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-[#475569]">
-                <CheckCircle2 className="w-4 h-4 text-[#2EAD68] shrink-0 mt-0.5" />
+              <li key={idx} className="flex items-start gap-2 p-3 bg-slate-50 rounded-xl border border-slate-200/90 text-xs sm:text-sm text-slate-700">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                 <span>{item}</span>
               </li>
             ))}
           </ul>
 
-          <div className="rounded-xl border border-[#CBD5E1] bg-[#F7F9FA] p-4 text-xs sm:text-sm text-[#475569] leading-relaxed">
-            Comprueba que los datos de los documentos correspondan al vehículo que tienes delante. Una diferencia puede deberse a un error que requiera aclaración, pero no debe ignorarse ni interpretarse automáticamente como fraude.
+          <div className="p-4 rounded-xl bg-amber-50 border border-amber-200 text-xs sm:text-sm text-amber-950 leading-relaxed font-medium">
+            <strong>Atención:</strong> Si el vendedor dice «el carro está a nombre de una tía / amigo que vive en otra ciudad y no tengo contacto», ten mucho cuidado. Para que el traspaso sea legal, el propietario registrado debe firmar el formulario de traspaso y el contrato de compraventa.
           </div>
         </section>
 
-        {/* 2. Consulta las fuentes correspondientes */}
-        <section className="mb-10 bg-white border border-[#CBD5E1] p-6 sm:p-8 rounded-2xl shadow-xs space-y-6">
-          <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
-            <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
-              2
+        {/* 3. Las tres fuentes oficiales en Colombia */}
+        <section className="mb-10 bg-white border border-slate-200/90 p-6 sm:p-8 rounded-2xl shadow-xs space-y-6">
+          <div className="flex items-center gap-3 border-b border-slate-100 pb-3">
+            <span className="w-7 h-7 rounded-lg bg-[#0F172A] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
+              3
             </span>
-            <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
-              Consulta las fuentes correspondientes
+            <h2 className="text-xl sm:text-2xl font-black text-slate-900">
+              Las tres consultas indispensables en Colombia
             </h2>
           </div>
 
-          <p className="text-sm text-[#475569] leading-relaxed">
-            Cada plataforma tiene un alcance diferente. Utiliza la fuente adecuada para la información que quieres verificar y ten presente qué aspectos no cubre.
-          </p>
-
           <div className="space-y-5">
             {/* RUNT */}
-            <div className="border border-[#CBD5E1] rounded-2xl p-5 sm:p-6 bg-[#F7F9FA] space-y-3.5">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#E2E8F0] pb-3">
+            <div className="border border-slate-200/90 rounded-2xl p-5 sm:p-6 bg-slate-50 space-y-3.5">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200/80 pb-3">
                 <div className="flex items-center gap-3">
-                  <div className="relative w-10 h-10 rounded-lg overflow-hidden bg-white border border-[#CBD5E1] shrink-0 p-1 flex items-center justify-center">
+                  <div className="relative w-10 h-10 rounded-lg overflow-hidden bg-white border border-slate-200/90 shrink-0 p-1 flex items-center justify-center shadow-2xs">
                     <Image
                       src="/logo-runt.png"
                       alt="Logo oficial RUNT"
@@ -222,11 +278,11 @@ export default function AntecedentesVehiculoColombiaPage() {
                     />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#66727D] font-bold block">
-                      REGISTRO VEHICULAR
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 font-bold block">
+                      REGISTRO NACIONAL DE TRÁNSITO
                     </span>
-                    <h3 className="text-lg font-bold text-[#17212B]">
-                      RUNT: información registrada del vehículo
+                    <h3 className="text-lg font-bold text-slate-900">
+                      1. RUNT: Historial del vehículo y limitaciones
                     </h3>
                   </div>
                 </div>
@@ -235,31 +291,27 @@ export default function AntecedentesVehiculoColombiaPage() {
                   href="https://portalpublico.runt.gov.co/#/consulta-vehiculo/consulta/consulta-ciudadana"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#123B5D] text-white text-xs font-bold hover:bg-[#0d2a42] transition-colors shrink-0"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0F172A] text-white text-xs font-bold hover:bg-slate-800 transition-colors shrink-0"
                 >
-                  <span>Consultar el RUNT</span>
+                  <span>Abrir portal RUNT</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               </div>
 
-              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                El Registro Único Nacional de Tránsito permite consultar información registrada sobre el vehículo y determinados datos relacionados con sus trámites. Según la consulta disponible, puedes contrastar información como la identificación del vehículo, sus características registradas y otros datos asociados.
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                El RUNT es la «cédula» del carro en Colombia. Con la placa y la cédula del dueño puedes ver si el carro está activo, la vigencia del SOAT y de la tecnomecánica, y si tiene <strong>gravámenes a la propiedad (prendas con bancos por créditos no terminados de pagar) o embargos judiciales</strong>.
               </p>
 
-              <div className="p-3 bg-white rounded-xl border border-[#E2E8F0] text-xs text-[#17212B] leading-relaxed">
-                <strong>Qué hacer:</strong> compara la información consultada con la licencia de tránsito y los identificadores del vehículo. Si encuentras diferencias, solicita una explicación y verifica los datos antes de avanzar.
+              <div className="p-3.5 bg-white rounded-xl border border-slate-200/90 text-xs text-slate-700 leading-relaxed">
+                <strong>Consejo experto:</strong> También puedes solicitar en la web del RUNT el <strong>Histórico Vehicular RUNT</strong> (tarifa oficial aprox. $35.000 COP). Te entrega la lista de todos los dueños anteriores, los accidentes registrados y el kilometraje anotado en cada tecnomecánica anual.
               </div>
-
-              <p className="text-xs text-[#66727D] leading-relaxed">
-                La información disponible depende del servicio consultado. No des por hecho que una consulta pública equivale a un historial completo de propietarios, accidentes, reparaciones o kilometraje.
-              </p>
             </div>
 
             {/* SIMIT */}
-            <div className="border border-[#CBD5E1] rounded-2xl p-5 sm:p-6 bg-[#F7F9FA] space-y-3.5">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#E2E8F0] pb-3">
+            <div className="border border-slate-200/90 rounded-2xl p-5 sm:p-6 bg-slate-50 space-y-3.5">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200/80 pb-3">
                 <div className="flex items-center gap-3">
-                  <div className="relative w-10 h-10 rounded-lg overflow-hidden bg-white border border-[#CBD5E1] shrink-0 p-1 flex items-center justify-center">
+                  <div className="relative w-10 h-10 rounded-lg overflow-hidden bg-white border border-slate-200/90 shrink-0 p-1 flex items-center justify-center shadow-2xs">
                     <Image
                       src="/logo-simit.png"
                       alt="Logo oficial SIMIT"
@@ -269,11 +321,11 @@ export default function AntecedentesVehiculoColombiaPage() {
                     />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#66727D] font-bold block">
-                      INFRACCIONES Y COMPARENDOS
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 font-bold block">
+                      MULTAS Y COMPARENDOS
                     </span>
-                    <h3 className="text-lg font-bold text-[#17212B]">
-                      SIMIT: comparendos y multas de tránsito
+                    <h3 className="text-lg font-bold text-slate-900">
+                      2. SIMIT: Multas de tránsito y fotomultas
                     </h3>
                   </div>
                 </div>
@@ -282,31 +334,34 @@ export default function AntecedentesVehiculoColombiaPage() {
                   href="https://www.fcm.org.co/simit/#/home-public"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#123B5D] text-white text-xs font-bold hover:bg-[#0d2a42] transition-colors shrink-0"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0F172A] text-white text-xs font-bold hover:bg-slate-800 transition-colors shrink-0"
                 >
-                  <span>Consultar el SIMIT</span>
+                  <span>Abrir portal SIMIT</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               </div>
 
-              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                El Sistema Integrado de Información sobre Multas y Sanciones por Infracciones de Tránsito permite consultar información relacionada con comparendos, multas y acuerdos registrados en el sistema. Los resultados de una consulta por placa deben interpretarse según los datos de cada registro y no como una atribución automática de responsabilidad al comprador o al propietario actual.
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                El SIMIT reúne las multas y fotomultas de todas las secretarías de tránsito del país. <strong>Debes consultar dos cosas por separado:</strong>
               </p>
 
-              <div className="p-3 bg-white rounded-xl border border-[#E2E8F0] text-xs text-[#17212B] leading-relaxed">
-                <strong>Qué hacer:</strong> revisa los resultados pertinentes e identifica el estado de cada registro. Antes de cerrar la negociación, aclara las obligaciones pendientes y verifica con la autoridad competente a quién corresponde cada una y qué efecto puede tener sobre los trámites. No atribuyas automáticamente todas las multas consultadas al vendedor o al vehículo sin comprobar los datos del registro.
-              </div>
-
-              <p className="text-xs text-[#66727D] leading-relaxed">
-                El SIMIT no sustituye la consulta de la información registral del vehículo ni permite conocer por sí solo todo su historial jurídico.
-              </p>
+              <ul className="space-y-1.5 text-xs text-slate-700 pl-2">
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-700 font-bold">•</span>
+                  <span><strong>Consulta por placa:</strong> para ver si el carro tiene fotomultas pendientes asociadas directamente al vehículo.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-700 font-bold">•</span>
+                  <span><strong>Consulta por cédula del vendedor:</strong> las secretarías de tránsito exigen que el vendedor esté en paz y salvo total por multas para poder autorizar el traspaso.</span>
+                </li>
+              </ul>
             </div>
 
             {/* Fasecolda */}
-            <div className="border border-[#CBD5E1] rounded-2xl p-5 sm:p-6 bg-[#F7F9FA] space-y-3.5">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#E2E8F0] pb-3">
+            <div className="border border-slate-200/90 rounded-2xl p-5 sm:p-6 bg-slate-50 space-y-3.5">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200/80 pb-3">
                 <div className="flex items-center gap-3">
-                  <div className="relative w-10 h-10 rounded-lg overflow-hidden bg-white border border-[#CBD5E1] shrink-0 p-1 flex items-center justify-center">
+                  <div className="relative w-10 h-10 rounded-lg overflow-hidden bg-white border border-slate-200/90 shrink-0 p-1 flex items-center justify-center shadow-2xs">
                     <Image
                       src="/logo-fasecolda.png"
                       alt="Logo oficial Fasecolda"
@@ -316,11 +371,11 @@ export default function AntecedentesVehiculoColombiaPage() {
                     />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#66727D] font-bold block">
-                      HISTORIAL DE SINIESTROS
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 font-bold block">
+                      HISTORIAL ASEGURADOR
                     </span>
-                    <h3 className="text-lg font-bold text-[#17212B]">
-                      Fasecolda: consulta de determinados siniestros de vehículos asegurados
+                    <h3 className="text-lg font-bold text-slate-900">
+                      3. Fasecolda: Historial de choques y siniestros asegurados
                     </h3>
                   </div>
                 </div>
@@ -329,312 +384,189 @@ export default function AntecedentesVehiculoColombiaPage() {
                   href="https://www.fasecolda.com/ramos/automoviles/camara/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#123B5D] text-white text-xs font-bold hover:bg-[#0d2a42] transition-colors shrink-0"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0F172A] text-white text-xs font-bold hover:bg-slate-800 transition-colors shrink-0"
                 >
-                  <span>Consultar Fasecolda</span>
+                  <span>Abrir portal Fasecolda</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               </div>
 
-              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                Fasecolda ofrece una consulta pública de reportes de pérdidas de mayor cuantía por daños derivados de colisiones desde 2008, bajo las condiciones de aseguramiento establecidas para el servicio.
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                Fasecolda es la federación de aseguradoras de Colombia. Su consulta gratuita te muestra si el carro tuvo algún siniestro grave pagado por aseguradora desde 2008 (pérdida de mayor cuantía por daño o hurto recuperado).
               </p>
 
-              <div className="p-3 bg-white rounded-xl border border-[#E2E8F0] text-xs text-[#17212B] leading-relaxed">
-                <strong>Qué hacer:</strong> consulta la placa y revisa el resultado. Si aparece un siniestro, solicita al vendedor documentación sobre el evento y las reparaciones realizadas. Si no aparece información, no concluyas que el vehículo nunca ha sufrido un accidente.
+              <div className="p-3.5 bg-white rounded-xl border border-slate-200/90 text-xs text-slate-600 leading-relaxed">
+                <strong>Ojo con el límite de Fasecolda:</strong> Solo aparecen los choques donde el dueño tenía póliza todo riesgo y reclamó al seguro. Si el dueño se estrelló y lo mandó arreglar a un taller de barrio de su propio bolsillo, <strong>no aparecerá en Fasecolda</strong> (por eso el peritaje físico siempre es necesario).
               </div>
-
-              <p className="text-xs text-[#66727D] leading-relaxed">
-                La ausencia de resultados no demuestra que el vehículo nunca haya sufrido un accidente. La consulta se limita a los reportes incluidos en el servicio y está condicionada por la información disponible y las condiciones de aseguramiento. Por ello, debe utilizarse como una fuente complementaria, no como un historial completo de siniestros.
-              </p>
             </div>
           </div>
         </section>
 
-        {/* 3. Contrasta los resultados */}
-        <section className="mb-10 bg-white border border-[#CBD5E1] p-6 sm:p-8 rounded-2xl shadow-xs space-y-5">
-          <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
-            <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
-              3
-            </span>
-            <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
-              Contrasta los resultados
-            </h2>
-          </div>
-
-          <p className="text-sm text-[#475569] leading-relaxed">
-            Después de consultar las fuentes, compara los datos entre sí y con la documentación del vendedor. No te limites a guardar capturas de pantalla: identifica qué comprobaste, qué sigue pendiente y qué necesita una explicación.
-          </p>
-
-          {/* Tabla de contraste */}
-          <div className="overflow-x-auto rounded-xl border border-[#CBD5E1]">
-            <table className="w-full text-left text-xs sm:text-sm border-collapse">
-              <thead>
-                <tr className="bg-[#123B5D] text-white font-mono text-xs uppercase">
-                  <th className="py-3 px-4 font-bold">Aspecto que revisas</th>
-                  <th className="py-3 px-4 font-bold">Qué debes comparar</th>
-                  <th className="py-3 px-4 font-bold">Qué hacer si encuentras diferencias</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#E2E8F0]">
-                <tr className="hover:bg-[#F7F9FA] transition-colors">
-                  <td className="py-3.5 px-4 font-bold text-[#17212B] whitespace-nowrap">
-                    Identificación del vehículo
-                  </td>
-                  <td className="py-3.5 px-4 text-[#475569]">
-                    Placa, marca, línea, modelo y números de identificación disponibles.
-                  </td>
-                  <td className="py-3.5 px-4 text-[#66727D]">
-                    Solicita aclaración y verifica los documentos y marcaciones físicas pertinentes.
-                  </td>
-                </tr>
-                <tr className="bg-[#F7F9FA]/60 hover:bg-[#F7F9FA] transition-colors">
-                  <td className="py-3.5 px-4 font-bold text-[#17212B] whitespace-nowrap">
-                    Información registral
-                  </td>
-                  <td className="py-3.5 px-4 text-[#475569]">
-                    Datos disponibles en el RUNT y licencia de tránsito.
-                  </td>
-                  <td className="py-3.5 px-4 text-[#66727D]">
-                    Comprueba que correspondan al mismo vehículo y aclara las discrepancias.
-                  </td>
-                </tr>
-                <tr className="hover:bg-[#F7F9FA] transition-colors">
-                  <td className="py-3.5 px-4 font-bold text-[#17212B] whitespace-nowrap">
-                    Comparendos y multas
-                  </td>
-                  <td className="py-3.5 px-4 text-[#475569]">
-                    Resultado de la consulta SIMIT y explicaciones del vendedor.
-                  </td>
-                  <td className="py-3.5 px-4 text-[#66727D]">
-                    Verifica el estado de cada registro y las responsabilidades aplicables.
-                  </td>
-                </tr>
-                <tr className="bg-[#F7F9FA]/60 hover:bg-[#F7F9FA] transition-colors">
-                  <td className="py-3.5 px-4 font-bold text-[#17212B] whitespace-nowrap">
-                    Siniestros reportados
-                  </td>
-                  <td className="py-3.5 px-4 text-[#475569]">
-                    Resultado de Fasecolda y antecedentes de reparaciones aportados.
-                  </td>
-                  <td className="py-3.5 px-4 text-[#66727D]">
-                    Solicita soportes y considera una inspección especializada si hubo daños relevantes.
-                  </td>
-                </tr>
-                <tr className="hover:bg-[#F7F9FA] transition-colors">
-                  <td className="py-3.5 px-4 font-bold text-[#17212B] whitespace-nowrap">
-                    Estado físico
-                  </td>
-                  <td className="py-3.5 px-4 text-[#475569]">
-                    Carrocería, interior, componentes mecánicos y señales de reparación.
-                  </td>
-                  <td className="py-3.5 px-4 text-[#66727D]">
-                    Contrasta los hallazgos con la información disponible y pide una revisión profesional cuando corresponda.
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          {/* Señales que requieren comprobaciones adicionales */}
-          <div className="pt-3 border-t border-[#E2E8F0] space-y-3">
-            <h3 className="text-base font-bold text-[#17212B]">
-              Señales que requieren comprobaciones adicionales
-            </h3>
-            <p className="text-xs sm:text-sm text-[#66727D]">
-              Presta atención cuando:
-            </p>
-
-            <ul className="space-y-2">
-              {[
-                'Los datos de identificación no coinciden entre documentos y vehículo.',
-                'El vendedor ofrece explicaciones contradictorias o no puede respaldar información importante.',
-                'Aparece un siniestro que no había sido mencionado.',
-                'Hay señales de reparación estructural que no se han explicado.',
-                'Los documentos disponibles no permiten aclarar una discrepancia relevante.',
-              ].map((senal, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#475569]">
-                  <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-                  <span>{senal}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="rounded-xl border border-amber-200 bg-amber-50/80 p-4 text-xs text-amber-950 leading-relaxed font-medium">
-              Estas situaciones no prueban por sí solas que exista fraude o que el vehículo sea inadecuado para comprar. Indican que necesitas obtener más información antes de tomar una decisión.
-            </div>
-          </div>
-        </section>
-
-        {/* 4. Registra lo que encontraste */}
-        <section className="mb-10 bg-white border border-[#CBD5E1] p-6 sm:p-8 rounded-2xl shadow-xs space-y-5">
-          <div className="flex items-center gap-3 border-b border-[#E2E8F0] pb-3">
-            <span className="w-7 h-7 rounded-lg bg-[#123B5D] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
+        {/* 4. Tabla de contraste */}
+        <section className="mb-10 bg-white border border-slate-200/90 p-6 sm:p-8 rounded-2xl shadow-xs space-y-5">
+          <div className="flex items-center gap-3 border-b border-slate-100 pb-3">
+            <span className="w-7 h-7 rounded-lg bg-[#0F172A] text-white text-xs font-bold font-mono flex items-center justify-center shrink-0">
               4
             </span>
-            <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
-              Registra lo que encontraste
+            <h2 className="text-xl sm:text-2xl font-black text-slate-900">
+              Qué hacer con los resultados que encuentres
             </h2>
           </div>
 
-          <p className="text-sm text-[#475569] leading-relaxed">
-            Lleva un registro sencillo de las comprobaciones. Puedes utilizar una tabla como esta:
-          </p>
-
-          {/* Tabla de registro */}
-          <div className="overflow-x-auto rounded-xl border border-[#CBD5E1]">
+          <div className="overflow-x-auto rounded-xl border border-slate-200/90">
             <table className="w-full text-left text-xs sm:text-sm border-collapse">
               <thead>
-                <tr className="bg-[#123B5D] text-white font-mono text-xs uppercase">
-                  <th className="py-3 px-4 font-bold">Consulta</th>
-                  <th className="py-3 px-4 font-bold">Resultado</th>
-                  <th className="py-3 px-4 font-bold">Pendiente</th>
+                <tr className="bg-[#0F172A] text-white font-mono text-xs uppercase">
+                  <th className="py-3 px-4 font-bold">Situación encontrada</th>
+                  <th className="py-3 px-4 font-bold">Riesgo para ti</th>
+                  <th className="py-3 px-4 font-bold">Cómo actuar</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#E2E8F0]">
-                <tr className="hover:bg-[#F7F9FA] transition-colors">
-                  <td className="py-3.5 px-4 font-bold text-[#17212B]">RUNT</td>
-                  <td className="py-3.5 px-4 text-[#475569]">Datos contrastados</td>
-                  <td className="py-3.5 px-4 text-[#66727D]">Aclarar cualquier diferencia</td>
+              <tbody className="divide-y divide-slate-100 bg-white">
+                <tr className="hover:bg-slate-50/70 transition-colors">
+                  <td className="py-3.5 px-4 font-bold text-slate-900 whitespace-nowrap">
+                    Multas pendientes en SIMIT
+                  </td>
+                  <td className="py-3.5 px-4 text-slate-700">
+                    El organismo de tránsito bloqueará el trámite de traspaso de inmediato.
+                  </td>
+                  <td className="py-3.5 px-4 text-slate-600">
+                    El vendedor debe pagarlas antes de radicar los documentos o descontarlas del pago si tú acuerdas pagarlas.
+                  </td>
                 </tr>
-                <tr className="bg-[#F7F9FA]/60 hover:bg-[#F7F9FA] transition-colors">
-                  <td className="py-3.5 px-4 font-bold text-[#17212B]">SIMIT</td>
-                  <td className="py-3.5 px-4 text-[#475569]">Estado de multas y comparendos revisado</td>
-                  <td className="py-3.5 px-4 text-[#66727D]">Confirmar las obligaciones que requieran atención</td>
+                <tr className="hover:bg-slate-50/70 transition-colors">
+                  <td className="py-3.5 px-4 font-bold text-slate-900 whitespace-nowrap">
+                    Prenda bancaria activa en RUNT
+                  </td>
+                  <td className="py-3.5 px-4 text-slate-700">
+                    El carro está como garantía de un crédito. No se puede transferir a tu nombre.
+                  </td>
+                  <td className="py-3.5 px-4 text-slate-600">
+                    El banco debe emitir la carta de levantamiento de prenda y registrarse en el RUNT antes del negocio.
+                  </td>
                 </tr>
-                <tr className="hover:bg-[#F7F9FA] transition-colors">
-                  <td className="py-3.5 px-4 font-bold text-[#17212B]">Fasecolda</td>
-                  <td className="py-3.5 px-4 text-[#475569]">Resultado de la consulta de siniestros</td>
-                  <td className="py-3.5 px-4 text-[#66727D]">Solicitar soportes si aparece un reporte</td>
+                <tr className="hover:bg-slate-50/70 transition-colors">
+                  <td className="py-3.5 px-4 font-bold text-slate-900 whitespace-nowrap">
+                    Embargo judicial en RUNT
+                  </td>
+                  <td className="py-3.5 px-4 text-slate-700 font-semibold text-rose-800">
+                    Riesgo extremo: el carro puede ser inmovilizado por la policía en cualquier retén.
+                  </td>
+                  <td className="py-3.5 px-4 text-rose-800 font-semibold">
+                    Cancela el negocio de inmediato. No entregues dinero bajo ninguna promesa verbal.
+                  </td>
                 </tr>
-                <tr className="bg-[#F7F9FA]/60 hover:bg-[#F7F9FA] transition-colors">
-                  <td className="py-3.5 px-4 font-bold text-[#17212B]">Inspección física</td>
-                  <td className="py-3.5 px-4 text-[#475569]">Observaciones iniciales registradas</td>
-                  <td className="py-3.5 px-4 text-[#66727D]">Evaluación especializada si hay dudas</td>
+                <tr className="hover:bg-slate-50/70 transition-colors">
+                  <td className="py-3.5 px-4 font-bold text-slate-900 whitespace-nowrap">
+                    Siniestro de mayor cuantía en Fasecolda
+                  </td>
+                  <td className="py-3.5 px-4 text-slate-700">
+                    El carro sufrió un choque muy fuerte donde la estructura o el motor resultaron gravemente afectados.
+                  </td>
+                  <td className="py-3.5 px-4 text-slate-600">
+                    Exige peritaje estructural minucioso en elevador para verificar si el chasis quedó derecho y seguro.
+                  </td>
                 </tr>
               </tbody>
             </table>
           </div>
-
-          <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-            Anota la fecha de cada consulta y conserva los soportes que puedas guardar. Los resultados pueden cambiar con el tiempo y cada servicio tiene sus propias condiciones de acceso y actualización.
-          </p>
-
-          <p className="text-xs text-[#66727D] leading-relaxed">
-            Si una fuente no ofrece la información que necesitas, registra esa limitación en lugar de interpretar la ausencia de datos como confirmación de que no existen antecedentes.
-          </p>
         </section>
 
-        {/* Una consulta no sustituye una verificación profesional */}
-        <section className="mb-10 bg-white border border-[#CBD5E1] p-6 sm:p-8 rounded-2xl shadow-xs space-y-4">
-          <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
-            Una consulta no sustituye una verificación profesional
-          </h2>
-
-          <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
-            Las consultas de antecedentes y la revisión documental son una parte del proceso de evaluación. No permiten determinar por sí solas el estado mecánico, estructural o funcional completo de un vehículo.
-          </p>
-
-          <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
-            Si encuentras información contradictoria, reportes de siniestros o señales de reparaciones importantes, considera solicitar una inspección profesional antes de comprometerte con la compra. También conviene revisar por separado los documentos y requisitos necesarios para formalizar la transferencia.
-          </p>
-
-          <div className="p-4 rounded-xl bg-[#F7F9FA] border border-[#CBD5E1] text-xs sm:text-sm text-[#17212B] leading-relaxed">
-            <strong>La idea no es encontrar una única consulta que responda todas las preguntas, sino reunir evidencia suficiente para tomar una decisión informada.</strong> Si quedan dudas relevantes sin resolver, aplaza la decisión hasta aclararlas o evalúa otras opciones.
+        {/* Cómo ayuda EscaneApp */}
+        <section className="my-10 bg-white border border-slate-200/90 p-6 sm:p-8 rounded-2xl shadow-xs space-y-5">
+          <div className="flex items-center gap-2.5">
+            <ShieldCheck className="w-6 h-6 text-emerald-600" />
+            <h2 className="text-2xl font-black text-slate-900">
+              Registra y organiza los antecedentes con EscaneApp
+            </h2>
           </div>
-        </section>
 
-        {/* ¿Cómo puede ayudarte EscaneApp? */}
-        <section className="my-10 bg-white border border-[#CBD5E1] p-6 sm:p-8 rounded-2xl shadow-xs space-y-4">
-          <h2 className="text-xl sm:text-2xl font-bold text-[#17212B]">
-            ¿Cómo puede ayudarte EscaneApp?
-          </h2>
-
-          <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
-            EscaneApp puede complementar este proceso mediante una evaluación preliminar estructurada del vehículo. La revisión física y el registro ordenado de observaciones pueden ayudarte a identificar aspectos que merecen atención.
-          </p>
-
-          <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
-            Esta evaluación no reemplaza las consultas en las fuentes correspondientes, no certifica los antecedentes jurídicos ni garantiza que se detecten todos los daños o siniestros. Utilízala como apoyo dentro de una revisión más amplia del vehículo usado.
+          <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+            Nuestra herramienta de evaluación incluye una sección dedicada a la verificación legal. Marca qué consultaste en RUNT, SIMIT y Fasecolda, y guarda un reporte integral junto a las fotos de la inspección mecánica para tener todo organizado antes de cerrar la compra.
           </p>
 
           <div className="pt-2">
             <Link
               href="/evaluacion"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#123B5D] hover:bg-[#0d2a42] text-white text-sm font-bold transition-colors shadow-xs"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#0F172A] hover:bg-slate-800 text-white text-sm font-bold transition-all shadow-xs"
             >
-              <span>Iniciar evaluación preliminar</span>
+              <span>Abrir asistente de evaluación guiada</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </section>
 
-        {/* Enlaces relacionados */}
-        <section className="border-t border-[#CBD5E1] pt-10 mb-12">
-          <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#66727D] block mb-1">
+        {/* Recursos relacionados */}
+        <section className="border-t border-slate-200/90 pt-10 mb-12">
+          <span className="text-xs font-mono font-semibold uppercase tracking-wider text-slate-500 block mb-1">
             RECURSOS RELACIONADOS
           </span>
 
-          <h2 className="text-xl sm:text-2xl font-bold text-[#17212B] mb-6">
-            También te puede interesar
+          <h2 className="text-xl sm:text-2xl font-black text-slate-900 mb-6">
+            Otras guías recomendadas
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <Link
-              href="/costo-peritaje-colombia"
-              className="bg-white border border-[#CBD5E1] rounded-2xl p-5 hover:border-[#123B5D] hover:shadow-xs transition-all group"
+              href="/como-revisar-carro-usado"
+              className="bg-white border border-slate-200/90 rounded-2xl p-5 hover:border-slate-900 hover:shadow-xs transition-all group"
             >
-              <h3 className="font-bold text-sm text-[#17212B] mb-1.5 group-hover:text-[#123B5D] transition-colors">
-                Cuánto cuesta un peritaje
+              <h3 className="font-bold text-sm text-slate-900 mb-1.5 group-hover:text-emerald-700 transition-colors">
+                Cómo revisar un carro usado
               </h3>
-              <p className="text-xs text-[#66727D] leading-relaxed">
-                Tarifas de peritaje en Colombia, qué incluye cada paquete y preguntas clave.
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Guía completa de 10 pasos para revisar motor, carrocería y cabina.
               </p>
             </Link>
 
             <Link
-              href="/como-revisar-carro-usado"
-              className="bg-white border border-[#CBD5E1] rounded-2xl p-5 hover:border-[#123B5D] hover:shadow-xs transition-all group"
+              href="/costo-peritaje-colombia"
+              className="bg-white border border-slate-200/90 rounded-2xl p-5 hover:border-slate-900 hover:shadow-xs transition-all group"
             >
-              <h3 className="font-bold text-sm text-[#17212B] mb-1.5 group-hover:text-[#123B5D] transition-colors">
-                Cómo revisar un carro usado
+              <h3 className="font-bold text-sm text-slate-900 mb-1.5 group-hover:text-emerald-700 transition-colors">
+                Cuánto cuesta un peritaje
               </h3>
-              <p className="text-xs text-[#66727D] leading-relaxed">
-                Decálogo metodológico antes de solicitar un peritaje.
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Tarifas y centros autorizados en Colombia para peritar un carro.
               </p>
             </Link>
 
             <Link
               href="/kilometraje-carro-usado"
-              className="bg-white border border-[#CBD5E1] rounded-2xl p-5 hover:border-[#123B5D] hover:shadow-xs transition-all group"
+              className="bg-white border border-slate-200/90 rounded-2xl p-5 hover:border-slate-900 hover:shadow-xs transition-all group"
             >
-              <h3 className="font-bold text-sm text-[#17212B] mb-1.5 group-hover:text-[#123B5D] transition-colors">
+              <h3 className="font-bold text-sm text-slate-900 mb-1.5 group-hover:text-emerald-700 transition-colors">
                 Cómo revisar el kilometraje
               </h3>
-              <p className="text-xs text-[#66727D] leading-relaxed">
-                Aprende a interpretar el kilometraje y detectar inconsistencias.
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Aprende a interpretar el odómetro y detectar alteraciones fraudulentas.
               </p>
             </Link>
           </div>
         </section>
 
         {/* CTA Banner */}
-        <section className="rounded-2xl bg-[#123B5D] px-6 py-10 sm:px-12 sm:py-12 text-center text-white shadow-md mb-8">
+        <section className="rounded-2xl bg-[#0F172A] px-6 py-10 sm:px-12 sm:py-12 text-center text-white shadow-md mb-8">
           <div className="max-w-xl mx-auto space-y-4">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-snug">
-              Organiza tus hallazgos con EscaneApp
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 text-emerald-400 font-mono text-xs font-semibold">
+              <Search className="w-3.5 h-3.5" />
+              <span>SEGURIDAD EN TU COMPRA</span>
+            </div>
+
+            <h2 className="text-2xl sm:text-3xl font-black text-white leading-snug">
+              Comprueba el carro antes de comprometer tu dinero
             </h2>
 
-            <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
-              Registra los datos y observaciones de tu revisión preliminar antes de avanzar hacia una inspección profesional.
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Usa la lista interactiva de EscaneApp desde tu teléfono y toma la mejor decisión con tranquilidad.
             </p>
 
             <div className="pt-2">
               <Link
                 href="/evaluacion"
-                className="inline-flex items-center justify-center gap-2 px-7 h-12 rounded-xl bg-[#8BCF3F] hover:bg-[#7ab837] text-[#123B5D] text-sm font-extrabold transition-all shadow-sm active:scale-98"
+                className="inline-flex items-center justify-center gap-2 px-8 h-12 rounded-xl bg-white text-slate-900 hover:bg-slate-100 text-sm font-bold transition-all shadow-sm active:scale-95"
               >
-                <span>Iniciar evaluación</span>
+                <span>Iniciar evaluación gratuita</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -642,8 +574,8 @@ export default function AntecedentesVehiculoColombiaPage() {
         </section>
 
         {/* Aviso Legal */}
-        <p className="text-[11px] text-[#66727D] leading-relaxed text-center sm:text-left">
-          <strong>Aviso de orientación:</strong> Las consultas de antecedentes deben realizarse directamente en las plataformas oficiales o fuentes correspondientes. EscaneApp funciona como herramienta de organización y revisión preliminar y no sustituye las consultas oficiales ni un peritaje profesional.
+        <p className="text-[11px] text-slate-500 leading-relaxed text-center sm:text-left">
+          <strong>Aviso de orientación:</strong> La información contenida en esta guía tiene propósito orientativo. Las consultas oficiales deben realizarse directamente a través de las entidades competentes (RUNT, SIMIT, Fasecolda o secretarías de tránsito correspondientes).
         </p>
       </article>
     </div>

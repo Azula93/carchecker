@@ -3,6 +3,7 @@
 import React from 'react';
 import { ChecklistItemDef, ValoracionChecklist } from '../../types/evaluation';
 import { formatCOP } from '../../data/repair-costs';
+import { HelpCircle, AlertTriangle, DollarSign } from 'lucide-react';
 
 interface ChecklistItemProps {
   item: ChecklistItemDef;
@@ -24,78 +25,107 @@ export const ChecklistItem: React.FC<ChecklistItemProps> = ({
   }[] = [
     {
       valor: 'bien',
-      label: 'Bueno',
+      label: 'Bien',
       symbol: '✓',
-      activeClasses: 'bg-[#F0FDF4] border-[#2EAD68] text-[#166534] ring-2 ring-[#2EAD68]/20 shadow-xs',
+      activeClasses: 'bg-emerald-50 border-emerald-600 text-emerald-900 ring-1 ring-emerald-500 shadow-xs font-bold',
       badgeClasses: (sel) =>
-        sel ? 'bg-[#2EAD68] text-white shadow-2xs' : 'bg-[#DCFCE7] text-[#166534]',
+        sel ? 'bg-emerald-600 text-white shadow-2xs' : 'bg-emerald-100 text-emerald-800',
     },
     {
       valor: 'regular',
       label: 'Regular',
       symbol: '▲',
-      activeClasses: 'bg-[#FFFBEB] border-[#E5A72B] text-[#B45309] ring-2 ring-[#E5A72B]/20 shadow-xs',
+      activeClasses: 'bg-amber-50 border-amber-500 text-amber-900 ring-1 ring-amber-400 shadow-xs font-bold',
       badgeClasses: (sel) =>
-        sel ? 'bg-[#E5A72B] text-white shadow-2xs' : 'bg-[#FEF3C7] text-[#B45309]',
+        sel ? 'bg-amber-500 text-white shadow-2xs' : 'bg-amber-100 text-amber-800',
     },
     {
       valor: 'mal',
-      label: 'Malo',
+      label: 'Mal / Falla',
       symbol: '✕',
-      activeClasses: 'bg-[#FEF2F2] border-[#D64545] text-[#991B1B] ring-2 ring-[#D64545]/20 shadow-xs',
+      activeClasses: 'bg-rose-50 border-rose-600 text-rose-900 ring-1 ring-rose-500 shadow-xs font-bold',
       badgeClasses: (sel) =>
-        sel ? 'bg-[#D64545] text-white shadow-2xs' : 'bg-[#FEE2E2] text-[#991B1B]',
+        sel ? 'bg-rose-600 text-white shadow-2xs' : 'bg-rose-100 text-rose-800',
     },
     {
       valor: 'na',
-      label: 'N/A',
+      label: 'No aplica',
       symbol: '—',
-      activeClasses: 'bg-[#F1F5F9] border-[#66727D] text-[#17212B] ring-2 ring-[#66727D]/20 shadow-xs',
+      activeClasses: 'bg-slate-100 border-slate-600 text-slate-900 ring-1 ring-slate-400 shadow-xs font-bold',
       badgeClasses: (sel) =>
-        sel ? 'bg-[#66727D] text-white shadow-2xs' : 'bg-[#E2E8F0] text-[#66727D]',
+        sel ? 'bg-slate-700 text-white shadow-2xs' : 'bg-slate-200 text-slate-600',
     },
   ];
 
+  const tieneAlerta = item.tip.includes('[ATENCIÓN]');
+  const tipLimpio = item.tip.replace(/\[ATENCIÓN\]/g, '').trim();
+
   return (
     <article
-      className={`p-4 sm:p-5 rounded-2xl border transition-all duration-200 shadow-2xs flex flex-col gap-3.5 ${
+      className={`p-4 sm:p-5 rounded-xl border transition-all duration-150 shadow-2xs flex flex-col gap-3.5 bg-white ${
         valoracion === 'mal'
-          ? 'bg-white border-[#FECACA]'
+          ? 'border-rose-300 ring-1 ring-rose-200 bg-rose-50/20'
           : valoracion === 'regular'
-          ? 'bg-white border-[#FDE68A]'
+          ? 'border-amber-300 ring-1 ring-amber-100 bg-amber-50/15'
           : valoracion === 'bien'
-          ? 'bg-white border-[#E2E8F0]'
-          : 'bg-white border-[#E2E8F0]'
+          ? 'border-emerald-200 bg-emerald-50/10'
+          : 'border-slate-200/90 hover:border-slate-300'
       }`}
     >
-      <div className="flex flex-col gap-1.5">
-        <div className="flex items-center gap-2 flex-wrap min-w-0">
-          <span className="text-[10px] font-mono text-[#123B5D] bg-[#EBF3FA] px-2 py-0.5 rounded-full border border-[#D5E6F5] uppercase font-bold shrink-0">
-            {item.id}
-          </span>
-          <h3 className="text-sm sm:text-base font-bold text-[#17212B] tracking-tight">
-            {item.nombre}
-          </h3>
+      <div className="flex flex-col gap-2">
+        <div className="flex items-center justify-between gap-2 flex-wrap min-w-0">
+          <div className="flex items-center gap-2 flex-wrap min-w-0">
+            <span className="text-[10px] font-mono text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200 uppercase font-semibold shrink-0">
+              {item.id}
+            </span>
+            <h3 className="text-sm sm:text-base font-bold text-slate-900 tracking-tight">
+              {item.nombre}
+            </h3>
+          </div>
+
+          {tieneAlerta && (
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-[10px] font-bold font-mono uppercase tracking-wider">
+              <AlertTriangle className="w-3 h-3 text-rose-600" />
+              <span>Ojo crítico</span>
+            </span>
+          )}
         </div>
 
-        {/* Tip / Inspection prompt hint */}
-        <p className="text-xs text-[#66727D] leading-relaxed">
-          {item.tip.replace(/\[ATENCIÓN\]/g, 'Nota importante:')}
-        </p>
+        {/* Guía visual práctica para usuarios no técnicos */}
+        <div
+          className={`p-3 rounded-lg text-xs leading-relaxed border flex items-start gap-2.5 ${
+            tieneAlerta
+              ? 'bg-rose-50/50 border-rose-200/80 text-rose-900'
+              : 'bg-slate-50 border-slate-200/80 text-slate-700'
+          }`}
+        >
+          <HelpCircle
+            className={`w-4 h-4 shrink-0 mt-0.5 ${
+              tieneAlerta ? 'text-rose-600' : 'text-emerald-600'
+            }`}
+          />
+          <div className="flex-1">
+            <span className="font-semibold text-slate-900 mr-1.5">
+              {tieneAlerta ? 'Fíjate con mucha atención:' : 'Qué debes mirar:'}
+            </span>
+            <span>{tipLimpio}</span>
+          </div>
+        </div>
 
-        {/* Rango de costo de referencia si aplica */}
+        {/* Costo aproximado en caso de arreglo */}
         {item.costoRefMin !== undefined && item.costoRefMax !== undefined && (
-          <div className="mt-0.5 text-[11px] text-[#66727D] flex items-center gap-1.5 font-mono">
-            <span>Ref. reparación estimada:</span>
-            <span className="font-bold text-[#E5A72B]">
+          <div className="flex items-center gap-1.5 text-[11px] text-slate-500 font-mono">
+            <DollarSign className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+            <span>Si está dañado cuesta arreglarlo aprox:</span>
+            <span className="font-bold text-amber-800">
               {formatCOP(item.costoRefMin)} – {formatCOP(item.costoRefMax)}
             </span>
           </div>
         )}
       </div>
 
-      {/* 4-State Well-Delimited Segmented Buttons */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
+      {/* 4 Botones de selección rápida */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-0.5">
         {opciones.map((opcion) => {
           const isSelected = valoracion === opcion.valor;
           return (
@@ -103,14 +133,14 @@ export const ChecklistItem: React.FC<ChecklistItemProps> = ({
               key={opcion.valor}
               type="button"
               onClick={() => onValoracionChange(opcion.valor)}
-              className={`h-11 sm:h-12 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer select-none border-2 shadow-2xs active:scale-95 ${
+              className={`h-10 sm:h-11 px-3 rounded-lg text-xs font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer select-none border shadow-2xs active:scale-[0.98] ${
                 isSelected
                   ? opcion.activeClasses
-                  : 'bg-white border-[#CBD5E1] text-[#66727D] hover:border-[#94A3B8] hover:bg-[#F8FAFC]'
+                  : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50'
               }`}
             >
               <span
-                className={`w-5 h-5 rounded-full flex items-center justify-center text-[11px] font-bold shrink-0 transition-colors ${opcion.badgeClasses(
+                className={`w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 transition-colors ${opcion.badgeClasses(
                   isSelected
                 )}`}
               >
@@ -124,3 +154,4 @@ export const ChecklistItem: React.FC<ChecklistItemProps> = ({
     </article>
   );
 };
+

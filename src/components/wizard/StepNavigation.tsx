@@ -17,11 +17,11 @@ interface StepNavigationProps {
 }
 
 const NOMBRES_PASOS_SIGUIENTES = [
-  { titulo: 'Continuar a Legales', subtitulo: 'Paso 2 de 5 · Historial & Multas' },
-  { titulo: 'Continuar a Checklist', subtitulo: 'Paso 3 de 5 · Inspección Física' },
-  { titulo: 'Continuar a Costos Ocultos', subtitulo: 'Paso 4 de 5 · Estimación de Arreglos' },
-  { titulo: 'Ver Resumen y Estimación', subtitulo: 'Paso 5 de 5 · Puntuación y Veredicto' },
-  { titulo: 'Finalizar Revisión', subtitulo: 'Diagnóstico Completado' },
+  { titulo: 'Continuar a Papeles & Multas', subtitulo: 'Paso 2 de 5 · Revisa RUNT y comparendos' },
+  { titulo: 'Continuar a Revisión del Carro', subtitulo: 'Paso 3 de 5 · 80 puntos paso a paso' },
+  { titulo: 'Calcular Arreglos y Descuento', subtitulo: 'Paso 4 de 5 · Presupuesto para negociar' },
+  { titulo: 'Ver Resultado y Puntaje', subtitulo: 'Paso 5 de 5 · Resumen y veredicto' },
+  { titulo: 'Finalizar Revisión', subtitulo: 'Revisión terminada' },
 ];
 
 export const StepNavigation: React.FC<StepNavigationProps> = ({
@@ -31,7 +31,7 @@ export const StepNavigation: React.FC<StepNavigationProps> = ({
   onSiguiente,
   onLimpiarPaso,
   siguienteDeshabilitado = false,
-  textoFinal = 'Ver Resumen y Estimación',
+  textoFinal = 'Ver Resultado y Puntaje',
   esDescarte = false,
   onDescargarReporte,
   onReiniciar,
@@ -46,20 +46,21 @@ export const StepNavigation: React.FC<StepNavigationProps> = ({
     };
 
   const tituloBoton = esUltimoPaso ? textoFinal : infoSiguiente.titulo;
-  const subtituloBoton = esUltimoPaso ? 'Informe completo y recomendaciones' : infoSiguiente.subtitulo;
+  const subtituloBoton = esUltimoPaso ? 'Informe completo y consejos' : infoSiguiente.subtitulo;
 
   return (
-    <div className="w-full pt-8 mt-10 border-t border-[#E2E8F0] flex flex-col gap-6">
-      {/* Action Buttons Row */}
+    <div className="w-full pt-8 mt-10 border-t border-slate-200/90 flex flex-col gap-6">
+      {/* Fila Principal de Acciones */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4">
-        {/* Left Secondary Actions */}
+        
+        {/* Acciones Secundarias (Izquierda) */}
         <div className="flex items-center gap-2.5">
           {/* Botón Anterior */}
           {!esPrimerPaso && (
             <button
               type="button"
               onClick={onAnterior}
-              className="h-12 sm:h-14 px-4 sm:px-5 rounded-2xl bg-white border border-[#CBD5E1] text-[#123B5D] hover:bg-slate-50 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer shadow-2xs active:scale-95 transition-all"
+              className="h-11 sm:h-12 px-4 sm:px-5 rounded-xl bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 hover:text-slate-900 font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer shadow-2xs active:scale-[0.98] transition-all"
               aria-label="Volver al paso anterior"
             >
               <ArrowLeft className="w-4 h-4" />
@@ -67,32 +68,32 @@ export const StepNavigation: React.FC<StepNavigationProps> = ({
             </button>
           )}
 
-          {/* Botón Borrar datos del paso actual (solo si no es el último paso) */}
+          {/* Botón Borrar datos del paso actual */}
           {!esUltimoPaso && onLimpiarPaso && (
             <button
               type="button"
               onClick={onLimpiarPaso}
-              className="h-12 sm:h-14 px-4 sm:px-5 rounded-2xl bg-[#EBF3FA] border border-[#D5E6F5] text-[#123B5D] hover:bg-[#DEEEFB] text-xs sm:text-sm font-bold flex items-center justify-center gap-2 cursor-pointer shadow-2xs active:scale-95 transition-all"
-              title="Borrar datos ingresados en este paso"
+              className="h-11 sm:h-12 px-3.5 sm:px-4 rounded-xl bg-slate-50 border border-slate-200 text-slate-600 hover:bg-slate-100 hover:text-slate-900 text-xs sm:text-sm font-medium flex items-center justify-center gap-2 cursor-pointer shadow-2xs active:scale-[0.98] transition-all"
+              title="Borrar lo que llenaste en este paso"
             >
-              <RotateCcw className="w-3.5 h-3.5" />
-              <span>Borrar Datos</span>
+              <RotateCcw className="w-3.5 h-3.5 text-slate-400" />
+              <span>Borrar este paso</span>
             </button>
           )}
         </div>
 
-        {/* Right Primary Actions: En Paso 5 muestra Descargar Reporte y Nuevo Escaneo; en pasos 1-4 botón Continuar */}
+        {/* Acciones Primarias (Derecha) */}
         {esUltimoPaso ? (
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             {onReiniciar && (
               <button
                 type="button"
                 onClick={onReiniciar}
-                className="h-12 sm:h-14 px-5 rounded-2xl bg-[#FEF2F2] hover:bg-[#FEE2E2] text-[#D64545] border border-[#FECACA] font-bold text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer shadow-2xs active:scale-95 transition-all"
-                title="Borrar datos y comenzar un nuevo escaneo"
+                className="h-11 sm:h-12 px-5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer shadow-2xs active:scale-[0.98] transition-all"
+                title="Borrar todo y revisar otro carro"
               >
                 <RotateCcw className="w-4 h-4" />
-                <span>Nuevo Escaneo</span>
+                <span>Revisar otro carro</span>
               </button>
             )}
 
@@ -100,11 +101,11 @@ export const StepNavigation: React.FC<StepNavigationProps> = ({
               <button
                 type="button"
                 onClick={onDescargarReporte}
-                className="h-12 sm:h-14 px-6 sm:px-8 rounded-2xl bg-[#123B5D] hover:bg-[#0E2F4B] text-white font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2.5 cursor-pointer shadow-xs active:scale-98 transition-all"
-                title="Descargar informe completo en PDF"
+                className="h-11 sm:h-12 px-6 sm:px-8 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2.5 cursor-pointer shadow-xs active:scale-[0.98] transition-all"
+                title="Descargar o guardar el reporte en PDF"
               >
-                <Download className="w-4 h-4 sm:w-5 sm:h-5 text-[#8BCF3F]" />
-                <span>Descargar Reporte (PDF)</span>
+                <Download className="w-4 h-4 text-emerald-400" />
+                <span>Descargar reporte en PDF</span>
               </button>
             )}
           </div>
@@ -116,45 +117,44 @@ export const StepNavigation: React.FC<StepNavigationProps> = ({
               disabled={siguienteDeshabilitado}
               title={
                 siguienteDeshabilitado
-                  ? 'Completa la línea del vehículo y un kilometraje mayor a 0 para continuar'
+                  ? 'Escribe la marca/modelo y kilometraje para seguir'
                   : undefined
               }
-              className={`h-12 sm:h-14 min-w-[240px] rounded-2xl px-6 sm:px-8 font-extrabold text-xs sm:text-sm flex items-center justify-between gap-4 transition-all cursor-pointer shadow-xs active:scale-98 ${
+              className={`h-11 sm:h-12 min-w-[240px] rounded-xl px-6 sm:px-7 font-semibold text-xs sm:text-sm flex items-center justify-between gap-4 transition-all cursor-pointer shadow-xs active:scale-[0.98] ${
                 siguienteDeshabilitado
-                  ? 'bg-[#F1F5F9] text-[#66727D] border border-[#E2E8F0] cursor-not-allowed shadow-none'
+                  ? 'bg-slate-100 text-slate-400 border border-slate-200 cursor-not-allowed shadow-none'
                   : esDescarte
-                  ? 'bg-[#FEF2F2] border border-[#D64545] text-[#D64545] hover:bg-[#FEE2E2]'
-                  : 'bg-[#8BCF3F] text-[#17212B] hover:bg-[#7EC134] hover:shadow'
+                  ? 'bg-rose-50 border border-rose-300 text-rose-700 hover:bg-rose-100'
+                  : 'bg-slate-900 text-white hover:bg-slate-800'
               }`}
             >
               <div className="flex flex-col items-start text-left leading-tight">
-                <span className="text-sm sm:text-base font-extrabold">{tituloBoton}</span>
-                <span className="text-[10px] sm:text-[11px] font-medium opacity-85">
+                <span className="text-sm font-semibold">{tituloBoton}</span>
+                <span className="text-[10px] font-mono opacity-80">
                   {subtituloBoton}
                 </span>
               </div>
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5] shrink-0" />
+              <ArrowRight className="w-4 h-4 stroke-[2.5] shrink-0" />
             </button>
             {siguienteDeshabilitado && (
-              <p className="text-[11px] text-[#66727D] text-left sm:text-right" role="status" aria-live="polite">
-                Ingresa la línea del vehículo y su kilometraje para avanzar al Paso 2.
+              <p className="text-[11px] text-slate-500 text-left sm:text-right" role="status" aria-live="polite">
+                Escribe la marca/modelo del carro y cuántos kilómetros tiene para continuar.
               </p>
             )}
           </div>
         )}
       </div>
 
-      {/* Card Metadata Footer (Stitch Reference) */}
-      <div className="flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#66727D] gap-2 pt-2">
+      {/* Pie de la Tarjeta */}
+      <div className="flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 font-mono gap-2 pt-2 border-t border-slate-100">
         <div className="flex items-center gap-1.5 text-center sm:text-left">
-          <ShieldCheck className="w-3.5 h-3.5 text-[#2EAD68] shrink-0" />
+          <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
           <span>
-            Paso {pasoActual} de {totalPasos} · Datos editables en cualquier momento y guardados automáticamente en este navegador
+            Paso {pasoActual} de {totalPasos} · Todo se guarda en tu teléfono o computador automáticamente
           </span>
         </div>
-        <div className="flex items-center gap-1.5 text-[#66727D] shrink-0">
-          {/* <Lock className="w-3 h-3 text-[#66727D]" /> */}
-          {/* <span>Cifrado SSL de 256 bits</span> */}
+        <div className="text-slate-400">
+          <span>EscaneApp Colombia</span>
         </div>
       </div>
     </div>

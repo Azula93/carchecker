@@ -9,7 +9,6 @@ import {
   Plus,
   PackageOpen,
   Info,
-  Calculator,
 } from 'lucide-react';
 import { CostoReparacion, DatosBasicos } from '../../types/evaluation';
 import { formatCOP } from '../../data/repair-costs';
@@ -66,187 +65,180 @@ export const Step4Costos: React.FC<Step4CostosProps> = ({
 
   return (
     <div className="space-y-8">
-      {/* Encabezado (Stitch Reference) */}
-      <div className="border-b border-[#E2E8F0] pb-6">
+      {/* Encabezado en lenguaje sencillo */}
+      <div className="border-b border-slate-200/90 pb-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EBF3FA] text-[#123B5D] text-xs font-bold w-fit">
-            <span className="w-2 h-2 rounded-full bg-[#8BCF3F] animate-pulse"></span>
-            <span>COSTOS OCULTOS</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-[11px] font-mono font-semibold uppercase tracking-wider w-fit">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>PASO 04 · ARREGLOS PENDIENTES Y DESCUENTO SUGERIDO</span>
           </div>
-
-          {/* <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-[#123B5D] text-xs font-semibold shadow-2xs w-fit">
-            <Calculator className="w-4 h-4 text-[#3578B8]" />
-            <div className="flex flex-col leading-tight">
-              <span className="font-bold text-[11px]">Presupuesto Técnico</span>
-              <span className="text-[10px] text-[#66727D]">Apalancamiento de compra</span>
-            </div>
-          </div> */}
+          <span className="text-[11px] text-slate-500 font-medium">
+            Úsalo para negociar el precio
+          </span>
         </div>
 
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-[#17212B] tracking-tight">
-          Matriz de costos de reparación y negociación
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          ¿Cuánto tendrías que invertirle en arreglos?
         </h2>
-        <p className="text-xs sm:text-sm text-[#66727D] mt-1.5 leading-relaxed max-w-3xl">
-          Estimación orientativa de arreglos basada en tus observaciones. Estos valores son referenciales y no sustituyen una cotización formal en talleres ni un peritaje profesional.
+        <p className="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed max-w-3xl">
+          Sumamos automáticamente el costo estimado de los detalles que marcaste con fallas en el paso anterior. Úsalo como argumento para pedirle una rebaja justa al vendedor antes de cerrar el trato.
         </p>
 
-        {/* Vehicle Identity Pill */}
         {datosBasicos?.lineaVehiculo && (
-          <div className="mt-4 inline-flex items-center gap-2 py-1.5 px-3.5 bg-[#F8FAFC] border border-[#E2E8F0] rounded-full text-xs text-[#17212B]">
-            <Car className="w-3.5 h-3.5 text-[#66727D]" />
-            <span className="font-bold">{datosBasicos.lineaVehiculo}</span>
-            <span className="text-[#CBD5E1]">·</span>
-            <span className="text-[#66727D] font-mono">{datosBasicos.placa || 'ABC 123'}</span>
-            <span className="text-[#CBD5E1]">·</span>
-            <span className="text-[#66727D] font-mono">{datosBasicos.kilometraje.toLocaleString('es-CO')} km</span>
+          <div className="mt-4 inline-flex items-center gap-2 py-1.5 px-3.5 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-800 font-mono">
+            <Car className="w-3.5 h-3.5 text-slate-500" />
+            <span className="font-semibold">{datosBasicos.lineaVehiculo}</span>
+            <span className="text-slate-300">·</span>
+            <span className="text-slate-500">{datosBasicos.placa || 'ABC 123'}</span>
+            <span className="text-slate-300">·</span>
+            <span className="text-slate-500">{datosBasicos.kilometraje.toLocaleString('es-CO')} km</span>
           </div>
         )}
       </div>
 
-      {/* Main Hero Card: Inversión Estimada en Reparaciones */}
-      <div className="p-6 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] shadow-2xs flex flex-col gap-5">
+      {/* Hero Card: Gasto estimado en arreglos */}
+      <div className="p-6 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs flex flex-col gap-5">
         <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
           <div className="flex flex-col">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#66727D]">
-              Inversión Estimada en Reparaciones
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500">
+              Total estimado que tendrías que gastarle en taller
             </span>
             <div className="flex items-baseline gap-2 mt-1">
-              <span className="text-3xl sm:text-4xl font-extrabold font-mono text-[#123B5D] tracking-tight">
+              <span className="text-3xl sm:text-4xl font-extrabold font-mono text-slate-900 tracking-tight">
                 {formatCOP(totalCostos)}
               </span>
-              <span className="text-xs font-mono text-[#66727D] font-bold">COP</span>
+              <span className="text-xs font-mono text-slate-500 font-bold">COP</span>
             </div>
-            <span className="text-xs text-[#66727D] mt-0.5 font-mono">
-              Equivalente estimado: ~ ${usdEstimado.toLocaleString('en-US')} USD
+            <span className="text-xs text-slate-500 mt-0.5 font-mono">
+              Aproximadamente: ~ ${usdEstimado.toLocaleString('en-US')} USD
             </span>
           </div>
 
           <span
-            className={`self-start sm:self-center px-3.5 py-1.5 rounded-full text-xs font-bold font-mono border ${
+            className={`self-start sm:self-center px-3.5 py-1.5 rounded-lg text-xs font-mono font-bold border ${
               totalCostos === 0
-                ? 'bg-[#EBF7DF] border-[#BBF7D0] text-[#2EAD68]'
+                ? 'bg-emerald-50 border-emerald-200 text-emerald-800'
                 : totalCostos < 2000000
-                ? 'bg-[#EBF7DF] border-[#BBF7D0] text-[#2EAD68]'
+                ? 'bg-emerald-50 border-emerald-200 text-emerald-800'
                 : totalCostos < 6000000
-                ? 'bg-[#FFFBEB] border-[#FDE68A] text-[#E5A72B]'
-                : 'bg-[#FEF2F2] border-[#FECACA] text-[#D64545]'
+                ? 'bg-amber-50 border-amber-200 text-amber-800'
+                : 'bg-rose-50 border-rose-200 text-rose-800'
             }`}
           >
-            {totalCostos === 0 ? 'Sin gastos inmediatos' : totalCostos < 2000000 ? 'Inversión Baja' : totalCostos < 6000000 ? 'Inversión Moderada' : 'Inversión Alta'}
+            {totalCostos === 0 ? 'Sin arreglos inmediatos' : totalCostos < 2000000 ? 'Gasto bajo' : totalCostos < 6000000 ? 'Gasto moderado' : 'Gasto muy alto'}
           </span>
         </div>
 
-        {/* Negotiation Leverage Callout Banner */}
-        <div className="flex items-center gap-3.5 bg-white border border-[#E2E8F0] p-4 rounded-xl shadow-2xs">
-          <div className="w-9 h-9 rounded-xl bg-[#123B5D] text-white flex items-center justify-center shrink-0">
-            <TrendingDown className="w-4 h-4 text-[#8BCF3F]" />
+        {/* Consejo para negociar el descuento */}
+        <div className="flex items-center gap-3.5 bg-white border border-slate-200 p-4 rounded-xl shadow-2xs">
+          <div className="w-9 h-9 rounded-lg bg-slate-900 text-white flex items-center justify-center shrink-0">
+            <TrendingDown className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="flex flex-col min-w-0">
-            <span className="text-xs font-bold text-[#123B5D]">
-              Margen de Descuento Técnico Sugerido
+            <span className="text-xs font-bold text-slate-900">
+              ¿Cuánto descuento deberías pedirle al vendedor?
             </span>
-            <p className="text-xs text-[#66727D] mt-0.5">
+            <p className="text-xs text-slate-600 mt-0.5">
               {precioVenta > 0 ? (
                 <>
-                  Apalancamiento de negociación recomendado:{' '}
-                  <strong className="text-[#17212B]">
-                    -{porcentajeDescuento}% sobre precio publicado ({formatCOP(totalCostos)})
-                  </strong>
+                  Pídele una rebaja aproximada del{' '}
+                  <strong className="text-slate-900 font-mono">
+                    {porcentajeDescuento}% sobre lo que pide ({formatCOP(totalCostos)})
+                  </strong>{' '}
+                  para compensar los arreglos que tú tendrás que pagar.
                 </>
               ) : (
-                'Ingresa abajo el precio pedido por el vendedor para calcular el porcentaje de deducción recomendada.'
+                'Escribe abajo el precio que te pide el vendedor para calcular el descuento exacto que puedes pedir.'
               )}
             </p>
           </div>
         </div>
       </div>
 
-      {/* Bloque Financiero: Precio Pedido y Oferta Sugerida */}
+      {/* Bloque: Precio pedido y Oferta sugerida */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        {/* Precio Pedido */}
-        <div className="p-5 sm:p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-2xs">
+        <div className="p-5 sm:p-6 rounded-xl bg-white border border-slate-200 shadow-2xs">
           <CurrencyInput
-            label="1. Precio de venta solicitado por el vendedor"
+            label="1. ¿Cuánto dinero te está pidiendo el vendedor?"
             value={precioVenta}
             onChange={onPrecioVentaChange}
             placeholder="0"
-            helperText="Valor de venta publicado en el anuncio o vitrina."
+            helperText="Escribe el valor que viste en el aviso o que te dijo el dueño."
           />
         </div>
 
-        {/* Oferta Máxima Recomendada */}
-        <div className="p-5 sm:p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-2xs flex flex-col justify-between">
+        <div className="p-5 sm:p-6 rounded-xl bg-white border border-slate-200 shadow-2xs flex flex-col justify-between">
           <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-[#66727D] block mb-1">
-              2. Oferta Máxima Recomendada
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500 block mb-1">
+              2. Cuánto deberías ofrecerle máximo:
             </span>
-            <span className="text-2xl sm:text-3xl font-extrabold font-mono text-[#2EAD68] tracking-tight">
-              {precioVenta > 0 ? formatCOP(precioSugerido) : 'Ajustar según precio'}
+            <span className="text-2xl sm:text-3xl font-extrabold font-mono text-emerald-700 tracking-tight">
+              {precioVenta > 0 ? formatCOP(precioSugerido) : 'Escribe el precio primero'}
             </span>
           </div>
-          <p className="text-[11px] text-[#66727D] mt-2">
-            Precio de referencia sugerido descontando la estimación de posibles reparaciones.
+          <p className="text-[11px] text-slate-500 mt-2">
+            Este sería el precio justo para ti, restando lo que vas a gastarle en arreglos.
           </p>
         </div>
       </div>
 
-      {/* Listado de Arreglos e Inversiones Identificadas */}
-      <div className="bg-white border border-[#E2E8F0] rounded-2xl p-5 sm:p-6 shadow-2xs flex flex-col gap-4">
-        <div className="flex items-center justify-between border-b border-[#F1F5F9] pb-3">
+      {/* Tabla de Arreglos Detectados */}
+      <div className="bg-white border border-slate-200 rounded-xl p-5 sm:p-6 shadow-2xs flex flex-col gap-4">
+        <div className="flex items-center justify-between border-b border-slate-100 pb-3">
           <div className="flex items-center gap-2">
-            <Wrench className="w-4 h-4 text-[#123B5D]" />
-            <h3 className="text-sm font-bold uppercase tracking-wider text-[#123B5D]">
-              Detalle de Reparaciones y Mantenimientos ({costos.length})
+            <Wrench className="w-4 h-4 text-slate-700" />
+            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-slate-900">
+              Lista de arreglos que detectaste ({costos.length})
             </h3>
           </div>
           {costos.length > 0 && (
-            <span className="text-xs font-mono font-bold text-[#17212B]">
-              Subtotal: {formatCOP(totalCostos)}
+            <span className="text-xs font-mono font-bold text-slate-900">
+              Total: {formatCOP(totalCostos)}
             </span>
           )}
         </div>
 
         {costos.length === 0 ? (
-          <div className="text-center py-10 bg-[#F8FAFC] rounded-xl border border-dashed border-[#CBD5E1] p-6 space-y-2">
-            <PackageOpen className="w-9 h-9 text-[#66727D] mx-auto opacity-60" />
-            <h4 className="text-sm font-bold text-[#17212B]">
-              No se han registrado reparaciones pendientes
+          <div className="text-center py-10 bg-slate-50 rounded-xl border border-dashed border-slate-300 p-6 space-y-2">
+            <PackageOpen className="w-9 h-9 text-slate-400 mx-auto" />
+            <h4 className="text-sm font-semibold text-slate-800">
+              No tienes arreglos pendientes anotados
             </h4>
-            <p className="text-xs text-[#66727D] max-w-md mx-auto">
-              Los ítems que marques como &quot;Malo&quot; en el Checklist del paso anterior aparecerán aquí automáticamente, o puedes añadir costos de mantenimiento manualmente a continuación.
+            <p className="text-xs text-slate-500 max-w-md mx-auto">
+              Si marcaste puntos con &quot;Falla&quot; en el paso anterior, aparecerán aquí con su valor aproximado. También puedes agregar otros arreglos abajo si te acuerdas de alguno.
             </p>
           </div>
         ) : (
-          <div className="overflow-x-auto rounded-xl border border-[#E2E8F0]">
+          <div className="overflow-x-auto rounded-lg border border-slate-200">
             <table className="w-full text-left border-collapse text-xs sm:text-sm">
               <thead>
-                <tr className="border-b border-[#E2E8F0] bg-[#F8FAFC] text-[#66727D] text-[11px] font-mono uppercase tracking-wider">
-                  <th className="py-3 px-4 font-bold">Descripción del Arreglo</th>
-                  <th className="py-3 px-4 font-bold">Origen</th>
-                  <th className="py-3 px-4 font-bold w-48">Costo Estimado (COP)</th>
-                  <th className="py-3 px-4 font-bold text-right w-16">Acción</th>
+                <tr className="border-b border-slate-200 bg-slate-50 text-slate-600 text-[11px] font-mono uppercase tracking-wider">
+                  <th className="py-3 px-4 font-semibold">¿Qué hay que arreglar?</th>
+                  <th className="py-3 px-4 font-semibold">Origen</th>
+                  <th className="py-3 px-4 font-semibold w-48">Costo aproximado (COP)</th>
+                  <th className="py-3 px-4 font-semibold text-right w-16">Quitar</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#E2E8F0]">
+              <tbody className="divide-y divide-slate-100">
                 {costos.map((item) => (
-                  <tr key={item.id} className="hover:bg-[#F8FAFC] transition-colors">
-                    <td className="py-3.5 px-4 font-bold text-[#17212B]">
+                  <tr key={item.id} className="hover:bg-slate-50 transition-colors">
+                    <td className="py-3 px-4 font-medium text-slate-900">
                       {item.descripcion}
                     </td>
-                    <td className="py-3.5 px-4">
+                    <td className="py-3 px-4">
                       {item.fromChecklist ? (
-                        <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#F1F5F9] text-[#66727D] border border-[#E2E8F0]">
-                          Checklist
+                        <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-slate-100 text-slate-600 border border-slate-200">
+                          De la revisión
                         </span>
                       ) : (
-                        <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#EBF3FA] text-[#123B5D] border border-[#D5E6F5]">
-                          Manual
+                        <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-slate-900 text-white">
+                          Agregado por ti
                         </span>
                       )}
                     </td>
-                    <td className="py-3.5 px-4">
+                    <td className="py-3 px-4">
                       <div className="relative max-w-[160px]">
-                        <span className="absolute left-2.5 top-2.5 text-xs text-[#66727D] font-mono">$</span>
+                        <span className="absolute left-2.5 top-2.5 text-xs text-slate-400 font-mono">$</span>
                         <input
                           type="text"
                           value={item.costoEstimado === 0 ? '' : item.costoEstimado.toLocaleString('es-CO')}
@@ -254,16 +246,16 @@ export const Step4Costos: React.FC<Step4CostosProps> = ({
                             const val = e.target.value.replace(/\D/g, '');
                             handleCostoChange(item.id, val ? parseInt(val, 10) : 0);
                           }}
-                          className="w-full h-9 pl-6 pr-2 rounded-lg bg-white border border-[#CBD5E1] text-xs font-mono font-semibold text-[#17212B] focus:outline-none focus:border-[#123B5D]"
+                          className="w-full h-8 pl-6 pr-2 rounded-md bg-white border border-slate-300 text-xs font-mono font-semibold text-slate-900 focus:outline-none focus:border-slate-800"
                         />
                       </div>
                     </td>
-                    <td className="py-3.5 px-4 text-right">
+                    <td className="py-3 px-4 text-right">
                       <button
                         type="button"
                         onClick={() => handleEliminarItem(item.id)}
-                        className="p-1.5 text-[#66727D] hover:text-[#D64545] transition-colors cursor-pointer"
-                        title="Eliminar arreglo"
+                        className="p-1.5 text-slate-400 hover:text-rose-600 transition-colors cursor-pointer"
+                        title="Quitar este arreglo"
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>
@@ -278,27 +270,27 @@ export const Step4Costos: React.FC<Step4CostosProps> = ({
         {/* Formulario para agregar arreglo manual */}
         <form
           onSubmit={handleAgregarManual}
-          className="p-4 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] flex flex-col sm:flex-row items-end gap-3.5"
+          className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-end gap-3.5"
         >
           <div className="flex-1 w-full">
-            <label className="block text-xs font-bold text-[#17212B] mb-1">
-              Agregar arreglo adicional o mantenimiento preventivo
+            <label className="block text-xs font-semibold text-slate-800 mb-1">
+              ¿Quieres añadir otro arreglo que hayas notado?
             </label>
             <input
               type="text"
               value={nuevaDescripcion}
               onChange={(e) => setNuevaDescripcion(e.target.value)}
-              placeholder="Ej. Cambio de pastillas delanteras, duplicado de llave..."
-              className="w-full h-11 rounded-xl bg-white border border-[#CBD5E1] px-3.5 text-xs text-[#17212B] placeholder:text-slate-400 focus:outline-none focus:border-[#123B5D]"
+              placeholder="Ej. Cambio de pastillas de frenos, sacar copia de la llave..."
+              className="w-full h-10 rounded-lg bg-white border border-slate-300 px-3.5 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-slate-800"
             />
           </div>
 
           <div className="w-full sm:w-44">
-            <label className="block text-xs font-bold text-[#17212B] mb-1">
-              Valor estimado (COP)
+            <label className="block text-xs font-semibold text-slate-800 mb-1">
+              Costo estimado (COP)
             </label>
             <div className="relative">
-              <span className="absolute left-2.5 top-3 text-xs text-[#66727D] font-mono">$</span>
+              <span className="absolute left-2.5 top-2.5 text-xs text-slate-400 font-mono">$</span>
               <input
                 type="text"
                 value={nuevoCosto === 0 ? '' : nuevoCosto.toLocaleString('es-CO')}
@@ -307,14 +299,14 @@ export const Step4Costos: React.FC<Step4CostosProps> = ({
                   setNuevoCosto(val ? parseInt(val, 10) : 0);
                 }}
                 placeholder="0"
-                className="w-full h-11 pl-6 pr-2 rounded-xl bg-white border border-[#CBD5E1] text-xs text-[#17212B] font-mono placeholder:text-slate-400 focus:outline-none focus:border-[#123B5D] font-semibold"
+                className="w-full h-10 pl-6 pr-2 rounded-lg bg-white border border-slate-300 text-xs text-slate-900 font-mono placeholder:text-slate-400 focus:outline-none focus:border-slate-800 font-semibold"
               />
             </div>
           </div>
 
           <button
             type="submit"
-            className="w-full sm:w-auto h-11 px-5 rounded-xl bg-[#123B5D] hover:bg-[#0E2F4B] text-white text-xs font-bold transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-xs shrink-0 active:scale-95"
+            className="w-full sm:w-auto h-10 px-5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-xs shrink-0 active:scale-[0.98]"
           >
             <Plus className="w-4 h-4" />
             <span>Añadir</span>
@@ -322,12 +314,12 @@ export const Step4Costos: React.FC<Step4CostosProps> = ({
         </form>
       </div>
 
-      {/* Banner orientativo de negociación */}
-      <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#E2E8F0] shadow-2xs flex items-start gap-3">
-        <Info className="w-5 h-5 text-[#123B5D] shrink-0 mt-0.5" />
-        <p className="text-xs text-[#66727D] leading-relaxed">
-          <strong className="text-[#17212B]">Referencia para dialogar con el vendedor: </strong>
-          Utiliza este listado estimado como base orientativa para conversar sobre el precio final. Recuerda que los costos reales de repuestos y mano de obra deben validarse directamente en un taller mecánico o almacén de confianza.
+      {/* Banner Orientativo */}
+      <div className="p-4 sm:p-5 rounded-xl bg-white border border-slate-200 shadow-2xs flex items-start gap-3">
+        <Info className="w-5 h-5 text-slate-700 shrink-0 mt-0.5" />
+        <p className="text-xs text-slate-600 leading-relaxed">
+          <strong className="text-slate-900">Consejo para hablar con el vendedor: </strong>
+          No pelees por el precio sin argumentos. Muestra con calma esta lista de detalles que viste en el carro para explicarle por qué le ofreces ese valor.
         </p>
       </div>
     </div>

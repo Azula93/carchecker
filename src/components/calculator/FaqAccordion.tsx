@@ -33,7 +33,7 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({ items, className = '
         return (
           <div
             key={index}
-            className="rounded-xl border border-[#E2E8F0] bg-white transition-colors duration-150 overflow-hidden hover:border-[#CBD5E1]"
+            className="rounded-2xl border border-slate-200/90 bg-white transition-all duration-150 overflow-hidden hover:border-slate-300 shadow-2xs"
           >
             <button
               id={buttonId}
@@ -41,14 +41,14 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({ items, className = '
               aria-expanded={estaAbierto}
               aria-controls={contentId}
               onClick={() => toggleItem(index)}
-              className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#123B5D]"
+              className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900"
             >
-              <span className="font-bold text-[#17212B] text-sm sm:text-base leading-snug">
+              <span className="font-bold text-slate-900 text-sm sm:text-base leading-snug">
                 {item.pregunta}
               </span>
               <span
-                className={`p-1.5 rounded-lg bg-[#F7F9FA] text-[#66727D] transition-transform duration-200 shrink-0 ${
-                  estaAbierto ? 'rotate-180 bg-[#123B5D] text-white' : ''
+                className={`p-1.5 rounded-lg transition-transform duration-200 shrink-0 ${
+                  estaAbierto ? 'rotate-180 bg-[#0F172A] text-white' : 'bg-slate-100 text-slate-500'
                 }`}
               >
                 <ChevronDown className="w-4 h-4" />
@@ -60,9 +60,9 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({ items, className = '
                 id={contentId}
                 role="region"
                 aria-labelledby={buttonId}
-                className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 text-[#475569] text-sm leading-relaxed border-t border-[#F1F5F9]"
+                className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 text-slate-600 text-sm leading-relaxed border-t border-slate-100"
               >
-                <div className="pt-3 text-[#66727D] leading-relaxed">{item.respuesta}</div>
+                <div className="pt-3 text-slate-600 leading-relaxed">{item.respuesta}</div>
               </div>
             )}
           </div>

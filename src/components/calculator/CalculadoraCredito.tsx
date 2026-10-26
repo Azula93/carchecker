@@ -153,20 +153,20 @@ export const CalculadoraCredito: React.FC<CalculadoraCreditoProps> = ({
 
   return (
     <div
-      className={`w-full bg-white border border-[#E2E8F0] rounded-2xl p-5 sm:p-7 md:p-8 shadow-xs text-[#0F1B2B] ${className}`}
+      className={`w-full bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-7 md:p-8 shadow-xs text-slate-900 ${className}`}
     >
       {/* Encabezado del Simulador con Botón de Cierre Superior Accesible (Herramienta Primero) */}
-      <div className="flex items-center justify-between gap-3 pb-4 border-b border-[#E2E8F0]">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] text-[#1D4ED8] text-xs font-mono font-semibold">
-          <Percent className="w-3.5 h-3.5" />
-          <span>SIMULADOR DE CRÉDITO VEHICULAR</span>
+      <div className="flex items-center justify-between gap-3 pb-4 border-b border-slate-200">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-900 text-xs font-mono font-semibold">
+          <Percent className="w-3.5 h-3.5 text-emerald-600" />
+          <span>SIMULADOR DE CRÉDITO Y CUOTA MENSUAL</span>
         </div>
 
         {onCerrar && (
           <button
             type="button"
             onClick={onCerrar}
-            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-[#475569] hover:bg-slate-200 hover:text-[#0F1B2B] transition-colors cursor-pointer shrink-0"
+            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900 transition-colors cursor-pointer shrink-0"
             title="Cerrar simulador"
           >
             <span>✕ Cerrar</span>
@@ -178,11 +178,11 @@ export const CalculadoraCredito: React.FC<CalculadoraCreditoProps> = ({
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-6 pb-6">
         {/* 1. Precio del Vehículo */}
         <div>
-          <label className="block text-xs font-semibold text-[#0F1B2B] mb-1.5">
-            Precio del vehículo
+          <label className="block text-xs font-bold text-slate-900 mb-1.5">
+            Precio del carro
           </label>
           <div className="relative">
-            <span className="absolute left-3.5 top-3 text-xs font-mono text-[#64748B]">$</span>
+            <span className="absolute left-3.5 top-3 text-xs font-mono text-slate-400">$</span>
             <input
               type="text"
               value={precioVehiculo === '' ? '' : (typeof precioVehiculo === 'number' ? precioVehiculo.toLocaleString('es-CO') : '')}
@@ -199,26 +199,26 @@ export const CalculadoraCredito: React.FC<CalculadoraCreditoProps> = ({
                 }
               }}
               placeholder="Ej. 45.000.000"
-              className="w-full h-11 pl-8 pr-3.5 rounded-lg bg-white border border-[#CBD5E1] text-xs sm:text-sm font-mono text-[#0F1B2B] focus:outline-none focus:border-[#0F1B2B] transition-colors"
+              className="w-full h-11 pl-8 pr-3.5 rounded-xl bg-white border border-slate-300 text-xs sm:text-sm font-mono text-slate-900 focus:outline-none focus:border-slate-900 transition-colors"
             />
           </div>
-          <span className="text-[11px] text-[#64748B] mt-1 block">
-            Valor acordado o publicado del vehículo
+          <span className="text-[11px] text-slate-500 mt-1 block">
+            Valor de venta acordado con el dueño
           </span>
         </div>
 
         {/* 2. Cuota Inicial */}
         <div>
           <div className="flex items-center justify-between mb-1.5">
-            <label className="text-xs font-semibold text-[#0F1B2B]">
-              Cuota inicial
+            <label className="text-xs font-bold text-slate-900">
+              Cuota inicial en efectivo
             </label>
-            <span className="text-[11px] font-mono font-medium text-[#166534]">
+            <span className="text-[11px] font-mono font-semibold text-emerald-700">
               {porcentajeCuotaInicial}% del valor
             </span>
           </div>
           <div className="relative">
-            <span className="absolute left-3.5 top-3 text-xs font-mono text-[#64748B]">$</span>
+            <span className="absolute left-3.5 top-3 text-xs font-mono text-slate-400">$</span>
             <input
               type="text"
               value={cuotaInicial === '' ? '' : (typeof cuotaInicial === 'number' ? cuotaInicial.toLocaleString('es-CO') : '')}
@@ -232,18 +232,18 @@ export const CalculadoraCredito: React.FC<CalculadoraCreditoProps> = ({
                 }
               }}
               placeholder="0"
-              className="w-full h-11 pl-8 pr-3.5 rounded-lg bg-white border border-[#CBD5E1] text-xs sm:text-sm font-mono text-[#0F1B2B] focus:outline-none focus:border-[#0F1B2B] transition-colors"
+              className="w-full h-11 pl-8 pr-3.5 rounded-xl bg-white border border-slate-300 text-xs sm:text-sm font-mono text-slate-900 focus:outline-none focus:border-slate-900 transition-colors"
             />
           </div>
-          <span className="text-[11px] text-[#64748B] mt-1 block">
-            Monto pagado en efectivo de contado (puede ser $0)
+          <span className="text-[11px] text-slate-500 mt-1 block">
+            Plata que pagarás de una vez (puede ser $0)
           </span>
         </div>
 
-        {/* 3. Plazo en Meses (3 columnas en móvil, 6 en escritorio) */}
+        {/* 3. Plazo en Meses */}
         <div>
-          <label className="block text-xs font-semibold text-[#0F1B2B] mb-1.5">
-            Plazo de financiación ({plazoMeses} meses / {(plazoMeses / 12).toFixed(1)} años)
+          <label className="block text-xs font-bold text-slate-900 mb-1.5">
+            Tiempo para pagar ({plazoMeses} meses / {(plazoMeses / 12).toFixed(1)} años)
           </label>
           <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
             {PLAZOS_PREDEFINIDOS.map((m) => (
@@ -251,33 +251,33 @@ export const CalculadoraCredito: React.FC<CalculadoraCreditoProps> = ({
                 key={m}
                 type="button"
                 onClick={() => setPlazoMeses(m)}
-                className={`h-11 rounded-lg text-xs font-mono font-semibold transition-colors cursor-pointer flex items-center justify-center ${
+                className={`h-11 rounded-xl text-xs font-mono font-semibold transition-all cursor-pointer flex items-center justify-center ${
                   plazoMeses === m
-                    ? 'bg-[#0F1B2B] text-white shadow-xs'
-                    : 'bg-[#F8FAFC] border border-[#CBD5E1] text-[#475569] hover:bg-slate-100'
+                    ? 'bg-[#0F172A] text-white shadow-xs'
+                    : 'bg-slate-50 border border-slate-300 text-slate-600 hover:bg-slate-100'
                 }`}
               >
                 {m}m
               </button>
             ))}
           </div>
-          <span className="text-[11px] text-[#64748B] mt-1 block">
-            Selecciona el número de cuotas mensuales
+          <span className="text-[11px] text-slate-500 mt-1 block">
+            Elige a cuántos meses pagar el crédito
           </span>
         </div>
       </div>
 
       {/* SECCIÓN DE TASA: SFC vs Personalizada */}
-      <div className="p-4 sm:p-5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-4 mb-6">
+      <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200/90 space-y-4 mb-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#0F1B2B] flex items-center gap-1.5">
-              <Percent className="w-4 h-4 text-[#0F1B2B]" />
-              Modalidad de Tasa:
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-900 flex items-center gap-1.5">
+              <Percent className="w-4 h-4 text-emerald-600" />
+              Tasa de interés:
             </span>
 
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs font-medium">
-              <label className="flex items-center gap-2 cursor-pointer p-2 sm:p-0 rounded-lg border border-[#E2E8F0] sm:border-transparent bg-white sm:bg-transparent">
+              <label className="flex items-center gap-2 cursor-pointer p-2 sm:p-0 rounded-lg border border-slate-200 sm:border-transparent bg-white sm:bg-transparent">
                 <input
                   type="radio"
                   name="tipoTasa"
@@ -285,54 +285,54 @@ export const CalculadoraCredito: React.FC<CalculadoraCreditoProps> = ({
                   checked={tipoTasa === 'referencia'}
                   disabled={!datosCredito}
                   onChange={() => setTipoTasa('referencia')}
-                  className="accent-[#0F1B2B]"
+                  className="accent-[#0F172A]"
                 />
-                <span>Tasa de referencia SFC</span>
+                <span className="text-slate-800">Tasa promedio de bancos (Superfinanciera)</span>
               </label>
 
-              <label className="flex items-center gap-2 cursor-pointer p-2 sm:p-0 rounded-lg border border-[#E2E8F0] sm:border-transparent bg-white sm:bg-transparent">
+              <label className="flex items-center gap-2 cursor-pointer p-2 sm:p-0 rounded-lg border border-slate-200 sm:border-transparent bg-white sm:bg-transparent">
                 <input
                   type="radio"
                   name="tipoTasa"
                   value="personalizada"
                   checked={tipoTasa === 'personalizada'}
                   onChange={() => setTipoTasa('personalizada')}
-                  className="accent-[#0F1B2B]"
+                  className="accent-[#0F172A]"
                 />
-                <span>Tasa personalizada (Banco)</span>
+                <span className="text-slate-800">Escribir tasa cotizada por mi banco</span>
               </label>
             </div>
           </div>
 
           {cargandoTasa && (
-            <div className="flex items-center gap-2 text-xs text-[#64748B]">
-              <RefreshCw className="w-3.5 h-3.5 animate-spin" />
-              <span>Consultando SFC...</span>
+            <div className="flex items-center gap-2 text-xs text-slate-500">
+              <RefreshCw className="w-3.5 h-3.5 animate-spin text-emerald-600" />
+              <span>Consultando Superfinanciera...</span>
             </div>
           )}
         </div>
 
         {/* Tarjeta de Tasa de Referencia SFC */}
         {tipoTasa === 'referencia' && datosCredito && (
-          <div className="p-4 rounded-xl bg-white border border-[#BBF7D0] shadow-2xs space-y-3">
+          <div className="p-4 rounded-xl bg-white border border-emerald-200 shadow-2xs space-y-3">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div className="flex items-center gap-2 flex-wrap">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#166534]"></span>
-                <span className="font-semibold text-xs text-[#166534]">
-                  Tasa de referencia utilizada — {datosCredito.modalidad}
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-600"></span>
+                <span className="font-semibold text-xs text-emerald-800">
+                  Tasa promedio oficial del mercado bancario
                 </span>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#F0FDF4] border border-[#BBF7D0] text-[#166534] font-bold">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200 text-emerald-800 font-bold">
                   {datosCredito.tasaEA.toFixed(2)}% E.A.
                 </span>
                 {datosCredito.resolucion && (
-                  <span className="text-[10px] text-[#475569] font-mono">
+                  <span className="text-[10px] text-slate-500 font-mono">
                     Res. {datosCredito.resolucion}
                   </span>
                 )}
               </div>
 
               <div className="text-left sm:text-right">
-                <span className="text-[11px] text-[#475569]">
+                <span className="text-[11px] text-slate-500">
                   Vigencia: <strong>{datosCredito.fechaInicioVigencia}</strong> al{' '}
                   <strong>{datosCredito.fechaFinVigencia}</strong>
                 </span>
@@ -340,10 +340,9 @@ export const CalculadoraCredito: React.FC<CalculadoraCreditoProps> = ({
             </div>
 
             {/* Aviso Contextual de Tasa de Usura Legal */}
-            <div className="pt-2 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between text-xs text-[#475569] gap-2">
+            <div className="pt-2 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-600 gap-2">
               <p className="text-[11px] leading-relaxed">
-                ⓘ La tasa de referencia certificada por la Superintendencia Financiera es un <strong>promedio ponderado del mercado de crédito de consumo</strong>. La tasa máxima legal de referencia (usura) para este período es del{' '}
-                <strong className="text-[#0F1B2B] font-mono">{datosCredito.tasaUsuraEA}% E.A.</strong>
+                ⓘ Esta tasa es el promedio oficial de lo que cobran los bancos en Colombia según la Superfinanciera. Por ley, ningún banco puede cobrarte más de la tasa de usura ({datosCredito.tasaUsuraEA}% E.A.).
               </p>
             </div>
           </div>
@@ -351,14 +350,14 @@ export const CalculadoraCredito: React.FC<CalculadoraCreditoProps> = ({
 
         {/* Campo de Tasa Personalizada */}
         {tipoTasa === 'personalizada' && (
-          <div className="p-4 rounded-xl bg-white border border-[#CBD5E1] space-y-3">
+          <div className="p-4 rounded-xl bg-white border border-slate-300 space-y-3">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
-                <span className="text-xs font-semibold text-[#0F1B2B] block">
-                  {errorTasa ? 'Tasa ingresada manualmente' : 'Ingresa la tasa ofrecida por tu banco'}
+                <span className="text-xs font-semibold text-slate-900 block">
+                  {errorTasa ? 'Tasa ingresada manualmente' : 'Escribe la tasa ofrecida por tu banco'}
                 </span>
-                <p className="text-[11px] text-[#475569]">
-                  Digita la Tasa Efectiva Anual (E.A.) que te coticen para tu crédito vehicular.
+                <p className="text-[11px] text-slate-500">
+                  Escribe el porcentaje de interés anual (Efectivo Anual o E.A.) que te cotizó tu banco.
                 </p>
               </div>
 
@@ -375,19 +374,19 @@ export const CalculadoraCredito: React.FC<CalculadoraCreditoProps> = ({
                       setTasaPersonalizadaEA(isNaN(val) ? 0 : val);
                     }}
                     placeholder="18.50"
-                    className="w-full h-10 px-3 pr-8 rounded-lg bg-white border border-[#CBD5E1] text-xs font-mono font-bold text-[#0F1B2B] focus:outline-none focus:border-[#0F1B2B]"
+                    className="w-full h-10 px-3 pr-8 rounded-xl bg-white border border-slate-300 text-xs font-mono font-bold text-slate-900 focus:outline-none focus:border-slate-900"
                   />
-                  <span className="absolute right-3 top-2.5 text-xs font-bold text-[#64748B]">% EA</span>
+                  <span className="absolute right-3 top-2.5 text-xs font-bold text-slate-500">% EA</span>
                 </div>
-                <span className="text-[10px] font-mono px-2 py-1 rounded bg-[#FFFBEB] border border-[#FDE68A] text-[#92400E] font-medium whitespace-nowrap">
-                  Tasa ingresada manualmente
+                <span className="text-[10px] font-mono px-2 py-1 rounded bg-amber-50 border border-amber-200 text-amber-800 font-medium whitespace-nowrap">
+                  Tasa manual
                 </span>
               </div>
             </div>
 
             {errorTasa && (
-              <div className="p-2.5 rounded-lg bg-[#FFFBEB] border border-[#FDE68A] flex items-center gap-2 text-xs text-[#92400E]">
-                <AlertTriangle className="w-4 h-4 shrink-0 text-[#D97706]" />
+              <div className="p-2.5 rounded-lg bg-amber-50 border border-amber-200 flex items-center gap-2 text-xs text-amber-800">
+                <AlertTriangle className="w-4 h-4 shrink-0 text-amber-600" />
                 <span>
                   <strong>Nota del sistema ({estadoRespuesta}):</strong> {errorTasa}
                 </span>
@@ -402,84 +401,84 @@ export const CalculadoraCredito: React.FC<CalculadoraCreditoProps> = ({
         <>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
             {/* Monto Financiado */}
-            <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] min-w-0">
-              <span className="text-[11px] font-mono uppercase tracking-wider text-[#64748B] block mb-1">
-                Monto Financiado
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 min-w-0">
+              <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 block mb-1">
+                Plata prestada por el banco
               </span>
-              <span className="text-xl sm:text-2xl font-bold font-mono text-[#0F1B2B] block tracking-tight break-words">
+              <span className="text-xl sm:text-2xl font-bold font-mono text-slate-900 block tracking-tight break-words">
                 ${resultado.montoFinanciado.toLocaleString('es-CO')}
               </span>
-              <span className="text-[11px] text-[#64748B] block mt-1">
-                Precio neto menos cuota inicial
+              <span className="text-[11px] text-slate-500 block mt-1">
+                Precio neto menos tu cuota inicial
               </span>
             </div>
 
             {/* Tasa Mensual Efectiva */}
-            <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] min-w-0">
-              <span className="text-[11px] font-mono uppercase tracking-wider text-[#64748B] block mb-1">
-                Tasa Mensual Efectiva
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 min-w-0">
+              <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 block mb-1">
+                Interés cobrado al mes
               </span>
-              <span className="text-xl sm:text-2xl font-bold font-mono text-[#0F1B2B] block tracking-tight break-words">
+              <span className="text-xl sm:text-2xl font-bold font-mono text-slate-900 block tracking-tight break-words">
                 {(resultado.tasaMensual * 100).toFixed(2)}%
               </span>
-              <span className="text-[11px] text-[#64748B] block mt-1">
-                Equivalente a {resultado.tasaEA.toFixed(2)}% E.A.
+              <span className="text-[11px] text-slate-500 block mt-1">
+                Equivalente a {resultado.tasaEA.toFixed(2)}% al año (E.A.)
               </span>
             </div>
 
             {/* Cuota Mensual Estimada */}
-            <div className="p-4 rounded-xl bg-[#F0FDF4] border border-[#BBF7D0] min-w-0">
-              <span className="text-[11px] font-mono uppercase tracking-wider text-[#166534] block mb-1 font-semibold">
-                Cuota Fija Mensual
+            <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 min-w-0">
+              <span className="text-[11px] font-mono uppercase tracking-wider text-emerald-800 block mb-1 font-semibold">
+                Cuota fija que pagarás al mes
               </span>
-              <span className="text-2xl sm:text-3xl font-bold font-mono text-[#166534] block tracking-tight break-words">
+              <span className="text-2xl sm:text-3xl font-bold font-mono text-emerald-700 block tracking-tight break-words">
                 ${resultado.cuotaMensual.toLocaleString('es-CO')}
               </span>
-              <span className="text-[11px] text-[#166534] block mt-1">
-                Por {resultado.plazoMeses} meses (Amortización francesa)
+              <span className="text-[11px] text-emerald-700 block mt-1">
+                Durante {resultado.plazoMeses} meses (cuota fija mensual)
               </span>
             </div>
 
             {/* Total Intereses Pagados */}
-            <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] min-w-0">
-              <span className="text-[11px] font-mono uppercase tracking-wider text-[#64748B] block mb-1">
-                Total Intereses del Crédito
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 min-w-0">
+              <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 block mb-1">
+                Intereses que se lleva el banco
               </span>
-              <span className="text-xl sm:text-2xl font-bold font-mono text-[#B45309] block tracking-tight break-words">
+              <span className="text-xl sm:text-2xl font-bold font-mono text-amber-700 block tracking-tight break-words">
                 ${resultado.totalIntereses.toLocaleString('es-CO')}
               </span>
-              <span className="text-[11px] text-[#64748B] block mt-1">
-                Costo del financiamiento bancario
+              <span className="text-[11px] text-slate-500 block mt-1">
+                Plata adicional que pagas por el crédito
               </span>
             </div>
           </div>
 
           {/* Resumen de Amortización y Desembolso */}
-          <div className="border border-[#E2E8F0] rounded-xl overflow-hidden mb-5">
-            <div className="p-4 bg-[#F8FAFC] border-b border-[#E2E8F0] flex items-center justify-between">
-              <span className="text-xs font-bold text-[#0F1B2B]">
-                Desglose Financiero Total de la Operación
+          <div className="border border-slate-200 rounded-2xl overflow-hidden mb-5">
+            <div className="p-4 bg-slate-50 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <span className="text-xs font-bold text-slate-900">
+                Resumen claro de lo que vas a pagar
               </span>
-              <span className="text-xs font-mono text-[#475569]">
-                Total desembolsado: <strong>${(resultado.cuotaInicial + resultado.totalPagado).toLocaleString('es-CO')} COP</strong>
+              <span className="text-xs font-mono text-slate-600">
+                Costo total del carro con crédito: <strong>${(resultado.cuotaInicial + resultado.totalPagado).toLocaleString('es-CO')} COP</strong>
               </span>
             </div>
             <div className="p-4 bg-white grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
               <div>
-                <span className="text-[#64748B] block">Capital prestado (P):</span>
-                <strong className="text-sm font-mono text-[#0F1B2B]">
+                <span className="text-slate-500 block">Plata que te prestaron:</span>
+                <strong className="text-sm font-mono text-slate-900">
                   ${resultado.montoFinanciado.toLocaleString('es-CO')} COP
                 </strong>
               </div>
               <div>
-                <span className="text-[#64748B] block">Intereses totales a pagar:</span>
-                <strong className="text-sm font-mono text-[#B45309]">
+                <span className="text-slate-500 block">Intereses que pagas:</span>
+                <strong className="text-sm font-mono text-amber-700">
                   + ${resultado.totalIntereses.toLocaleString('es-CO')} COP
                 </strong>
               </div>
               <div>
-                <span className="text-[#64748B] block">Total pagado por el crédito:</span>
-                <strong className="text-sm font-mono text-[#0F1B2B]">
+                <span className="text-slate-500 block">Total que le devuelves al banco:</span>
+                <strong className="text-sm font-mono text-slate-900">
                   = ${resultado.totalPagado.toLocaleString('es-CO')} COP
                 </strong>
               </div>
@@ -487,27 +486,26 @@ export const CalculadoraCredito: React.FC<CalculadoraCreditoProps> = ({
           </div>
         </>
       ) : (
-        <div className="p-6 mb-6 text-center bg-[#F8FAFC] border border-dashed border-[#CBD5E1] rounded-xl space-y-1">
-          <p className="text-xs sm:text-sm font-semibold text-[#0F1B2B]">
-            Ingresa el precio comercial del vehículo para calcular tu plan de financiación
+        <div className="p-6 mb-6 text-center bg-slate-50 border border-dashed border-slate-300 rounded-2xl space-y-1">
+          <p className="text-xs sm:text-sm font-bold text-slate-900">
+            Escribe el valor del carro para calcular cuánto pagarías de cuota cada mes
           </p>
-          <p className="text-[11px] text-[#64748B]">
-            El simulador calculará automáticamente el monto prestado, los intereses y tu cuota mensual estimada bajo el sistema francés.
+          <p className="text-[11px] text-slate-500">
+            Calcularemos al instante cuánto dinero te prestarían, los intereses y tu cuota mensual estimada.
           </p>
         </div>
       )}
 
       {/* FICHA OFICIAL Y ADVERTENCIA EDITORIAL */}
-      <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-[#475569]">
+      <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-slate-600">
         <div className="flex items-start gap-2.5">
-          <Building className="w-4 h-4 text-[#0F1B2B] shrink-0 mt-0.5" />
+          <Building className="w-4 h-4 text-slate-900 shrink-0 mt-0.5" />
           <div>
             <p>
-              <strong>Fuente oficial:</strong> Superintendencia Financiera de Colombia (SFC) · Dataset Datos Abiertos{' '}
-              <span className="font-mono text-[#0F1B2B]">pare-7x5i</span>.
+              <strong>Fuente oficial:</strong> Superintendencia Financiera de Colombia (SFC) · Dataset oficial abierto.
             </p>
-            <p className="text-[11px] text-[#64748B] mt-0.5">
-              Indicador: Interés Bancario Corriente (TIBC) — Modalidad Consumo y Ordinario. La TIBC es una tasa agregada del sistema financiero colombiano y no constituye una oferta comercial individual ni compromiso vinculante de ninguna entidad de crédito.
+            <p className="text-[11px] text-slate-500 mt-0.5">
+              Esta simulación usa tasas de interés promedio del sistema financiero en Colombia para orientar tu presupuesto. La cuota final exacta depende de las políticas y aprobación de cada banco.
             </p>
           </div>
         </div>
@@ -516,7 +514,7 @@ export const CalculadoraCredito: React.FC<CalculadoraCreditoProps> = ({
           href="https://www.superfinanciera.gov.co/"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-xs text-[#1D4ED8] hover:underline font-medium shrink-0"
+          className="inline-flex items-center gap-1 text-xs text-blue-700 hover:underline font-medium shrink-0"
         >
           <span>Portal SFC</span>
           <ExternalLink className="w-3.5 h-3.5" />

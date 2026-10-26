@@ -12,41 +12,55 @@ export function imprimirReportePDF(): void {
 
 /**
  * Genera el texto estructurado para compartir por WhatsApp o portapapeles.
+ * Redactado en lenguaje claro y cercano para compradores en Colombia.
  */
 export function generarResumenTexto(evaluacion: Evaluacion, resultado: ResultadoFinal): string {
-  const vehiculo = `${evaluacion.datosBasicos.lineaVehiculo || 'Vehículo'} (${evaluacion.datosBasicos.anioModelo})`;
+  const vehiculo = `${evaluacion.datosBasicos.lineaVehiculo || 'Vehículo'} (${evaluacion.datosBasicos.anioModelo || ''})`.trim();
   const placa = evaluacion.datosBasicos.placa ? `[Placa ${evaluacion.datosBasicos.placa.toUpperCase()}]` : '';
-  const km = `${evaluacion.datosBasicos.kilometraje.toLocaleString('es-CO')} km`;
+  const km = `${(evaluacion.datosBasicos.kilometraje || 0).toLocaleString('es-CO')} km`;
 
-  let estadoTexto = 'ESTIMACIÓN FAVORABLE';
+  let estadoTexto = 'BUENA OPCIÓN';
   if (resultado.esDescarte) {
-    estadoTexto = 'CRITERIO DE DESCARTE';
+    estadoTexto = '¡NO COMPRAR! (RIESGO ALTO)';
   } else if (resultado.veredicto === 'no_comprar') {
-    estadoTexto = 'RIESGO ELEVADO (<50%)';
+    estadoTexto = 'NO RECOMENDADO (<50%)';
   } else if (resultado.veredicto === 'riesgoso') {
-    estadoTexto = 'PRECAUCIÓN (50-64%)';
+    estadoTexto = 'CUIDADO / TIENE DETALLES (50-64%)';
   } else if (resultado.veredicto === 'aceptable') {
-    estadoTexto = 'FAVORABLE CON CONDICIONES (65-79%)';
+    estadoTexto = 'ACEPTABLE CON ARREGLOS (65-79%)';
   }
 
-  const texto = `*Reporte EscaneApp — Estimación Preliminar*
-*Vehículo:* ${vehiculo} ${placa}
-*Recorrido:* ${km}
-*Puntuación Estimada:* ${resultado.porcentajeGlobal}/100 — ${estadoTexto}
+  const lineas: string[] = [
+    `🚗 *Resumen de Revisión — EscaneApp Colombia*`,
+    `*Carro:* ${vehiculo} ${placa}`,
+    `*Kilometraje registrado:* ${km}`,
+    `*Puntaje del Carro:* ${resultado.porcentajeGlobal}/100 (${estadoTexto})`,
+    '',
+    `📋 *Calificación por partes:*`,
+    `• Kilometraje frente a sus años: ${resultado.porcentajeKilometraje}%`,
+    `• Papeles y multas (RUNT / SIMIT): ${resultado.porcentajeLegales}%`,
+    `• Estado físico (motor, pintura, llantas): ${resultado.porcentajeChecklist}%`,
+    '',
+    `💰 *Cuentas y propuesta para negociar:*`,
+    `• Gasto estimado en arreglos: ~${formatCOP(resultado.totalReparaciones)}`,
+  ];
 
-*Resumen por Áreas:*
-• Kilometraje: ${resultado.porcentajeKilometraje}%
-• Antecedentes Legales: ${resultado.porcentajeLegales}%
-• Inspección Física: ${resultado.porcentajeChecklist}%
+  if (evaluacion.precioVenta > 0) {
+    lineas.push(`• Precio que pide el vendedor: ${formatCOP(evaluacion.precioVenta)}`);
+    lineas.push(`• Oferta máxima sugerida para hacerle: ${formatCOP(resultado.precioSugerido)}`);
+  }
 
-*Balance Financiero de Referencia:*
-• Estimado en arreglos sugeridos: ${formatCOP(resultado.totalReparaciones)}
-${evaluacion.precioVenta > 0 ? `• Precio publicado: ${formatCOP(evaluacion.precioVenta)}\n• Oferta sugerida de referencia: ${formatCOP(resultado.precioSugerido)}` : ''}
+  lineas.push('');
+  if (resultado.alertas.length > 0) {
+    lineas.push(`⚠️ *Puntos de atención detectados:* ${resultado.alertas.length}`);
+  } else {
+    lineas.push(`✅ Sin alertas críticas detectadas.`);
+  }
 
-${resultado.alertas.length > 0 ? `*Señales de alerta registradas:* ${resultado.alertas.length}` : '• Sin alertas críticas'}
+  lineas.push('');
+  lineas.push(`Revisado con EscaneApp Colombia · https://escaneapp.com`);
+  lineas.push(`_Nota: Esta revisión es una guía inicial práctica para saber si el carro vale la pena y negociar el precio. Antes de pagar o firmar traspaso, haz siempre el peritaje técnico oficial._`);
 
-Generado con EscaneApp Colombia (Escanea antes de comprar).
-_Aviso: Esta estimación es únicamente orientativa y se basa en los datos ingresados. No sustituye un peritaje técnico en un CDA ni una cotización formal en talleres o almacenes._`;
-
-  return texto;
+  return lineas.join('\n');
 }
+
